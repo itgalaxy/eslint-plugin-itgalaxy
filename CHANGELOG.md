@@ -1,4 +1,4 @@
-# Head
+# 0.1.0
 
 - Added: `plugin:itgalaxy/es6` config.
 
