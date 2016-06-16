@@ -1,4 +1,4 @@
-# Head
+# 1.0.0
 
 - Remove: `plugin:itgalaxy/es6` config.
 - Remove: `babel-eslint` and `eslint-plugin-babel` rules.
