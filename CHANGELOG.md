@@ -1,4 +1,4 @@
-# Head
+# 0.0.5
 
 - Fixed: fixed configuration for rule `babel/object-shorthand`.
 
