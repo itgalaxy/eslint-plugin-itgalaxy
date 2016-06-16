@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: add `babel-eslint` to `package.json`.
+
 # 0.0.2
 
 - Fixed: add `lib` directory to `files` in package.json.
