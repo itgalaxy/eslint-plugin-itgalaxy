@@ -1,4 +1,4 @@
-# Head
+# 0.0.3
 
 - Fixed: add `babel-eslint` to `package.json`.
 
