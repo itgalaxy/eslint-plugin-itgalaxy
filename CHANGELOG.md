@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: fixed configuration for rule `babel/object-shorthand`.
+
 # 0.0.4
 
 - Fixed: fixed configuration for rule `babel/new-cap`.
