@@ -1,6 +1,7 @@
 # Head
 
-- Added: new rules from `eslint-plugin-jsx-a11y` plugin.
+- Added: new version `eslint-plugin-jsx-a11y` and new rules from `eslint-plugin-jsx-a11y` plugin.
+- Added: new version `eslint-plugin-ava`.
 - Remove: default disable rules from `esnext` config.
 
 # 1.0.1
