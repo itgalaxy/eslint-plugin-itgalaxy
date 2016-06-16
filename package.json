@@ -23,7 +23,7 @@
     "bugs": "https://github.com/itgalaxy/eslint-config-itgalaxy/issues",
     "main": "index.js",
     "files": [
-        "eslintrc.json",
+        "lib",
         "index.js"
     ],
     "dependencies": {
