@@ -1,3 +1,8 @@
+# Head
+
+- Remove: `plugin:itgalaxy/es6` config.
+- Remove: `babel-eslint` and `eslint-plugin-babel` rules.
+
 # 0.1.0
 
 - Added: `plugin:itgalaxy/es6` config.
