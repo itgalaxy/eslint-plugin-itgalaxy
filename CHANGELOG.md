@@ -1,3 +1,7 @@
+# 1.0.1
+
+- Fixed: remove `es6` export config.
+
 # 1.0.0
 
 - Remove: `plugin:itgalaxy/es6` config.
