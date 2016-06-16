@@ -1,4 +1,4 @@
-# Head
+# 0.0.4
 
 - Fixed: fixed configuration for rule `babel/new-cap`.
 
