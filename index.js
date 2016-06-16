@@ -1,11 +1,21 @@
+'use strict';
+
+var avaConfig = require('./lib/config/ava');
+var coreConfig = require('./lib/config/core');
+var es5Config = require('./lib/config/es5');
+var esnextConfig = require('./lib/config/esnext');
+var lodashConfig = require('./lib/config/lodash');
+var nodeConfig = require('./lib/config/node');
+var reactConfig = require('./lib/config/react');
+
 module.exports = {
     configs: {
-        ava: require('./lib/config/ava'),
-        core: require('./lib/config/core'),
-        es5: require('./lib/config/es5'),
-        esnext: require('./lib/config/esnext'),
-        lodash: require('./lib/config/lodash'),
-        node: require('./lib/config/node'),
-        react: require('./lib/config/react')
+        ava: avaConfig,
+        core: coreConfig,
+        es5: es5Config,
+        esnext: esnextConfig,
+        lodash: lodashConfig,
+        node: nodeConfig,
+        react: reactConfig
     }
 };

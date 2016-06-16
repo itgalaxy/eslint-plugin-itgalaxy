@@ -1,3 +1,7 @@
+# Head
+
+- Remove: default disable rules from `esnext` config.
+
 # 1.0.1
 
 - Fixed: remove `es6` export config.
