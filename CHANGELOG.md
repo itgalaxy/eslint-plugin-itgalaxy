@@ -1,4 +1,4 @@
-# Head
+# 0.0.2
 
 - Fixed: add `lib` directory to `files` in package.json.
 - Fixed: stylistics fixed.
