@@ -146,12 +146,10 @@ test('load react plugin config in eslint to validate all rule syntax is correct'
         baseConfig: plugin.configs.react
     });
 
-    var execute = cli.executeOnText('var React = require(\'react\');\n'
-        + 'ReactDOM.render(<h1>{\'Hello, world!\'}</h1>,document.getElementById(\'example\'));');
+    var execute = cli.executeOnText('var React = require(\'react\');var Hello = <div>{\'test\'}</div>');
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
-
     t.is(execute.results.length, 1, 'eslint execute with one results');
     t.is(execute.errorCount, 0, 'eslint execute without errors');
     t.is(execute.warningCount, 0, 'eslint execute without warnings');
