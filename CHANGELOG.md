@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: repo url in `package.json`.
+
 # 2.0.0
 
 - Added: new version `eslint-plugin-jsx-a11y` and new rules from `eslint-plugin-jsx-a11y` plugin.

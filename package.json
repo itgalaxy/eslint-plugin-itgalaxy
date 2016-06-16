@@ -17,10 +17,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/itgalaxy/eslint-config-itgalaxy.git"
+        "url": "https://github.com/itgalaxy/eslint-plugin-itgalaxy.git"
     },
-    "homepage": "https://github.com/itgalaxy/eslint-config-itgalaxy",
-    "bugs": "https://github.com/itgalaxy/eslint-config-itgalaxy/issues",
+    "homepage": "https://github.com/itgalaxy/eslint-plugin-itgalaxy",
+    "bugs": "https://github.com/itgalaxy/eslint-plugin-itgalaxy/issues",
     "main": "index.js",
     "files": [
         "lib",
