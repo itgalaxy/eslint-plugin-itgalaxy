@@ -1,3 +1,7 @@
+# Head
+
+- Added: all eslint-plugins in `peerDependencies`.
+
 # 2.0.1
 
 - Fixed: repo url in `package.json`.
