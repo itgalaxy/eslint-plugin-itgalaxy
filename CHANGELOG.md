@@ -1,4 +1,4 @@
-# Head
+# 2.1.0
 
 - Added: all eslint-plugins in `peerDependencies`.
 - Added: new version `eslint-plugin-node`.
