@@ -1,3 +1,7 @@
+# 2.1.1
+
+- Fixed: `eslint-plugin-itgalaxy` version in `package.json`.
+
 # 2.1.0
 
 - Added: all eslint-plugins in `peerDependencies`.
