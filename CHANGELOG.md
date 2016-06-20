@@ -2,6 +2,7 @@
 
 - Added: all eslint-plugins in `peerDependencies`.
 - Added: new version `eslint-plugin-node`.
+- Added: new version `eslint-plugin-react` and add new rules.
 
 # 2.0.1
 

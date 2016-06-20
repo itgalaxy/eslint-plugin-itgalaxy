@@ -141,9 +141,11 @@ test('load react plugin config in eslint to validate all rule syntax is correct'
 
     config.extends = [];
 
+    config.rules['react/jsx-filename-extension'][0] = 'off';
+
     var cli = new eslint.CLIEngine({
         useEslintrc: false,
-        baseConfig: plugin.configs.react
+        baseConfig: config
     });
 
     var execute = cli.executeOnText('var React = require(\'react\');var Hello = <div>{\'test\'}</div>');
