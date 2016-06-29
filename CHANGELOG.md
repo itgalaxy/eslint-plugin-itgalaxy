@@ -1,3 +1,7 @@
+# Head
+
+- Added: update minor version `eslint-plugin-import`.
+
 # 2.1.1
 
 - Fixed: `eslint-plugin-itgalaxy` version in `package.json`.
