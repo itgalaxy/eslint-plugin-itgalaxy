@@ -1,3 +1,7 @@
+# Head
+
+- Update: minor version `eslint-plugin-import`.
+
 # 2.2.0
 
 - Added: update minor version `eslint-plugin-import`.
