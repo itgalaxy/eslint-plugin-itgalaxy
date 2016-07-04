@@ -1,3 +1,8 @@
+# Head
+
+- Changed: bump major `eslint` version.
+- Changed: bump major `eslint-plugin-node` version.
+
 # 2.3.0
 
 - Update: minor version `eslint-plugin-import`.

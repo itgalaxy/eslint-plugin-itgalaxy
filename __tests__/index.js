@@ -74,7 +74,7 @@ test('load core plugin config in eslint to validate all rule syntax is correct',
         baseConfig: config
     });
 
-    var execute = cli.executeOnText('(function () {\n    \'use strict\';\n    var foo = 0;\n\n    foo += 1;\n}());\n');
+    var execute = cli.executeOnText('(function () {\n    \'use strict\';\n    (123).toString();\n}());\n');
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
