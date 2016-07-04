@@ -1,4 +1,4 @@
-# Head
+# 3.0.0
 
 - Changed: bump major `eslint` version.
 - Changed: bump major `eslint-plugin-node` version.
