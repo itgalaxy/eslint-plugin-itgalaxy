@@ -39,6 +39,7 @@
     },
     "devDependencies": {
         "eslint": "~3.0.0",
+        "eslint-plugin-itgalaxy": "~3.0.0",
         "npmpub": "~3.1.0",
         "ava": "~0.15.0"
     },
