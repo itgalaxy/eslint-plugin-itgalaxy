@@ -1,4 +1,4 @@
-# Head
+# 4.0.1
 
 - Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself`.
 
