@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -40,6 +40,7 @@
     },
     "devDependencies": {
         "eslint": "~3.0.0",
+        "eslint-plugin-itgalaxy": "~4.0.0",
         "npmpub": "~3.1.0",
         "ava": "~0.15.0"
     },
@@ -59,9 +60,9 @@
             "strict": "off"
         },
         "extends": [
-            "./lib/config/ava.js",
-            "./lib/config/es5.js",
-            "./lib/config/node.js"
+            "plugin:itgalaxy/ava",
+            "plugin:itgalaxy/es5",
+            "plugin:itgalaxy/node"
         ]
     },
     "scripts": {
