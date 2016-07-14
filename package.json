@@ -40,7 +40,6 @@
     },
     "devDependencies": {
         "eslint": "~3.0.0",
-        "eslint-plugin-itgalaxy": "~4.0.0",
         "npmpub": "~3.1.0",
         "ava": "~0.15.0"
     },
@@ -55,21 +54,8 @@
         "eslint-plugin-promise": "^2.0.0",
         "eslint-plugin-react": "^5.0.0"
     },
-    "eslintConfig": {
-        "rules": {
-            "strict": "off"
-        },
-        "extends": [
-            "plugin:itgalaxy/ava",
-            "plugin:itgalaxy/es5",
-            "plugin:itgalaxy/node"
-        ]
-    },
     "scripts": {
-        "lint:eslint": "eslint . --ignore-path .gitignore",
         "ava": "ava --verbose \"__tests__/**/*.js\"",
-        "pretest": "npm run lint:eslint",
-        "test": "npm run ava",
-        "release": "npmpub"
+        "test": "npm run ava"
     }
 }

@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself`.
+
 # 4.0.0
 
 - Changed: bump major `eslint-plugin-jsx-a11y` version.
