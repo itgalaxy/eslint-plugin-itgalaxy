@@ -1,3 +1,8 @@
+# Head
+
+- Changed: bump major `eslint-plugin-jsx-a11y` version.
+- Changed: bump major `eslint-plugin-promise` version.
+
 # 3.0.0
 
 - Changed: bump major `eslint` version.
