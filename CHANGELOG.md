@@ -1,4 +1,4 @@
-# Head
+# 5.0.0
 
 - Changed: update minor version `eslint`.
 - Changed: update minor version `eslint-plugin-import`.
