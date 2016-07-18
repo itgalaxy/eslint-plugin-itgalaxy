@@ -1,3 +1,8 @@
+# Head
+
+- Changed: update minor version `eslint`.
+- Changed: update minor version `eslint-plugin-import`.
+
 # 4.0.1
 
 - Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself`.
