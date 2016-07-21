@@ -1,3 +1,7 @@
+# 6.0.0
+
+- Changed: all `dependencies` now have `^` instead `~`.
+
 # 5.0.0
 
 - Changed: update minor version `eslint`.

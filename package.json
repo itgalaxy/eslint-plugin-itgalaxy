@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "5.0.0",
+    "version": "6.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -28,15 +28,15 @@
         "LICENSE"
     ],
     "dependencies": {
-        "eslint-plugin-ava": "~2.5.0",
-        "eslint-plugin-import": "~1.11.0",
-        "eslint-plugin-jsx-a11y": "~2.0.0",
-        "eslint-plugin-lodash": "~1.9.0",
-        "eslint-plugin-node": "~2.0.0",
-        "eslint-plugin-objects": "~1.1.0",
-        "eslint-plugin-promise": "~2.0.0",
-        "eslint-plugin-react": "~5.2.0",
-        "merge": "~1.2.0"
+        "eslint-plugin-ava": "^2.0.0",
+        "eslint-plugin-import": "^1.0.0",
+        "eslint-plugin-jsx-a11y": "^2.0.0",
+        "eslint-plugin-lodash": "^1.0.0",
+        "eslint-plugin-node": "^2.0.0",
+        "eslint-plugin-objects": "^1.0.0",
+        "eslint-plugin-promise": "^2.0.0",
+        "eslint-plugin-react": "^5.0.0",
+        "merge": "^1.2.0"
     },
     "devDependencies": {
         "eslint": "~3.1.0",
