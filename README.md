@@ -1,4 +1,5 @@
 # eslint-plugin-itgalaxy
+
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-itgalaxy.svg)](https://www.npmjs.org/package/eslint-plugin-itgalaxy) [![Travis Build Status](https://img.shields.io/travis/itgalaxy/eslint-plugin-itgalaxy/master.svg?label=build)](https://travis-ci.org/itgalaxy/eslint-plugin-itgalaxy) [![Deps](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy#info=dependencies&view=table) [![Dev Deps](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/dev-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy#info=devDependencies&view=table)
 
 Itgalaxy’s ESLint rules and configs.
@@ -7,13 +8,13 @@ Itgalaxy’s ESLint rules and configs.
 
 You'll first need to install [ESLint](http://eslint.org):
 
-```
+```shell
 $ npm i eslint --save-dev
 ```
 
 Next, install `eslint-plugin-itgalaxy`:
 
-```
+```shell
 $ npm install eslint-plugin-itgalaxy --save-dev
 ```
 
@@ -73,9 +74,6 @@ This plugin also provides the following tool-specific configurations, which can 
 ## Creating New Rules
 
 The easiest way to add new rules is to use the [ESLint Yeoman generator](https://www.npmjs.com/package/generator-eslint). Running `yo eslint:rule` from the root of this project should add the required main file, docs, and test for your new rules. Make sure that these are all filled out and consistent with the other rules before merging. All tests can be run using `npm test`.
-
-[npm-url]: https://npmjs.org/package/eslint-plugin-itgalaxy
-[npm-image]: http://img.shields.io/npm/v/eslint-plugin-itgalaxy.svg?style=flat-square
 
 ## [Changelog](CHANGELOG.md)
 

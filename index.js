@@ -1,5 +1,3 @@
-'use strict';
-
 var avaConfig = require('./lib/config/ava');
 var coreConfig = require('./lib/config/core');
 var es5Config = require('./lib/config/es5');

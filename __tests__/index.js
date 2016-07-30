@@ -1,5 +1,3 @@
-'use strict';
-
 /* eslint-disable ava/max-asserts */
 
 var eslint = require('eslint');

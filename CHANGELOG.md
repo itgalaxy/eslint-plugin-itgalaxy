@@ -1,3 +1,12 @@
+# 7.0.0
+
+- Added: new rule `no-tabs`.
+- Changed: disable `no-inline-comments` rule.
+- Chore: add script `lint:remark` in `package.json`.
+- Chore: add script `lint:eslint` in `package.json`.
+- Chore: all disable rules now use `off` instead `0`.
+- Chore: add node version `5` to `.travis.yml`.
+
 # 6.0.0
 
 - Changed: all `dependencies` now have `^` instead `~`.
