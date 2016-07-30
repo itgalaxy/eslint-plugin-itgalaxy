@@ -59,7 +59,7 @@
     },
     "scripts": {
         "ava": "ava --verbose \"__tests__/**/*.js\"",
-        "lint:eslint": "eslint . --ignore-path .gitignore  --color",
+        "manual:lint:eslint": "eslint . --ignore-path .gitignore  --color",
         "lint:remark": "remark '{**/,}*.md' --ignore-path .gitignore --frail --quiet --color",
         "lint": "npm-run-all -l -p lint:**",
         "pretest": "npm run lint",
@@ -68,9 +68,9 @@
     },
     "eslintConfig": {
         "extends": [
-            "./lib/config/ava.js",
-            "./lib/config/es5.js",
-            "./lib/config/node.js"
+            "plugin:itgalaxy/ava",
+            "plugin:itgalaxy/es5",
+            "plugin:itgalaxy/node"
         ],
         "root": true
     },

@@ -1,3 +1,7 @@
+# 7.0.1
+
+- Fixed: right path to load basic config.
+
 # 7.0.0
 
 - Added: new rule `no-tabs`.
