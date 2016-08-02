@@ -1,3 +1,10 @@
+# 8.0.0
+
+- Added: `react/no-find-dom-node` rule.
+- Chore(package): update minimal version `eslint-plugin-react` to `6.0.0`.
+- Chore: order `eslint-plugin-react` rules as in docs.
+- Remove: `react/require-extension` rule. Deprecated.
+
 # 7.0.1
 
 - Fixed: right path to load basic config.

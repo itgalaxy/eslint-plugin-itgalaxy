@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "7.0.1",
+    "version": "8.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -35,7 +35,7 @@
         "eslint-plugin-node": "^2.0.0",
         "eslint-plugin-objects": "^1.0.0",
         "eslint-plugin-promise": "^2.0.0",
-        "eslint-plugin-react": "^5.0.0",
+        "eslint-plugin-react": "^6.0.0",
         "merge": "^1.2.0"
     },
     "devDependencies": {
@@ -55,7 +55,7 @@
         "eslint-plugin-node": "^2.0.0",
         "eslint-plugin-objects": "^1.0.0",
         "eslint-plugin-promise": "^2.0.0",
-        "eslint-plugin-react": "^5.0.0"
+        "eslint-plugin-react": "^6.0.0"
     },
     "scripts": {
         "ava": "ava --verbose \"__tests__/**/*.js\"",
