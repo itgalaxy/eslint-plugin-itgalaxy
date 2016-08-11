@@ -1,3 +1,12 @@
+# 9.0.0
+
+- Added: `ava/no-nested-tests` rule.
+- Added: option `if-multiple` to `ava/test-title` rule.
+- Changed: rule `ava/max-asserts` now accepts minimal 8 `asserts`.
+- Changed: rule `ava/no-cb-test` disable.
+- Chore: update minimal version `eslint-plugin-ava` to `3.0.0`.
+- Chore: update minimal version `ava` to `0.16.0`.
+
 # 8.0.0
 
 - Added: `react/no-find-dom-node` rule.
