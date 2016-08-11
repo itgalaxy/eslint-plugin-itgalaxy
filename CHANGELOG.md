@@ -1,16 +1,24 @@
+# Head
+
+- Added: `jsx-a11y/anchor-has-content` rule.
+- Changed: `jsx-a11y/no-onchange` rule is enabled.
+- Changed: `jsx-a11y/onclick-has-role` rule is enabled.
+- Changed: `jsx-a11y/tabindex-no-positive` rule is enabled.
+- Chore: use `remark-lint-config-itgalaxy` sharable config for linting `markdown`.
+
 # 9.0.0
 
 - Added: `ava/no-nested-tests` rule.
 - Added: option `if-multiple` to `ava/test-title` rule.
 - Changed: rule `ava/max-asserts` now accepts minimal 8 `asserts`.
-- Changed: rule `ava/no-cb-test` disable.
-- Chore: update minimal version `eslint-plugin-ava` to `3.0.0`.
-- Chore: update minimal version `ava` to `0.16.0`.
+- Changed: rule `ava/no-cb-test` disabled.
+- Chore(package)(breaking changes): update minimal version `eslint-plugin-ava` to `3.0.0`.
+- Chore(package)(breaking changes): update minimal version `ava` to `0.16.0`.
 
 # 8.0.0
 
 - Added: `react/no-find-dom-node` rule.
-- Chore(package): update minimal version `eslint-plugin-react` to `6.0.0`.
+- Chore(package)(breaking changes): update minimal version `eslint-plugin-react` to `6.0.0`.
 - Chore: order `eslint-plugin-react` rules as in docs.
 - Removed: `react/require-extension` rule. Deprecated.
 
@@ -29,34 +37,34 @@
 
 # 6.0.0
 
-- Changed: all `dependencies` now have `^` instead `~`.
+- Changed(package)(breaking changes): all `dependencies` now have `^` instead `~`.
 
 # 5.0.0
 
-- Changed: update minor version `eslint`.
-- Changed: update minor version `eslint-plugin-import`.
+- Changed(package)(breaking changes): update minor version `eslint`.
+- Changed(package)(breaking changes): update minor version `eslint-plugin-import`.
 
 # 4.0.1
 
-- Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself`.
+- Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself` error.
 
 # 4.0.0
 
-- Changed: bump major `eslint-plugin-jsx-a11y` version.
-- Changed: bump major `eslint-plugin-promise` version.
+- Chore(package)(breaking changes): bump major `eslint-plugin-jsx-a11y` version.
+- Chore(package)(breaking changes): bump major `eslint-plugin-promise` version.
 
 # 3.0.0
 
-- Changed: bump major `eslint` version.
-- Changed: bump major `eslint-plugin-node` version.
+- Chore(package)(breaking changes): update minimal version `eslint` to `3.0.0`.
+- Chore(package)(breaking changes): bump major `eslint-plugin-node` version.
 
 # 2.3.0
 
-- Update: minor version `eslint-plugin-import`.
+- Chore(package): update minor version `eslint-plugin-import`.
 
 # 2.2.0
 
-- Added: update minor version `eslint-plugin-import`.
+- Chore(package): update minor version `eslint-plugin-import`.
 
 # 2.1.1
 
@@ -65,8 +73,9 @@
 # 2.1.0
 
 - Added: all eslint-plugins in `peerDependencies`.
-- Added: new version `eslint-plugin-node`.
-- Added: new version `eslint-plugin-react` and add new rules.
+- Added: new rules from `eslint-plugin-react`.
+- Chore(package): update version `eslint-plugin-node`.
+- Chore(package): update version `eslint-plugin-react`.
 
 # 2.0.1
 
@@ -75,7 +84,7 @@
 # 2.0.0
 
 - Added: new version `eslint-plugin-jsx-a11y` and new rules from `eslint-plugin-jsx-a11y` plugin.
-- Added: new version `eslint-plugin-ava`.
+- Chore(package)(breaking changes): update minimal version `eslint-plugin-ava`.
 - Remove: default disable rules from `esnext` config.
 
 # 1.0.1
