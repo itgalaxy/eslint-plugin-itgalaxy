@@ -1,6 +1,6 @@
 // see http://eslint.org/docs/rules/#stylistic-issues
 
-module.exports = {
+export default {
     // Enforce spacing inside array brackets
     'array-bracket-spacing': [
         'error',
@@ -58,6 +58,11 @@ module.exports = {
     'eol-last': [
         'error',
         'unix'
+    ],
+    // Require or disallow spacing between function identifiers and their invocations
+    'func-call-spacing': [
+        'error',
+        'never'
     ],
     // Don't require function expressions to have a name
     'func-names': 'off',
@@ -300,7 +305,6 @@ module.exports = {
         'LabeledStatement',
         'WithStatement'
     ],
-    'no-spaced-func': 'error',
     'no-tabs': 'error',
     // Disallow the use of ternary operators
     'no-ternary': 'off',
@@ -417,6 +421,15 @@ module.exports = {
         {
             'before': false,
             'after': true
+        }
+    ],
+    // Requires object keys to be sorted
+    'sort-keys': [
+        'error',
+        'asc',
+        {
+            'caseSensitive': true,
+            'natural': true
         }
     ],
     // Sort variables within the same declaration block

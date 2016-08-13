@@ -1,6 +1,6 @@
 // see https://github.com/xjamundx/eslint-plugin-promise
 
-module.exports = {
+export default {
     // Ensure that each time a then() is applied to a promise, a catch() is applied as well.
     // Exceptions are made if you are returning that promise.
     'promise/catch-or-return': 'error',

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     // Prevent missing displayName in a React component definition
     'react/display-name': [
         'error',

@@ -1,6 +1,6 @@
 // see https://github.com/sindresorhus/eslint-plugin-ava
 
-module.exports = {
+export default {
     // Enforce passing correct arguments to assertions.
     'ava/assertion-arguments': 'error',
     // Enforce or disallow assertion messages.

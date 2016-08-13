@@ -1,10 +1,16 @@
-# Head
+# 10.0.0
 
+- Added: `sort-keys` rule.
+- Added: `no-unsafe-negation` rule.
+- Added: `no-global-assign` rule.
 - Added: `jsx-a11y/anchor-has-content` rule.
 - Changed: `jsx-a11y/no-onchange` rule is enabled.
 - Changed: `jsx-a11y/onclick-has-role` rule is enabled.
 - Changed: `jsx-a11y/tabindex-no-positive` rule is enabled.
 - Chore: use `remark-lint-config-itgalaxy` sharable config for linting `markdown`.
+- Chore: sort alphabetically `devDependencies`.
+- Chore: rename `LICENSE` to `LICENSE.md`.
+- Chore: `files` section in `package.json` now contain `CHANGELOG.md` and `README.md`.
 
 # 9.0.0
 

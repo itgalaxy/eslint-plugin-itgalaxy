@@ -1,6 +1,6 @@
 // see https://github.com/benmosher/eslint-plugin-import
 
-module.exports = {
+export default {
     // Static analysis
 
     // Ensure imports point to a file/module that can be resolved.

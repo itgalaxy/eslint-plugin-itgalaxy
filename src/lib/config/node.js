@@ -1,6 +1,6 @@
-var nodeRules = require('./rules/node');
+import nodeRules from './rules/node';
 
-module.exports = {
+export default {
     env: {
         node: true
     },

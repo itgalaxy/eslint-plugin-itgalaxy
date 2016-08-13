@@ -1,27 +1,25 @@
-/* eslint-disable ava/max-asserts */
-
-var eslint = require('eslint');
-var path = require('path');
-var fs = require('fs');
-var plugin = require('../index');
-var test = require('ava');
+import eslint from 'eslint';
+import fs from 'fs';
+import path from 'path';
+import plugin from '../index';
+import test from 'ava';
 
 function isObject(obj) {
     return typeof obj === 'object' && obj !== null;
 }
 
-test('basic properties of config', function (t) {
+test('basic properties of config', (t) => {
     t.true(isObject(plugin.configs), 'configs is object');
 });
 
-test('eslint and eslint cli present', function (t) {
+test('eslint and eslint cli present', (t) => {
     t.true(isObject(eslint), 'eslint is present');
     t.true(typeof eslint.CLIEngine === 'function', 'eslint cli engine is present');
 });
 
-test('should all configs are present in export', function (t) {
-    var configDir = path.resolve(__dirname, '../lib/config');
-    var files = [];
+test('should all configs are present in export', (t) => {
+    const configDir = path.resolve(__dirname, '../lib/config');
+    let files = [];
 
     try {
         /* eslint-disable no-sync */
@@ -31,31 +29,29 @@ test('should all configs are present in export', function (t) {
         throw error;
     }
 
-    var actual = files
-        .filter(function (resource) {
-            return resource !== '.eslintrc.js' && resource !== 'rules';
-        })
-        .map(function (resource) {
-            return path.basename(resource, '.js');
-        });
+    const actual = files
+        .filter((resource) => resource !== '.eslintrc.js' && resource !== 'rules')
+        .map((resource) => path.basename(resource, '.js'));
 
-    var excepted = Object.keys(plugin.configs);
+    const excepted = Object.keys(plugin.configs);
 
     t.deepEqual(actual, excepted, 'all configs are present in export');
 });
 
-test('load ava plugin config in eslint to validate all rule syntax is correct', function (t) {
-    var config = plugin.configs.ava;
-    var hasAvaPlugin = config.plugins.indexOf('ava') !== -1;
+test('load ava plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const config = plugin.configs.ava;
+    const hasAvaPlugin = config.plugins.indexOf('ava') !== -1;
 
     t.true(hasAvaPlugin, 'there is ava plugin');
 
-    var cli = new eslint.CLIEngine({
+    const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: config
     });
 
-    var execute = cli.executeOnText('(function () {\n    \'use strict\';\n    var foo = 0;\n\n    foo += 1;\n}());\n');
+    const execute = cli.executeOnText(
+        '(function () {\n    \'use strict\';\n    var foo = 0;\n\n    foo += 1;\n}());\n'
+    );
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
@@ -65,14 +61,14 @@ test('load ava plugin config in eslint to validate all rule syntax is correct', 
     t.is(execute.warningCount, 0, 'eslint execute without warnings');
 });
 
-test('load core plugin config in eslint to validate all rule syntax is correct', function (t) {
-    var config = plugin.configs.core;
-    var cli = new eslint.CLIEngine({
+test('load core plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const config = plugin.configs.core;
+    const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: config
     });
 
-    var execute = cli.executeOnText('(function () {\n    \'use strict\';\n    (123).toString();\n}());\n');
+    const execute = cli.executeOnText('(function () {\n    \'use strict\';\n    (123).toString();\n}());\n');
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
@@ -82,17 +78,17 @@ test('load core plugin config in eslint to validate all rule syntax is correct',
     t.is(execute.warningCount, 0, 'eslint execute without warnings');
 });
 
-test('load esnext plugin config in eslint to validate all rule syntax is correct', function (t) {
-    var config = plugin.configs.esnext;
+test('load esnext plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const config = plugin.configs.esnext;
 
     config.extends = [];
 
-    var cli = new eslint.CLIEngine({
+    const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: config
     });
 
-    var execute = cli.executeOnText('let foo = 0;\n\n    foo += 1;\n');
+    const execute = cli.executeOnText('let foo = 0;\n\n    foo += 1;\n');
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
@@ -102,13 +98,15 @@ test('load esnext plugin config in eslint to validate all rule syntax is correct
     t.is(execute.warningCount, 0, 'eslint execute without warnings');
 });
 
-test('load lodash plugin config in eslint to validate all rule syntax is correct', function (t) {
-    var cli = new eslint.CLIEngine({
+test('load lodash plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: plugin.configs.lodash
     });
 
-    var execute = cli.executeOnText('(function () {\n    \'use strict\';\n    var foo = 0;\n\n    foo += 1;\n}());\n');
+    const execute = cli.executeOnText(
+        '(function () {\n    \'use strict\';\n    var foo = 0;\n\n    foo += 1;\n}());\n'
+    );
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
@@ -118,13 +116,13 @@ test('load lodash plugin config in eslint to validate all rule syntax is correct
     t.is(execute.warningCount, 0, 'eslint execute without warnings');
 });
 
-test('load node plugin config in eslint to validate all rule syntax is correct', function (t) {
-    var cli = new eslint.CLIEngine({
+test('load node plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: plugin.configs.node
     });
 
-    var execute = cli.executeOnText('module.export = 1;\n');
+    const execute = cli.executeOnText('module.export = 1;\n');
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');
@@ -134,19 +132,19 @@ test('load node plugin config in eslint to validate all rule syntax is correct',
     t.is(execute.warningCount, 0, 'eslint execute without warnings');
 });
 
-test('load react plugin config in eslint to validate all rule syntax is correct', function (t) {
-    var config = plugin.configs.react;
+test('load react plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const config = plugin.configs.react;
 
     config.extends = [];
 
     config.rules['react/jsx-filename-extension'][0] = 'off';
 
-    var cli = new eslint.CLIEngine({
+    const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: config
     });
 
-    var execute = cli.executeOnText('var React = require(\'react\');var Hello = <div>{\'test\'}</div>');
+    const execute = cli.executeOnText('var React = require(\'react\');var Hello = <div>{\'test\'}</div>');
 
     t.true(isObject(execute), 'eslint execute is success');
     t.true(isObject(execute.results), 'execute results is object');

@@ -1,6 +1,6 @@
 // see http://eslint.org/docs/rules/#best-practices
 
-module.exports = {
+export default {
     // Enforces getter/setter pairs in objects
     'accessor-pairs': [
         'error',
@@ -93,6 +93,8 @@ module.exports = {
     ],
     // Disallow the use of leading or trailing decimal points in numeric literals
     'no-floating-decimal': 'error',
+    // Disallow assignments to native objects or read-only global variables
+    'no-global-assign': 'error',
     // Disallow the type conversions with shorter notations
     'no-implicit-coercion': [
         'error',
@@ -129,8 +131,6 @@ module.exports = {
     'no-multi-spaces': 'error',
     // Disallow use of multiline strings
     'no-multi-str': 'error',
-    // Disallow reassignments of native objects
-    'no-native-reassign': 'error',
     // Disallow use of new operator when not part of the assignment or comparison
     'no-new': 'error',
     // Disallow use of new operator for Function object

@@ -1,6 +1,6 @@
 // see https://github.com/evcohen/eslint-plugin-jsx-a11y
 
-module.exports = {
+export default {
     // Enforce all anchors to contain accessible content.
     'jsx-a11y/anchor-has-content': 'error',
     // Enforce all aria-* props are valid.

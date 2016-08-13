@@ -1,6 +1,6 @@
 // see http://eslint.org/docs/rules/#possible-errors
 
-module.exports = {
+export default {
     // Disallow or enforce trailing commas
     'comma-dangle': [
         'error',
@@ -74,14 +74,16 @@ module.exports = {
             'skipTemplates': false
         }
     ],
-    // Disallow negation of the left operand of an in expression
-    'no-negated-in-lhs': 'error',
+    // Disallow negating the left operand of relational operators
+    'no-unsafe-negation': 'error',
     // Disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
     // Disallow multiple spaces in a regular expression literal
     'no-regex-spaces': 'error',
     // Disallow sparse arrays
     'no-sparse-arrays': 'error',
+    // Disallow template literal placeholder syntax in regular strings
+    'no-template-curly-in-string': 'error',
     // Avoid code that looks like two expressions but is actually one
     'no-unexpected-multiline': 'error',
     // Disallow unreachable statements after a return, throw, continue, or break statement

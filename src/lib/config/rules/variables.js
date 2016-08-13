@@ -1,6 +1,6 @@
 // see http://eslint.org/docs/rules/#variables
 
-module.exports = {
+export default {
     // enforce or disallow variable initializations at definition
     'init-declarations': [
         'error',

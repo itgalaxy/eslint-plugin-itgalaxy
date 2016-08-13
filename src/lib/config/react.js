@@ -1,8 +1,8 @@
-var reactRules = require('./rules/react');
-var jsxA11yRules = require('./rules/jsx-a11y');
-var merge = require('merge');
+import jsxA11yRules from './rules/jsx-a11y';
+import merge from 'merge';
+import reactRules from './rules/react';
 
-module.exports = {
+export default {
     extends: 'plugin:itgalaxy/esnext',
     parserOptions: {
         ecmaFeatures: {

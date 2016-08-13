@@ -1,6 +1,6 @@
-var avaRules = require('./rules/ava');
+import avaRules from './rules/ava';
 
-module.exports = {
+export default {
     env: {
         es6: true
     },

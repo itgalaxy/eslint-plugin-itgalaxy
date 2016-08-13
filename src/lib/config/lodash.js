@@ -1,6 +1,6 @@
-var lodashRules = require('./rules/lodash');
+import lodashRules from './rules/lodash';
 
-module.exports = {
+export default {
     plugins: [
         'lodash'
     ],

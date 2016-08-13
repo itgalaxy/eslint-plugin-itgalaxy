@@ -1,6 +1,6 @@
 // http://eslint.org/docs/rules/#strict-mode
 
-module.exports = {
+export default {
     // Controls location of Use Strict Directives
     strict: [
         'error',

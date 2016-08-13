@@ -1,9 +1,9 @@
-var ecmascript6Rules = require('./rules/ecmascript-6');
-var promiseRules = require('./rules/promise');
-var importRules = require('./rules/import');
-var merge = require('merge');
+import ecmascript6Rules from './rules/ecmascript-6';
+import importRules from './rules/import';
+import merge from 'merge';
+import promiseRules from './rules/promise';
 
-module.exports = {
+export default {
     extends: 'plugin:itgalaxy/core',
     env: {
         es6: true

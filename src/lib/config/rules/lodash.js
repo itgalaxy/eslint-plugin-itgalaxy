@@ -1,6 +1,6 @@
 // see https://github.com/wix/eslint-plugin-lodash
 
-module.exports = {
+export default {
     // Possible errors
 
     // Use or avoid thisArg for Lodash method callbacks, depending on major version.

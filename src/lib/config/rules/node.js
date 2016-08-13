@@ -1,6 +1,6 @@
 // see http://eslint.org/docs/rules/#nodejs and https://github.com/mysticatea/eslint-plugin-node
 
-module.exports = {
+export default {
     // enforce return after a callback
     'callback-return': [
         'error',
