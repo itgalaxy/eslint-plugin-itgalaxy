@@ -6,14 +6,16 @@ import lodash from './lib/config/lodash';
 import node from './lib/config/node';
 import react from './lib/config/react';
 
-export default {
-    configs: {
-        ava,
-        core,
-        es5,
-        esnext,
-        lodash,
-        node,
-        react
-    }
+const configs = {
+    ava,
+    core,
+    es5,
+    esnext,
+    lodash,
+    node,
+    react
+};
+
+export {
+    configs // eslint-disable-line import/prefer-default-export
 };

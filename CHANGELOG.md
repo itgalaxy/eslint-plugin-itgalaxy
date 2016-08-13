@@ -1,3 +1,7 @@
+# 10.0.2
+
+- Fixed: exporting configs now correctly.
+
 # 10.0.1
 
 - Fixed: `main` contain `dist/index.js` in `package.json`
