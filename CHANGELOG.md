@@ -1,3 +1,7 @@
+# 10.0.1
+
+- Fixed: `main` contain `dist/index.js` in `package.json`
+
 # 10.0.0
 
 - Added: `sort-keys` rule.
