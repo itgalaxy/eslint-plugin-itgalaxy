@@ -487,10 +487,5 @@ export default {
         'never'
     ],
     // Require regex literals to be wrapped in parentheses
-    'wrap-regex': 'error',
-
-    'objects/no-object-properties-first-line': 'off',
-    'objects/no-object-properties-last-line': 'off',
-    'objects/no-object-properties-one-line': 'off',
-    'objects/no-object-property-split': 'error'
+    'wrap-regex': 'error'
 };

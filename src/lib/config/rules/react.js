@@ -6,6 +6,8 @@ export default {
             ignoreTranspilerName: false
         }
     ],
+    // Forbid certain props on Components
+    'react/forbid-component-props': 'off',
     // Forbid certain propTypes
     'react/forbid-prop-types': [
         'error',
@@ -18,6 +20,8 @@ export default {
     ],
     // Prevent usage of dangerous JSX properties
     'react/no-danger': 'error',
+    // Prevent problem with children and props.dangerouslySetInnerHTML
+    'react/no-danger-with-children': 'error',
     // Prevent usage of deprecated methods
     'react/no-deprecated': 'error',
     // Prevent usage of setState in componentDidMount
@@ -62,6 +66,7 @@ export default {
     ],
     // Prevent missing React when using JSX
     'react/react-in-jsx-scope': 'error',
+    // Enforce React components to have a shouldComponentUpdate method
     'react/require-optimization': 'off',
     // Enforce ES5 or ES6 class for returning value in render function
     'react/require-render-return': 'error',

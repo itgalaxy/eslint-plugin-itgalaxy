@@ -62,14 +62,14 @@ You can also add some "augmenting" configs on top of the "core" config by extend
 
 This plugin provides the following core configurations:
 
-- [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
-- [react](lib/config/react.js): Use this for React projects.
-- [es5](lib/config/es5.js): Use this for legacy projects.
+- [esnext](src/lib/config/esnext.js): Use this for anything written with ES2015+ features.
+- [react](src/lib/config/react.js): Use this for React projects.
+- [es5](src/lib/config/es5.js): Use this for legacy projects.
 
 This plugin also provides the following tool-specific configurations, which can be used on top of the core configurations:
 
-- [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
-- [ava](lib/config/ava.js): Use this for projects that use the [AVA test runner](https://github.com/sindresorhus/ava).
+- [lodash](src/lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
+- [ava](src/lib/config/ava.js): Use this for projects that use the [AVA test runner](https://github.com/sindresorhus/ava).
 
 ## Creating New Rules
 

@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "10.0.2",
+    "version": "11.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -36,9 +36,10 @@
         "eslint-plugin-jsx-a11y": "^2.0.0",
         "eslint-plugin-lodash": "^1.0.0",
         "eslint-plugin-node": "^2.0.0",
-        "eslint-plugin-objects": "^1.0.0",
         "eslint-plugin-promise": "^2.0.0",
         "eslint-plugin-react": "^6.0.0",
+        "eslint-plugin-xo": "^0.5.0",
+        "eslint-plugin-markdown": "^1.0.0-beta.2",
         "merge": "^1.2.0"
     },
     "devDependencies": {
@@ -49,8 +50,10 @@
         "babel-preset-stage-0": "~6.5.0",
         "babel-register": "^6.9.0",
         "eslint": "^3.1.0",
+        "eslint-ava-rule-tester": "^2.0.0",
         "npmpub": "^3.1.0",
         "npm-run-all": "^2.3.0",
+        "nyc": "^8.1.0",
         "remark-cli": "^1.0.0",
         "remark-lint": "^4.0.0",
         "remark-lint-config-itgalaxy": "^1.0.0",
@@ -63,18 +66,20 @@
         "eslint-plugin-jsx-a11y": "^2.0.0",
         "eslint-plugin-lodash": "^1.0.0",
         "eslint-plugin-node": "^2.0.0",
-        "eslint-plugin-objects": "^1.0.0",
         "eslint-plugin-promise": "^2.0.0",
-        "eslint-plugin-react": "^6.0.0"
+        "eslint-plugin-react": "^6.0.0",
+        "eslint-plugin-xo": "^0.5.0"
     },
     "scripts": {
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+
         "manual:lint:eslint": "eslint . --ignore-path .gitignore  --color",
         "todo": "test md inside directory",
         "lint:remark": "remark '{**/,*}.md' -r ./node_modules/remark-lint-config-itgalaxy/index.js -i .gitignore -f -q",
         "lint": "npm-run-all -l -p lint:**",
 
+        "ava": "nyc ava --verbose 'src/**/__tests__/*.js' 'tools/**/__tests__/*.js'",
         "pretest": "npm run lint",
-        "ava": "ava --verbose \"src/**/__tests__/*.js\"",
         "test": "npm run ava",
 
         "prebuild": "rimraf dist",

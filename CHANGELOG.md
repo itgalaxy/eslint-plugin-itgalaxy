@@ -1,3 +1,16 @@
+# 11.0.0
+
+- Added: add `react/no-danger-with-children` rule.
+- Added: `xo/no-abusive-eslint-disable` rule.
+- Changed: drop `eslint-plugin-objects` plugin.
+- Chore: add `forbid-prop-types` rule for tracking changes.
+- Chore: add description to `react/require-optimization` rule.
+- Chore: add other `xo/*` rules for tracking.
+- Chore: add `nyc` to coveralls report.
+- Docs: fix `url` typos in `README.md`.
+- Fixed: tests now works fine.
+- Removed: `objects/*` rules.
+
 # 10.0.2
 
 - Fixed: exporting configs now correctly.
