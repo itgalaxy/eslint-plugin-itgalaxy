@@ -1,3 +1,7 @@
+# Head
+
+- Chore: remove `tools/**/__tests__/*.js` glob pattern from `ava` npm script.
+
 # 11.0.0
 
 - Added: add `react/no-danger-with-children` rule.
