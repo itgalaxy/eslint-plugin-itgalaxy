@@ -38,7 +38,7 @@
         "eslint-plugin-node": "^2.0.0",
         "eslint-plugin-promise": "^2.0.0",
         "eslint-plugin-react": "^6.0.0",
-        "eslint-plugin-xo": "^0.5.0"
+        "eslint-plugin-xo": "^0.5.0",
         "merge": "^1.2.0"
     },
     "devDependencies": {
