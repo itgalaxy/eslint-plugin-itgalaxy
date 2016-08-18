@@ -5,6 +5,7 @@
 - Chore: `remark-lint` now lint `markdown` inside the directories.
 - Chore: rename `LICENSE.md` to `LICENSE`.
 - Chore(package): remove extra `files` from `package.json`.
+- Deps: update a minimal version of `npm-run-all` from `2.3.0` to `3.0.0`.
 
 # 11.0.0
 
