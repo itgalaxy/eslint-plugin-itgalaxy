@@ -1,4 +1,4 @@
-# Head
+# 11.0.1
 
 - Chore: remove `tools/**/__tests__/*.js` glob pattern from `ava` npm script.
 - Chore: remove `eslint-plugin-markdown` as unused.
