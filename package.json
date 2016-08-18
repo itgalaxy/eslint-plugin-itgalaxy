@@ -24,11 +24,7 @@
     "main": "dist/index.js",
     "files": [
         "dist/lib",
-        "dist/index.js",
-        "CHANGELOG.md",
-        "LICENSE.md",
-        "README.md",
-        "!**/__tests__"
+        "dist/index.js"
     ],
     "dependencies": {
         "eslint-plugin-ava": "^3.0.0",

@@ -3,6 +3,8 @@
 - Chore: remove `tools/**/__tests__/*.js` glob pattern from `ava` npm script.
 - Chore: remove `eslint-plugin-markdown` as unused.
 - Chore: `remark-lint` now lint `markdown` inside the directories.
+- Chore: rename `LICENSE.md` to `LICENSE`.
+- Chore(package): remove extra `files` from `package.json`.
 
 # 11.0.0
 
