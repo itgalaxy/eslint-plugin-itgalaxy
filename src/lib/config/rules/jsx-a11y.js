@@ -11,6 +11,9 @@ export default {
     'jsx-a11y/aria-role': 'error',
     // Enforce that elements that do not support ARIA roles, states, and properties do not have those attributes.
     'jsx-a11y/aria-unsupported-elements': 'error',
+    // Enforce a clickable non-interactive element has at least one keyboard event listener.
+    'jsx-a11y/click-events-have-key-events': 'error',
+    //  Enforce heading (h1, h2, etc) elements contain accessible content.
     'jsx-a11y/heading-has-content': [
         'error',
         [
@@ -42,6 +45,8 @@ export default {
     'jsx-a11y/no-marquee': 'error',
     // Enforce that onBlur is used instead of onChange.
     'jsx-a11y/no-onchange': 'error',
+    // Enforce non-interactive elements have no interactive handlers.
+    'jsx-a11y/no-static-element-interactions': 'error',
     // Enforce that elements with onClick handlers must be focusable.
     'jsx-a11y/onclick-has-focus': 'error',
     // Enforce that non-interactive, visible elements (such as <div>) that have click handlers use the role attribute.

@@ -1,6 +1,5 @@
 import ecmascript6Rules from './rules/ecmascript-6';
 import importRules from './rules/import';
-import merge from 'merge';
 import promiseRules from './rules/promise';
 
 export default {
@@ -32,7 +31,7 @@ export default {
             '.(scss|less|css)$'
         ]
     },
-    rules: merge(
+    rules: Object.assign(
         ecmascript6Rules,
         promiseRules,
         importRules

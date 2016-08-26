@@ -1,5 +1,4 @@
 import jsxA11yRules from './rules/jsx-a11y';
-import merge from 'merge';
 import reactRules from './rules/react';
 
 export default {
@@ -18,7 +17,7 @@ export default {
         'react',
         'jsx-a11y'
     ],
-    rules: merge(
+    rules: Object.assign(
         reactRules,
         jsxA11yRules
     )

@@ -1,3 +1,14 @@
+# 12.0.0
+
+- Added(breaking changes): `jsx-a11y/no-static-element-interactions` rule.
+- Added(breaking changes): `jsx-a11y/click-events-have-key-events` rule.
+- Chore: use `Object.assign` instead `merge` package.
+- Chore(package): use `^` instead `~` for `babel-preset-es2015` package.
+- Chore(package): use `^` instead `~` for `babel-preset-stage-0` package.
+- Chore(package): update a minimal version of `remark-cli` from `1.0.0` to `2.0.0`.
+- Chore(package): update a minimal version of `remark-lint` from `4.0.0` to `5.0.0`.
+- Chore(package): use `remark-preset-lint-itgalaxy` instead `remark-lint-config-itgalaxy`.
+
 # 11.0.1
 
 - Chore: remove `tools/**/__tests__/*.js` glob pattern from `ava` npm script.
