@@ -4,10 +4,7 @@ export default {
     // Require braces in arrow function body
     'arrow-body-style': [
         'error',
-        'as-needed',
-        {
-            'requireReturnForObjectLiteral': true
-        }
+        'as-needed'
     ],
     // Require parens in arrow function arguments
     'arrow-parens': [
@@ -28,8 +25,8 @@ export default {
     'generator-star-spacing': [
         'error',
         {
-            'before': true,
-            'after': false
+            'before': false,
+            'after': true
         }
     ],
     // Disallow modifying variables of class declarations
@@ -38,7 +35,7 @@ export default {
     'no-confusing-arrow': [
         'error',
         {
-            allowParens: false
+            allowParens: true
         }
     ],
     // Disallow modifying variables that are declared using const
@@ -46,7 +43,12 @@ export default {
     // Disallow duplicate name in class members
     'no-dupe-class-members': 'error',
     // Disallow duplicate module imports
-    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': [
+        'error',
+        {
+            'includeExports': true
+        }
+    ],
     // Disallow use of the new operator with the Symbol object
     'no-new-symbol': 'error',
     // Restrict usage of specified node imports
@@ -57,6 +59,7 @@ export default {
     'no-useless-computed-key': 'error',
     // Disallow unnecessary constructor
     'no-useless-constructor': 'error',
+    // Disallow renaming import, export, and destructured assignments to the same name
     'no-useless-rename': [
         2,
         {
@@ -72,16 +75,16 @@ export default {
         'error',
         'always',
         {
-            avoidQuotes: true,
-            ignoreConstructors: true
+            'ignoreConstructors': false,
+            'avoidQuotes': true
         }
     ],
     // Suggest using arrow functions as callbacks
     'prefer-arrow-callback': [
         'error',
         {
-            allowNamedFunctions: false,
-            allowUnboundThis: true
+            'allowNamedFunctions': false,
+            'allowUnboundThis': true
         }
     ],
     // Suggest using of const declaration for variables that are never modified after declared
@@ -102,10 +105,12 @@ export default {
     'prefer-template': 'error',
     // Disallow generator functions that do not have yield
     'require-yield': 'error',
+    // Enforce spacing between rest and spread operators and their expressions
     'rest-spread-spacing': [
         'error',
         'never'
     ],
+    // Enforce sorted import declarations within modules
     'sort-imports': [
         'error',
         {
@@ -119,17 +124,13 @@ export default {
             ]
         }
     ],
+    // Require symbol descriptions
+    'symbol-description': 'error',
     // Enforce spacing around embedded expressions of template strings
-    'template-curly-spacing': [
-        'error',
-        'never'
-    ],
+    'template-curly-spacing': 'error',
     // Enforce spacing around the * in yield* expressions
     'yield-star-spacing': [
         'error',
-        {
-            before: false,
-            after: true
-        }
+        'after'
     ]
 };

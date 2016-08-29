@@ -1,3 +1,29 @@
+# 13.0.0
+
+- Added(breaking changes): `class-methods-use-this` rule.
+- Added(breaking changes): `max` to `id-length` rule.
+- Added: `experimentalObjectRestSpread` option to `parserOptions` in `esnext` bundle.
+- Changed: `ignoreChainWithDepth` to `4` in `newline-per-chained-call` rule.
+- Changed: `caseSensitive` to `false` in `sort-keys` rule.
+- Changed: `requireStringLiterals` to `true` in `valid-typeof` rule.
+- Changed: `allowAfterSuper` to `true` in `no-underscore-dangle` rule.
+- Changed: `props` to `true` in `no-self-assign` rule.
+- Changed: `object-curly-spacing` now is `always`.
+- Changed: `order` in `react/sort-comp` rule, add `type-annotations`.
+- Changed: `no-func-assign` now accounts `functions` and `vars`.
+- Changed: `no-restricted-globals` now is turned off.
+- Changed: `padded-blocks` now accounts `switches`.
+- Changed: `arrow-parens` now accounts `block` body parens.
+- Changed: `generator-star-spacing` now require no space before and space after `*`.
+- Changed: `allowParens` to `true` in `no-confusing-arrow` rule.
+- Changed: `ignoreConstructors` to `false` in `object-shorthand` rule.
+- Changed: `import/ignore` patterns in `settings` for `import` plugin.
+- Changed: `allowAfterThis` and `allowAfterSuper` to `false` in `no-underscore-dangle` rule.
+- Changed: update all `deps` to right version.
+- Chore: add `react/no-unused-prop-types` rule for tracking.
+- Chore: move `comma-dangle` to `stylistic-issues`.
+- Chore: remove default unused parameters in some rules(package size reduction).
+
 # 12.0.0
 
 - Added(breaking changes): `jsx-a11y/no-static-element-interactions` rule.

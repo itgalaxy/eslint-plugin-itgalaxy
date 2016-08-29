@@ -4,12 +4,7 @@ export default {
     // Enforce spacing inside array brackets
     'array-bracket-spacing': [
         'error',
-        'never',
-        {
-            'singleValue': false,
-            'objectsInArrays': false,
-            'arraysInArrays': false
-        }
+        'never'
     ],
     // Disallow or enforce spaces inside of single line blocks
     'block-spacing': [
@@ -21,15 +16,20 @@ export default {
         'error',
         '1tbs',
         {
-            allowSingleLine: false
+            'allowSingleLine': false
         }
     ],
     // Require camel case names
     'camelcase': [
         'error',
         {
-            properties: 'always'
+            'properties': 'always'
         }
+    ],
+    // Require or disallow trailing commas
+    'comma-dangle': [
+        'error',
+        'never'
     ],
     // Enforce spacing before and after comma
     'comma-spacing': [
@@ -80,6 +80,7 @@ export default {
     'id-length': [
         'error', {
             min: 2,
+            max: 32,
             properties: 'always',
             exceptions: [
                 '$',
@@ -107,7 +108,10 @@ export default {
         'error',
         4,
         {
-            'SwitchCase': 1
+            'SwitchCase': 1,
+            'VariableDeclarator': 1,
+            'outerIIFEBody': 1,
+            'MemberExpression': 1
         }
     ],
     // Specify whether double or single quotes should be used in JSX attributes
@@ -129,8 +133,7 @@ export default {
         'error',
         {
             before: true,
-            after: true,
-            overrides: {}
+            after: true
         }
     ],
     // Disallow mixed 'LF' and 'CRLF' as linebreaks
@@ -185,6 +188,14 @@ export default {
         'error',
         6
     ],
+    // Enforce a maximum number of statements allowed per line
+    'max-statements-per-line': [
+        'error',
+        {
+            'max': 1
+        }
+    ],
+    // Enforce a maximum number of statements allowed in function blocks
     'max-statements': [
         'error',
         60,
@@ -192,13 +203,7 @@ export default {
             'ignoreTopLevelFunctions': false
         }
     ],
-    // Specify the maximum number of statements allowed per line
-    'max-statements-per-line': [
-        'error',
-        {
-            'max': 1
-        }
-    ],
+    // Enforce newlines between operands of ternary expressions
     'multiline-ternary': 'off',
     // Require a capital letter for constructors
     'new-cap': [
@@ -223,11 +228,12 @@ export default {
     'newline-per-chained-call': [
         'error',
         {
-            'ignoreChainWithDepth': 3
+            'ignoreChainWithDepth': 4
         }
     ],
     // Disallow use of the Array constructor
     'no-array-constructor': 'error',
+    // Disallow bitwise operators
     'no-bitwise': 'off',
     // Disallow use of the continue statement
     'no-continue': 'error',
@@ -279,10 +285,8 @@ export default {
             'allowSamePrecedence': true
         }
     ],
-    'no-mixed-spaces-and-tabs': [
-        'error',
-        false
-    ],
+    // Disallow mixed spaces and tabs for indentation
+    'no-mixed-spaces-and-tabs': 'error',
     // Disallow multiple empty lines
     'no-multiple-empty-lines': [
         'error',
@@ -299,6 +303,7 @@ export default {
     'no-new-object': 'error',
     // Disallow space between function identifier and application
     'no-plusplus': 'off',
+    // Disallow specified syntax
     'no-restricted-syntax': [
         'error',
         'DebuggerStatement',
@@ -309,17 +314,13 @@ export default {
     // Disallow the use of ternary operators
     'no-ternary': 'off',
     // Disallow trailing whitespace at the end of lines
-    'no-trailing-spaces': [
-        'error',
-        {
-            'skipBlankLines': false
-        }
-    ],
+    'no-trailing-spaces': 'error',
     // Allow dangling underscores in identifiers
     'no-underscore-dangle': [
         'error',
         {
-            'allowAfterThis': true,
+            'allowAfterThis': false,
+            'allowAfterSuper': false,
             'allow': [
                 '_this',
                 '_extend',
@@ -332,14 +333,10 @@ export default {
         }
     ],
     // Disallow the use of Boolean literals in conditional expressions
-    'no-unneeded-ternary': [
-        'error',
-        {
-            'defaultAssignment': true
-        }
-    ],
+    'no-unneeded-ternary': 'error',
     // Disallow whitespace before properties
     'no-whitespace-before-property': 'error',
+    // Disallow dangling underscores in identifiers
     'object-curly-newline': [
         'error',
         {
@@ -356,7 +353,7 @@ export default {
     // Require or disallow padding inside curly braces
     'object-curly-spacing': [
         'error',
-        'never'
+        'always'
     ],
     // Enforce placing object properties on separate lines
     'object-property-newline': [
@@ -365,15 +362,15 @@ export default {
             'allowMultiplePropertiesPerLine': false
         }
     ],
-    // Allow or disallow one variable declaration per function
-    'one-var': [
-        'error',
-        'never'
-    ],
     // Require or disallow an newline around variable declarations
     'one-var-declaration-per-line': [
         'error',
         'always'
+    ],
+    // Allow or disallow one variable declaration per function
+    'one-var': [
+        'error',
+        'never'
     ],
     // Require assignment operator shorthand where possible or prohibit it entirely
     'operator-assignment': [
@@ -388,7 +385,11 @@ export default {
     // Enforce padding within blocks
     'padded-blocks': [
         'error',
-        'never'
+        {
+            'blocks': 'never',
+            'classes': 'never',
+            'switches': 'never'
+        }
     ],
     // Require quotes around object literal property names
     'quote-props': [
@@ -396,8 +397,8 @@ export default {
         'as-needed',
         {
             'keywords': false,
-            'numbers': false,
-            'unnecessary': true
+            'unnecessary': true,
+            'numbers': false
         }
     ],
     // Specify whether backticks, double or single quotes should be used
@@ -409,12 +410,8 @@ export default {
             'allowTemplateLiterals': true
         }
     ],
+    // Require JSDoc comments
     'require-jsdoc': 'off',
-    // Require or disallow use of semicolons instead of ASI
-    'semi': [
-        'error',
-        'always'
-    ],
     // Enforce spacing before and after semicolons
     'semi-spacing': [
         'error',
@@ -423,12 +420,20 @@ export default {
             'after': true
         }
     ],
+    // Require or disallow use of semicolons instead of ASI
+    'semi': [
+        'error',
+        'always',
+        {
+            'omitLastInOneLineBlock': true
+        }
+    ],
     // Requires object keys to be sorted
     'sort-keys': [
         'error',
         'asc',
         {
-            'caseSensitive': true,
+            'caseSensitive': false,
             'natural': true
         }
     ],

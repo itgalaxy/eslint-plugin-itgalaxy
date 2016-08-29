@@ -8,7 +8,9 @@ export default {
             'callback',
             'cb',
             'done',
-            'next'
+            'next',
+            'resolve',
+            'reject'
         ]
     ],
     // disallow require() outside of the top-level module scope
@@ -18,7 +20,7 @@ export default {
         'error',
         '^.*(e|E)rr(or)?$'
     ],
-    // Disallow mixing regular variable and require declarations
+    // Disallow require calls to be mixed with regular var declarations
     'no-mixed-requires': [
         'error',
         {

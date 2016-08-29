@@ -13,6 +13,8 @@ export default {
     'array-callback-return': 'error',
     // Treat var statements as if they were block scoped
     'block-scoped-var': 'error',
+    // Enforce that class methods utilize this
+    'class-methods-use-this': 'error',
     // Specify the maximum cyclomatic complexity allowed in a program
     'complexity': [
         'error',
@@ -21,12 +23,7 @@ export default {
         }
     ],
     // Require return statements to either always or never specify values
-    'consistent-return': [
-        'error',
-        {
-            'treatUndefinedAsUnspecified': false
-        }
-    ],
+    'consistent-return': 'error',
     // Specify curly brace conventions for all control statements
     'curly': [
         'error',
@@ -72,12 +69,7 @@ export default {
     // Disallow comparisons to null without a type-checking operator
     'no-eq-null': 'error',
     // Disallow use of eval()
-    'no-eval': [
-        'error',
-        {
-            'allowIndirect': false
-        }
-    ],
+    'no-eval': 'error',
     // Disallow adding to native types
     'no-extend-native': 'error',
     // Disallow unnecessary function binding
@@ -131,17 +123,16 @@ export default {
     'no-multi-spaces': 'error',
     // Disallow use of multiline strings
     'no-multi-str': 'error',
-    // Disallow use of new operator when not part of the assignment or comparison
-    'no-new': 'error',
     // Disallow use of new operator for Function object
     'no-new-func': 'error',
     // Disallows creating new instances of String, Number, and Boolean
     'no-new-wrappers': 'error',
+    // Disallow use of new operator when not part of the assignment or comparison
+    'no-new': 'error',
+    // Disallow use of octal escape sequences in string literals, such as var foo = 'Copyright \251';
+    'no-octal-escape': 'error',
     // Disallow use of octal literals
     'no-octal': 'error',
-    // Disallow use of octal escape sequences in string literals,
-    // such as var foo = 'Copyright \251';
-    'no-octal-escape': 'error',
     // Allow reassignment of function parameters
     'no-param-reassign': [
         'error',
@@ -166,7 +157,12 @@ export default {
     // Disallow use of javascript: urls.,
     'no-script-url': 'error',
     // Disallow assignments where both sides are exactly the same
-    'no-self-assign': 'error',
+    'no-self-assign': [
+        'error',
+        {
+            'props': true
+        }
+    ],
     // Disallow comparisons where both sides are exactly the same
     'no-self-compare': 'error',
     // Disallow use of comma operator
@@ -193,6 +189,7 @@ export default {
     'no-useless-escape': 'error',
     // Disallow use of void operator
     'no-void': 'error',
+    // Disallow specified warning terms in comments
     'no-warning-comments': [
         'error',
         {
@@ -219,12 +216,5 @@ export default {
         'outside'
     ],
     // Require or disallow Yoda conditions
-    'yoda': [
-        'error',
-        'never',
-        {
-            'exceptRange': false,
-            'onlyEquality': false
-        }
-    ]
+    'yoda': 'error'
 };

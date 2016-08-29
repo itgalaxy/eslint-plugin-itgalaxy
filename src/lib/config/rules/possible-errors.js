@@ -1,11 +1,6 @@
 // see http://eslint.org/docs/rules/#possible-errors
 
 export default {
-    // Disallow or enforce trailing commas
-    'comma-dangle': [
-        'error',
-        'never'
-    ],
     // Disallow assignment in conditional expressions
     'no-cond-assign': [
         'error',
@@ -30,6 +25,8 @@ export default {
     'no-dupe-keys': 'error',
     // Disallow a duplicate case label.
     'no-duplicate-case': 'error',
+    // Disallow the use of empty character classes in regular expressions
+    'no-empty-character-class': 'error',
     // Disallow empty statements
     'no-empty': [
         'error',
@@ -37,8 +34,6 @@ export default {
             'allowEmptyCatch': false
         }
     ],
-    // Disallow the use of empty character classes in regular expressions
-    'no-empty-character-class': 'error',
     // Disallow assigning to the exception in a catch block
     'no-ex-assign': 'error',
     // Disallow double-negation boolean casts in a boolean context
@@ -58,10 +53,7 @@ export default {
     // Disallow overwriting functions written as function declarations
     'no-func-assign': 'error',
     // Disallow function or variable declarations in nested blocks
-    'no-inner-declarations': [
-        'error',
-        'functions'
-    ],
+    'no-inner-declarations': 'error',
     // Disallow invalid regular expression strings in the RegExp constructor
     'no-invalid-regexp': 'error',
     // Disallow irregular whitespace outside of strings and comments
@@ -74,10 +66,10 @@ export default {
             'skipTemplates': false
         }
     ],
-    // Disallow negating the left operand of relational operators
-    'no-unsafe-negation': 'error',
     // Disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
+    // Disallow calling some Object.prototype methods directly on objects
+    'no-prototype-builtins': 'error',
     // Disallow multiple spaces in a regular expression literal
     'no-regex-spaces': 'error',
     // Disallow sparse arrays
@@ -90,10 +82,17 @@ export default {
     'no-unreachable': 'error',
     // Disallow control flow statements in finally blocks
     'no-unsafe-finally': 'error',
+    // Disallow negating the left operand of relational operators
+    'no-unsafe-negation': 'error',
     // Disallow comparisons with the value NaN
     'use-isnan': 'error',
     // Ensure JSDoc comments are valid
     'valid-jsdoc': 'error',
     // Ensure that the results of typeof are compared against a valid string
-    'valid-typeof': 'error'
+    'valid-typeof': [
+        'error',
+        {
+            'requireStringLiterals': true
+        }
+    ]
 };

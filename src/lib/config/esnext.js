@@ -9,7 +9,10 @@ export default {
     },
     parserOptions: {
         ecmaVersion: 7,
-        sourceType: 'module'
+        sourceType: 'module',
+        ecmaFeatures: {
+            experimentalObjectRestSpread: true
+        }
     },
     plugins: [
         'promise',
@@ -28,7 +31,7 @@ export default {
         'import/ignore': [
             'node_modules',
             '.coffee$',
-            '.(scss|less|css)$'
+            '\\.(coffee|scss|css|less|hbs|svg|json)$'
         ]
     },
     rules: Object.assign(

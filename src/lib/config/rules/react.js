@@ -49,6 +49,8 @@ export default {
     'react/no-string-refs': 'error',
     // Prevent usage of unknown DOM property
     'react/no-unknown-property': 'error',
+    // Prevent definitions of unused prop types
+    'react/no-unused-prop-types': 'off',
     // Enforce ES5 or ES6 class for React Components
     'react/prefer-es6-class': [
         'error',
@@ -77,6 +79,7 @@ export default {
         'error',
         {
             order: [
+                'type-annotations',
                 'static-methods',
                 'statics',
                 'constructor',
@@ -98,6 +101,8 @@ export default {
             'requiredFirst': true
         }
     ],
+    // Enforce style prop value being an object
+    'react/style-prop-object': 'error',
 
     // Enforce boolean attributes notation in JSX
     'react/jsx-boolean-value': [
