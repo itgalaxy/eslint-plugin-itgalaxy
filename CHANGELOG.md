@@ -1,3 +1,7 @@
+# Head
+
+- Chore: fix link `dependencies` and `devDependencies`.
+
 # 13.0.0
 
 - Added(breaking changes): `class-methods-use-this` rule.
