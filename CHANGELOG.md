@@ -1,3 +1,7 @@
+# 15.0.1
+
+- Fixed: `extends` now use `path.resolve` to config files.
+
 # 15.0.0
 
 - Added: preset `all`.

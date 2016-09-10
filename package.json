@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "15.0.0",
+    "version": "15.0.1",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
