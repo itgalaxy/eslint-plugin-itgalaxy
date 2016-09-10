@@ -1,3 +1,11 @@
+# 15.0.0
+
+- Added: preset `all`.
+- Fixed: valid options for `lines-around-directive` rule.
+- Changed: drop `es6` code style, because `eslint` have bad support.
+- Chore: fixed lint errors of `eslint`.
+- Chore: improved tests.
+
 # 14.0.0
 
 - Added(breaking changes): `prefer-numeric-literals` rule.
