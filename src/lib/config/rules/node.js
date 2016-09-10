@@ -38,7 +38,9 @@ export default {
     'no-process-exit': 'error',
     // Restrict usage of specified node modules
     'no-restricted-modules': 'off',
-    // Disallow use of synchronous methods
+    // Disallow certain properties on certain objects
+    'no-restricted-properties': 'off',
+    // Disallow use of synchronous methods,
     'no-sync': 'error',
 
     // Disallow usage deprecated api

@@ -111,7 +111,15 @@ export default {
             'SwitchCase': 1,
             'VariableDeclarator': 1,
             'outerIIFEBody': 1,
-            'MemberExpression': 1
+            'MemberExpression': 1,
+            'FunctionDeclaration': {
+                "body": 1,
+                "parameters": 1
+            },
+            'FunctionExpression': {
+                "body": 1,
+                "parameters": 1
+            }
         }
     ],
     // Specify whether double or single quotes should be used in JSX attributes
@@ -136,6 +144,10 @@ export default {
             after: true
         }
     ],
+    // Enforce position of line comments
+    'line-comment-position': 'off',
+    // Require or disallow newlines around directives
+    'lines-around-directive': 'always',
     // Disallow mixed 'LF' and 'CRLF' as linebreaks
     'linebreak-style': [
         'error',

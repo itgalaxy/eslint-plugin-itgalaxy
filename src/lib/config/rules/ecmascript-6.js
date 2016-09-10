@@ -95,6 +95,8 @@ export default {
             'ignoreReadBeforeAssign': false
         }
     ],
+    // Disallow parseInt() in favor of binary, octal, and hexadecimal literals
+    'prefer-numeric-literals': 'error',
     // Suggest using Reflect methods where applicable
     'prefer-reflect': 'off',
     // Suggest using the rest parameters instead of arguments

@@ -1,6 +1,10 @@
-# Head
+# 14.0.0
 
+- Added(breaking changes): `prefer-numeric-literals` rule.
+- Added(breaking changes): `lines-around-directive` rule.
+- Changed: `FunctionDeclaration` and `FunctionExpression` to `{ "body": 1, "parameters": 1 }` in `indent` rule.
 - Chore: fix link `dependencies` and `devDependencies`.
+- Chore: update a minimal version of `eslint` to `3.5.0`.
 
 # 13.0.0
 
