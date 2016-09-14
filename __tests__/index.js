@@ -38,6 +38,27 @@ test('should all configs are present in export', (t) => {
     t.deepEqual(actual, excepted, 'all configs are present in export');
 });
 
+test('load `all` plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const config = configs.all;
+
+    config.extends = [];
+
+    config.rules['react/jsx-filename-extension'][0] = 'off';
+
+    const cli = new eslint.CLIEngine({
+        useEslintrc: false,
+        baseConfig: config
+    });
+
+    const report = cli.executeOnText('const value = 100;\n\nfunction foo() {\n    return 1;\n}\n\nfoo(value);\n');
+
+    t.true(isObject(report), 'eslint execute is success');
+    t.true(isObject(report.results), 'report is object');
+    t.is(report.results.length, 1, 'eslint report with one results');
+    t.is(report.errorCount, 0, 'eslint report without errors');
+    t.is(report.warningCount, 0, 'eslint report without warnings');
+});
+
 test('load `ava` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const config = configs.ava;
     const hasAvaPlugin = config.plugins.indexOf('ava') !== -1;
@@ -63,6 +84,23 @@ test('load `ava` plugin config in eslint to validate all rule syntax is correct'
 
 test('load `core` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const config = configs.core;
+    const cli = new eslint.CLIEngine({
+        useEslintrc: false,
+        baseConfig: config
+    });
+
+    const report = cli.executeOnText('(function () {\n    \'use strict\';\n\n    (123).toString();\n}());\n');
+
+    t.true(isObject(report), 'eslint execute is success');
+    t.true(isObject(report.results), 'report is object');
+
+    t.is(report.results.length, 1, 'eslint report with one results');
+    t.is(report.errorCount, 0, 'eslint report without errors');
+    t.is(report.warningCount, 0, 'eslint report without warnings');
+});
+
+test('load `es5` plugin config in eslint to validate all rule syntax is correct', (t) => {
+    const config = configs.es5;
     const cli = new eslint.CLIEngine({
         useEslintrc: false,
         baseConfig: config
@@ -145,27 +183,6 @@ test('load `react` plugin config in eslint to validate all rule syntax is correc
     });
 
     const report = cli.executeOnText('var React = require(\'react\');var Hello = <div>{\'test\'}</div>');
-
-    t.true(isObject(report), 'eslint execute is success');
-    t.true(isObject(report.results), 'report is object');
-    t.is(report.results.length, 1, 'eslint report with one results');
-    t.is(report.errorCount, 0, 'eslint report without errors');
-    t.is(report.warningCount, 0, 'eslint report without warnings');
-});
-
-test('load `all` plugin config in eslint to validate all rule syntax is correct', (t) => {
-    const config = configs.all;
-
-    config.extends = [];
-
-    config.rules['react/jsx-filename-extension'][0] = 'off';
-
-    const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
-    });
-
-    const report = cli.executeOnText('const value = 100;\n\nfunction foo() {\n    return 1;\n}\n\nfoo(value);\n');
 
     t.true(isObject(report), 'eslint execute is success');
     t.true(isObject(report.results), 'report is object');

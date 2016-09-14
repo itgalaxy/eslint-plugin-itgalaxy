@@ -1,3 +1,12 @@
+# 16.0.0
+
+- Added(breaking changes): `no-absolute-path` rule.
+- Fixed: use `Object.assign` with first argument `object` for cloning rules.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-import` from `1.14.0` to `1.15.0`.
+- Chore: improved of tests.
+- Chore: added `deprecated` rules for `eslint`, `eslint-plugin-import` for passed `eslint-find-rules` test.
+- Chore: added `remarkConfig` section to `package.json` for use own `remark-preset-lint-itgalaxy` preset.
+
 # 15.0.1
 
 - Fixed: `extends` now use `path.resolve` to config files.
@@ -8,7 +17,7 @@
 - Fixed: valid options for `lines-around-directive` rule.
 - Changed: drop `es6` code style, because `eslint` have bad support.
 - Chore: fixed lint errors of `eslint`.
-- Chore: improved tests.
+- Chore: improved of tests.
 
 # 14.0.0
 
