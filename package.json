@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "16.0.0",
+    "version": "17.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -34,7 +34,7 @@
         "eslint-plugin-node": "^2.0.0",
         "eslint-plugin-promise": "^2.0.0",
         "eslint-plugin-react": "^6.2.0",
-        "eslint-plugin-xo": "^0.5.0"
+        "eslint-plugin-xo": "^1.0.0"
     },
     "devDependencies": {
         "ava": "^0.16.0",
@@ -64,7 +64,7 @@
         "eslint-plugin-node": "^2.0.0",
         "eslint-plugin-promise": "^2.0.0",
         "eslint-plugin-react": "^6.2.0",
-        "eslint-plugin-xo": "^0.5.0"
+        "eslint-plugin-xo": "^1.0.0"
     },
     "scripts": {
         "coveralls": "nyc report --reporter=text-lcov | coveralls",

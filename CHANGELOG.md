@@ -1,3 +1,10 @@
+# 17.0.0
+
+- Added(breaking changes): `xo/catch-error-name` rule.
+- Added(breaking changes): `explicit-length-check` rule.
+- Added(breaking changes): `xo/throw-new-error` rule.
+- Chore(package): update a minimal version of `eslint-plugin-xo` from `0.5.0` to `1.0.0`.
+
 # 16.0.0
 
 - Added(breaking changes): `no-absolute-path` rule.
