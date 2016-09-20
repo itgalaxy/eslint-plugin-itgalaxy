@@ -1,3 +1,9 @@
+# 18.0.0
+
+- Added(breaking changes): `react/no-children-prop` rule.
+- Added(breaking changes): `react/no-unescaped-entities` rule.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-react` from `6.2.0` to `6.3.0`.
+
 # 17.0.0
 
 - Added(breaking changes): `xo/catch-error-name` rule.
