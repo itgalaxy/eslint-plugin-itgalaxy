@@ -1,3 +1,10 @@
+# 19.0.0 - September 24, 2016
+
+- Added(breaking changes): `import/no-absolute-path` rule.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-import` from `1.15.0` to `1.16.0`.
+- Chore(package)(breaking changes): update a minimal version of `eslint` from `3.5.0` to `3.6.0`.
+- Chore: change `unix` to `always` in `eol-last` rule.
+
 # 18.0.0
 
 - Added(breaking changes): `react/no-children-prop` rule.
