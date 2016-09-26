@@ -1,3 +1,7 @@
+# 20.0.1 - September 26, 2016
+
+Fixed: `dist` from `files` section and `bin` from `package.json`
+
 # 20.0.0 - September 26, 2016
 
 - Added(breaking changes): `ava/no-async-fn-without-await` rule.
