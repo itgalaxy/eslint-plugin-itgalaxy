@@ -8,6 +8,10 @@ function isObject(obj) {
     return typeof obj === 'object' && obj !== null;
 }
 
+function dash2CamelCase(input) {
+    return input.replace(/-([a-z])/g, (found) => found[1].toUpperCase());
+}
+
 test('basic properties of config', (t) => {
     t.true(isObject(configs), 'configs is object');
 });
@@ -17,7 +21,7 @@ test('eslint and eslint cli present', (t) => {
     t.true(typeof eslint.CLIEngine === 'function', 'eslint cli engine is present');
 });
 
-test('should all configs are present in export', (t) => {
+test('should all configs are present in exports', (t) => {
     const configDir = path.resolve(__dirname, '../lib/config');
     let files = [];
 
@@ -31,7 +35,7 @@ test('should all configs are present in export', (t) => {
 
     const actual = files
         .filter((resource) => resource !== '.eslintrc.js' && resource !== 'rules')
-        .map((resource) => path.basename(resource, '.js'));
+        .map((resource) => dash2CamelCase(path.basename(resource, '.js')));
 
     const excepted = Object.keys(configs);
 

@@ -1,3 +1,8 @@
+/* eslint-env node commonjs */
+/* eslint-disable strict */
+
+'use strict';
+
 const all = require('./lib/config/all');
 const ava = require('./lib/config/ava');
 const core = require('./lib/config/core');

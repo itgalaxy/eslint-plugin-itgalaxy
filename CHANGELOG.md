@@ -1,3 +1,24 @@
+# 20.0.0 - September 26, 2016
+
+- Added(breaking changes): `ava/no-async-fn-without-await` rule.
+- Added(breaking changes): `ava/no-duplicate-modifiers` rule.
+- Added(breaking changes): `node/no-unpublished-bin` rule.
+- Added(breaking changes): `node/no-unpublished-import` rule.
+- Added(breaking changes): `node/exports-style` rule.
+- Added(breaking changes): `node/no-missing-import` rule.
+- Added: `convertPath` options to `eslint-plugin-node` for good work with `babel`.
+- Changed: `import/extensions` have default `never` option.
+- Chore(package): use `^` instead `~` for `package-schema` package.
+- Chore(package): use `^` instead `~` for `ajv-cli` package.
+- Chore(package): update a minimal version of `ajv-cli` from `0.9.0` to `1.1.0`.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-ava` from `3.0.0` to `3.1.0`.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-node` from `2.0.0` to `2.1.1`.
+- Chore(package): rename `eslint-plugin-xo` to `eslint-plugin-unicorn`.
+- Chore: improve `.gitattributes`.
+- Fixed: all rules of `eslint-plugin-node` now works with `jsx`.
+- Removed: `import/no-namespace` rule.
+- Removed: `import/no-commonjs` rule. Most of project have a larger codebase that is being transitioned from CommonJS to ES6 modules.
+
 # 19.0.0 - September 24, 2016
 
 - Added(breaking changes): `import/no-absolute-path` rule.
