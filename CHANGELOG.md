@@ -1,3 +1,8 @@
+# 20.0.2 - September 27, 2016
+
+- Chore: update `ecmaVersion` from `7` to `8` in `cssnext` preset.
+- Chore: update a minimal version of `eslint` from `3.6.0` to `3.6.1`.
+
 # 20.0.1 - September 26, 2016
 
 Fixed: `dist` from `files` section and `bin` from `package.json`
