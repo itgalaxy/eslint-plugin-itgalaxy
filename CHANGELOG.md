@@ -1,3 +1,9 @@
+# Head
+
+- Added: `import/first` rule.
+- Chore(package): update a minimal version of `eslint-plugin-import` from `1.16.0` to `2.0.0`.
+- Removed: `import/imports-first` rule.
+
 # 20.0.2 - September 27, 2016
 
 - Chore: update `ecmaVersion` from `7` to `8` in `cssnext` preset.
