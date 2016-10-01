@@ -1,8 +1,10 @@
-# Head
+# 21.0.0 - October 3, 2016
 
 - Added: `import/first` rule.
 - Chore(package): update a minimal version of `eslint-plugin-import` from `1.16.0` to `2.0.0`.
 - Chore(package): update a minimal version of `eslint` from `3.6.1` to `3.7.0`.
+- Chore(package): update a minimal version of `babel-core` from `6.13.0` to `6.17.0`.
+- Chore: remove nodejs 4 from `travis`. Bugs now, need investagation, but work.
 - Removed: `import/imports-first` rule.
 
 # 20.0.2 - September 27, 2016

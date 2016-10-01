@@ -3,6 +3,8 @@ language: node_js
 node_js:
     - '6'
     - '5'
+# Bugs on travis-ci, but all works fine, need investigation
+#    - '4'
 cache:
     directories:
     - node_modules

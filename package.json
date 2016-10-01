@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "20.0.2",
+    "version": "21.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -40,7 +40,7 @@
         "ava": "^0.16.0",
         "ajv-cli": "^1.1.0",
         "babel-cli": "^6.11.0",
-        "babel-core": "^6.13.0",
+        "babel-core": "^6.17.0",
         "babel-preset-es2015": "^6.13.0",
         "babel-preset-stage-0": "^6.5.0",
         "babel-register": "^6.9.0",
