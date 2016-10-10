@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "21.0.0",
+    "version": "22.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -32,8 +32,8 @@
         "eslint-plugin-jsx-a11y": "^2.2.0",
         "eslint-plugin-lodash": "^1.10.0",
         "eslint-plugin-node": "^2.1.1",
-        "eslint-plugin-promise": "^2.0.0",
-        "eslint-plugin-react": "^6.3.0",
+        "eslint-plugin-promise": "^3.0.0",
+        "eslint-plugin-react": "^6.4.0",
         "eslint-plugin-unicorn": "^1.0.0"
     },
     "devDependencies": {
@@ -53,7 +53,7 @@
         "package-schema": "^1.0.0",
         "remark-cli": "^2.0.0",
         "remark-lint": "^5.0.0",
-        "remark-preset-lint-itgalaxy": "^1.0.0"
+        "remark-preset-lint-itgalaxy": "^2.0.0"
     },
     "peerDependencies": {
         "eslint": "^3.7.0",
@@ -62,8 +62,8 @@
         "eslint-plugin-jsx-a11y": "^2.2.0",
         "eslint-plugin-lodash": "^1.10.0",
         "eslint-plugin-node": "^2.1.1",
-        "eslint-plugin-promise": "^2.0.0",
-        "eslint-plugin-react": "^6.3.0",
+        "eslint-plugin-promise": "^3.0.0",
+        "eslint-plugin-react": "^6.4.0",
         "eslint-plugin-unicorn": "^1.0.0"
     },
     "scripts": {

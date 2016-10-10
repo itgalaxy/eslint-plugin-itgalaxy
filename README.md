@@ -18,11 +18,14 @@ Next, install `eslint-plugin-itgalaxy`:
 $ npm install eslint-plugin-itgalaxy --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-itgalaxy` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) 
+then you must also install `eslint-plugin-itgalaxy` globally.
 
 ## Usage
 
-Itgalaxy’s ESLint configs come bundled in this package. In order to use them, you simply extend the relevant configuration in your project’s `.eslintrc`. For example, the following will extend the ESNext (ES2015 and later) config:
+Itgalaxy’s ESLint configs come bundled in this package. In order to use them, you simply extend the relevant 
+configuration in your project’s `.eslintrc`. For example, the following will extend 
+the ESNext (ES2015 and later) config:
 
 ```json
 {
@@ -30,7 +33,8 @@ Itgalaxy’s ESLint configs come bundled in this package. In order to use them, 
 }
 ```
 
-If using React, extend the React version of the configuration (which adds some React-specific rules to those in the ESNext config):
+If using React, extend the React version of the configuration 
+(which adds some React-specific rules to those in the ESNext config):
 
 ```json
 {
@@ -46,7 +50,9 @@ If working on an ES5 project, extend the ES5 version of the configuration:
 }
 ```
 
-You can also add some "augmenting" configs on top of the "core" config by extending an array of linting configs. For example, this package provides a lodash linting config, which can be added to the ESNext config with the following configuration file:
+You can also add some "augmenting" configs on top of the "core" config by extending an array of linting configs. 
+For example, this package provides a lodash linting config, which can be added to the ESNext config 
+with the following configuration file:
 
 ```json
 {
@@ -73,14 +79,19 @@ This plugin provides the following core configurations:
 - [node](lib/config/node.js):  Use this for nodejs projects.
 - [react](lib/config/react.js): Use this for React projects.
 
-This plugin also provides the following tool-specific configurations, which can be used on top of the core configurations:
+This plugin also provides the following tool-specific configurations, which can be used on top 
+of the core configurations:
 
 - [ava](lib/config/ava.js): Use this for projects that use the [AVA test runner](https://github.com/sindresorhus/ava).
 - [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
 
 ## Creating New Rules
 
-The easiest way to add new rules is to use the [ESLint Yeoman generator](https://www.npmjs.com/package/generator-eslint). Running `yo eslint:rule` from the root of this project should add the required main file, docs, and test for your new rules. Make sure that these are all filled out and consistent with the other rules before merging. All tests can be run using `npm test`.
+The easiest way to add new rules is to use the 
+[ESLint Yeoman generator](https://www.npmjs.com/package/generator-eslint). 
+Running `yo eslint:rule` from the root of this project should add the required main file, docs, 
+and test for your new rules. Make sure that these are all filled out and consistent 
+with the other rules before merging. All tests can be run using `npm test`.
 
 ## [Changelog](CHANGELOG.md)
 

@@ -1,22 +1,28 @@
-# 21.0.0 - October 3, 2016
+# 22.0.0 - 2016-10-10
+
+- Chore(package): update a minimal version of `remark-preset-lint-itgalaxy` from `1.0.0` to `2.0.0`.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-react` from `6.3.0` to `6.4.0`.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-promise` from `2.0.0` to `3.0.0`.
+
+# 21.0.0 - 2016-10-3
 
 - Added: `import/first` rule.
 - Chore(package): update a minimal version of `eslint-plugin-import` from `1.16.0` to `2.0.0`.
 - Chore(package): update a minimal version of `eslint` from `3.6.1` to `3.7.0`.
 - Chore(package): update a minimal version of `babel-core` from `6.13.0` to `6.17.0`.
-- Chore: remove nodejs 4 from `travis`. Bugs now, need investagation, but work.
+- Chore: remove nodejs 4 from `travis`. Bugs now, need investigation, but work.
 - Removed: `import/imports-first` rule.
 
-# 20.0.2 - September 27, 2016
+# 20.0.2 - 2016-09-26
 
 - Chore: update `ecmaVersion` from `7` to `8` in `cssnext` preset.
 - Chore: update a minimal version of `eslint` from `3.6.0` to `3.6.1`.
 
-# 20.0.1 - September 26, 2016
+# 20.0.1 - 2016-09-26
 
-Fixed: `dist` from `files` section and `bin` from `package.json`
+- Fixed: `dist` from `files` section and `bin` from `package.json`.
 
-# 20.0.0 - September 26, 2016
+# 20.0.0 - 2016-09-26
 
 - Added(breaking changes): `ava/no-async-fn-without-await` rule.
 - Added(breaking changes): `ava/no-duplicate-modifiers` rule.
@@ -35,9 +41,9 @@ Fixed: `dist` from `files` section and `bin` from `package.json`
 - Chore: improve `.gitattributes`.
 - Fixed: all rules of `eslint-plugin-node` now works with `jsx`.
 - Removed: `import/no-namespace` rule.
-- Removed: `import/no-commonjs` rule. Most of project have a larger codebase that is being transitioned from CommonJS to ES6 modules.
+- Removed: `import/no-commonjs` rule.
 
-# 19.0.0 - September 24, 2016
+# 19.0.0 - 2016-09-24
 
 - Added(breaking changes): `import/no-absolute-path` rule.
 - Chore(package)(breaking changes): update a minimal version of `eslint-plugin-import` from `1.15.0` to `1.16.0`.

@@ -3,7 +3,7 @@ language: node_js
 node_js:
     - '6'
     - '5'
-# Bugs on travis-ci, but all works fine, need investigation
+# https://github.com/eslint/eslint/issues/3458
 #    - '4'
 cache:
     directories:
