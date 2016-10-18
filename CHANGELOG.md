@@ -1,3 +1,20 @@
+# 23.0.0 - 2016-10-18
+
+- Added: `func-name-matching` rule.
+- Added: `lodash/prefer-times` rule.
+- Added: `lodash/prefer-is-nil` rule.
+- Added: `lodash/prefer-invoke-map` rule.
+- Added: `lodash/prefer-thru` rule.
+- Added: `lodash/prefer-wrapper-method` rule.
+- Changed: `lodash/chain-style` to `as-needed`.
+- Changed: `lodash/identity-shorthand` to `always`.
+- Changed: `lodash/matches-prop-shorthand` to `always`.
+- Changed: `lodash/prop-shorthand` to `always`.
+- Chore(package)(breaking changes): update a minimal version of `eslint` from `3.7.0` to `3.8.0`.
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-lodash` from `1.10.0` to `2.1.0`.
+- Removed: `lodash/prefer-chain` rule.
+- Removed: `lodash/no-single-chain` rule.
+
 # 22.0.0 - 2016-10-10
 
 - Chore(package): update a minimal version of `remark-preset-lint-itgalaxy` from `1.0.0` to `2.0.0`.
