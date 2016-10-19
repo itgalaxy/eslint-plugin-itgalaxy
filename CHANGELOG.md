@@ -1,3 +1,7 @@
+# Head
+
+- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-promise` from `3.0.0` to `3.3.0`.
+
 # 23.0.0 - 2016-10-18
 
 - Added: `func-name-matching` rule.
