@@ -1,6 +1,8 @@
 # Head
 
-- Chore(package)(breaking changes): update a minimal version of `eslint-plugin-promise` from `3.0.0` to `3.3.0`.
+- Added(Major update): `no-useless-return` rule.
+- Chore(Major update): update a minimal version of `eslint-plugin-promise` from `3.0.0` to `3.3.0`.
+- Chore(Major update): update a minimal version of `eslint` from `3.8.0` to `3.9.0`. 
 
 # 23.0.0 - 2016-10-18
 
