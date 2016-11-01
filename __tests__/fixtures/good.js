@@ -363,4 +363,8 @@ function FooNewTarget() {
 
 console.log(new FooNewTarget()); // eslint-disable-line no-console
 
+const foo = async () => 1;
+
+foo();
+
 export default linter;

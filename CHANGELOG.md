@@ -1,3 +1,7 @@
+# Head
+
+- Added(Major update): options `'asyncArrow': 'always'` to `space-before-function-paren` rule.
+
 # 24.0.0 - 2016-11-1
 
 - Added(Major update): `no-useless-return` rule.
