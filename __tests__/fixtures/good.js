@@ -58,6 +58,26 @@ objectVariable.log = function (items, options = {}) {
 
 arrayVariable.push(constVariable);
 
+function handler() {
+    return 'test';
+}
+
+const obj = {
+    // __proto__
+    __proto__: Object.getPrototypeOf({}),
+    // Shorthand for ‘handler: handler’
+    handler,
+    // Methods
+    toString() {
+        // Super calls
+        return `d ${super.toString()}`;
+    },
+    // Computed (dynamic) property names
+    [`prop_${(() => 42)()}`]: 42
+};
+
+console.log(obj); // eslint-disable-line no-console
+
 const has = Object.prototype.hasOwnProperty;
 
 {
@@ -259,5 +279,88 @@ try {
         error
     });
 }
+
+function multiply(multiplier, ...theArgs) {
+    return theArgs.map((element) => multiplier * element);
+}
+
+multiply(2, 1, 2, 3);
+
+const numbers = [0, 1, 2];
+
+multiply(1, ...numbers);
+
+function fetch() {
+    return new Promise((resolve) => resolve('Some value'));
+}
+
+async function fetchJson(url) {
+    try {
+        const request = await fetch(url);
+        const text = await request.text();
+
+        return JSON.parse(text);
+    } catch (error) {
+        throw error;
+    }
+}
+
+fetchJson('http://some-domain.com');
+
+function trailingCommasInFUnctionSyntax(
+    param1,
+    param2,
+) {
+    return `${param1} ${param2}`;
+}
+
+trailingCommasInFUnctionSyntax('foo', 'bar');
+
+// const a **= 4; Uncomment after support in eslint
+
+const PolygonNotNamed = class {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+};
+
+const PolygonNamed = class Polygon {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+};
+
+class PolygonWithBody {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    get area() {
+        return this.calcArea();
+    }
+
+    calcArea() {
+        return this.height * this.width;
+    }
+}
+
+const squareNotNamed = new PolygonNotNamed(10, 10);
+const squareNamed = new PolygonNamed(10, 10);
+const squareWithBody = new PolygonWithBody(10, 10);
+
+console.log(squareNotNamed, squareNamed, squareWithBody); // eslint-disable-line no-console
+
+function FooNewTarget() {
+    if (!new.target) {
+        throw new Error('Foo() must be called with new');
+    }
+
+    // All good
+}
+
+console.log(new FooNewTarget()); // eslint-disable-line no-console
 
 export default linter;
