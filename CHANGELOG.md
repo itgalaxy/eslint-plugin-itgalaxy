@@ -1,4 +1,4 @@
-# Head
+# 25.0.0 - 2016-11-03
 
 - Added(Major update): options `'asyncArrow': 'always'` to `space-before-function-paren` rule.
 - Changed: disable `ava/max-asserts` rule.
