@@ -1,8 +1,13 @@
 # Head
 
 - Added(Major update): options `'asyncArrow': 'always'` to `space-before-function-paren` rule.
+- Changed: disable `ava/max-asserts` rule.
+- Chore(Major update): update a minimal version of `eslint-plugin-ava` from `3.1.0` to `4.0.0`.
+- Chore(Major update): update a minimal version of `eslint-plugin-import` from `2.0.0` to `2.1.0`.
+- Chore(Major update): update a minimal version of `eslint-plugin-react` from `6.4.0` to `6.5.0`.
+- Chore(Major update): update a minimal version of `remark-preset-lint-itgalaxy` from `2.0.0` to `3.0.0`.
 
-# 24.0.0 - 2016-11-1
+# 24.0.0 - 2016-11-01
 
 - Added(Major update): `no-useless-return` rule.
 - Chore(Major update): update a minimal version of `eslint-plugin-promise` from `3.0.0` to `3.3.0`.
