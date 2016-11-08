@@ -1,4 +1,4 @@
-# Head
+# 26.0.0 - 2016-11-08
 
 - Changed: `react/jsx-curly-spacing` option `allowMultiline` to `true`.
 - Changed: `react/jsx-curly-spacing` now don't ignore `multiline-multiline`.
