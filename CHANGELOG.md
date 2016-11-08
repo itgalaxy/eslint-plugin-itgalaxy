@@ -1,3 +1,16 @@
+# Head
+
+- Changed: `react/jsx-curly-spacing` option `allowMultiline` to `true`.
+- Changed: `react/jsx-curly-spacing` now don't ignore `multiline-multiline`.
+- Changed: `react/jsx-first-prop-new-line` set option to `never`.
+- Changed: remove option `components` from `jsx-a11y/heading-has-content`.
+- Changed: remove option `components` from `jsx-a11y/href-no-hash`.
+- Chore(Major update): update a minimal version of `eslint-plugin-import` from `2.1.0` to `2.2.0`.
+- Chore(Major update): update a minimal version of `eslint-plugin-jsx-a11y` from `2.2.0` to `3.0.0`.
+- Chore(Major update): update a minimal version of `eslint-plugin-react` from `6.5.0` to `6.6.0`.
+- Removed: `react/no-is-mounted` rule.
+- Tests: improve `react` integration tests.
+
 # 25.0.0 - 2016-11-03
 
 - Added(Major update): options `'asyncArrow': 'always'` to `space-before-function-paren` rule.

@@ -47,7 +47,7 @@ test('load `all` plugin config in eslint to validate all rule syntax is correct'
 
     config.extends = [];
 
-    config.rules['react/jsx-filename-extension'][0] = 'off';
+    config.rules['react/jsx-filename-extension'] = 'off';
 
     const cli = new eslint.CLIEngine({
         useEslintrc: false,
@@ -179,7 +179,7 @@ test('load `react` plugin config in eslint to validate all rule syntax is correc
 
     config.extends = [];
 
-    config.rules['react/jsx-filename-extension'][0] = 'off';
+    config.rules['react/jsx-filename-extension'] = 'off';
 
     const cli = new eslint.CLIEngine({
         useEslintrc: false,
@@ -207,6 +207,21 @@ test('integration tests for `esnext`', (t) => {
     t.true(isObject(report.results), 'report is object');
 
     t.is(report.results.length, 1, 'eslint report with one results');
+    t.is(report.errorCount, 0, 'eslint report without errors');
+    t.is(report.warningCount, 0, 'eslint report without warnings');
+});
+
+test('integration tests for `react`', (t) => {
+    const cli = new eslint.CLIEngine({
+        baseConfig: configs.react
+    });
+
+    const report = cli.executeOnFiles([path.resolve(__dirname, './fixtures/react/**/*.jsx')]);
+
+    t.true(isObject(report), 'eslint execute is success');
+    t.true(isObject(report.results), 'report is object');
+
+    t.is(report.results.length, 3, 'eslint report with one results');
     t.is(report.errorCount, 0, 'eslint report without errors');
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
