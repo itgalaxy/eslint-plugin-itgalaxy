@@ -1,3 +1,8 @@
+# Head
+
+- Added: `lodash/no-unbound-this` rule.
+- Added: `no-return-await` rule.
+
 # 26.0.0 - 2016-11-08
 
 - Changed: `react/jsx-curly-spacing` option `allowMultiline` to `true`.
