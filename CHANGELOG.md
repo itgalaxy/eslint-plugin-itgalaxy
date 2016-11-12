@@ -1,4 +1,4 @@
-# Head
+# 27.0.0 - 2016-11-12
 
 - Added: `lodash/no-unbound-this` rule.
 - Added: `no-return-await` rule.
