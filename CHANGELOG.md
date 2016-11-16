@@ -1,4 +1,4 @@
-# Head
+# 28.0.0 - 2016-11-16
 
 - Added: `jsx-tag-spacing` rule.
 - Chore(Major update): update a minimal verison of `eslint-plugin-react` from `6.6.0` to `6.7.0`.
