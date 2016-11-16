@@ -33,7 +33,7 @@
         "eslint-plugin-lodash": "^2.1.0",
         "eslint-plugin-node": "^3.0.0",
         "eslint-plugin-promise": "^3.3.0",
-        "eslint-plugin-react": "^6.6.0",
+        "eslint-plugin-react": "^6.7.0",
         "eslint-plugin-unicorn": "^1.0.0"
     },
     "devDependencies": {
