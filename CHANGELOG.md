@@ -1,12 +1,21 @@
+# Head
+
+- Added(Major update): `promise/no-return-wrap` rule.
+- Added(Major update): `promise/no-promise-in-callback` rule.
+- Added(Major update): `promise/no-callback-in-promise` rule.
+- Chore(Major update): update a minimal version of `eslint-plugin-promise` from `3.3.0` to `3.4.0`.
+- Chore: update a minimal version of `ava` from `0.16.0` to `0.17.0`.
+- Chore: update a minimal version of `ava` from `8.1.0` to `9.0.0`.
+
 # 28.0.0 - 2016-11-16
 
-- Added: `jsx-tag-spacing` rule.
+- Added(Major update): `react/jsx-tag-spacing` rule.
 - Chore(Major update): update a minimal verison of `eslint-plugin-react` from `6.6.0` to `6.7.0`.
 
 # 27.0.0 - 2016-11-12
 
-- Added: `lodash/no-unbound-this` rule.
-- Added: `no-return-await` rule.
+- Added(Major update): `lodash/no-unbound-this` rule.
+- Added(Major update): `no-return-await` rule.
 
 # 26.0.0 - 2016-11-08
 
