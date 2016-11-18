@@ -1,4 +1,4 @@
-# Head
+# 29.0.0 - 2016-11-18
 
 - Added(Major update): `promise/no-return-wrap` rule.
 - Added(Major update): `promise/no-promise-in-callback` rule.
