@@ -1,18 +1,24 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+This project adheres to [Semantic Versioning](http://semver.org/).
+
 # 30.0.0 - 2016-11-21
 
-- Chore **(Major update)**: update a minimal version of `eslint` from `3.9.1` to `3.10.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-lodash` from `2.1.0` to `2.2.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-react` from `6.6.0` to `6.7.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-promise` from `3.3.0` to `3.4.0.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.10.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.2.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.7.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.4.0`.
 
 # 29.0.0 - 2016-11-18
 
 - Added **(Major update)**: `promise/no-return-wrap` rule.
 - Added **(Major update)**: `promise/no-promise-in-callback` rule.
 - Added **(Major update)**: `promise/no-callback-in-promise` rule.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-promise` from `3.3.0` to `3.4.0`.
-- Chore: update a minimal version of `ava` from `0.16.0` to `0.17.0`.
-- Chore: update a minimal version of `nyc` from `8.1.0` to `9.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.4.0`.
+- Chore: minimum required `ava` version is now `^0.17.0`.
+- Chore: minimum required `nyc` version is now `^9.0.0`.
 
 # 28.0.0 - 2016-11-16
 
@@ -31,9 +37,9 @@
 - Changed: `react/jsx-first-prop-new-line` set option to `never`.
 - Changed: remove option `components` from `jsx-a11y/heading-has-content`.
 - Changed: remove option `components` from `jsx-a11y/href-no-hash`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-import` from `2.1.0` to `2.2.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-jsx-a11y` from `2.2.0` to `3.0.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-react` from `6.5.0` to `6.6.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^2.2.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^3.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.6.0`.
 - Removed: `react/no-is-mounted` rule.
 - Tests: improve `react` integration tests.
 
@@ -41,17 +47,17 @@
 
 - Added **(Major update)**: options `'asyncArrow': 'always'` to `space-before-function-paren` rule.
 - Changed: disable `ava/max-asserts` rule.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-ava` from `3.1.0` to `4.0.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-import` from `2.0.0` to `2.1.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-react` from `6.4.0` to `6.5.0`.
-- Chore **(Major update)**: update a minimal version of `remark-preset-lint-itgalaxy` from `2.0.0` to `3.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-ava` version is now `^4.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^2.1.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.5.0`.
+- Chore **(Major update)**: minimum required `remark-preset-lint-itgalaxy` version is now `^3.0.0`.
 
 # 24.0.0 - 2016-11-01
 
 - Added **(Major update)**: `no-useless-return` rule.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-promise` from `3.0.0` to `3.3.0`.
-- Chore **(Major update)**: update a minimal version of `eslint` from `3.8.0` to `3.9.1`. 
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-node` from `2.1.0` to `3.0.0`. 
+- Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.3.0`.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.9.1`. 
+- Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^3.0.0`. 
 - Chore: added support `nodejs` version 7.
 
 # 23.0.0 - 2016-10-18
@@ -66,30 +72,30 @@
 - Changed: `lodash/identity-shorthand` to `always`.
 - Changed: `lodash/matches-prop-shorthand` to `always`.
 - Changed: `lodash/prop-shorthand` to `always`.
-- Chore **(Major update)**: update a minimal version of `eslint` from `3.7.0` to `3.8.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-lodash` from `1.10.0` to `2.1.0`.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.8.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.1.0`.
 - Removed: `lodash/prefer-chain` rule.
 - Removed: `lodash/no-single-chain` rule.
 
 # 22.0.0 - 2016-10-10
 
-- Chore: update a minimal version of `remark-preset-lint-itgalaxy` from `1.0.0` to `2.0.0`.
-- Chore **(Major update)**:: update a minimal version of `eslint-plugin-react` from `6.3.0` to `6.4.0`.
-- Chore **(Major update)**:: update a minimal version of `eslint-plugin-promise` from `2.0.0` to `3.0.0`.
+- Chore: minimum required `remark-preset-lint-itgalaxy` version is now `^2.0.0`.
+- Chore **(Major update)**:: minimum required `eslint-plugin-react` version is now `^6.4.0`.
+- Chore **(Major update)**:: minimum required `eslint-plugin-promise` version is now `^3.0.0`.
 
 # 21.0.0 - 2016-10-3
 
 - Added **(Major update)**:: `import/first` rule.
-- Chore **(Major update)**:: update a minimal version of `eslint-plugin-import` from `1.16.0` to `2.0.0`.
-- Chore **(Major update)**:: update a minimal version of `eslint` from `3.6.1` to `3.7.0`.
-- Chore **(Major update)**: update a minimal version of `babel-core` from `6.13.0` to `6.17.0`.
+- Chore **(Major update)**:: minimum required `eslint-plugin-import` version is now `^2.0.0`.
+- Chore **(Major update)**:: minimum required `eslint` version is now `^3.7.0`.
+- Chore **(Major update)**: minimum required `babel-core` version is now `^6.17.0`.
 - Chore: remove nodejs 4 from `travis`. Bugs now, need investigation, but work.
 - Removed: `import/imports-first` rule.
 
 # 20.0.2 - 2016-09-26
 
 - Chore **(Major update)**: update `ecmaVersion` from `7` to `8` in `cssnext` preset.
-- Chore **(Major update)**: update a minimal version of `eslint` from `3.6.0` to `3.6.1`.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.6.1`.
 
 # 20.0.1 - 2016-09-26
 
@@ -107,9 +113,9 @@
 - Changed: `import/extensions` have default `never` option.
 - Chore: use `^` instead `~` for `package-schema` package.
 - Chore: use `^` instead `~` for `ajv-cli` package.
-- Chore: update a minimal version of `ajv-cli` from `0.9.0` to `1.1.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-ava` from `3.0.0` to `3.1.0`.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-node` from `2.0.0` to `2.1.1`.
+- Chore: minimum required `ajv-cli` version is now `^1.1.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-ava` version is now `^3.1.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^2.1.1`.
 - Chore: rename `eslint-plugin-xo` to `eslint-plugin-unicorn`.
 - Chore: improve `.gitattributes`.
 - Fixed: all rules of `eslint-plugin-node` now works with `jsx`.
@@ -119,28 +125,28 @@
 # 19.0.0 - 2016-09-24
 
 - Added **(Major update)**: `import/no-absolute-path` rule.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-import` from `1.15.0` to `1.16.0`.
-- Chore **(Major update)**: update a minimal version of `eslint` from `3.5.0` to `3.6.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^1.16.0`.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.6.0`.
 - Chore: change `unix` to `always` in `eol-last` rule.
 
 # 18.0.0
 
 - Added **(Major update)**: `react/no-children-prop` rule.
 - Added **(Major update)**: `react/no-unescaped-entities` rule.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-react` from `6.2.0` to `6.3.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.3.0`.
 
 # 17.0.0
 
 - Added **(Major update)**: `xo/catch-error-name` rule.
 - Added **(Major update)**: `explicit-length-check` rule.
 - Added **(Major update)**: `xo/throw-new-error` rule.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-xo` from `0.5.0` to `1.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-xo` version is now `^1.0.0`.
 
 # 16.0.0
 
 - Added **(Major update)**: `no-absolute-path` rule.
 - Fixed: use `Object.assign` with first argument `object` for cloning rules.
-- Chore **(Major update)**: update a minimal version of `eslint-plugin-import` from `1.14.0` to `1.15.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^1.15.0`.
 - Chore: improved of tests.
 - Chore: added `deprecated` rules for `eslint`, `eslint-plugin-import` for passed `eslint-find-rules` test.
 - Chore: added `remarkConfig` section to `package.json` for use own `remark-preset-lint-itgalaxy` preset.
@@ -163,7 +169,7 @@
 - Added **(Major update)**: `lines-around-directive` rule.
 - Changed: `FunctionDeclaration` and `FunctionExpression` to `{ "body": 1, "parameters": 1 }` in `indent` rule.
 - Chore: fix link `dependencies` and `devDependencies`.
-- Chore **(Major update)**: update a minimal version of `eslint` to `3.5.0`.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.5.0`.
 
 # 13.0.0
 
@@ -198,8 +204,8 @@
 - Chore: use `Object.assign` instead `merge` package.
 - Chore: use `^` instead `~` for `babel-preset-es2015` package.
 - Chore: use `^` instead `~` for `babel-preset-stage-0` package.
-- Chore: update a minimal version of `remark-cli` from `1.0.0` to `2.0.0`.
-- Chore: update a minimal version of `remark-lint` from `4.0.0` to `5.0.0`.
+- Chore: minimum required `remark-cli` version is now `^2.0.0`.
+- Chore: minimum required `remark-lint` version is now `^5.0.0`.
 - Chore: use `remark-preset-lint-itgalaxy` instead `remark-lint-config-itgalaxy`.
 
 # 11.0.1
@@ -209,7 +215,7 @@
 - Chore: `remark-lint` now lint `markdown` inside the directories.
 - Chore: rename `LICENSE.md` to `LICENSE`.
 - Chore: remove extra `files` from `package.json`.
-- Deps: update a minimal version of `npm-run-all` from `2.3.0` to `3.0.0`.
+- Deps: minimum required `npm-run-all` version is now `^3.0.0`.
 
 # 11.0.0
 
