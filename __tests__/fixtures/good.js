@@ -363,8 +363,26 @@ function FooNewTarget() {
 
 console.log(new FooNewTarget()); // eslint-disable-line no-console
 
-const foo = async () => 1;
+function doSomething() {
+    return new Promise((resolve) => {
+        let result = 0;
 
-foo();
+        result = (result * 2) + 10;
+
+        return resolve(result);
+    });
+}
+
+async function fooAsync() {
+    const result = await doSomething();
+
+    Object.keys(result).forEach((item) => {
+        item.sum += 1;
+    });
+
+    return result;
+}
+
+fooAsync();
 
 export default linter;

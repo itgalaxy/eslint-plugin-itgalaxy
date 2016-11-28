@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+- Added **(Major update)**: `require-await` rule.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.11.0`.
+- Chore: minimum required `nyc` version is now `^10.0.0`.
+
 # 30.0.0 - 2016-11-21
 
 - Chore **(Major update)**: minimum required `eslint` version is now `^3.10.0`.
