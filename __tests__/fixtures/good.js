@@ -30,6 +30,12 @@ function getKey(prefix = '', key = null) {
     return `${prefix}_${key}_value_${realKey}_${new Date(...[2016, 10, 10])}`;
 }
 
+/*
+function deferFn(fn) {
+    return fn();
+}
+*/
+
 const objectVariable = {
     addValue(value) {
         return this.value + value;
@@ -47,7 +53,18 @@ const objectVariable = {
         this.value = value;
     },
 
-    value: 1
+    value: 1,
+
+    getId() {
+        return this.id;
+    },
+
+    getSome() {
+        return 'some';
+    }
+
+    // Need path in eslint, see https://github.com/eslint/eslint/issues/6196
+    // defer: deferFn((config) => (config.exist ? 'exist' : 'non exist'))
 };
 
 objectVariable.log = function (items, options = {}) {
@@ -81,7 +98,7 @@ console.log(obj); // eslint-disable-line no-console
 const has = Object.prototype.hasOwnProperty;
 
 {
-    let foo = 1;
+    let foo = (2 * 10) + objectVariable.value;
     const bar = 1;
 
     foo = bar + 1;
@@ -346,6 +363,9 @@ class PolygonWithBody {
         return this.height * this.width;
     }
 }
+
+// eslint-disable-next-line no-console
+console.log(PolygonWithBody.area());
 
 const squareNotNamed = new PolygonNotNamed(10, 10);
 const squareNamed = new PolygonNamed(10, 10);
