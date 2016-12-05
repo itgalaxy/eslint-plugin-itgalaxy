@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+- Added **(Major update)**: `react/require-default-props` rule.
+- Added **(Major update)**: `react/no-array-index-key` rule.
+- Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.8.0`.
+
 # 31.0.0 - 2016-11-28
 
 - Added **(Major update)**: `require-await` rule.
