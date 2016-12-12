@@ -1,4 +1,15 @@
 {
+    "rules": {
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "sort-keys": "off",
+        "quote-props": [
+            "error",
+            "always"
+        ]
+    },
     "parserOptions": {
         "sourceType": "script"
     }

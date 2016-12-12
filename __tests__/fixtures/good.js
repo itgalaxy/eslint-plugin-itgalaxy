@@ -40,11 +40,23 @@ const objectVariable = {
     addValue(value) {
         return this.value + value;
     },
+
     'data-blah': 5,
+
     getAge() {
         return this.value;
     },
+
+    getId() {
+        return this.id;
+    },
+
+    getSome() {
+        return 'some';
+    },
+
     id: 5,
+
     name: 'San Francisco',
 
     [getKey('enabled')]: true,
@@ -53,15 +65,7 @@ const objectVariable = {
         this.value = value;
     },
 
-    value: 1,
-
-    getId() {
-        return this.id;
-    },
-
-    getSome() {
-        return 'some';
-    }
+    value: 1
 
     // Need path in eslint, see https://github.com/eslint/eslint/issues/6196
     // defer: deferFn((config) => (config.exist ? 'exist' : 'non exist'))

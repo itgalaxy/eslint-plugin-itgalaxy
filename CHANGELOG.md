@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-# Head
+# 33.0.0 - 2016-12-12
 
+- Added: function `Immutable.*` in `capIsNewExceptions` option to `new-cap` rule.
+- Added **(Major update)**: option `balanced: false` to `spaced-comment` rule in `block` section.
+- Added **(Major update)**: `ArrayExpression` and `ObjectExpression` option with value `1` in `indent` rule.
 - Changed: option `allowMultiplePropertiesPerLine` in `object-property-newline` is now `true`.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.12.0`.
 
 # 32.0.0 - 2016-12-05
 

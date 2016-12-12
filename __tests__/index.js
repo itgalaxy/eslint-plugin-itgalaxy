@@ -50,8 +50,8 @@ test('load `all` plugin config in eslint to validate all rule syntax is correct'
     config.rules['react/jsx-filename-extension'] = 'off';
 
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
+        baseConfig: config,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText('const value = 100;\n\nfunction foo() {\n    return 1;\n}\n\nfoo(value);\n');
@@ -70,8 +70,8 @@ test('load `ava` plugin config in eslint to validate all rule syntax is correct'
     t.true(hasAvaPlugin, 'there is ava plugin');
 
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
+        baseConfig: config,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText(
@@ -89,8 +89,8 @@ test('load `ava` plugin config in eslint to validate all rule syntax is correct'
 test('load `core` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const config = configs.core;
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
+        baseConfig: config,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText('(function () {\n    \'use strict\';\n\n    (123).toString();\n}());\n');
@@ -106,8 +106,8 @@ test('load `core` plugin config in eslint to validate all rule syntax is correct
 test('load `es5` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const config = configs.es5;
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
+        baseConfig: config,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText('(function () {\n    \'use strict\';\n\n    (123).toString();\n}());\n');
@@ -126,8 +126,8 @@ test('load `esnext` plugin config in eslint to validate all rule syntax is corre
     config.extends = [];
 
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
+        baseConfig: config,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText('let foo = 0;\n\n    foo += 1;\n');
@@ -142,8 +142,8 @@ test('load `esnext` plugin config in eslint to validate all rule syntax is corre
 
 test('load `lodash` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: configs.lodash
+        baseConfig: configs.lodash,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText(
@@ -160,8 +160,8 @@ test('load `lodash` plugin config in eslint to validate all rule syntax is corre
 
 test('load `node` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: configs.node
+        baseConfig: configs.node,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText('module.export = 1;\n');
@@ -182,8 +182,8 @@ test('load `react` plugin config in eslint to validate all rule syntax is correc
     config.rules['react/jsx-filename-extension'] = 'off';
 
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: config
+        baseConfig: config,
+        useEslintrc: false
     });
 
     const report = cli.executeOnText('var React = require(\'react\');var Hello = <div>{\'test\'}</div>');
@@ -197,8 +197,8 @@ test('load `react` plugin config in eslint to validate all rule syntax is correc
 
 test('integration tests for `esnext`', (t) => {
     const cli = new eslint.CLIEngine({
-        useEslintrc: false,
-        baseConfig: configs.esnext
+        baseConfig: configs.esnext,
+        useEslintrc: false
     });
 
     const report = cli.executeOnFiles([path.resolve(__dirname, './fixtures/good.js')]);
