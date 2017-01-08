@@ -176,10 +176,12 @@ function getFullName(user) {
 }
 
 function processInput(input = [0, 0, 0, 0]) {
-    const left = input[0];
-    const right = input[1];
-    const top = input[2];
-    const bottom = input[3];
+    const [
+        left,
+        right,
+        top,
+        bottom
+    ] = input;
 
     // then a miracle occurs
     return {

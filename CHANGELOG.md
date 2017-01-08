@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+- Added **(Major update)**: `prefer-destructuring` rule.
+
 # 33.0.0 - 2016-12-12
 
 - Added: function `Immutable.*` in `capIsNewExceptions` option to `new-cap` rule.

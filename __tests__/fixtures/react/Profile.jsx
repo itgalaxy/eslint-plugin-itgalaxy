@@ -2,7 +2,7 @@ import React from 'react';
 
 class Profile extends React.Component {
     render() {
-        const data = this.props.data;
+        const { data } = this.props;
         const followers = `${data.homeUrl}/followers`;
         const repositories = `${data.homeUrl}?tab=repositories`;
         const following = `${data.homeUrl}/following`;

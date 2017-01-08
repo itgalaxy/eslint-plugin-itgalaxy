@@ -10,7 +10,7 @@ class SearchProfile extends React.Component {
     }
 
     fetchProfile(username) {
-        let data = this.props.data;
+        let { data } = this.props;
         const url = `${API}/${username}`;
 
         fetch(url)
