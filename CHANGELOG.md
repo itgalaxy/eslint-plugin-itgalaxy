@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-# Head
+# 34.0.0 - 2017-01-08
 
 - Added **(Major update)**: `prefer-destructuring` rule.
 - Chore **(Major update)**: minimum required `eslint` version is now `^3.13.0`.
