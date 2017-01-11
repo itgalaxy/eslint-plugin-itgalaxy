@@ -12,13 +12,13 @@ function dash2CamelCase(input) {
     return input.replace(/-([a-z])/g, (found) => found[1].toUpperCase());
 }
 
-test('basic properties of config', (t) => {
-    t.true(isObject(configs), 'configs is object');
+test('should the config is an object', (t) => {
+    t.true(isObject(configs), 'configs is an object');
 });
 
-test('eslint and eslint cli present', (t) => {
-    t.true(isObject(eslint), 'eslint is present');
-    t.true(typeof eslint.CLIEngine === 'function', 'eslint cli engine is present');
+test('should the `eslint` and the `eslint` CLI present', (t) => {
+    t.true(isObject(eslint), 'the `eslint` is present');
+    t.true(typeof eslint.CLIEngine === 'function', 'the `eslint` cli engine is present');
 });
 
 test('should all configs are present in exports', (t) => {
@@ -42,7 +42,7 @@ test('should all configs are present in exports', (t) => {
     t.deepEqual(actual, excepted, 'all configs are present in export');
 });
 
-test('load `all` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `all` plugin config in the `eslint` to validate all rule syntax is correct', (t) => {
     const config = configs.all;
 
     config.extends = [];
@@ -63,7 +63,7 @@ test('load `all` plugin config in eslint to validate all rule syntax is correct'
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `ava` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `ava` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
     const config = configs.ava;
     const hasAvaPlugin = config.plugins.indexOf('ava') !== -1;
 
@@ -86,7 +86,7 @@ test('load `ava` plugin config in eslint to validate all rule syntax is correct'
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `core` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `core` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
     const config = configs.core;
     const cli = new eslint.CLIEngine({
         baseConfig: config,
@@ -103,7 +103,7 @@ test('load `core` plugin config in eslint to validate all rule syntax is correct
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `es5` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `es5` plugin config in eslint to validate all rule syntax is correct', (t) => {
     const config = configs.es5;
     const cli = new eslint.CLIEngine({
         baseConfig: config,
@@ -120,7 +120,7 @@ test('load `es5` plugin config in eslint to validate all rule syntax is correct'
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `esnext` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
     const config = configs.esnext;
 
     config.extends = [];
@@ -140,7 +140,7 @@ test('load `esnext` plugin config in eslint to validate all rule syntax is corre
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `lodash` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `lodash` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
     const cli = new eslint.CLIEngine({
         baseConfig: configs.lodash,
         useEslintrc: false
@@ -158,7 +158,7 @@ test('load `lodash` plugin config in eslint to validate all rule syntax is corre
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `node` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `node` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
     const cli = new eslint.CLIEngine({
         baseConfig: configs.node,
         useEslintrc: false
@@ -174,7 +174,7 @@ test('load `node` plugin config in eslint to validate all rule syntax is correct
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
-test('load `react` plugin config in eslint to validate all rule syntax is correct', (t) => {
+test('should load the `react` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
     const config = configs.react;
 
     config.extends = [];
