@@ -48,7 +48,7 @@
         "eslint-ava-rule-tester": "^2.0.0",
         "eslint-find-rules": "^1.13.0",
         "npmpub": "^3.1.0",
-        "npm-run-all": "^4.0.0",
+        "npm-run-all": "^4.0.1",
         "nyc": "^10.0.0",
         "package-schema": "^1.0.0",
         "react": "^15.0.0",
