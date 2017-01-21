@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Added **(Major update)**: `no-multi-assign` rule.
 - Added **(Major update)**: `prefer-promise-reject-errors` rule.
+- Changed: `ignoreJSX` option is now `multi-line` in `no-extra-parens`.
 - Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.3.0`.
 
 # 35.0.0 - 2017-01-11
