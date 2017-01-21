@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 # Head
 
+- Added **(Major update)**: `no-multi-assign` rule.
 - Added **(Major update)**: `prefer-promise-reject-errors` rule.
 - Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.3.0`.
 
