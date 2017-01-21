@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-# Head
+# 36.0.0 - 2017-01-21
 
 - Added **(Major update)**: `no-multi-assign` rule.
 - Added **(Major update)**: `prefer-promise-reject-errors` rule.
