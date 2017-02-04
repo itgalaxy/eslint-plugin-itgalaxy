@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+- Added **(Major update)**: `template-tag-spacing` rule.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.15.0`.
+
 # 36.0.0 - 2017-01-21
 
 - Added **(Major update)**: `no-multi-assign` rule.
