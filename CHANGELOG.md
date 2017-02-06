@@ -13,8 +13,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added **(Major update)**: `unicorn/no-hex-escape` rule.
 - Added **(Major update)**: `unicorn/custom-error-definition` rule.
 - Added **(Major update)**: `unicorn/prefer-starts-ends-with` rule.
+- Added **(Major update)**: `jsx-a11y/accessible-emoji` rule.
+- Added **(Major update)**: `jsx-a11y/aria-activedescendant-has-tabindex` rule.
+- Added **(Major update)**: `jsx-a11y/iframe-has-title` rule.
 - Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^4.0.0`.
 - Chore **(Major update)**: minimum required `eslint-plugin-unicorn ` version is now `^2.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y ` version is now `^4.0.0`.
 
 # 37.0.0 - 2017-02-04
 
