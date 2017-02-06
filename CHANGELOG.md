@@ -6,7 +6,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 # Head
 
+- Added **(Major update)**: `unicorn/number-literal-case` rule.
+- Added **(Major update)**: `unicorn/escape-case` rule.
+- Added **(Major update)**: `unicorn/no-array-instanceof` rule.
+- Added **(Major update)**: `unicorn/no-new-buffer` rule.
+- Added **(Major update)**: `unicorn/no-hex-escape` rule.
+- Added **(Major update)**: `unicorn/custom-error-definition` rule.
+- Added **(Major update)**: `unicorn/prefer-starts-ends-with` rule.
 - Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^4.0.0`.
+- Chore **(Major update)**: minimum required `eslint-plugin-unicorn ` version is now `^2.0.0`.
 
 # 37.0.0 - 2017-02-04
 
