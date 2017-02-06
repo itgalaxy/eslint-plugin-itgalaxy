@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+- Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^4.0.0`.
+
 # 37.0.0 - 2017-02-04
 
 - Added **(Major update)**: `template-tag-spacing` rule.
