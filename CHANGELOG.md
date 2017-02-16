@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# 39.0.0 - 2017-02-16
+
+- Added **(Major update)**: `react/forbid-foreign-prop-types` rule.
+- Added **(Major update)**: `react/void-dom-elements-no-children` rule.
+- Changed: set `maximum` to `1` and `when` to `multiline` in `react/jsx-max-props-per-line` rule.
+- Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.10.0`.
+
 # 38.0.0 - 2017-02-06
 
 - Added **(Major update)**: `unicorn/number-literal-case` rule.

@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-itgalaxy",
-    "version": "38.0.0",
+    "version": "39.0.0",
     "description": "itgalaxy org's ESLint rules and configs.",
     "keywords": [
         "eslint",
@@ -33,7 +33,7 @@
         "eslint-plugin-lodash": "^2.3.2",
         "eslint-plugin-node": "^4.0.0",
         "eslint-plugin-promise": "^3.4.0",
-        "eslint-plugin-react": "^6.9.0",
+        "eslint-plugin-react": "^6.10.0",
         "eslint-plugin-unicorn": "^2.0.0"
     },
     "devDependencies": {
@@ -65,7 +65,7 @@
         "eslint-plugin-lodash": "^2.3.0",
         "eslint-plugin-node": "^4.0.0",
         "eslint-plugin-promise": "^3.4.0",
-        "eslint-plugin-react": "^6.9.0",
+        "eslint-plugin-react": "^6.10.0",
         "eslint-plugin-unicorn": "^2.0.0"
     },
     "scripts": {
