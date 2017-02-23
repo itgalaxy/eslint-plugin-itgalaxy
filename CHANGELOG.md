@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+- Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^4.1.0`.
+
 # 39.0.0 - 2017-02-16
 
 - Added **(Major update)**: `react/forbid-foreign-prop-types` rule.
