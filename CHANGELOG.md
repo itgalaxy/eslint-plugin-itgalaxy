@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-# Head
+# 41.0.0 - 2017-02-23
 
 - Changed: set `ignoreIndirectDependencies` to `true` in `node/no-hide-core-modules` rule.
 
