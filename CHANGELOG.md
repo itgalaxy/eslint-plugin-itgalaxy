@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 # Head
 
+- Added **(Major update)**: `node/no-hide-core-modules` rule.
 - Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^4.1.0`.
 
 # 39.0.0 - 2017-02-16
