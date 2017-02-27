@@ -53,9 +53,8 @@
         "package-schema": "^1.0.0",
         "react": "^15.0.0",
         "react-dom": "^15.0.0",
-        "remark-cli": "^2.0.0",
-        "remark-lint": "^5.0.0",
-        "remark-preset-lint-itgalaxy": "^4.0.0"
+        "remark-cli": "^3.0.0",
+        "remark-preset-lint-itgalaxy": "^5.0.0"
     },
     "peerDependencies": {
         "eslint": "^3.15.0",
@@ -74,7 +73,7 @@
         "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
         "lint:package": "ajv -s ./node_modules/package-schema/schema.json -d package --errors=text",
         "lint:eslint": "eslint . --ignore-path .gitignore",
-        "lint:remark": "remark '{**/*,*}.md' -i .gitignore -f -q",
+        "lint:remark": "remark . -i .gitignore -f -q",
         "lint": "npm-run-all -l -p lint:**",
 
         "ava": "nyc ava --verbose '**/__tests__/**/*.js'",
@@ -103,7 +102,7 @@
         "root": true
     },
     "remarkConfig": {
-        "presets": [
+        "plugins": [
             "remark-preset-lint-itgalaxy"
         ]
     }
