@@ -4,6 +4,7 @@
 [![Travis Build Status](https://img.shields.io/travis/itgalaxy/eslint-plugin-itgalaxy/master.svg?label=build)](https://travis-ci.org/itgalaxy/eslint-plugin-itgalaxy) 
 [![dependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy) 
 [![devDependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/dev-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy?type=dev)
+[![peerDependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/peer-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy?type=peer)
 
 Itgalaxy’s ESLint rules and configs.
 
