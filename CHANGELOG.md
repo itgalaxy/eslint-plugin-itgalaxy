@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# 42.0.0 - 2017-03-06
+
+- Added **(Major update)**: `no-compare-neg-zero` rule.
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.17.0`.
+
 # 41.0.0 - 2017-02-23
 
 - Changed: set `ignoreIndirectDependencies` to `true` in `node/no-hide-core-modules` rule.
