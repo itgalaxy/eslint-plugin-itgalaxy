@@ -76,18 +76,18 @@ Coming soon
 
 This plugin provides the following core configurations:
 
-- [all](lib/config/all.js): Use only for internal testing.
-- [core](lib/config/core.js): Use for internal purposes.
-- [es5](lib/config/es5.js): Use this for legacy projects.
-- [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
-- [node](lib/config/node.js):  Use this for nodejs projects.
-- [react](lib/config/react.js): Use this for React projects.
+-   [all](lib/config/all.js): Use only for internal testing.
+-   [core](lib/config/core.js): Use for internal purposes.
+-   [es5](lib/config/es5.js): Use this for legacy projects.
+-   [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
+-   [node](lib/config/node.js):  Use this for nodejs projects.
+-   [react](lib/config/react.js): Use this for React projects.
 
 This plugin also provides the following tool-specific configurations, which can be used on top 
 of the core configurations:
 
-- [ava](lib/config/ava.js): Use this for projects that use the [AVA test runner](https://github.com/sindresorhus/ava).
-- [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
+-   [ava](lib/config/ava.js): Use this for projects that use the [AVA test runner](https://github.com/sindresorhus/ava).
+-   [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
 
 ## Creating New Rules
 
