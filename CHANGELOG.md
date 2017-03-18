@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+-   Chore **(Major update)**: minimum required `eslint` version is now `^3.18.0`.
+
 # 43.0.0 - 2017-03-07
 
 -   Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^4.2.0`.
