@@ -411,4 +411,10 @@ async function fooAsync() {
 
 fooAsync();
 
+function tag(strings) {
+    return strings.raw[0];
+}
+
+tag`string text line 1 \n string text line 2`;
+
 export default linter;
