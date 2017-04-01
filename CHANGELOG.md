@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 # Head
 
+-   Added **(Major update)**: `lodash/prefer-some` rule.
 -   Chore **(Major update)**: minimum required `eslint` version is now `^3.19.0`.
 
 # 44.0.0 -2017-03-18
