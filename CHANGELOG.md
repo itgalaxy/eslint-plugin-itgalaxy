@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# Head
+
+-   Chore **(Major update)**: minimum required `eslint` version is now `^3.19.0`.
+
 # 44.0.0 -2017-03-18
 
 -   Added: `allowTaggedTemplates` with `true` value in `no-unused-expressions` rule.
