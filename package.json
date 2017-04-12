@@ -22,10 +22,6 @@
     "homepage": "https://github.com/itgalaxy/eslint-plugin-itgalaxy",
     "bugs": "https://github.com/itgalaxy/eslint-plugin-itgalaxy/issues",
     "main": "index.js",
-    "files": [
-        "lib",
-        "index.js"
-    ],
     "dependencies": {
         "eslint-plugin-ava": "^4.0.0",
         "eslint-plugin-import": "^2.2.0",
