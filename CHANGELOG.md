@@ -6,7 +6,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 # Head
 
+-   Added: `jsx-a11y/interactive-supports-focus` rule.
+-   Added: `jsx-a11y/no-noninteractive-element-interactions` rule.
+-   Added: `jsx-a11y/media-has-caption` rule.
+-   Added: `jsx-a11y/no-interactive-element-to-noninteractive-role` rule.
+-   Added: `jsx-a11y/no-noninteractive-element-to-interactive-role` rule.
+-   Added: `jsx-a11y/no-noninteractive-tabindex` rule.
+-   Added: `jsx-a11y/alt-text` rule.
+-   Changed: `jsx-a11y/no-static-element-interactions` options.
 -   Chore: reduce package size.
+-   Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^5.0.0`.
+-   Removed: `jsx-a11y/img-has-alt` rule.
+-   Removed: `jsx-a11y/onclick-has-role` rule.
+-   Removed: `jsx-a11y/onclick-has-focus` rule.
 
 # 45.0.0 - 2017-04-01
 
