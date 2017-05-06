@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 -   Added: `jsx-a11y/no-noninteractive-tabindex` rule.
 -   Added: `jsx-a11y/alt-text` rule.
 -   Changed: `jsx-a11y/no-static-element-interactions` options.
+-   Changed: `jsx-a11y/no-distracting-elements` to `error` always.
 -   Chore: reduce package size.
 -   Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^5.0.0`.
 -   Removed: `jsx-a11y/img-has-alt` rule.
