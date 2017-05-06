@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-class Profile extends React.Component {
+class Profile extends React.PureComponent {
     render() {
         const { data } = this.props;
         const followers = `${data.homeUrl}/followers`;
@@ -10,8 +11,8 @@ class Profile extends React.Component {
         if (data.notFound === 'Not Found') {
             return (
                 <div className="notfound">
-                    <h2>{'Oops !!!'}</h2>
-                    <p>{'The Component Couldn\'t Find The You Were Looking For. Try Again'}</p>
+                    <h2>Oops !!!</h2>
+                    <p>The Component Couldn&apos;t Find The You Were Looking For. Try Again</p>
                 </div>
             );
         }
@@ -49,7 +50,7 @@ class Profile extends React.Component {
                                 title="Number Of Followers"
                             >
                                 <i>{data.followers}</i>
-                                <span>{'Followers'}</span>
+                                <span>Followers</span>
                             </a>
                         </li>
                         <li>
@@ -60,7 +61,7 @@ class Profile extends React.Component {
                                 title="Number Of Repositoriy"
                             >
                                 <i>{data.repos}</i>
-                                <span>{'Repositoriy'}</span>
+                                <span>Repositoriy</span>
                             </a>
                         </li>
                         <li>
@@ -71,7 +72,7 @@ class Profile extends React.Component {
                                 title="Number Of Following"
                             >
                                 <i>{data.following}</i>
-                                <span>{'Following'}</span>
+                                <span>Following</span>
                             </a>
                         </li>
                     </ul>
@@ -82,7 +83,7 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    data: React.PropTypes.string.isRequired
+    data: PropTypes.string.isRequired
 };
 
 export default Profile;

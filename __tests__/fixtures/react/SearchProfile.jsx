@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const API = 'https://api.github.com/users';
@@ -57,7 +58,7 @@ class SearchProfile extends React.Component {
 }
 
 SearchProfile.propTypes = {
-    data: React.PropTypes.string.isRequired
+    data: PropTypes.string.isRequired
 };
 
 export default SearchProfile;

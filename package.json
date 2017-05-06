@@ -29,7 +29,7 @@
         "eslint-plugin-lodash": "^2.3.2",
         "eslint-plugin-node": "^4.2.0",
         "eslint-plugin-promise": "^3.4.0",
-        "eslint-plugin-react": "^6.10.0",
+        "eslint-plugin-react": "^7.0.0",
         "eslint-plugin-unicorn": "^2.0.0"
     },
     "devDependencies": {
@@ -47,6 +47,7 @@
         "npm-run-all": "^4.0.1",
         "nyc": "^10.0.0",
         "package-schema": "^1.0.0",
+        "prop-types": "^15.5.8",
         "react": "^15.0.0",
         "react-dom": "^15.0.0",
         "remark-cli": "^3.0.0",
@@ -60,7 +61,7 @@
         "eslint-plugin-lodash": "^2.3.0",
         "eslint-plugin-node": "^4.2.0",
         "eslint-plugin-promise": "^3.4.0",
-        "eslint-plugin-react": "^6.10.0",
+        "eslint-plugin-react": "^7.0.0",
         "eslint-plugin-unicorn": "^2.0.0"
     },
     "scripts": {
@@ -72,9 +73,9 @@
         "lint:remark": "remark . -i .gitignore -f -q",
         "lint": "npm-run-all -l -p lint:**",
 
-        "ava": "nyc ava --verbose '**/__tests__/**/*.js'",
         "pretest": "npm run lint",
-        "test": "npm run ava",
+        "test-only": "nyc ava --verbose '**/__tests__/**/*.js'",
+        "test": "npm run test-only",
 
         "release": "npmpub"
     },

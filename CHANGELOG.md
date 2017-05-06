@@ -2,7 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
-This project adheres to [Semantic Versioning](http://semver.org/).
+This project adheres to [Semantic Versioning](http://semver.org/). 
+Except add new rule (it is breaking changed by default).
 
 # Head
 
@@ -13,10 +14,28 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 -   Added: `jsx-a11y/no-noninteractive-element-to-interactive-role` rule.
 -   Added: `jsx-a11y/no-noninteractive-tabindex` rule.
 -   Added: `jsx-a11y/alt-text` rule.
+-   Added: `react/no-is-mounted` rule.
+-   Added: `react/prefer-stateless-function` rule.
+-   Added: `react/no-unused-prop-types` rule.
 -   Changed: `jsx-a11y/no-static-element-interactions` options.
 -   Changed: `jsx-a11y/no-distracting-elements` to `error` always.
+-   Changed: `react/jsx-wrap-multilines` require parentheses around arrow (functions and expressions).
+-   Changed: `react/jsx-sort-props` is now ignore case.
+-   Changed: `react/jsx-sort-props` is now not require shorthand first.
+-   Changed: `react/jsx-sort-props` is now not require sort alphabetically.
+-   Changed: `react/jsx-pascal-case` is now allow components name in all caps.
+-   Changed: `react/jsx-no-duplicate-props` is now ignore case.
+-   Changed: `react/jsx-filename-extension` is now only support `jsx` extension.
+-   Changed: `react/sort-prop-types` is now ignore case.
+-   Changed: `react/sort-prop-types` is now not require require first.
+-   Changed: `react/sort-prop-types` is now not require callback last.
+-   Changed: `react/forbid-prop-types` is now report on `object`.
+-   Chore: `react/jsx-no-literals` is now disabled.
+-   Chore: `react/forbid-foreign-prop-types` is now disabled.
+-   Chore: `react/jsx-space-before-closing` is now disabled.
 -   Chore: reduce package size.
 -   Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^5.0.0`.
+-   Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^7.0.0`.
 -   Removed: `jsx-a11y/img-has-alt` rule.
 -   Removed: `jsx-a11y/onclick-has-role` rule.
 -   Removed: `jsx-a11y/onclick-has-focus` rule.

@@ -33,14 +33,15 @@ class App extends React.Component {
                     <Profile data={this.state} />
                 </section>
                 <span className="hesmaili">
-                    {'GitHub Card With ReactJs - Created By'}
+                    GitHub Card With ReactJs - Created By
                     <a
                         href="https://twitter.com/hesmaili95"
                         rel="noopener noreferrer"
                         target="_blank"
                         title="Hamed Esmaili"
                     >
-                        {'Hamed Esmaili'}
+                        <SearchProfile data={this.state} />
+                        Hamed Esmaili
                     </a>
                 </span>
             </div>
