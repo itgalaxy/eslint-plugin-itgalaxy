@@ -34,7 +34,7 @@ Except add new rule (it is breaking changed by default).
 -   Chore: `react/forbid-foreign-prop-types` is now disabled.
 -   Chore: `react/jsx-space-before-closing` is now disabled.
 -   Chore: reduce package size.
--   Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^5.0.0`.
+-   Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^5.0.1`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^7.0.0`.
 -   Removed: `jsx-a11y/img-has-alt` rule.
 -   Removed: `jsx-a11y/onclick-has-role` rule.
