@@ -5,6 +5,7 @@
 [![dependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy) 
 [![devDependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/dev-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy?type=dev)
 [![peerDependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/peer-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy?type=peer)
+[![Greenkeeper badge](https://badges.greenkeeper.io/itgalaxy/eslint-plugin-itgalaxy.svg)](https://greenkeeper.io/)
 
 Itgalaxy’s ESLint rules and configs.
 
