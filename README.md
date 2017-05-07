@@ -1,5 +1,7 @@
 # eslint-plugin-itgalaxy
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/itgalaxy/eslint-plugin-itgalaxy.svg)](https://greenkeeper.io/)
+
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-itgalaxy.svg)](https://www.npmjs.org/package/eslint-plugin-itgalaxy) 
 [![Travis Build Status](https://img.shields.io/travis/itgalaxy/eslint-plugin-itgalaxy/master.svg?label=build)](https://travis-ci.org/itgalaxy/eslint-plugin-itgalaxy) 
 [![dependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy) 
