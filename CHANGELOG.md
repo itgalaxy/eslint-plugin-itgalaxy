@@ -8,6 +8,7 @@ Except add new rule (it is breaking changed by default).
 # Head
 
 -   Added: `jest` preset.
+-   Changed: use all `plugins` as `peerDependencies`.
 -   Fixed: use `ecmaVersion: 8` for `all` preset. 
 -   Removed: `parserOptions` from `ava` preset.
 
