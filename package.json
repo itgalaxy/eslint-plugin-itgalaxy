@@ -30,7 +30,8 @@
         "eslint-plugin-node": "^4.2.0",
         "eslint-plugin-promise": "^3.4.0",
         "eslint-plugin-react": "^7.0.0",
-        "eslint-plugin-unicorn": "^2.0.0"
+        "eslint-plugin-unicorn": "^2.0.0",
+        "eslint-plugin-jest": "^20.0.1"
     },
     "devDependencies": {
         "ava": "^0.19.0",
@@ -62,7 +63,8 @@
         "eslint-plugin-node": "^4.2.0",
         "eslint-plugin-promise": "^3.4.0",
         "eslint-plugin-react": "^7.0.0",
-        "eslint-plugin-unicorn": "^2.0.0"
+        "eslint-plugin-unicorn": "^2.0.0",
+        "eslint-plugin-jest": "^20.0.1"
     },
     "scripts": {
         "coveralls": "nyc report --reporter=text-lcov | coveralls",

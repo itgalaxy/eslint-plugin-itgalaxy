@@ -195,6 +195,31 @@ test('should load the `react` plugin config in `eslint` to validate all rule syn
     t.is(report.warningCount, 0, 'eslint report without warnings');
 });
 
+test.only('should load the `jest` plugin config in `eslint` to validate all rule syntax is correct', (t) => {
+    const config = configs.jest;
+    const hasJestPlugin = config.plugins.indexOf('jest') !== -1;
+
+    t.true(hasJestPlugin, 'there is jest plugin');
+
+    const cli = new eslint.CLIEngine({
+        baseConfig: config,
+        useEslintrc: false
+    });
+
+    const report = cli.executeOnText(
+        '(function () {\n    \'use strict\';\n    var foo = 0;\n\n    foo += 1;\n}());\n'
+    );
+
+    t.true(isObject(report), 'eslint execute is success');
+    t.true(isObject(report.results), 'report is object');
+
+    console.log(report.results[0].messages)
+
+    t.is(report.results.length, 1, 'eslint report with one results');
+    t.is(report.errorCount, 0, 'eslint report without errors');
+    t.is(report.warningCount, 0, 'eslint report without warnings');
+});
+
 test('integration tests for `esnext`', (t) => {
     const cli = new eslint.CLIEngine({
         baseConfig: configs.esnext,

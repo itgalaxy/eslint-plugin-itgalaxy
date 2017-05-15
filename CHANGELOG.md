@@ -7,7 +7,9 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
--   Fixed: use `ecmaVersion: 8` for `all` and `ava` presets. 
+-   Added: `jest` preset.
+-   Fixed: use `ecmaVersion: 8` for `all` preset. 
+-   Removed: `parserOptions` from `ava` preset.
 
 # 46.0.0 - 2017-05-07
 

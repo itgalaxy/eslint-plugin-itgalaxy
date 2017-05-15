@@ -87,8 +87,9 @@ This plugin provides the following core configurations:
 This plugin also provides the following tool-specific configurations, which can be used on top 
 of the core configurations:
 
--   [ava](lib/config/ava.js): Use this for projects that use the [AVA test runner](https://github.com/sindresorhus/ava).
+-   [ava](lib/config/ava.js): Use this for projects that use the [AVA](https://github.com/sindresorhus/ava).
 -   [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
+-   [jest](lib/config/jest.js): Use this for projects that use the [Jest](https://github.com/facebook/jest).
 
 ## Creating New Rules
 
