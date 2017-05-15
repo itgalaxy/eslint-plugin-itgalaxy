@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/). 
 Except add new rule (it is breaking changed by default).
 
+# Head
+
+-   Fixed: use `ecmaVersion: 8` for `all` and `ava` presets. 
+
 # 46.0.0 - 2017-05-07
 
 -   Added: `jsx-a11y/interactive-supports-focus` rule.
