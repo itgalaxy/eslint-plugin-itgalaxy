@@ -8,9 +8,14 @@ Except add new rule (it is breaking changed by default).
 # Head
 
 -   Added: `jest` preset.
+-   Added: `node/no-extraneous-import` rule.
+-   Added: `node/no-extraneous-require` rule.
 -   Changed: use all `plugins` as `peerDependencies`.
 -   Fixed: use `ecmaVersion: 8` for `all` preset. 
 -   Removed: `parserOptions` from `ava` preset.
+-   Chore: minimum required `eslint-plugin-node` version is now `~5.0.0`.
+-   Changed: remove `version` from `node/no-unsupported-features` rule.
+-   Changed: `node/no-unsupported-features` have `error` several.
 
 # 46.0.0 - 2017-05-07
 
