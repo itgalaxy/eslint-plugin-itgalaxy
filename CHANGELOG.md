@@ -8,6 +8,7 @@ Except add new rule (it is breaking changed by default).
 # Head
 
 -   Added: `jest` preset.
+-   Added: `prettier` preset.
 -   Added: `node/no-extraneous-import` rule.
 -   Added: `node/no-extraneous-require` rule.
 -   Changed: use all `plugins` as `peerDependencies`.
@@ -16,6 +17,67 @@ Except add new rule (it is breaking changed by default).
 -   Chore: minimum required `eslint-plugin-node` version is now `~5.0.0`.
 -   Changed: remove `version` from `node/no-unsupported-features` rule.
 -   Changed: `node/no-unsupported-features` have `error` several.
+-   Removed: `array-bracket-spacing` rule.
+-   Removed: `max-len` rule.
+-   Removed: `semi` rule.
+-   Removed: `semi-spacing` rule.
+-   Removed: `rest-spread-spacing` rule.
+-   Removed: `arrow-parens` rule.
+-   Removed: `arrow-spacing` rule.
+-   Removed: `block-spacing` rule.
+-   Removed: `brace-style` rule.
+-   Removed: `comma-dangle` rule.
+-   Removed: `comma-spacing` rule.
+-   Removed: `eol-last` rule.
+-   Removed: `func-call-spacing` rule.
+-   Removed: `indent` rule.
+-   Removed: `arrow-spacing` rule.
+-   Removed: `keyword-spacing` rule.
+-   Removed: `new-parens` rule.
+-   Removed: `wrap-regex` rule.
+-   Removed: `unicode-bom` rule.
+-   Removed: `space-unary-ops` rule.
+-   Removed: `padded-blocks` rule.
+-   Removed: `operator-linebreak` rule.
+-   Removed: `one-var-declaration-per-line` rule.
+-   Removed: `newline-per-chained-call` rule.
+-   Removed: `no-trailing-spaces` rule.
+-   Removed: `comma-style` rule.
+-   Removed: `generator-star-spacing` rule.
+-   Removed: `object-curly-newline` rule.
+-   Removed: `object-curly-spacing` rule.
+-   Removed: `object-property-newline` rule.
+-   Removed: `quotes` rule.
+-   Removed: `computed-property-spacing` rule.
+-   Removed: `key-spacing` rule.
+-   Removed: `space-before-blocks` rule.
+-   Removed: `space-before-function-paren` rule.
+-   Removed: `no-multiple-empty-lines` rule.
+-   Removed: `no-whitespace-before-property` rule.
+-   Removed: `no-tabs` rule.
+-   Removed: `yield-star-spacing` rule.
+-   Removed: `template-tag-spacing` rule.
+-   Removed: `template-curly-spacing` rule.
+-   Removed: `space-infix-ops` rule.
+-   Removed: `space-in-parens` rule.
+-   Removed: `no-mixed-spaces-and-tabs` rule.
+-   Removed: `dot-location` rule.
+-   Removed: `no-extra-parens` rule.
+-   Removed: `no-extra-semi` rule.
+-   Removed: `no-multi-spaces` rule.
+-   Removed: `wrap-iife` rule.
+-   Removed: `no-confusing-arrow` rule.
+-   Removed: `no-mixed-operators` rule.
+-   Removed: `react/jsx-closing-bracket-location` rule.
+-   Removed: `react/no-unescaped-entities` rule.
+-   Removed: `react/jsx-curly-spacing` rule.
+-   Removed: `react/jsx-equals-spacing` rule.
+-   Removed: `react/jsx-first-prop-new-line` rule.
+-   Removed: `react/jsx-indent` rule.
+-   Removed: `react/jsx-indent-props` rule.
+-   Removed: `react/jsx-max-props-per-line` rule.
+-   Removed: `react/jsx-tag-spacing` rule.
+-   Removed: `react/jsx-wrap-multilines` rule.
 
 # 46.0.0 - 2017-05-07
 

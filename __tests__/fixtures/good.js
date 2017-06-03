@@ -1,15 +1,13 @@
-import {
-    CLIEngine,
-    linter
-} from 'eslint';
+import { CLIEngine, linter } from 'eslint';
 import remarkConfig from 'remark-preset-lint-itgalaxy';
 
 const constVariable = 1;
 const arrayVariable = [1, 2];
 const booleanVariable = true;
 const stringVariable = 'Capt. Janeway';
-const errorMessage = 'This is a super long error that was thrown because of Batman. '
-    + 'When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+const errorMessage =
+    'This is a super long error that was thrown because of Batman. ' +
+    'When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 const quotedFoo = '\'this\' is "quoted"';
 const quotedBar = `'this' is "quoted"`;
 
@@ -19,10 +17,10 @@ function getKey(prefix = '', key = null) {
     let realKey = key ? key : null;
 
     if (!realKey) {
-        realKey = Object.prototype.hasOwnProperty.call({
-            key: 'key',
-            value: 'value'
-        }, 'key')
+        realKey = Object.prototype.hasOwnProperty.call(
+            { key: 'key', value: 'value' },
+            'key'
+        )
             ? 'very very very very very very very very very long key'
             : 1;
     }
@@ -71,7 +69,7 @@ const objectVariable = {
     // defer: deferFn((config) => (config.exist ? 'exist' : 'non exist'))
 };
 
-objectVariable.log = function (items, options = {}) {
+objectVariable.log = function(items, options = {}) {
     const concatenateAll = (...args) => args.join('');
 
     return concatenateAll(this.addValue(1).addValue(items), options);
@@ -102,7 +100,7 @@ console.log(obj); // eslint-disable-line no-console
 const has = Object.prototype.hasOwnProperty;
 
 {
-    let foo = (2 * 10) + objectVariable.value;
+    let foo = 2 * 10 + objectVariable.value;
     const bar = 1;
 
     foo = bar + 1;
@@ -137,7 +135,7 @@ fooFunc(() => {
     itemsCopy.push('random string');
 }, 1000);
 
-[1, 2, 3].map((value) => {
+[1, 2, 3].map(value => {
     const result = value + 1;
 
     return value * result;
@@ -153,11 +151,8 @@ const flat = {};
     return flatten;
 });
 
-itemsCopy.filter((msg) => {
-    const {
-        subject,
-        author
-    } = msg;
+itemsCopy.filter(msg => {
+    const { subject, author } = msg;
 
     if (subject === 'Mockingbird') {
         return author === 'Harper Lee';
@@ -167,21 +162,13 @@ itemsCopy.filter((msg) => {
 });
 
 function getFullName(user) {
-    const {
-        firstName,
-        lastName
-    } = user;
+    const { firstName, lastName } = user;
 
     return `${firstName} ${lastName}`;
 }
 
 function processInput(input = [0, 0, 0, 0]) {
-    const [
-        left,
-        right,
-        top,
-        bottom
-    ] = input;
+    const [left, right, top, bottom] = input;
 
     // then a miracle occurs
     return {
@@ -196,10 +183,7 @@ function render(data = {}, postition = [0, 0, 0, 0]) {
     return processInput(data, postition);
 }
 
-function getFullNameWithDash({
-    firstName,
-    lastName
-}) {
+function getFullNameWithDash({ firstName, lastName }) {
     return `${firstName}-${lastName}`;
 }
 
@@ -222,9 +206,9 @@ if (booleanVariable) {
     throw new Error(`${errorMessage}: ${quotedFoo} - ${quotedBar}`);
 }
 
-(function () {
+(function() {
     objectVariable.log('Welcome to the Internet. Please follow me.');
-}());
+})();
 
 let test = null;
 
@@ -242,23 +226,20 @@ if (booleanVariable) {
 }));
 
 [1, 2, 3].map(
-    (number) => `As time went by, the string containing the ${number} became much `
-        + 'longer. So we needed to break it over multiple lines.'
+    number =>
+        `As time went by, the string containing the ${number} became much ` +
+        'longer. So we needed to break it over multiple lines.'
 );
 
-const itemHeightFoo = (item) => {
+const itemHeightFoo = item => {
     const smallSize = 100;
     const largeSize = 200;
 
     return item.height > 256 ? smallSize : largeSize;
 };
 
-const itemHeightBar = (item) => {
-    const {
-        height,
-        largeSize,
-        smallSize
-    } = item;
+const itemHeightBar = item => {
+    const { height, largeSize, smallSize } = item;
 
     return height > 256 ? largeSize : smallSize;
 };
@@ -283,11 +264,8 @@ if (hasAge) {
     };
     const realValue = render({
         age
-    })
-        .valueLongLognLongLongValue
-        .valueLongLognLongLongValue
-        .valueLongLognLongLongValue
-        .valueLongLognLongLongValue;
+    }).valueLongLognLongLongValue.valueLongLognLongLongValue
+        .valueLongLognLongLongValue.valueLongLognLongLongValue;
 
     render({
         anotherValue,
@@ -304,7 +282,7 @@ try {
 }
 
 function multiply(multiplier, ...theArgs) {
-    return theArgs.map((element) => multiplier * element);
+    return theArgs.map(element => multiplier * element);
 }
 
 multiply(2, 1, 2, 3);
@@ -314,7 +292,7 @@ const numbers = [0, 1, 2];
 multiply(1, ...numbers);
 
 function fetch() {
-    return new Promise((resolve) => resolve('Some value'));
+    return new Promise(resolve => resolve('Some value'));
 }
 
 async function fetchJson(url) {
@@ -330,10 +308,7 @@ async function fetchJson(url) {
 
 fetchJson('http://some-domain.com');
 
-function trailingCommasInFUnctionSyntax(
-    param1,
-    param2,
-) {
+function trailingCommasInFUnctionSyntax(param1, param2) {
     return `${param1} ${param2}`;
 }
 
@@ -390,10 +365,10 @@ function FooNewTarget() {
 console.log(new FooNewTarget()); // eslint-disable-line no-console
 
 function doSomething() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
         let result = 0;
 
-        result = (result * 2) + 10;
+        result = result * 2 + 10;
 
         return resolve(result);
     });
@@ -402,7 +377,7 @@ function doSomething() {
 async function fooAsync() {
     const result = await doSomething();
 
-    Object.keys(result).forEach((item) => {
+    Object.keys(result).forEach(item => {
         item.sum += 1;
     });
 

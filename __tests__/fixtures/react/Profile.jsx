@@ -12,7 +12,10 @@ class Profile extends React.PureComponent {
             return (
                 <div className="notfound">
                     <h2>Oops !!!</h2>
-                    <p>The Component Couldn&apos;t Find The You Were Looking For. Try Again</p>
+                    <p>
+                        The Component Couldn&apos;t Find The You Were Looking
+                        For. Try Again
+                    </p>
                 </div>
             );
         }

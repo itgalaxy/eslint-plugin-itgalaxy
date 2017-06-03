@@ -1,9 +1,6 @@
 {
     "rules": {
-        "quotes": [
-            "error",
-            "double"
-        ],
+        "quotes": "off",
         "sort-keys": "off",
         "quote-props": [
             "error",

@@ -29,8 +29,20 @@ then you must also install `eslint-plugin-itgalaxy` globally.
 ## Usage
 
 Itgalaxy’s ESLint configs come bundled in this package. In order to use them, you simply extend the relevant 
-configuration in your project’s `.eslintrc`. For example, the following will extend 
-the ESNext (ES2015 and later) config:
+configuration in your project’s `.eslintrc`. 
+
+**Configurations do not contain stylistic rules.** We use [prettier](https://github.com/prettier/prettier) for
+this purpose.
+
+Just extend the `Prettier` version of the configuration (use `eslint --fix` for fast fixing stylistics errors):
+
+```json
+{
+  "extends": "plugin:itgalaxy/prettier"
+}
+```
+
+For example, the following will extend the ESNext (ES2015 and later) config:
 
 ```json
 {
@@ -38,7 +50,7 @@ the ESNext (ES2015 and later) config:
 }
 ```
 
-If using React, extend the React version of the configuration 
+If using React, extend the `React` version of the configuration 
 (which adds some React-specific rules to those in the ESNext config):
 
 ```json
@@ -69,10 +81,6 @@ with the following configuration file:
 }
 ```
 
-## Additional rules
-
-Coming soon
-
 ## Provided configurations
 
 This plugin provides the following core configurations:
@@ -83,6 +91,7 @@ This plugin provides the following core configurations:
 -   [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
 -   [node](lib/config/node.js):  Use this for nodejs projects.
 -   [react](lib/config/react.js): Use this for React projects.
+-   [prettier](lib/config/prettier.js): Use this for stylistics
 
 This plugin also provides the following tool-specific configurations, which can be used on top 
 of the core configurations:

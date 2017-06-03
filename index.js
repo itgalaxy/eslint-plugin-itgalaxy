@@ -12,6 +12,7 @@ const jest = require('./lib/config/jest');
 const lodash = require('./lib/config/lodash');
 const node = require('./lib/config/node');
 const react = require('./lib/config/react');
+const prettier = require('./lib/config/prettier');
 
 const configs = {
     all,
@@ -22,6 +23,7 @@ const configs = {
     jest,
     lodash,
     node,
+    prettier,
     react
 };
 

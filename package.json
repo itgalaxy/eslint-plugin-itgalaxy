@@ -39,19 +39,24 @@
         "nyc": "^11.0.0",
         "package-schema": "^1.0.0",
         "prop-types": "^15.5.8",
+        "prettier": "^1.4.1",
         "react": "^15.0.0",
         "react-dom": "^15.0.0",
         "remark-cli": "^3.0.0",
         "remark-preset-lint-itgalaxy": "^6.0.0",
         "eslint-plugin-ava": "^4.0.0",
+        "eslint-plugin-prettier": "^2.1.1",
         "eslint-plugin-import": "^2.2.0",
         "eslint-plugin-jsx-a11y": "^5.0.1",
         "eslint-plugin-lodash": "^2.3.0",
         "eslint-plugin-node": "^5.0.0",
+        "eslint-config-prettier": "^2.1.1",
         "eslint-plugin-promise": "^3.4.0",
         "eslint-plugin-react": "^7.0.0",
         "eslint-plugin-unicorn": "^2.0.0",
-        "eslint-plugin-jest": "^20.0.1"
+        "eslint-plugin-jest": "^20.0.1",
+        "lint-staged": "^3.6.0",
+        "husky": "^0.13.4"
     },
     "peerDependencies": {
         "eslint": "^3.19.0",
@@ -60,28 +65,42 @@
         "eslint-plugin-jsx-a11y": "^5.0.1",
         "eslint-plugin-lodash": "^2.3.0",
         "eslint-plugin-node": "^5.0.0",
+        "eslint-plugin-prettier": "^2.1.1",
         "eslint-plugin-promise": "^3.4.0",
         "eslint-plugin-react": "^7.0.0",
         "eslint-plugin-unicorn": "^2.0.0",
-        "eslint-plugin-jest": "^20.0.1"
+        "eslint-plugin-jest": "^20.0.1",
+        "prettier": "^1.4.1"
     },
     "engines": {
         "node": ">= 4.2"
     },
     "scripts": {
+        "precommit": "lint-staged",
+
         "coveralls": "nyc report --reporter=text-lcov | coveralls",
 
+        "lint:eslint-check": "eslint --print-config ./lib/config/all.js | eslint-config-prettier-check",
         "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
         "lint:package": "ajv -s ./node_modules/package-schema/schema.json -d package --errors=text",
         "lint:eslint": "eslint . --ignore-path .gitignore",
         "lint:remark": "remark . -i .gitignore -f -q",
         "lint": "npm-run-all -l -p lint:**",
 
+        "formatter:prettier": "eslint . --fix --ignore-path .gitignore",
+        "formatter": "npm-run-all -l -p formatter:**",
+
         "pretest": "npm run lint",
-        "test-only": "nyc ava --verbose '**/__tests__/**/*.js'",
         "test": "npm run test-only",
+        "test-only": "nyc ava --verbose '**/__tests__/**/*.js'",
 
         "release": "npmpub"
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "eslint --fix",
+            "git add"
+        ]
     },
     "ava": {
         "require": "babel-register",
@@ -98,7 +117,8 @@
         "extends": [
             "./lib/config/ava.js",
             "./lib/config/node.js",
-            "./lib/config/esnext.js"
+            "./lib/config/esnext.js",
+            "./lib/config/prettier.js"
         ],
         "root": true
     },

@@ -15,8 +15,8 @@ class SearchProfile extends React.Component {
         const url = `${API}/${username}`;
 
         fetch(url)
-            .then((res) => res.json())
-            .then((response) => {
+            .then(res => res.json())
+            .then(response => {
                 data = {
                     avatar: response.avatar_url,
                     followers: response.followers,
@@ -32,7 +32,7 @@ class SearchProfile extends React.Component {
                 return data;
             })
             // eslint-disable-next-line no-console
-            .catch((error) => console.log(error.stack || error));
+            .catch(error => console.log(error.stack || error));
     }
 
     handleForm(event) {
@@ -49,7 +49,11 @@ class SearchProfile extends React.Component {
             <div className="search--box">
                 <form onSubmit={this.handleForm}>
                     <label htmlFor="username">
-                        <input name="username" placeholder="Type Username + Enter" type="search" />
+                        <input
+                            name="username"
+                            placeholder="Type Username + Enter"
+                            type="search"
+                        />
                     </label>
                 </form>
             </div>

@@ -1,5 +1,12 @@
 {
     "rules": {
-        "node/no-unsupported-features": "off"
-    }
+        "node/no-unsupported-features": "off",
+        "arrow-parens": "off"
+    },
+    "extends": [
+        "../lib/config/ava.js",
+        "../lib/config/node.js",
+        "../lib/config/esnext.js",
+        "../lib/config/prettier.js"
+    ]
 }

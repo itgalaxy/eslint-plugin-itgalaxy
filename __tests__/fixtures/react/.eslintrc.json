@@ -3,7 +3,8 @@
         "browser": true
     },
     "extends": [
-        "../../../lib/config/react.js"
+        "../../../lib/config/react.js",
+        "../../../lib/config/prettier.js"
     ],
     "root": true
 }
