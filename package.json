@@ -97,8 +97,12 @@
         "release": "npmpub"
     },
     "lint-staged": {
-        "*.{js,jsx}": [
+        "*.{js,jsx,babel}": [
             "eslint --fix",
+            "git add"
+        ],
+        "*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown,ron}": [
+            "remark -f -q",
             "git add"
         ]
     },
