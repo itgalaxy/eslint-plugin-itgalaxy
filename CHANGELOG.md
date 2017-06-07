@@ -7,6 +7,7 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
+-   Removed: `unicorn/number-literal-case` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
 
 # 47.0.0 - 2017-06-07
