@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "../lib/config/all.js"
+    ],
+    "root": true
+}

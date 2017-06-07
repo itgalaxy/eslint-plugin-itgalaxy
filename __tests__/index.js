@@ -53,12 +53,12 @@ test('should load the `all` plugin config in the `eslint` to validate all rule s
         'ava',
         'import',
         'jsx-a11y',
+        'promise',
+        'unicorn',
+        'jest',
         'lodash',
         'node',
-        'promise',
-        'react',
-        'unicorn',
-        'jest'
+        'react'
     ]);
 
     config.extends = [];

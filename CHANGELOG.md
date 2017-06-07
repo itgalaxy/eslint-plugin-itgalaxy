@@ -7,6 +7,7 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
+-   Removed: `quote-props` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/number-literal-case` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
 
@@ -22,67 +23,67 @@ Except add new rule (it is breaking changed by default).
 -   Chore: minimum required `eslint-plugin-node` version is now `~5.0.0`.
 -   Changed: remove `version` from `node/no-unsupported-features` rule.
 -   Changed: `node/no-unsupported-features` have `error` several.
--   Removed: `array-bracket-spacing` rule.
--   Removed: `max-len` rule.
--   Removed: `semi` rule.
--   Removed: `semi-spacing` rule.
--   Removed: `rest-spread-spacing` rule.
--   Removed: `arrow-parens` rule.
--   Removed: `arrow-spacing` rule.
--   Removed: `block-spacing` rule.
--   Removed: `brace-style` rule.
--   Removed: `comma-dangle` rule.
--   Removed: `comma-spacing` rule.
--   Removed: `eol-last` rule.
--   Removed: `func-call-spacing` rule.
--   Removed: `indent` rule.
--   Removed: `arrow-spacing` rule.
--   Removed: `keyword-spacing` rule.
--   Removed: `new-parens` rule.
--   Removed: `wrap-regex` rule.
--   Removed: `unicode-bom` rule.
--   Removed: `space-unary-ops` rule.
--   Removed: `padded-blocks` rule.
--   Removed: `operator-linebreak` rule.
--   Removed: `one-var-declaration-per-line` rule.
--   Removed: `newline-per-chained-call` rule.
--   Removed: `no-trailing-spaces` rule.
--   Removed: `comma-style` rule.
--   Removed: `generator-star-spacing` rule.
--   Removed: `object-curly-newline` rule.
--   Removed: `object-curly-spacing` rule.
--   Removed: `object-property-newline` rule.
--   Removed: `quotes` rule.
--   Removed: `computed-property-spacing` rule.
--   Removed: `key-spacing` rule.
--   Removed: `space-before-blocks` rule.
--   Removed: `space-before-function-paren` rule.
--   Removed: `no-multiple-empty-lines` rule.
--   Removed: `no-whitespace-before-property` rule.
--   Removed: `no-tabs` rule.
--   Removed: `yield-star-spacing` rule.
--   Removed: `template-tag-spacing` rule.
--   Removed: `template-curly-spacing` rule.
--   Removed: `space-infix-ops` rule.
--   Removed: `space-in-parens` rule.
--   Removed: `no-mixed-spaces-and-tabs` rule.
--   Removed: `dot-location` rule.
--   Removed: `no-extra-parens` rule.
--   Removed: `no-extra-semi` rule.
--   Removed: `no-multi-spaces` rule.
--   Removed: `wrap-iife` rule.
--   Removed: `no-confusing-arrow` rule.
--   Removed: `no-mixed-operators` rule.
--   Removed: `react/jsx-closing-bracket-location` rule.
--   Removed: `react/no-unescaped-entities` rule.
--   Removed: `react/jsx-curly-spacing` rule.
--   Removed: `react/jsx-equals-spacing` rule.
--   Removed: `react/jsx-first-prop-new-line` rule.
--   Removed: `react/jsx-indent` rule.
--   Removed: `react/jsx-indent-props` rule.
--   Removed: `react/jsx-max-props-per-line` rule.
--   Removed: `react/jsx-tag-spacing` rule.
--   Removed: `react/jsx-wrap-multilines` rule.
+-   Removed: `array-bracket-spacing` rule in favor `prettier/prettier`.
+-   Removed: `max-len` rule in favor `prettier/prettier`.
+-   Removed: `semi` rule in favor `prettier/prettier`.
+-   Removed: `semi-spacing` rule in favor `prettier/prettier`.
+-   Removed: `rest-spread-spacing` rule in favor `prettier/prettier`.
+-   Removed: `arrow-parens` rule in favor `prettier/prettier`.
+-   Removed: `arrow-spacing` rule in favor `prettier/prettier`.
+-   Removed: `block-spacing` rule in favor `prettier/prettier`.
+-   Removed: `brace-style` rule in favor `prettier/prettier`.
+-   Removed: `comma-dangle` rule in favor `prettier/prettier`.
+-   Removed: `comma-spacing` rule in favor `prettier/prettier`.
+-   Removed: `eol-last` rule in favor `prettier/prettier`.
+-   Removed: `func-call-spacing` rule in favor `prettier/prettier`.
+-   Removed: `indent` rule in favor `prettier/prettier`.
+-   Removed: `arrow-spacing` rule in favor `prettier/prettier`.
+-   Removed: `keyword-spacing` rule in favor `prettier/prettier`.
+-   Removed: `new-parens` rule in favor `prettier/prettier`.
+-   Removed: `wrap-regex` rule in favor `prettier/prettier`.
+-   Removed: `unicode-bom` rule in favor `prettier/prettier`.
+-   Removed: `space-unary-ops` rule in favor `prettier/prettier`.
+-   Removed: `padded-blocks` rule in favor `prettier/prettier`.
+-   Removed: `operator-linebreak` rule in favor `prettier/prettier`.
+-   Removed: `one-var-declaration-per-line` rule in favor `prettier/prettier`.
+-   Removed: `newline-per-chained-call` rule in favor `prettier/prettier`.
+-   Removed: `no-trailing-spaces` rule in favor `prettier/prettier`.
+-   Removed: `comma-style` rule in favor `prettier/prettier`.
+-   Removed: `generator-star-spacing` rule in favor `prettier/prettier`.
+-   Removed: `object-curly-newline` rule in favor `prettier/prettier`.
+-   Removed: `object-curly-spacing` rule in favor `prettier/prettier`.
+-   Removed: `object-property-newline` rule in favor `prettier/prettier`.
+-   Removed: `quotes` rule in favor `prettier/prettier`.
+-   Removed: `computed-property-spacing` rule in favor `prettier/prettier`.
+-   Removed: `key-spacing` rule in favor `prettier/prettier`.
+-   Removed: `space-before-blocks` rule in favor `prettier/prettier`.
+-   Removed: `space-before-function-paren` rule in favor `prettier/prettier`.
+-   Removed: `no-multiple-empty-lines` rule in favor `prettier/prettier`.
+-   Removed: `no-whitespace-before-property` rule in favor `prettier/prettier`.
+-   Removed: `no-tabs` rule in favor `prettier/prettier`.
+-   Removed: `yield-star-spacing` rule in favor `prettier/prettier`.
+-   Removed: `template-tag-spacing` rule in favor `prettier/prettier`.
+-   Removed: `template-curly-spacing` rule in favor `prettier/prettier`.
+-   Removed: `space-infix-ops` rule in favor `prettier/prettier`.
+-   Removed: `space-in-parens` rule in favor `prettier/prettier`.
+-   Removed: `no-mixed-spaces-and-tabs` rule in favor `prettier/prettier`.
+-   Removed: `dot-location` rule in favor `prettier/prettier`.
+-   Removed: `no-extra-parens` rule in favor `prettier/prettier`.
+-   Removed: `no-extra-semi` rule in favor `prettier/prettier`.
+-   Removed: `no-multi-spaces` rule in favor `prettier/prettier`.
+-   Removed: `wrap-iife` rule in favor `prettier/prettier`.
+-   Removed: `no-confusing-arrow` rule in favor `prettier/prettier`.
+-   Removed: `no-mixed-operators` rule in favor `prettier/prettier`..
+-   Removed: `react/jsx-closing-bracket-location` rule in favor `prettier/prettier`.
+-   Removed: `react/no-unescaped-entities` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-curly-spacing` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-equals-spacing` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-first-prop-new-line` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-indent` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-indent-props` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-max-props-per-line` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-tag-spacing` rule in favor `prettier/prettier`.
+-   Removed: `react/jsx-wrap-multilines` rule in favor `prettier/prettier`.
 
 # 46.0.0 - 2017-05-07
 

@@ -80,7 +80,7 @@
 
         "coveralls": "nyc report --reporter=text-lcov | coveralls",
 
-        "lint:eslint-check": "eslint --print-config ./lib/config/all.js | eslint-config-prettier-check",
+        "lint:eslint-check": "eslint --print-config ./print-config/index.js | eslint-config-prettier-check",
         "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
         "lint:package": "ajv -s ./node_modules/package-schema/schema.json -d package --errors=text",
         "lint:eslint": "eslint . --ignore-path .gitignore",
