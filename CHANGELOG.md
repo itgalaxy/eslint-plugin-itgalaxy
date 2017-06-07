@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/). 
 Except add new rule (it is breaking changed by default).
 
+# Head
+
+-   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
+
 # 47.0.0 - 2017-06-07
 
 -   Added: `jest` preset.
