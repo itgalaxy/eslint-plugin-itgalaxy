@@ -33,7 +33,7 @@
         "babel-register": "^6.9.0",
         "eslint": "^3.19.0",
         "eslint-ava-rule-tester": "^2.0.0",
-        "eslint-find-rules": "^1.13.0",
+        "eslint-find-rules": "^2.0.0",
         "npmpub": "^3.1.0",
         "npm-run-all": "^4.0.1",
         "nyc": "^11.0.0",
