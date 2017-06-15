@@ -8,6 +8,7 @@ Except add new rule (it is breaking changed by default).
 # Head
 
 -   Added: `allowImportExportEverywhere` in `parserOptions` to `esnext` preset.
+-   Chore **(Major update)**: minimum required `eslint` version is now `^4.0.0`.
 -   Removed: `quote-props` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/number-literal-case` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
