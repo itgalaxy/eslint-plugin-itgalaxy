@@ -7,6 +7,7 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
+-   Added: `allowImportExportEverywhere` in `parserOptions` to `esnext` preset.
 -   Removed: `quote-props` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/number-literal-case` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
