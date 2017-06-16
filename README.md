@@ -34,14 +34,6 @@ configuration in your project’s `.eslintrc`.
 **Configurations do not contain stylistic rules.** We use [prettier](https://github.com/prettier/prettier) for
 this purpose.
 
-Just extend the `Prettier` version of the configuration (use `eslint --fix` for fast fixing stylistics errors):
-
-```json
-{
-  "extends": "plugin:itgalaxy/prettier"
-}
-```
-
 For example, the following will extend the ESNext (ES2015 and later) config:
 
 ```json
@@ -91,7 +83,6 @@ This plugin provides the following core configurations:
 -   [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
 -   [node](lib/config/node.js):  Use this for nodejs projects.
 -   [react](lib/config/react.js): Use this for React projects.
--   [prettier](lib/config/prettier.js): Use this for stylistics
 
 This plugin also provides the following tool-specific configurations, which can be used on top 
 of the core configurations:

@@ -7,17 +7,24 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
+-   Added: `react/default-props-match-prop-types` rule.
+-   Added: `react/no-redundant-should-component-update` rule.
+-   Added: `padding-line-between-statements` rule.
+-   Added: `for-direction` rule.
 -   Added: `allowImportExportEverywhere` in `parserOptions` to `esnext` preset.
--   Chore **(Major update)**: minimum required `eslint` version is now `^4.0.0`.
+-   Chore **(Major update)**: minimum required `eslint` version is now `^4.1.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-ava` version is now `^4.2.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^2.3.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-unicorn` version is now `^2.1.1`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^2.1.1`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.5.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.4.2`.
+-   Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^2.6.0`.
 -   Removed: `quote-props` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/number-literal-case` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
+-   Removed: `prettier/prettier` preset in favor build-in `prettier` plugin in `core`, `es5`, `esnext`, `react` preset.
+-   Removed: `import/newline-after-import` rule in favor `padding-line-between-statements`.
 
 # 47.0.0 - 2017-06-07
 

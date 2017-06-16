@@ -1,4 +1,4 @@
-import { configs } from '../index'; // eslint-disable-line import/named
+import { configs } from '../index';
 import eslint from 'eslint';
 import fs from 'fs';
 import path from 'path';
@@ -58,7 +58,8 @@ test('should load the `all` plugin config in the `eslint` to validate all rule s
         'jest',
         'lodash',
         'node',
-        'react'
+        'react',
+        'prettier'
     ]);
 
     config.extends = [];
@@ -105,8 +106,10 @@ test('should load the `ava` plugin config in `eslint` to validate all rule synta
 test('should load the `core` plugin config in `eslint` to validate all rule syntax is correct', t => {
     const config = configs.core;
     const hasUnicornPlugin = config.plugins.indexOf('unicorn') !== -1;
+    const hasPrettierPlugin = config.plugins.indexOf('prettier') !== -1;
 
     t.true(hasUnicornPlugin, 'there is unicorn plugin');
+    t.true(hasPrettierPlugin, 'there is prettier plugin');
 
     const cli = new eslint.CLIEngine({
         baseConfig: config,
@@ -114,7 +117,7 @@ test('should load the `core` plugin config in `eslint` to validate all rule synt
     });
 
     const report = cli.executeOnText(
-        "(function () {\n    'use strict';\n\n    (123).toString();\n}());\n"
+        "(function() {\n    'use strict';\n    // prettier-ignore\n\n    (123).toString();\n})();\n"
     );
 
     t.is(report.results.length, 1, 'eslint report with one results');
@@ -130,7 +133,7 @@ test('should load the `es5` plugin config in eslint to validate all rule syntax 
     });
 
     const report = cli.executeOnText(
-        "(function () {\n    'use strict';\n\n    (123).toString();\n}());\n"
+        "(function() {\n    'use strict';\n    // prettier-ignore\n\n    (123).toString();\n})();\n"
     );
 
     t.is(report.results.length, 1, 'eslint report with one results');
@@ -225,26 +228,6 @@ test('should load the `react` plugin config in `eslint` to validate all rule syn
 });
 
 test('should load the `jest` plugin config in `eslint` to validate all rule syntax is correct', t => {
-    const config = configs.jest;
-    const hasJestPlugin = config.plugins.indexOf('jest') !== -1;
-
-    t.true(hasJestPlugin, 'there is jest plugin');
-
-    const cli = new eslint.CLIEngine({
-        baseConfig: config,
-        useEslintrc: false
-    });
-
-    const report = cli.executeOnText(
-        "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n"
-    );
-
-    t.is(report.results.length, 1, 'eslint report with one results');
-    t.is(report.errorCount, 0, 'eslint report without errors');
-    t.is(report.warningCount, 0, 'eslint report without warnings');
-});
-
-test('should load the `prettier` plugin config in `eslint` to validate all rule syntax is correct', t => {
     const config = configs.jest;
     const hasJestPlugin = config.plugins.indexOf('jest') !== -1;
 
