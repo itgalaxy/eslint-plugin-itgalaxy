@@ -99,21 +99,83 @@ console.log(obj); // eslint-disable-line no-console
 
 const has = Object.prototype.hasOwnProperty;
 
+handler();
+handler();
+handler();
+
 {
-    let foo = 2 * 10 + objectVariable.value;
+    let foobaz = 2 * 10 + objectVariable.value;
     const bar = 1;
 
-    foo = bar + 1;
+    foobaz = bar + 1;
 
-    if (foo > bar) {
-        foo += bar;
+    if (foobaz > bar) {
+        foobaz += bar;
     }
 }
+
+handler();
 
 let letVariable = 1;
 
 if (booleanVariable) {
     letVariable += 1;
+}
+
+if (!booleanVariable) {
+    letVariable -= 1;
+}
+
+if (!booleanVariable) {
+    letVariable -= 1;
+}
+
+handler();
+
+switch (letVariable) {
+    case 1:
+        letVariable = 10;
+        break;
+    case 2:
+        letVariable = 20;
+        break;
+    default:
+        letVariable = 0;
+        break;
+}
+
+switch (letVariable) {
+    case 1:
+        letVariable = 10;
+        break;
+    case 2:
+        letVariable = 20;
+        break;
+    default:
+        letVariable = 0;
+        break;
+}
+
+switch (letVariable) {
+    case 10:
+    case 20:
+    case 30:
+        letVariable = 50;
+        break;
+    default:
+        letVariable = 0;
+        break;
+}
+
+switch (letVariable) {
+    case 1:
+        handler(1);
+        break;
+    case 2:
+        handler(2);
+        break;
+    default:
+        handler(0);
 }
 
 arrayVariable.push(letVariable);
@@ -130,6 +192,18 @@ function fooFunc(func, interval) {
 
     return func;
 }
+
+function fooFuncExtra(func, interval) {
+    if (interval > 500) {
+        handler();
+
+        throw new Error('Invalid interval');
+    }
+
+    return func;
+}
+
+fooFuncExtra();
 
 fooFunc(() => {
     itemsCopy.push('random string');
@@ -191,12 +265,10 @@ const username = getFullName({
     firstName: 'foo',
     lastName: 'bar'
 });
-
 const usernameWithDash = getFullNameWithDash({
     firstName: 'foo',
     lastName: 'bar'
 });
-
 const [left, right, top, bottom] = arrayVariable;
 
 render(username, [left, right, top, bottom]);
@@ -273,6 +345,8 @@ if (hasAge) {
     });
 }
 
+handler();
+
 try {
     render();
 } catch (error) {
@@ -280,6 +354,8 @@ try {
         error
     });
 }
+
+handler();
 
 function multiply(multiplier, ...theArgs) {
     return theArgs.map(element => multiplier * element);
@@ -322,7 +398,6 @@ const PolygonNotNamed = class {
         this.width = width;
     }
 };
-
 const PolygonNamed = class Polygon {
     constructor(height, width) {
         this.height = height;
@@ -392,4 +467,85 @@ function tag(strings) {
 
 tag`string text line 1 \n string text line 2`;
 
+function foo() {
+    const before = tag('test');
+
+    if (before === 'before') {
+        return 'before';
+    }
+
+    fooAsync();
+
+    const aqw = 0;
+    const bwe = 0;
+
+    return tag(before + aqw + bwe);
+}
+
+foo();
+
+let n = 0;
+let i = 0;
+let value = 10;
+
+while (n < 3) {
+    n++;
+    value += n;
+}
+
+while (i < 10) {
+    i++;
+    value += i;
+}
+
+handler(value);
+
+function handleHands() {
+    const hands = [];
+    const handsValues = [];
+    let lastIndex = 0;
+
+    for (let first = 0; first < hands.length; first++) {
+        for (let j = 0; j < hands[first].length; j++) {
+            for (let k = 0; k < hands[first][j].length; k++) {
+                handsValues.push(hands[first][j][k]);
+            }
+        }
+    }
+
+    for (let last = 0; last > hands.length; last--) {
+        lastIndex = last;
+    }
+
+    return {
+        handsValues,
+        lastIndex
+    };
+}
+
+handleHands();
+
+for (i = 0; i < 10; i++) {
+    if (i < 5) {
+        // eslint-disable-next-line no-continue
+        continue;
+    }
+
+    break;
+}
+
+handleHands();
+
+module.exports = { foo };
+module.exports.test = { foo };
+
+handleHands();
+
 export default linter;
+export { foo, handler };
+export {
+    age as ageExport,
+    arrayVariable as arrayVariableExport,
+    fooAsync,
+    fooFuncExtra
+};
