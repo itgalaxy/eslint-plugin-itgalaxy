@@ -5,14 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/). 
 Except add new rule (it is breaking changed by default).
 
-# Head
+# 48.0.0 - 2017-06-27
 
+-   Added: `jsx-a11y/anchor-is-valid` rule.
 -   Added: `react/default-props-match-prop-types` rule.
 -   Added: `react/no-redundant-should-component-update` rule.
 -   Added: `padding-line-between-statements` rule.
 -   Added: `for-direction` rule.
 -   Added: `allowImportExportEverywhere` in `parserOptions` to `esnext` preset.
--   Chore **(Major update)**: minimum required `eslint` version is now `^4.1.0`.
+-   Changed: `jsx-a11y/interactive-supports-focus` now contain `tabbable` list.
+-   Chore **(Major update)**: minimum required `eslint` version is now `^4.1.1`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-ava` version is now `^4.2.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^2.3.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-unicorn` version is now `^2.1.1`.
@@ -20,6 +22,8 @@ Except add new rule (it is breaking changed by default).
 -   Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.5.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.4.2`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-import` version is now `^2.6.0`.
+-   Chore **(Major update)**: minimum required `eslint-plugin-jsx-a11y` version is now `^6.0.0`.
+-   Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^5.1.0`.
 -   Removed: `quote-props` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/number-literal-case` rule in favor `prettier/prettier`.
 -   Removed: `unicorn/no-new-buffer` rule in favor `node/no-deprecated-api` rule.
@@ -35,7 +39,7 @@ Except add new rule (it is breaking changed by default).
 -   Changed: use all `plugins` as `peerDependencies`.
 -   Fixed: use `ecmaVersion: 8` for `all` preset. 
 -   Removed: `parserOptions` from `ava` preset.
--   Chore: minimum required `eslint-plugin-node` version is now `~5.0.0`.
+-   Chore: minimum required `eslint-plugin-node` version is now `^5.0.0`.
 -   Changed: remove `version` from `node/no-unsupported-features` rule.
 -   Changed: `node/no-unsupported-features` have `error` several.
 -   Removed: `array-bracket-spacing` rule in favor `prettier/prettier`.
@@ -231,7 +235,7 @@ Except add new rule (it is breaking changed by default).
 
 # 30.0.0 - 2016-11-21
 
--   Chore **(Major update)**: minimum required `eslint` version is now `^3.10.0`.
+-   Chore **(Major update)**: minijsx-a11y/anchor-is-validmum required `eslint` version is now `^3.10.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-lodash` version is now `^2.2.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-react` version is now `^6.7.0`.
 -   Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.4.0`.
