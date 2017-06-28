@@ -1,23 +1,23 @@
-import './app.scss';
-import Profile from './Profile';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SearchProfile from './SearchProfile';
+import "./app.scss";
+import Profile from "./Profile";
+import React from "react";
+import ReactDOM from "react-dom";
+import SearchProfile from "./SearchProfile";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            avatar: '',
-            followers: '',
-            following: '',
-            homeUrl: '',
-            location: '',
-            name: '',
-            notFound: '',
-            repos: '',
-            username: 'hesmaili'
+            avatar: "",
+            followers: "",
+            following: "",
+            homeUrl: "",
+            location: "",
+            name: "",
+            notFound: "",
+            repos: "",
+            username: "hesmaili"
         };
     }
 

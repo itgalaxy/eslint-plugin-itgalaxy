@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
-const API = 'https://api.github.com/users';
+const API = "https://api.github.com/users";
 
 class SearchProfile extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class SearchProfile extends React.Component {
         const username = this.username.getDOMNode().value;
 
         this.fetchProfile(username);
-        this.username.getDOMNode().value = '';
+        this.username.getDOMNode().value = "";
     }
 
     render() {

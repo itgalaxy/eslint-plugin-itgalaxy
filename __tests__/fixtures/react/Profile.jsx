@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
 class Profile extends React.PureComponent {
     render() {
@@ -8,7 +8,7 @@ class Profile extends React.PureComponent {
         const repositories = `${data.homeUrl}?tab=repositories`;
         const following = `${data.homeUrl}/following`;
 
-        if (data.notFound === 'Not Found') {
+        if (data.notFound === "Not Found") {
             return (
                 <div className="notfound">
                     <h2>Oops !!!</h2>
@@ -41,7 +41,9 @@ class Profile extends React.PureComponent {
                             {data.name || data.username}
                         </a>
                     </h2>
-                    <h3>{data.location || 'I Live In My Mind'}</h3>
+                    <h3>
+                        {data.location || "I Live In My Mind"}
+                    </h3>
                 </div>
                 <div className="github--profile__state">
                     <ul>
@@ -52,7 +54,9 @@ class Profile extends React.PureComponent {
                                 target="_blank"
                                 title="Number Of Followers"
                             >
-                                <i>{data.followers}</i>
+                                <i>
+                                    {data.followers}
+                                </i>
                                 <span>Followers</span>
                             </a>
                         </li>
@@ -63,7 +67,9 @@ class Profile extends React.PureComponent {
                                 target="_blank"
                                 title="Number Of Repositoriy"
                             >
-                                <i>{data.repos}</i>
+                                <i>
+                                    {data.repos}
+                                </i>
                                 <span>Repositoriy</span>
                             </a>
                         </li>
@@ -74,7 +80,9 @@ class Profile extends React.PureComponent {
                                 target="_blank"
                                 title="Number Of Following"
                             >
-                                <i>{data.following}</i>
+                                <i>
+                                    {data.following}
+                                </i>
                                 <span>Following</span>
                             </a>
                         </li>

@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/). 
 Except add new rule (it is breaking changed by default).
 
+# 49.0.0 - 2017-06-28
+
+-   Changed: set `singleQuote` to `false` for `prettier`.
+-   Chore **(Major update)**: minimum required `prettier` version is now `^1.5.2`.
+
 # 48.0.0 - 2017-06-27
 
 -   Added: `jsx-a11y/anchor-is-valid` rule.

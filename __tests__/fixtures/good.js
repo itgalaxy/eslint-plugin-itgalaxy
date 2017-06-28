@@ -1,27 +1,27 @@
-import { CLIEngine, linter } from 'eslint';
-import remarkConfig from 'remark-preset-lint-itgalaxy';
+import { CLIEngine, linter } from "eslint";
+import remarkConfig from "remark-preset-lint-itgalaxy";
 
 const constVariable = 1;
 const arrayVariable = [1, 2];
 const booleanVariable = true;
-const stringVariable = 'Capt. Janeway';
+const stringVariable = "Capt. Janeway";
 const errorMessage =
-    'This is a super long error that was thrown because of Batman. ' +
-    'When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-const quotedFoo = '\'this\' is "quoted"';
+    "This is a super long error that was thrown because of Batman. " +
+    "When you stop to think about how Batman had anything to do with this, you would get nowhere fast.";
+const quotedFoo = "'this' is \"quoted\"";
 const quotedBar = `'this' is "quoted"`;
 
 arrayVariable.push(stringVariable);
 
-function getKey(prefix = '', key = null) {
+function getKey(prefix = "", key = null) {
     let realKey = key ? key : null;
 
     if (!realKey) {
         realKey = Object.prototype.hasOwnProperty.call(
-            { key: 'key', value: 'value' },
-            'key'
+            { key: "key", value: "value" },
+            "key"
         )
-            ? 'very very very very very very very very very long key'
+            ? "very very very very very very very very very long key"
             : 1;
     }
 
@@ -39,7 +39,7 @@ const objectVariable = {
         return this.value + value;
     },
 
-    'data-blah': 5,
+    "data-blah": 5,
 
     getAge() {
         return this.value;
@@ -50,14 +50,14 @@ const objectVariable = {
     },
 
     getSome() {
-        return 'some';
+        return "some";
     },
 
     id: 5,
 
-    name: 'San Francisco',
+    name: "San Francisco",
 
-    [getKey('enabled')]: true,
+    [getKey("enabled")]: true,
 
     setAge(value) {
         this.value = value;
@@ -70,7 +70,7 @@ const objectVariable = {
 };
 
 objectVariable.log = function(items, options = {}) {
-    const concatenateAll = (...args) => args.join('');
+    const concatenateAll = (...args) => args.join("");
 
     return concatenateAll(this.addValue(1).addValue(items), options);
 };
@@ -78,7 +78,7 @@ objectVariable.log = function(items, options = {}) {
 arrayVariable.push(constVariable);
 
 function handler() {
-    return 'test';
+    return "test";
 }
 
 const obj = {
@@ -180,14 +180,14 @@ switch (letVariable) {
 
 arrayVariable.push(letVariable);
 
-Object.prototype.hasOwnProperty.call(objectVariable, 'id');
-has.call(objectVariable, 'id');
+Object.prototype.hasOwnProperty.call(objectVariable, "id");
+has.call(objectVariable, "id");
 
 const itemsCopy = [...arrayVariable];
 
 function fooFunc(func, interval) {
     if (interval > 100) {
-        throw new Error('Invalid interval');
+        throw new Error("Invalid interval");
     }
 
     return func;
@@ -197,7 +197,7 @@ function fooFuncExtra(func, interval) {
     if (interval > 500) {
         handler();
 
-        throw new Error('Invalid interval');
+        throw new Error("Invalid interval");
     }
 
     return func;
@@ -206,7 +206,7 @@ function fooFuncExtra(func, interval) {
 fooFuncExtra();
 
 fooFunc(() => {
-    itemsCopy.push('random string');
+    itemsCopy.push("random string");
 }, 1000);
 
 [1, 2, 3].map(value => {
@@ -228,8 +228,8 @@ const flat = {};
 itemsCopy.filter(msg => {
     const { subject, author } = msg;
 
-    if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
+    if (subject === "Mockingbird") {
+        return author === "Harper Lee";
     }
 
     return false;
@@ -262,12 +262,12 @@ function getFullNameWithDash({ firstName, lastName }) {
 }
 
 const username = getFullName({
-    firstName: 'foo',
-    lastName: 'bar'
+    firstName: "foo",
+    lastName: "bar"
 });
 const usernameWithDash = getFullNameWithDash({
-    firstName: 'foo',
-    lastName: 'bar'
+    firstName: "foo",
+    lastName: "bar"
 });
 const [left, right, top, bottom] = arrayVariable;
 
@@ -279,14 +279,14 @@ if (booleanVariable) {
 }
 
 (function() {
-    objectVariable.log('Welcome to the Internet. Please follow me.');
+    objectVariable.log("Welcome to the Internet. Please follow me.");
 })();
 
 let test = null;
 
 if (booleanVariable) {
     test = () => {
-        objectVariable.log('Yup.');
+        objectVariable.log("Yup.");
     };
 
     test();
@@ -300,7 +300,7 @@ if (booleanVariable) {
 [1, 2, 3].map(
     number =>
         `As time went by, the string containing the ${number} became much ` +
-        'longer. So we needed to break it over multiple lines.'
+        "longer. So we needed to break it over multiple lines."
 );
 
 const itemHeightFoo = item => {
@@ -320,7 +320,7 @@ arrayVariable.push([itemHeightFoo, itemHeightBar]);
 
 remarkConfig.prototype.eslint = 1;
 
-CLIEngine.prototype.foo = () => 'foo';
+CLIEngine.prototype.foo = () => "foo";
 
 const sum = [1, 2, 3].reduce((total, num) => total + num, 0);
 
@@ -368,7 +368,7 @@ const numbers = [0, 1, 2];
 multiply(1, ...numbers);
 
 function fetch() {
-    return new Promise(resolve => resolve('Some value'));
+    return new Promise(resolve => resolve("Some value"));
 }
 
 async function fetchJson(url) {
@@ -382,13 +382,13 @@ async function fetchJson(url) {
     }
 }
 
-fetchJson('http://some-domain.com');
+fetchJson("http://some-domain.com");
 
 function trailingCommasInFUnctionSyntax(param1, param2) {
     return `${param1} ${param2}`;
 }
 
-trailingCommasInFUnctionSyntax('foo', 'bar');
+trailingCommasInFUnctionSyntax("foo", "bar");
 
 // const a **= 4; Uncomment after support in eslint
 
@@ -431,7 +431,7 @@ console.log(squareNotNamed, squareNamed, squareWithBody); // eslint-disable-line
 
 function FooNewTarget() {
     if (!new.target) {
-        throw new Error('Foo() must be called with new');
+        throw new Error("Foo() must be called with new");
     }
 
     // All good
@@ -468,10 +468,10 @@ function tag(strings) {
 tag`string text line 1 \n string text line 2`;
 
 function foo() {
-    const before = tag('test');
+    const before = tag("test");
 
-    if (before === 'before') {
-        return 'before';
+    if (before === "before") {
+        return "before";
     }
 
     fooAsync();
