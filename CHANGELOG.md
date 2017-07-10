@@ -7,6 +7,7 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
+-   Added: `getter-return` rule.
 -   Fixed: support `jsx` extension for `eslint-plugin-import`.
 -   Chore **(Major update)**: minimum required `eslint` version is now `^4.2.0`.
 
