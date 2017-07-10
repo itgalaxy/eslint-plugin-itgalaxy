@@ -8,6 +8,7 @@ Except add new rule (it is breaking changed by default).
 # Head
 
 -   Fixed: support `jsx` extension for `eslint-plugin-import`.
+-   Chore **(Major update)**: minimum required `eslint` version is now `^4.2.0`.
 
 # 49.0.0 - 2017-06-28
 
