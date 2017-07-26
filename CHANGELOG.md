@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/). 
 Except add new rule (it is breaking changed by default).
 
+# Head
+
+-   Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
+
 # 50.0.0 - 2017-07-10
 
 -   Added: `getter-return` rule.
