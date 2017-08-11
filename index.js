@@ -11,21 +11,23 @@ const esnext = require("./lib/config/esnext");
 const jest = require("./lib/config/jest");
 const lodash = require("./lib/config/lodash");
 const node = require("./lib/config/node");
+const prettier = require("./lib/config/prettier");
 const react = require("./lib/config/react");
 
 const configs = {
-    all,
-    ava,
-    core,
-    es5,
-    esnext,
-    jest,
-    lodash,
-    node,
-    react
+  all,
+  ava,
+  core,
+  es5,
+  esnext,
+  jest,
+  lodash,
+  node,
+  prettier,
+  react
 };
 
 module.exports = {
-    configs,
-    rules: {}
+  configs,
+  rules: {}
 };

@@ -1,9 +1,7 @@
 {
-    "env": {
-        "browser": true
-    },
-    "extends": [
-        "../../../lib/config/react.js"
-    ],
-    "root": true
+  "env": {
+    "browser": true
+  },
+  "extends": ["../../../lib/config/react.js"],
+  "root": true
 }
