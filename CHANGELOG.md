@@ -20,6 +20,9 @@ Except add new rule (it is breaking changed by default).
 
 - Changed: use `default` fallthrough comment.
 
+- Changed: allow using irregular whitespace in strings, comments, regexps
+  and templates.
+
 - Revert: return `prettier` preset.
 
 ## 50.0.0 - 2017-07-10
