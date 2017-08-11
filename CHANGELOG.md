@@ -15,6 +15,8 @@ Except add new rule (it is breaking changed by default).
 -   Chore **(Major update)**: minimum required `eslint-plugin-react` version 
     is now `^7.2.0`.
 
+-   Changed: override `class-methods-use-this` rule for react.
+
 # 50.0.0 - 2017-07-10
 
 -   Added: `getter-return` rule.
