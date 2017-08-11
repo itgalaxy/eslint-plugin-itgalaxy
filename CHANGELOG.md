@@ -7,6 +7,8 @@ Except add new rule (it is breaking changed by default).
 
 # Head
 
+-   Added: `react/no-typos` rule.
+
 -   Changed: set `enforceInMethodNames` to `true` in 
     `no-underscore-dangle` rule.
 
