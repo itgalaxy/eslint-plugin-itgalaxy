@@ -72,7 +72,7 @@
     "prettier": "^1.5.2"
   },
   "engines": {
-    "node": ">= 4.2"
+    "node": ">= 4.3 < 5.0.0 || >= 5.10"
   },
   "scripts": {
     "precommit": "lint-staged",
