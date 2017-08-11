@@ -18,6 +18,8 @@ Except add new rule (it is breaking changed by default).
 
 - Changed: update supported `node` version.
 
+- Changed: use `default` fallthrough comment.
+
 - Revert: return `prettier` preset.
 
 ## 50.0.0 - 2017-07-10
