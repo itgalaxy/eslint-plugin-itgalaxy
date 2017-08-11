@@ -11,6 +11,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added: `no-bitwise` rule.
 
+- Added: `vars-on-top` rule.
+
 - Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
 
 - Chore **(Major update)**: minimum required `eslint-plugin-react` version 
