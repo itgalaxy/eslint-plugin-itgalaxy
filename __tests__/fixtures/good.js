@@ -541,6 +541,18 @@ module.exports.test = { foo };
 
 handleHands();
 
+let xBar = 1;
+const yBar = 1;
+const zBar = 1;
+const fooA = yBar || zBar;
+const fooB = yBar && zBar;
+const fooC = yBar > zBar;
+const fooD = yBar < zBar;
+
+xBar += yBar;
+
+handleHands(xBar, fooA, fooB, fooC, fooD);
+
 export default linter;
 export { foo, handler };
 export {

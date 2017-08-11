@@ -9,6 +9,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added: `react/no-typos` rule.
 
+- Added: `no-bitwise` rule.
+
 - Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
 
 - Chore **(Major update)**: minimum required `eslint-plugin-react` version 
