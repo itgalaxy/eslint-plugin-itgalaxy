@@ -2,12 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-This project adheres to [Semantic Versioning](http://semver.org/). 
+This project adheres to [Semantic Versioning](http://semver.org). 
 Except add new rule (it is breaking changed by default).
 
 # Head
 
--   Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
+-   Changed: set `enforceInMethodNames` to `true` in 
+    `no-underscore-dangle` rule.
+
+-   Chore **(Major update)**: minimum required `eslint-plugin-react` version 
+    is now `^7.2.0`.
 
 # 50.0.0 - 2017-07-10
 
