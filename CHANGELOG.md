@@ -7,6 +7,8 @@ Except add new rule (it is breaking changed by default).
 
 ## Head
 
+- Added: `import/no-named-default` rule.
+
 - Added: `react/no-typos` rule.
 
 - Added: `no-bitwise` rule.
