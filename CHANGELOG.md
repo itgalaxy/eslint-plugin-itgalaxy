@@ -17,6 +17,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added **(Major update)**: `ForInStatement` in `no-restricted-syntax` rule.
 
+- Changed: set `defaultAssignment` to `false` in `no-unneeded-ternary` rule.
+
 - Changed: disallow empty reject for `prefer-promise-reject-errors` rule.
 
 - Changed: set `balanced` to `true` for block comments in `spaced-comment` rule.

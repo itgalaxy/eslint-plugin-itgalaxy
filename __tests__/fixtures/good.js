@@ -14,7 +14,7 @@ const quotedBar = `'this' is "quoted"`;
 arrayVariable.push(stringVariable);
 
 function getKey(prefix = "", key = null) {
-  let realKey = key ? key : null;
+  let realKey = key || null;
 
   if (!realKey) {
     realKey = Object.prototype.hasOwnProperty.call(
