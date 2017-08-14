@@ -15,6 +15,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added: ignore rest siblings for `no-unused-vars` rule.
 
+- Added **(Major update)**: `ForInStatement` in `no-restricted-syntax` rule.
+
 - Changed: disallow empty reject for `prefer-promise-reject-errors` rule.
 
 - Changed: set `balanced` to `true` for block comments in `spaced-comment` rule.
