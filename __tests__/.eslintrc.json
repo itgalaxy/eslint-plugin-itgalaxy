@@ -1,5 +1,8 @@
 {
   "extends": ["../lib/config/ava.js"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "rules": {
     "node/no-unsupported-features": "off"
   }

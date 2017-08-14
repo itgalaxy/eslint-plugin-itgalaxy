@@ -122,6 +122,9 @@
       "./lib/config/node.js",
       "./lib/config/esnext.js"
     ],
+    "parserOptions": {
+      "sourceType": "script"
+    },
     "root": true
   },
   "remarkConfig": {
