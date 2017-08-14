@@ -17,6 +17,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added **(Major update)**: `ForInStatement` in `no-restricted-syntax` rule.
 
+- Changed: set `5` for `max-nested-callbacks` rule.
+
 - Changed: set `awlays` for `no-return-assign` rule.
 
 - Changed: set `max` to `20` in `complexity` rule.
