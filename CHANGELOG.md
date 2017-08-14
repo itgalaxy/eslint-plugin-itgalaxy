@@ -49,6 +49,8 @@ Except add new rule (it is breaking changed by default).
 
 - Revert: return `prettier` preset.
 
+- Removed: `lines-around-comment` rule.
+
 - Removed: `no-duplicate-imports` rule in favor `import/no-duplicates` rule.
 
 - Removed: `valid-jsdoc` rule.
