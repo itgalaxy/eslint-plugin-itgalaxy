@@ -13,6 +13,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added: `vars-on-top` rule.
 
+- Changed: set `balanced` to `true` for block comments in `spaced-comment` rule.
+
 - Changed: set `location` to `start` in `no-warning-comments` rule.
 
 - Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
