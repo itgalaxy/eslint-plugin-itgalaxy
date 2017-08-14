@@ -43,7 +43,10 @@ Except add new rule (it is breaking changed by default).
 
 - Removed: `no-debugger` rule in favor `no-restricted-syntax` rule.
 
-- Removed: `no-restricted-syntax` rule in favor no-restricted-syntax` rule.
+- Removed: `no-restricted-syntax` rule in favor `no-restricted-syntax` rule.
+
+- Removed: `LabeledStatement` from `no-restricted-syntax` in favor `no-labels`
+  rule.
 
 ## 50.0.0 - 2017-07-10
 
