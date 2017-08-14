@@ -39,6 +39,8 @@ Except add new rule (it is breaking changed by default).
 - Changed: allow using irregular whitespace in strings, comments, regexps
   and templates.
 
+- Changed: allow variables more 32 characters (`id-length` rule).
+
 - Revert: return `prettier` preset.
 
 - Removed: `no-duplicate-imports` rule in favor `import/no-duplicates` rule.
