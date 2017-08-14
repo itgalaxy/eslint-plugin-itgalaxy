@@ -19,6 +19,9 @@ Except add new rule (it is breaking changed by default).
 
 - Added **(Major update)**: `ForInStatement` in `no-restricted-syntax` rule.
 
+- Changed: revers options for `import/extensions` rule - always require 
+  extension exclude `js` and `jsx`.
+
 - Changed: enable `import/no-unresolved` rule for `commonjs` and `amd`.
 
 - Changed: all rules now respect case sensitive.
