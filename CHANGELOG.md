@@ -66,6 +66,8 @@ Except add new rule (it is breaking changed by default).
 
 - Removed: `max-statements` rule.
 
+- Removed: `max-lines` rule.
+
 ## 50.0.0 - 2017-07-10
 
 - Added: `getter-return` rule.
