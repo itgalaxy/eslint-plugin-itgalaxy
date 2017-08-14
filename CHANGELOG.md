@@ -13,6 +13,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added: `vars-on-top` rule.
 
+- Added: ignore rest siblings for `no-unused-vars` rule.
+
 - Changed: disallow empty reject for `prefer-promise-reject-errors` rule.
 
 - Changed: set `balanced` to `true` for block comments in `spaced-comment` rule.

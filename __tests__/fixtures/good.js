@@ -382,6 +382,10 @@ async function fetchJson(url) {
   }
 }
 
+const { type, ...coords } = multiply(2, 1, 2, 3);
+
+fetchJson(coords);
+
 fetchJson("http://some-domain.com");
 
 function trailingCommasInFUnctionSyntax(param1, param2) {
