@@ -54,6 +54,8 @@ Except add new rule (it is breaking changed by default).
 - Removed: `LabeledStatement` from `no-restricted-syntax` in favor `no-labels`
   rule.
 
+- Removed: `max-statements` rule.
+
 ## 50.0.0 - 2017-07-10
 
 - Added: `getter-return` rule.
