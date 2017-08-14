@@ -1,4 +1,5 @@
 {
+  "extends": ["../lib/config/ava.js"],
   "rules": {
     "node/no-unsupported-features": "off"
   }

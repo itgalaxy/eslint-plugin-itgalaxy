@@ -119,7 +119,6 @@
   },
   "eslintConfig": {
     "extends": [
-      "./lib/config/ava.js",
       "./lib/config/node.js",
       "./lib/config/esnext.js"
     ],
