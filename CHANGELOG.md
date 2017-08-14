@@ -17,6 +17,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added **(Major update)**: `ForInStatement` in `no-restricted-syntax` rule.
 
+- Changed: all rules now respect case sensitive.
+
 - Changed: set `builtinGlobals` to `false` in `no-redeclare` rule.
 
 - Changed: set `5` for `max-nested-callbacks` rule.
