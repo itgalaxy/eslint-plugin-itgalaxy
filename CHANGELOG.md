@@ -7,6 +7,7 @@ Except add new rule (it is breaking changed by default).
 
 ## Head
 
+- Changed: use `always` for `func-name-matching` rule.
 - Revert: allow `for-in` syntax.
 
 ## 51.0.0 - 2017-08-14
