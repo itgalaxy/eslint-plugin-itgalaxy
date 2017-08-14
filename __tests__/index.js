@@ -107,9 +107,11 @@ test("should load the `core` plugin config in `eslint` to validate all rule synt
   const config = configs.core;
   const hasUnicornPlugin = config.plugins.indexOf("unicorn") !== -1;
   const hasPrettierPlugin = config.plugins.indexOf("prettier") !== -1;
+  const hasImportPlugin = config.plugins.indexOf("import") !== -1;
 
   t.true(hasUnicornPlugin, "there is unicorn plugin");
   t.true(hasPrettierPlugin, "there is prettier plugin");
+  t.true(hasImportPlugin, "there is import plugin");
 
   const cli = new eslint.CLIEngine({
     baseConfig: config,
@@ -144,10 +146,8 @@ test("should load the `es5` plugin config in eslint to validate all rule syntax 
 test("should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = configs.esnext;
   const hasPromisePlugin = config.plugins.indexOf("promise") !== -1;
-  const hasImportPlugin = config.plugins.indexOf("import") !== -1;
 
   t.true(hasPromisePlugin, "there is promise plugin");
-  t.true(hasImportPlugin, "there is import plugin");
 
   config.extends = [];
 

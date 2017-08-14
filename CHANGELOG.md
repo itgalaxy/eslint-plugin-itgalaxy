@@ -7,6 +7,7 @@ Except add new rule (it is breaking changed by default).
 
 ## Head
 
+- Changed: move `import` plugin to core.
 - Changed: use `always` for `func-name-matching` rule.
 - Revert: allow `for-in` syntax.
 
