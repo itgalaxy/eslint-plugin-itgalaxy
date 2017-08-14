@@ -17,6 +17,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added **(Major update)**: `ForInStatement` in `no-restricted-syntax` rule.
 
+- Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
+
 - Changed: set `defaultAssignment` to `false` in `no-unneeded-ternary` rule.
 
 - Changed: disallow empty reject for `prefer-promise-reject-errors` rule.
