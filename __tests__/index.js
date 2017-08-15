@@ -106,11 +106,9 @@ test("should load the `ava` plugin config in `eslint` to validate all rule synta
 test("should load the `core` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = configs.core;
   const hasUnicornPlugin = config.plugins.indexOf("unicorn") !== -1;
-  const hasPrettierPlugin = config.plugins.indexOf("prettier") !== -1;
   const hasImportPlugin = config.plugins.indexOf("import") !== -1;
 
   t.true(hasUnicornPlugin, "there is unicorn plugin");
-  t.true(hasPrettierPlugin, "there is prettier plugin");
   t.true(hasImportPlugin, "there is import plugin");
 
   const cli = new eslint.CLIEngine({
