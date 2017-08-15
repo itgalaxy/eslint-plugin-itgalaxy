@@ -9,6 +9,7 @@ Except add new rule (it is breaking changed by default).
 
 - Changed: move `import` plugin to core.
 - Changed: use `always` for `func-name-matching` rule.
+- Fixed: remove `prettier` from `core` preset.
 - Revert: allow `for-in` syntax.
 
 ## 51.0.0 - 2017-08-14
