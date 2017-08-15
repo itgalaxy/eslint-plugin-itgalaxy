@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). 
 Except add new rule (it is breaking changed by default).
 
-## Head
+## 52.0.0 - 2017-08-15
 
 - Changed: move `import` plugin to core.
 - Changed: use `always` for `func-name-matching` rule.
