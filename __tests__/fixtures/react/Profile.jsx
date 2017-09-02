@@ -40,9 +40,7 @@ class Profile extends React.PureComponent {
               {data.name || data.username}
             </a>
           </h2>
-          <h3>
-            {data.location || "I Live In My Mind"}
-          </h3>
+          <h3>{data.location || "I Live In My Mind"}</h3>
         </div>
         <div className="github--profile__state">
           <ul>
@@ -53,9 +51,7 @@ class Profile extends React.PureComponent {
                 target="_blank"
                 title="Number Of Followers"
               >
-                <i>
-                  {data.followers}
-                </i>
+                <i>{data.followers}</i>
                 <span>Followers</span>
               </a>
             </li>
@@ -66,9 +62,7 @@ class Profile extends React.PureComponent {
                 target="_blank"
                 title="Number Of Repositoriy"
               >
-                <i>
-                  {data.repos}
-                </i>
+                <i>{data.repos}</i>
                 <span>Repositoriy</span>
               </a>
             </li>
@@ -79,9 +73,7 @@ class Profile extends React.PureComponent {
                 target="_blank"
                 title="Number Of Following"
               >
-                <i>
-                  {data.following}
-                </i>
+                <i>{data.following}</i>
                 <span>Following</span>
               </a>
             </li>
