@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). 
 Except add new rule (it is breaking changed by default).
 
-## Head
+## 53.0.0 - 2017-09-08
 
 - Chore **(Major update)**: minimum required `eslint-plugin-jest` version is now `^21.0.0`.
 
