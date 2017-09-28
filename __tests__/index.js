@@ -217,7 +217,7 @@ test("should load the `react` plugin config in `eslint` to validate all rule syn
   });
 
   const report = cli.executeOnText(
-    "var React = require('react');var Hello = <div>{'test'}</div>"
+    "var React = require('react');var Hello = <div>test</div>"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");

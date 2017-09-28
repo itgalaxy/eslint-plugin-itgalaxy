@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "53.0.0",
+  "version": "54.0.0",
   "description": "itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -52,7 +52,7 @@
     "nyc": "^11.0.3",
     "prettier": "^1.5.2",
     "prop-types": "^15.5.8",
-    "react": "^15.0.0",
+    "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remark-cli": "^4.0.0",
     "remark-preset-lint-itgalaxy": "^10.0.0"
