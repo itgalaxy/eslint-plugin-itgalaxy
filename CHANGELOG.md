@@ -2,8 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-This project adheres to [Semantic Versioning](http://semver.org). 
+This project adheres to [Semantic Versioning](http://semver.org).
 Except add new rule (it is breaking changed by default).
+
+## 55.0.0 - 2017-10-15
+
+- Added: `promise/no-return-in-finally` rule.
+- Added: `nes-between-class-members` rule.
+- Changed: minimum require `eslint` version is now `^4.9.0`.
+- Changed: minimum require `eslint-plugin-promise` version is now `^3.6.0`.
 
 ## 54.0.0 - 2017-09-28
 
@@ -101,7 +108,7 @@ Except add new rule (it is breaking changed by default).
 - Added: `node/no-extraneous-import` rule.
 - Added: `node/no-extraneous-require` rule.
 - Changed: use all `plugins` as `peerDependencies`.
-- Fixed: use `ecmaVersion: 8` for `all` preset. 
+- Fixed: use `ecmaVersion: 8` for `all` preset.
 - Removed: `parserOptions` from `ava` preset.
 - Chore: minimum required `eslint-plugin-node` version is now `^5.0.0`.
 - Changed: remove `version` from `node/no-unsupported-features` rule.
@@ -349,8 +356,8 @@ Except add new rule (it is breaking changed by default).
 
 - Added **(Major update)**: `no-useless-return` rule.
 - Chore **(Major update)**: minimum required `eslint-plugin-promise` version is now `^3.3.0`.
-- Chore **(Major update)**: minimum required `eslint` version is now `^3.9.1`. 
-- Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^3.0.0`. 
+- Chore **(Major update)**: minimum required `eslint` version is now `^3.9.1`.
+- Chore **(Major update)**: minimum required `eslint-plugin-node` version is now `^3.0.0`.
 - Chore: added support `nodejs` version 7.
 
 ## 23.0.0 - 2016-10-18
@@ -584,8 +591,7 @@ Except add new rule (it is breaking changed by default).
 
 ## 4.0.1
 
-- Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself` 
-error.
+- Fixed: `Refusing to install eslint-plugin-itgalaxy as a dependency of itself` error.
 
 ## 4.0.0
 

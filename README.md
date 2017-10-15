@@ -29,12 +29,12 @@ then you must also install `eslint-plugin-itgalaxy` globally.
 ## Usage
 
 Itgalaxy’s ESLint configs come bundled in this package. In order to use them,
-you simply extend the relevant configuration in your project’s `.eslintrc`. 
+you simply extend the relevant configuration in your project’s `.eslintrc`.
 
-**Configurations do not contain stylistic rules. We 
+**Configurations do not contain stylistic rules. We
 use [prettier](https://github.com/prettier/prettier) for this purpose.**
-Use this preset only for pure javascript (containing only `js`, `jsx` and etc.) 
-projects. Better use `prettier` directly (using `npm` command), because 
+Use this preset only for pure javascript (containing only `js`, `jsx` and etc.)
+projects. Better use `prettier` directly (using `npm` command), because
 it is allow to format `css`, `scss`, `json` and etc.
 
 Use:
@@ -53,8 +53,7 @@ For example, the following will extend the ESNext (ES2015 and later) config:
 }
 ```
 
-If using React, extend the `React` version of the configuration 
-(which adds some React-specific rules to those in the ESNext config):
+If using React, extend the `React` version of the configuration (which adds some React-specific rules to those in the ESNext config):
 
 ```json
 {
@@ -70,9 +69,9 @@ If working on an ES5 project, extend the ES5 version of the configuration:
 }
 ```
 
-You can also add some "augmenting" configs on top of the "core" config 
-by extending an array of linting configs. For example, this package provides 
-a lodash linting config, which can be added to the ESNext config with 
+You can also add some "augmenting" configs on top of the "core" config
+by extending an array of linting configs. For example, this package provides
+a lodash linting config, which can be added to the ESNext config with
 the following configuration file:
 
 ```json
@@ -119,7 +118,7 @@ can be used on top of the core configurations:
 ## Creating New Rules
 
 The easiest way to add new rules is to use the
-[ESLint Yeoman generator](https://www.npmjs.com/package/generator-eslint). 
+[ESLint Yeoman generator](https://www.npmjs.com/package/generator-eslint).
 Running `yo eslint:rule` from the root of this project should add the required
 main file, docs, and test for your new rules. Make sure that these are
 all filled out and consistent with the other rules before merging.
