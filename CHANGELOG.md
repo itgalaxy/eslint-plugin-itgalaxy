@@ -5,10 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org).
 Except add new rule (it is breaking changed by default).
 
+## 56.0.0 - 2017-10-19
+
+- Added: `import/exports-last` rule.
+- Changed: minimum require `eslint-plugin-import` version is now `^2.8.0`.
+
 ## 55.0.0 - 2017-10-15
 
 - Added: `promise/no-return-in-finally` rule.
-- Added: `nes-between-class-members` rule.
+- Added: `lines-between-class-members` rule.
 - Changed: minimum require `eslint` version is now `^4.9.0`.
 - Changed: minimum require `eslint-plugin-promise` version is now `^3.6.0`.
 
