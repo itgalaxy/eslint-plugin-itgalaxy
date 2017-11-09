@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "56.0.0",
+  "version": "57.0.0",
   "description": "itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -41,7 +41,7 @@
     "eslint-plugin-prettier": "^2.1.2",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.2.0",
-    "eslint-plugin-unicorn": "^2.1.2",
+    "eslint-plugin-unicorn": "^3.0.0",
     "husky": "^0.14.1",
     "lint-staged": "^4.0.0",
     "npm-run-all": "^4.0.1",
@@ -52,7 +52,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remark-cli": "^4.0.0",
-    "remark-preset-lint-itgalaxy": "^11.0.0"
+    "remark-preset-lint-itgalaxy": "^12.0.0"
   },
   "peerDependencies": {
     "eslint": "^4.9.0",
@@ -64,21 +64,21 @@
     "eslint-plugin-prettier": "^2.1.2",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.1.0",
-    "eslint-plugin-unicorn": "^2.1.2",
+    "eslint-plugin-unicorn": "^3.0.0",
     "eslint-plugin-jest": "^21.0.0",
     "prettier": "^1.5.2"
   },
   "scripts": {
     "precommit": "lint-staged",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "lint:eslint-check": "eslint --print-config ./print-config/index.js | eslint-config-prettier-check",
+    "lint:eslint-config-prettier-check": "eslint --print-config ./print-config/index.js | eslint-config-prettier-check",
     "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
-    "lint:eslint": "eslint . --ignore-path .gitignore",
+    "lint:eslint": "eslint --cache --report-unused-disable-directives . --ignore-path .gitignore",
     "lint:remark": "remark . -i .gitignore -f -q",
-    "lint:prettier": "prettier --list-different '{lib,__tests__}/**/*.{js,jsx}' '*.js'",
+    "lint:prettier": "prettier --list-different '{lib,__tests__}/**/*.{js,jsx,md}' '*.{js,md}'",
     "lint": "npm-run-all -l -p lint:**",
     "fix:eslint": "eslint . --fix --ignore-path .gitignore",
-    "fix:prettier": "prettier --write '{lib,__tests__}/**/*.{js,jsx}' '*.js'",
+    "fix:prettier": "prettier --write '{lib,__tests__}/**/*.{js,jsx,md}' '*.{js,md}'",
     "fix": "npm-run-all -l -p fix:**",
     "pretest": "npm run lint",
     "test": "npm run test-only",

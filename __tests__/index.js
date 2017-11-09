@@ -1,4 +1,4 @@
-import { configs } from "../index";
+import { configs } from "..";
 import eslint from "eslint";
 import fs from "fs";
 import path from "path";
