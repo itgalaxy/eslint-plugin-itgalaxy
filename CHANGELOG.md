@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## Head
+## 58.0.0 - 2017-11-28
 
 * Added: `react/button-has-type` rule.
 * Added: `react/no-access-state-in-setstate` rule.
