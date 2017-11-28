@@ -9,6 +9,7 @@ rule (it is breaking changed by default).
 
 * Added: `react/button-has-type` rule.
 * Added: `react/no-access-state-in-setstate` rule.
+* Changed: minimum require `eslint-plugin-react` version is now `^7.5.0`.
 
 ## 57.0.0 - 2017-11-09
 
