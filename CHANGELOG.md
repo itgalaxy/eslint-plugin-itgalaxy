@@ -8,6 +8,7 @@ rule (it is breaking changed by default).
 ## Head
 
 * Added: `react/button-has-type` rule.
+* Added: `react/no-access-state-in-setstate` rule.
 
 ## 57.0.0 - 2017-11-09
 
