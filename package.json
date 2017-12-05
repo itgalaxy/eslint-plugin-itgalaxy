@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "58.0.0",
+  "version": "59.0.0",
   "description": "itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -43,7 +43,7 @@
     "eslint-plugin-react": "^7.5.0",
     "eslint-plugin-unicorn": "^3.0.0",
     "husky": "^0.14.1",
-    "lint-staged": "^5.0.0",
+    "lint-staged": "^6.0.0",
     "npm-run-all": "^4.0.1",
     "npmpub": "^3.1.0",
     "nyc": "^11.0.3",
@@ -75,11 +75,11 @@
     "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
     "lint:eslint": "eslint --cache --report-unused-disable-directives . --ignore-path .gitignore",
     "lint:remark": "remark . -i .gitignore -f -q",
-    "lint:prettier": "prettier --list-different '{lib,__tests__}/**/*.{js,jsx,md}' '*.{js,md}'",
+    "lint:prettier": "prettier --list-different '{lib,__tests__}/**/*.{js,mjs,jsx,md}' '*.{js,mjs,jsx,md}'",
     "lint": "npm-run-all -l -p lint:**",
-    "fix:eslint": "eslint . --fix --ignore-path .gitignore",
-    "fix:prettier": "prettier --write '{lib,__tests__}/**/*.{js,jsx,md}' '*.{js,md}'",
-    "fix": "npm-run-all -l -p fix:**",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "fix:eslint": "npm run lint:eslint -- --fix",
+    "fix": "npm-run-all -l -p 'fix:**'",
     "pretest": "npm run lint",
     "test": "npm run test-only",
     "test-only": "nyc ava --verbose '**/__tests__/**/*.js'",
@@ -128,6 +128,6 @@
     ]
   },
   "engines": {
-    "node": ">= 4.3 < 5.0.0 || >= 5.10"
+    "node": ">= 6.9.0 || >= 8.9.0"
   }
 }

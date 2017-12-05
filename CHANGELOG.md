@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 59.0.0 - 2017-12-05
+
+* Added: `jest/prefer-to-be-null` rule.
+* Added: `jest/prefer-to-be-undefined` rule.
+* Changed: minimum require `nodejs` version is now `^6.9.0`.
+
 ## 58.0.0 - 2017-11-28
 
 * Added: `react/button-has-type` rule.
@@ -554,8 +560,7 @@ rule (it is breaking changed by default).
 
 * Added **(Major update)**: `prefer-numeric-literals` rule.
 * Added **(Major update)**: `lines-around-directive` rule.
-* Changed: `FunctionDeclaration` and `FunctionExpression` to `{ "body": 1,
-  "parameters": 1 }` in `indent` rule.
+* Changed: `FunctionDeclaration` and `FunctionExpression` to `{ "body": 1, "parameters": 1 }` in `indent` rule.
 * Chore: fix link `dependencies` and `devDependencies`.
 * Chore **(Major update)**: minimum required `eslint` version is now `^3.5.0`.
 
