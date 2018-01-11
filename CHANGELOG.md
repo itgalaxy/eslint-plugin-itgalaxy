@@ -5,9 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## Head
+## 60.0.0 - 2018-01-11
 
 * Added: `jest/globals` env.
+* Added: `jest/prefer-expect-assertions` rule.
+* Changed: minimum require `eslint-plugin-jest` version is now `^21.6.1`.
 
 ## 59.0.0 - 2017-12-05
 

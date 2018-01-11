@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "59.0.0",
+  "version": "60.0.0",
   "description": "itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -24,7 +24,6 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "ajv-cli": "^2.1.0",
     "ava": "^0.24.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.9.0",
@@ -34,7 +33,7 @@
     "eslint-find-rules": "^3.1.1",
     "eslint-plugin-ava": "^4.2.1",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.0.0",
+    "eslint-plugin-jest": "^21.6.1",
     "eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-node": "^5.1.0",
