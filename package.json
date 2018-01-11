@@ -24,7 +24,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "ajv-cli": "^2.1.0",
+    "ajv-cli": "^3.0.0",
     "ava": "^0.24.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.9.0",
