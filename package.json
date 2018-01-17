@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "60.0.0",
+  "version": "61.0.0",
   "description": "itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -33,7 +33,7 @@
     "eslint-find-rules": "^3.1.1",
     "eslint-plugin-ava": "^4.2.1",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.6.1",
+    "eslint-plugin-jest": "^21.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-node": "^5.1.0",
