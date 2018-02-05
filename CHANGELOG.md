@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 62.0.0 - 2018-02-05
+
+* Added: `react/jsx-child-element-spacing` rule.
+* Added: `react/jsx-sort-default-props` rule.
+* Added: `react/no-this-in-sfc` rule.
+* Changed: minimum require `eslint` version is now `^4.17.0`.
+* Changed: minimum require `eslint-plugin-node` version is now `^6.0.0`.
+* Changed: minimum require `eslint-plugin-react` version is now `^7.6.1`.
+
 ## 61.0.0 - 2018-01-17
 
 * Added: `jest/valid-expect-in-promise` rule.
