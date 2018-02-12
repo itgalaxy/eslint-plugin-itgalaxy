@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 63.0.0 - 2018-02-13
+
+* Added: `jest/consistent-test-it` rule.
+* Added: `jest/valid-describe` rule.
+* Changed: minimum require `eslint-plugin-jest` version is now `^21.9.0`.
+
 ## 62.0.0 - 2018-02-05
 
 * Added: `react/jsx-child-element-spacing` rule.
