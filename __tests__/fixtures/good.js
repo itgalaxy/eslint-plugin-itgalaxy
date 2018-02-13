@@ -557,6 +557,22 @@ xBar += yBar;
 
 handleHands(xBar, fooA, fooB, fooC, fooD);
 
+try {
+  test = foo();
+} catch (ignoreError) {
+  try {
+    test = foo(1);
+  } catch (ignoreOtherError) {
+    throw new Error("test");
+  }
+}
+
+const aReg = /ab+c/i;
+const bReg = new RegExp("ab+c", "i");
+const cReg = new RegExp(/ab+c/, "i");
+
+foo(aReg, bReg, cReg);
+
 export default linter;
 export { foo, handler };
 export {

@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 64.0.0 - 2018-02-13
+
+* Added: `unicorn/prefer-add-event-listener` rule.
+* Added: `unicorn/prefer-spread` rule.
+* Added: `unicorn/no-unsafe-regex` rule.
+* Added: `unicorn/error-message` rule.
+* Added: `jest/lowercase-name` rule.
+* Added: `jest/lowercase-name` rule.
+* Added: `jest/no-test-prefixes` rule.
+* Changed: minimum require `eslint-plugin-jest` version is now `^21.12.1`.
+* Changed: minimum require `eslint-plugin-unicorn` version is now `^4.0.1`.
+
 ## 63.0.0 - 2018-02-13
 
 * Added: `jest/consistent-test-it` rule.
