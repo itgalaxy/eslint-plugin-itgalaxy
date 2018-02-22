@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 65.0.0 - 2018-02-22
+
+* Added: `import/no-self-import` rule.
+* Changed: switch to `babel-eslint` parser for `esnext` bundle.
+* Removed: `max-nested-callbacks` rule.
+* Removed: `max-depth` rule.
+
 ## 64.0.0 - 2018-02-13
 
 * Added: `unicorn/prefer-add-event-listener` rule.
