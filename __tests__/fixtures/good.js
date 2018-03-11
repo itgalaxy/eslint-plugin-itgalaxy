@@ -573,6 +573,22 @@ const cReg = new RegExp(/ab+c/, "i");
 
 foo(aReg, bReg, cReg);
 
+Promise.all([Promise.resolve("a"), "b", Promise.resolve("c")])
+  .then(res => {
+    if (res[0] === 1) {
+      throw new Error("test");
+    }
+
+    return 1;
+  })
+  .catch(error => {
+    throw error;
+  })
+  .then(() => Promise.race([Promise.resolve("c")]))
+  .catch(error => {
+    throw error;
+  });
+
 export default linter;
 export { foo, handler };
 export {

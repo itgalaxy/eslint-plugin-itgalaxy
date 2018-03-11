@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 66.0.0 - 2018-03-11
+
+* Added: `jest/no-jest-import` rule.
+* Added: `promise/no-new-statics` rule.
+* Added: `promise/valid-params` rule.
+
 ## 65.0.0 - 2018-02-22
 
 * Added: `import/no-self-import` rule.
