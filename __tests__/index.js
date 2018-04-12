@@ -29,9 +29,8 @@ test("should all configs are present in exports", t => {
   let files = [];
 
   try {
-    /* eslint-disable no-sync */
+    // eslint-disable-next-line no-sync
     files = fs.readdirSync(configDir);
-    /* eslint-enable no-sync */
   } catch (error) {
     throw error;
   }

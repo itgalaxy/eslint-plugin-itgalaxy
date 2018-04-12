@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 67.0.0 - 2018-04-12
+
+* Added: `import/no-cycle` rule.
+* Added: `import/no-useless-path-segments` rule.
+* Added: `lodash/prefer-find` rule.
+* Added: `lodash/prefer-immutable-method` rule.
+
 ## 66.0.0 - 2018-03-11
 
 * Added: `jest/no-jest-import` rule.
