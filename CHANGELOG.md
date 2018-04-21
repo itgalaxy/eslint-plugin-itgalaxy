@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## Head
+
+* Removed: `no-new-wrappers` in favor `unicorn/no-new-builtins`.
+
 ## 67.0.0 - 2018-04-12
 
 * Added: `import/no-cycle` rule.
