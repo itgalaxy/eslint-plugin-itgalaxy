@@ -56,6 +56,7 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
     "unicorn",
     "jest",
     "lodash",
+    "markdown",
     "node",
     "prettier",
     "react"
@@ -242,6 +243,45 @@ test("should load the `jest` plugin config in `eslint` to validate all rule synt
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
+});
+
+test("should load the `markdown` plugin config in `eslint` to validate all rule syntax is correct", t => {
+  const config = configs.markdown;
+  const hasJestPlugin = config.plugins.indexOf("markdown") !== -1;
+
+  config.rules = {
+    "no-alert": "error"
+  };
+
+  t.true(hasJestPlugin, "there is markdown plugin");
+
+  const cli = new eslint.CLIEngine({
+    baseConfig: config,
+    useEslintrc: false
+  });
+
+  const validReport = cli.executeOnText(
+    `\`\`\`javascript
+var s = "JavaScript syntax highlighting";
+\`\`\``,
+    "valid.md"
+  );
+
+  t.is(validReport.results.length, 1, "eslint report with one results");
+  t.is(validReport.errorCount, 0, "eslint report without errors");
+  t.is(validReport.warningCount, 0, "eslint report without warnings");
+
+  const invalidReport = cli.executeOnText(
+    `\`\`\`javascript
+var s = "JavaScript syntax highlighting";
+alert("test");
+\`\`\``,
+    "invalid.md"
+  );
+
+  t.is(invalidReport.results.length, 1, "eslint report with one results");
+  t.is(invalidReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidReport.warningCount, 0, "eslint report without warnings");
 });
 
 test("integration tests for `esnext`", t => {

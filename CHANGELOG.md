@@ -5,8 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## Head
+## 68.0.0 - 2018-05-22
 
+* Added: `markdown` preset.
+* Added: `import/dynamic-import-chunkname` rule.
 * Removed: `no-new-wrappers` in favor `unicorn/no-new-builtins`.
 
 ## 67.0.0 - 2018-04-12
