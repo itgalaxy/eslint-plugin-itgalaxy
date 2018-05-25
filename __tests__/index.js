@@ -72,7 +72,8 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
   });
 
   const report = cli.executeOnText(
-    "const value = 100;\n\nfunction foo() {\n  return 1;\n}\n\nfoo(value);\n"
+    "const value = 100;\n\nfunction foo() {\n  return 1;\n}\n\nfoo(value);\n",
+    "test.js"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");
@@ -92,7 +93,8 @@ test("should load the `ava` plugin config in `eslint` to validate all rule synta
   });
 
   const report = cli.executeOnText(
-    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n"
+    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n",
+    "test.js"
   );
 
   t.true(isObject(report), "eslint execute is success");
@@ -117,7 +119,8 @@ test("should load the `core` plugin config in `eslint` to validate all rule synt
   });
 
   const report = cli.executeOnText(
-    '(function() {\n    "use strict";\n    // prettier-ignore\n\n    (123).toString();\n})();\n'
+    '(function() {\n    "use strict";\n    // prettier-ignore\n\n    (123).toString();\n})();\n',
+    "test.js"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");
@@ -133,7 +136,8 @@ test("should load the `es5` plugin config in eslint to validate all rule syntax 
   });
 
   const report = cli.executeOnText(
-    '(function() {\n    "use strict";\n    // prettier-ignore\n\n    (123).toString();\n})();\n'
+    '(function() {\n    "use strict";\n    // prettier-ignore\n\n    (123).toString();\n})();\n',
+    "test.js"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");
@@ -154,7 +158,10 @@ test("should load the `esnext` plugin config in `eslint` to validate all rule sy
     useEslintrc: false
   });
 
-  const report = cli.executeOnText("let foo = 0;\n\n    foo += 1;\n");
+  const report = cli.executeOnText(
+    "let foo = 0;\n\n    foo += 1;\n",
+    "test.js"
+  );
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
@@ -173,7 +180,8 @@ test("should load the `lodash` plugin config in `eslint` to validate all rule sy
   });
 
   const report = cli.executeOnText(
-    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n"
+    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n",
+    "test.js"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");
@@ -192,7 +200,7 @@ test("should load the `node` plugin config in `eslint` to validate all rule synt
     useEslintrc: false
   });
 
-  const report = cli.executeOnText("module.export = 1;\n");
+  const report = cli.executeOnText("module.export = 1;\n", "test.js");
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
@@ -217,7 +225,8 @@ test("should load the `react` plugin config in `eslint` to validate all rule syn
   });
 
   const report = cli.executeOnText(
-    "var React = require('react');var Hello = <div>test</div>"
+    "var React = require('react');var Hello = <div>test</div>",
+    "test.jsx"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");
@@ -237,7 +246,8 @@ test("should load the `jest` plugin config in `eslint` to validate all rule synt
   });
 
   const report = cli.executeOnText(
-    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n"
+    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n",
+    "test.js"
   );
 
   t.is(report.results.length, 1, "eslint report with one results");

@@ -89,33 +89,33 @@ following configuration file:
 
 This plugin provides the following core configurations:
 
-* [all](lib/config/all.js): Use only for internal testing.
+- [all](lib/config/all.js): Use only for internal testing.
 
-* [core](lib/config/core.js): Don't use. It is for internal purposes.
+- [core](lib/config/core.js): Don't use. It is for internal purposes.
 
-* [es5](lib/config/es5.js): Use this for legacy projects.
+- [es5](lib/config/es5.js): Use this for legacy projects.
 
-* [esnext](lib/config/esnext.js): Use this for anything written with ES2015+
+- [esnext](lib/config/esnext.js): Use this for anything written with ES2015+
   features.
 
-* [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
+- [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
 
-* [node](lib/config/node.js): Use this for nodejs projects.
+- [node](lib/config/node.js): Use this for nodejs projects.
 
-* [react](lib/config/react.js): Use this for React projects.
+- [react](lib/config/react.js): Use this for React projects.
 
-* [prettier](lib/config/prettier.js): Use this for enable `prettier`.
+- [prettier](lib/config/prettier.js): Use this for enable `prettier`.
 
 This plugin also provides the following tool-specific configurations, which can
 be used on top of the core configurations:
 
-* [AVA](lib/config/ava.js): Use this for projects that use the
+- [AVA](lib/config/ava.js): Use this for projects that use the
   [AVA](https://github.com/sindresorhus/ava).
 
-* [lodash](lib/config/lodash.js): Use this for projects that use
+- [lodash](lib/config/lodash.js): Use this for projects that use
   [lodash](https://lodash.com).
 
-* [Jest](lib/config/jest.js): Use this for projects that use the
+- [Jest](lib/config/jest.js): Use this for projects that use the
   [Jest](https://github.com/facebook/jest).
 
 ## Creating New Rules
