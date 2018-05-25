@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 69.0.0 - 2018-05-25
+
+* Added: support `mjs` extension for `import` plugin.
+* Changed: disable `node/no-extraneous-import` in favor `import/no-extraneous-dependencies` rule.
+* Changed: disable `node/no-extraneous-require` in favor `import/no-extraneous-dependencies` rule.
+* Changed: disable `node/node/no-missing-import` in favor `import/no-unresolved` rule.
+* Changed: disable `node/node/no-missing-require` in favor `import/no-unresolved` rule.
+* Changed: default `env` is `browser` and `node` for markdown.
+* Changed: disable `strict` rule for `markdown` preset.
+* Changed: disable `no-process-env` rule for `markdown` preset.
+* Changed: disable `no-console` rule for `markdown` preset.
+
 ## 68.0.0 - 2018-05-22
 
 * Added: `markdown` preset.
