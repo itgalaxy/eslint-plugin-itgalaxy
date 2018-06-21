@@ -54,6 +54,7 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
     "jsx-a11y",
     "promise",
     "unicorn",
+    "html",
     "jest",
     "lodash",
     "markdown",
@@ -234,6 +235,64 @@ test("should load the `react` plugin config in `eslint` to validate all rule syn
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
+test("should load the `html` plugin config in `eslint` to validate all rule syntax is correct", t => {
+  const config = configs.html;
+  const hasHTMLPlugin = config.plugins.indexOf("html") !== -1;
+
+  config.rules = {
+    "no-alert": "error"
+  };
+
+  t.true(hasHTMLPlugin, "there is html plugin");
+
+  const cli = new eslint.CLIEngine({
+    baseConfig: config,
+    useEslintrc: false
+  });
+
+  const validReport = cli.executeOnText(
+    `<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Script Tag</title>
+  <script>
+    var i = 1;
+  </script>
+ </head>
+ <body> 
+  <div id="welcome"></div>
+ </body>
+</html>`,
+    "index.html"
+  );
+
+  t.is(validReport.results.length, 1, "eslint report with one results");
+  t.is(validReport.errorCount, 0, "eslint report without errors");
+  t.is(validReport.warningCount, 0, "eslint report without warnings");
+
+  const invalidReport = cli.executeOnText(
+    `<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Script Tag</title>
+  <script>
+  alert('test');
+  </script>
+ </head>
+ <body> 
+  <div id="welcome"></div>
+ </body>
+</html>`,
+    "index.html"
+  );
+
+  t.is(invalidReport.results.length, 1, "eslint report with one results");
+  t.is(invalidReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidReport.warningCount, 0, "eslint report without warnings");
+});
+
 test("should load the `jest` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = configs.jest;
   const hasJestPlugin = config.plugins.indexOf("jest") !== -1;
@@ -257,13 +316,13 @@ test("should load the `jest` plugin config in `eslint` to validate all rule synt
 
 test("should load the `markdown` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = configs.markdown;
-  const hasJestPlugin = config.plugins.indexOf("markdown") !== -1;
+  const hasMarkdownPlugin = config.plugins.indexOf("markdown") !== -1;
 
   config.rules = {
     "no-alert": "error"
   };
 
-  t.true(hasJestPlugin, "there is markdown plugin");
+  t.true(hasMarkdownPlugin, "there is markdown plugin");
 
   const cli = new eslint.CLIEngine({
     baseConfig: config,

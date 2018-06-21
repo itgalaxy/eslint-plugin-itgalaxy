@@ -5,8 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## 69.0.0 - 2018-06-04
+## 69.0.0 - 2018-06-21
 
+- Added: `html` preset.
 - Added: `jest/no-jasmine-globals` rule.
 - Added: support `mjs` extension for `import` plugin.
 - Changed: disable `node/no-extraneous-import` in favor `import/no-extraneous-dependencies` rule.

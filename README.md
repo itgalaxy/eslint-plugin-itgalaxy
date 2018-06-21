@@ -98,6 +98,8 @@ This plugin provides the following core configurations:
 - [esnext](lib/config/esnext.js): Use this for anything written with ES2015+
   features.
 
+- [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files (don't forget add `.html` to `--ext` CLI argument).
+
 - [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
 
 - [node](lib/config/node.js): Use this for nodejs projects.
