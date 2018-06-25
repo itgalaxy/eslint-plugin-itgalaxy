@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## HEAD
+
+- Added: `prefer-object-spread` rule.
+- Added: `max-classes-per-file` rule.
+- Changed: minimum require `eslint` version is now `^5.0.0`.
+- Changed: minimum require `eslint-plugin-import` version is now `^2.13.0`.
+- Changed: minimum require `eslint-plugin-prettier` version is now `^2.6.1`.
+- Changed: minimum require `eslint-plugin-react` version is now `^eslint-plugin-react`.
+
 ## 69.0.0 - 2018-06-21
 
 - Added: `html` preset.
