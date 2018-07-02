@@ -63,10 +63,6 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
     "react"
   ]);
 
-  config.extends = [];
-
-  config.rules["react/jsx-filename-extension"] = "off";
-
   const cli = new eslint.CLIEngine({
     baseConfig: config,
     useEslintrc: false
@@ -216,9 +212,7 @@ test("should load the `react` plugin config in `eslint` to validate all rule syn
   t.true(hasReactPlugin, "there is react plugin");
   t.true(hasjsxA11yPlugin, "there is jsx-a11y plugin");
 
-  config.extends = [];
-
-  config.rules["react/jsx-filename-extension"] = "off";
+  config.rules["react/prefer-stateless-function"] = "off";
 
   const cli = new eslint.CLIEngine({
     baseConfig: config,
@@ -226,7 +220,23 @@ test("should load the `react` plugin config in `eslint` to validate all rule syn
   });
 
   const report = cli.executeOnText(
-    "var React = require('react');var Hello = <div>test</div>",
+    `
+import React from "react";
+
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is react component.</h2>
+      </div>
+    );
+  }
+}
+
+export default Clock;
+
+  `,
     "test.jsx"
   );
 
