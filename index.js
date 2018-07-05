@@ -10,7 +10,6 @@ const jest = require("./lib/config/jest");
 const lodash = require("./lib/config/lodash");
 const markdown = require("./lib/config/markdown");
 const node = require("./lib/config/node");
-const prettier = require("./lib/config/prettier");
 const react = require("./lib/config/react");
 
 const configs = {
@@ -24,7 +23,6 @@ const configs = {
   lodash,
   markdown,
   node,
-  prettier,
   react
 };
 

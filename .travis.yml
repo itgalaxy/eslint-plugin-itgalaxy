@@ -30,7 +30,6 @@ matrix:
     - node_js: '6'
       script: npm run $JOB_PART
       env: JOB_PART=test-only
-      sudo: required
 
 before_install:
   - 'if [[ `npm -v` != 5* ]]; then npm i -g npm@latest; fi'

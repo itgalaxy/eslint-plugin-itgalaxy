@@ -32,18 +32,9 @@ Itgalaxy’s ESLint configs come bundled in this package. In order to use them,
 you simply extend the relevant configuration in your project’s `.eslintrc`.
 
 **Configurations do not contain stylistic rules. We use
-[prettier](https://github.com/prettier/prettier) for this purpose.** Use this
-preset only for pure javascript (containing only `js`, `jsx` and etc.) projects.
+[prettier](https://github.com/prettier/prettier) for this purpose.**
 Better use `prettier` directly (using `npm` command), because it is allow to
-format `css`, `scss`, `json` and etc.
-
-Use:
-
-```json
-{
-  "extends": "plugin:itgalaxy/prettier"
-}
-```
+format `css`, `scss`, `markdown`, `json` and etc.
 
 For example, the following will extend the ESNext (ES2015 and later) config:
 
@@ -105,8 +96,6 @@ This plugin provides the following core configurations:
 - [node](lib/config/node.js): Use this for nodejs projects.
 
 - [react](lib/config/react.js): Use this for React projects.
-
-- [prettier](lib/config/prettier.js): Use this for enable `prettier`.
 
 This plugin also provides the following tool-specific configurations, which can
 be used on top of the core configurations:

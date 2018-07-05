@@ -59,7 +59,6 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
     "lodash",
     "markdown",
     "node",
-    "prettier",
     "react"
   ]);
 
@@ -116,7 +115,7 @@ test("should load the `core` plugin config in `eslint` to validate all rule synt
   });
 
   const report = cli.executeOnText(
-    '(function() {\n    "use strict";\n    // prettier-ignore\n\n    (123).toString();\n})();\n',
+    '(function() {\n    "use strict";\n\n    (123).toString();\n})();\n',
     "test.js"
   );
 
@@ -133,7 +132,7 @@ test("should load the `es5` plugin config in eslint to validate all rule syntax 
   });
 
   const report = cli.executeOnText(
-    '(function() {\n    "use strict";\n    // prettier-ignore\n\n    (123).toString();\n})();\n',
+    '(function() {\n    "use strict";\n\n    (123).toString();\n})();\n',
     "test.js"
   );
 
@@ -388,20 +387,6 @@ test("integration tests for `react`", t => {
   ]);
 
   t.is(report.results.length, 3, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
-});
-
-test("integration tests for `prettier`", t => {
-  const cli = new eslint.CLIEngine({
-    baseConfig: configs.prettier
-  });
-
-  const report = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/**/*.{js,jsx}")
-  ]);
-
-  t.is(report.results.length, 4, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
