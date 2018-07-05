@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## Head
+## 70.0.1 - 2018-07-05
 
 - Fix: remove `jest/globals` global env (removed in `eslint@5`).
 
