@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## Head
+
+- Fix: remove `jest/globals` global env (removed in `eslint@5`).
+
 ## 70.0.0 - 2018-07-05
 
 - Added: `jsx-a11y/label-has-associated-control` rule.
