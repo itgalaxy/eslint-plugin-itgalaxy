@@ -39,7 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.0",
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-markdown": "^1.0.0-beta.8",
-    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-node": "^7.0.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-unicorn": "^4.0.1",
