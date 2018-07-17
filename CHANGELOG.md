@@ -5,10 +5,21 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 72.0.0 - 2018-07-17
+
+- Added: `node/no-unsupported-features/es-builtins` rule.
+- Added: `node/no-unsupported-features/es-syntax` rule.
+- Added: `node/no-unsupported-features/node-builtins` rule.
+- Added: `node/prefer-global/buffer` rule.
+- Added: `node/prefer-global/console` rule.
+- Added: `node/prefer-global/process` rule.
+- Changed: use `ecmaVersion` `2019`.
+- Chore: minimum require `eslint-plugin-node` version is now `^5.0.0`.
+
 ## 71.0.0 - 2018-07-16
 
 - Added: `ava/no-import-test-files` rule.
-- Changed: minimum require `eslint-plugin-ava` version is now `^5.0.0`.
+- Chore: minimum require `eslint-plugin-ava` version is now `^5.0.0`.
 
 ## 70.0.1 - 2018-07-05
 
@@ -19,11 +30,11 @@ rule (it is breaking changed by default).
 - Added: `jsx-a11y/label-has-associated-control` rule.
 - Added: `prefer-object-spread` rule.
 - Added: `max-classes-per-file` rule.
-- Changed: minimum require `eslint` version is now `^5.0.0`.
-- Changed: minimum require `eslint-plugin-import` version is now `^2.13.0`.
-- Changed: minimum require `eslint-plugin-prettier` version is now `^2.6.1`.
-- Changed: minimum require `eslint-plugin-react` version is now `^7.10.0`.
-- Changed: minimum require `eslint-plugin-jsx-a11y` version is now `^6.1.0`.
+- Chore: minimum require `eslint` version is now `^5.0.0`.
+- Chore: minimum require `eslint-plugin-import` version is now `^2.13.0`.
+- Chore: minimum require `eslint-plugin-prettier` version is now `^2.6.1`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.10.0`.
+- Chore: minimum require `eslint-plugin-jsx-a11y` version is now `^6.1.0`.
 - Changed: removed `prettier` preset.
 
 ## 69.0.0 - 2018-06-21
@@ -39,8 +50,8 @@ rule (it is breaking changed by default).
 - Changed: disable `strict` rule for `markdown` preset.
 - Changed: disable `no-process-env` rule for `markdown` preset.
 - Changed: disable `no-console` rule for `markdown` preset.
-- Changed: minimum require `eslint-plugin-jest` version is now `^21.17.0`.
-- Changed: minimum require `eslint-plugin-react` version is now `^7.9.1`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.17.0`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.9.1`.
 
 ## 68.0.0 - 2018-05-22
 
@@ -77,40 +88,40 @@ rule (it is breaking changed by default).
 - Added: `jest/lowercase-name` rule.
 - Added: `jest/lowercase-name` rule.
 - Added: `jest/no-test-prefixes` rule.
-- Changed: minimum require `eslint-plugin-jest` version is now `^21.12.1`.
-- Changed: minimum require `eslint-plugin-unicorn` version is now `^4.0.1`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.12.1`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^4.0.1`.
 
 ## 63.0.0 - 2018-02-13
 
 - Added: `jest/consistent-test-it` rule.
 - Added: `jest/valid-describe` rule.
-- Changed: minimum require `eslint-plugin-jest` version is now `^21.9.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.9.0`.
 
 ## 62.0.0 - 2018-02-05
 
 - Added: `react/jsx-child-element-spacing` rule.
 - Added: `react/jsx-sort-default-props` rule.
 - Added: `react/no-this-in-sfc` rule.
-- Changed: minimum require `eslint` version is now `^4.17.0`.
-- Changed: minimum require `eslint-plugin-node` version is now `^6.0.0`.
-- Changed: minimum require `eslint-plugin-react` version is now `^7.6.1`.
+- Chore: minimum require `eslint` version is now `^4.17.0`.
+- Chore: minimum require `eslint-plugin-node` version is now `^6.0.0`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.6.1`.
 
 ## 61.0.0 - 2018-01-17
 
 - Added: `jest/valid-expect-in-promise` rule.
-- Changed: minimum require `eslint-plugin-jest` version is now `^21.7.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.7.0`.
 
 ## 60.0.0 - 2018-01-11
 
 - Added: `jest/globals` env.
 - Added: `jest/prefer-expect-assertions` rule.
-- Changed: minimum require `eslint-plugin-jest` version is now `^21.6.1`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.6.1`.
 
 ## 59.0.0 - 2017-12-05
 
 - Added: `jest/prefer-to-be-null` rule.
 - Added: `jest/prefer-to-be-undefined` rule.
-- Changed: minimum require `nodejs` version is now `^6.9.0`.
+- Chore: minimum require `nodejs` version is now `^6.9.0`.
 
 ## 58.0.0 - 2017-11-28
 
@@ -125,19 +136,19 @@ rule (it is breaking changed by default).
 - Added: `unicorn/new-for-builtins` rule.
 - Added: `jest/prefer-to-have-length` rule.
 - Changed: disable `no-unexpected-multiline` rule.
-- Changed: minimum require `eslint-plugin-unicorn` version is now `^3.0.0`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^3.0.0`.
 
 ## 56.0.0 - 2017-10-19
 
 - Added: `import/exports-last` rule.
-- Changed: minimum require `eslint-plugin-import` version is now `^2.8.0`.
+- Chore: minimum require `eslint-plugin-import` version is now `^2.8.0`.
 
 ## 55.0.0 - 2017-10-15
 
 - Added: `promise/no-return-in-finally` rule.
 - Added: `lines-between-class-members` rule.
-- Changed: minimum require `eslint` version is now `^4.9.0`.
-- Changed: minimum require `eslint-plugin-promise` version is now `^3.6.0`.
+- Chore: minimum require `eslint` version is now `^4.9.0`.
+- Chore: minimum require `eslint-plugin-promise` version is now `^3.6.0`.
 
 ## 54.0.0 - 2017-09-28
 
@@ -146,8 +157,7 @@ rule (it is breaking changed by default).
 
 ## 53.0.0 - 2017-09-08
 
-- Chore **(Major update)**: minimum required `eslint-plugin-jest` version is now
-  `^21.0.0`.
+- Chore: minimum required `eslint-plugin-jest` version is now `^21.0.0`.
 
 ## 52.0.0 - 2017-08-15
 
@@ -178,8 +188,7 @@ rule (it is breaking changed by default).
 - Changed: set `balanced` to `true` for block comments in `spaced-comment` rule.
 - Changed: set `location` to `start` in `no-warning-comments` rule.
 - Changed: set `enforceInMethodNames` to `true` in `no-underscore-dangle` rule.
-- Chore **(Major update)**: minimum required `eslint-plugin-react` version is
-  now `^7.2.0`.
+- Chore: minimum required `eslint-plugin-react` version is now `^7.2.0`.
 - Changed: override `class-methods-use-this` rule for react.
 - Changed: update supported `node` version.
 - Changed: use `default` fallthrough comment.
