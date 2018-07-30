@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 73.0.0 - 2018-07-30
+
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^5.0.0`.
+
 ## 72.0.0 - 2018-07-17
 
 - Added: `node/no-unsupported-features/es-builtins` rule.
@@ -14,7 +18,7 @@ rule (it is breaking changed by default).
 - Added: `node/prefer-global/console` rule.
 - Added: `node/prefer-global/process` rule.
 - Changed: use `ecmaVersion` `2019`.
-- Chore: minimum require `eslint-plugin-node` version is now `^5.0.0`.
+- Chore: minimum require `eslint-plugin-node` version is now `^7.0.0`.
 
 ## 71.0.0 - 2018-07-16
 
