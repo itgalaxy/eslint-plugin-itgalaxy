@@ -13,6 +13,12 @@ const quotedBar = `'this' is "quoted"`;
 
 arrayVariable.push(stringVariable);
 
+const console = {
+  log(message) {
+    return message;
+  }
+};
+
 function getKey(prefix = "", key = null) {
   let realKey = key || null;
 
@@ -95,7 +101,7 @@ const obj = {
   [`prop_${(() => 42)()}`]: 42
 };
 
-console.log(obj); // eslint-disable-line no-console
+console.log(obj);
 
 const has = Object.prototype.hasOwnProperty;
 
@@ -424,14 +430,13 @@ class PolygonWithBody {
   }
 }
 
-// eslint-disable-next-line no-console
 console.log(PolygonWithBody.area());
 
 const squareNotNamed = new PolygonNotNamed(10, 10);
 const squareNamed = new PolygonNamed(10, 10);
 const squareWithBody = new PolygonWithBody(10, 10);
 
-console.log(squareNotNamed, squareNamed, squareWithBody); // eslint-disable-line no-console
+console.log(squareNotNamed, squareNamed, squareWithBody);
 
 function FooNewTarget() {
   if (!new.target) {
@@ -441,7 +446,7 @@ function FooNewTarget() {
   // All good
 }
 
-console.log(new FooNewTarget()); // eslint-disable-line no-console
+console.log(new FooNewTarget());
 
 function doSomething() {
   return new Promise(resolve => {
@@ -540,10 +545,12 @@ for (i = 0; i < 10; i++) {
 
 handleHands();
 
-module.exports = { foo };
-module.exports.test = { foo };
+const exportObject = {};
 
-handleHands();
+exportObject.exports = { foo };
+exportObject.exports.test = { foo };
+
+handleHands(exportObject);
 
 let xBar = 1;
 const yBar = 1;
@@ -567,9 +574,9 @@ try {
   }
 }
 
-const aReg = /ab+c/i;
-const bReg = new RegExp("ab+c", "i");
-const cReg = new RegExp(/ab+c/, "i");
+const aReg = /ab+c/iu;
+const bReg = new RegExp("ab+c", "iu");
+const cReg = new RegExp(/ab+c/iu, "iu");
 
 foo(aReg, bReg, cReg);
 

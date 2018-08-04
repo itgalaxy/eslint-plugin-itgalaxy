@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 74.0.0 - 2018-08-04
+
+- Added: `no-async-promise-executor` rule.
+- Added: `require-atomic-updates` rule.
+- Added: `require-unicode-regexp` rule.
+- Added: `no-misleading-character-class` rule.
+- Chore: minimum require `eslint` version is now `^5.3.0`.
+
 ## 73.0.0 - 2018-07-30
 
 - Chore: minimum require `eslint-plugin-unicorn` version is now `^5.0.0`.

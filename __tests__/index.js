@@ -9,7 +9,7 @@ function isObject(obj) {
 }
 
 function dash2CamelCase(input) {
-  return input.replace(/-([a-z])/g, found => found[1].toUpperCase());
+  return input.replace(/-([a-z])/gu, found => found[1].toUpperCase());
 }
 
 test("should the config is an object", t => {
@@ -45,7 +45,7 @@ test("should all configs are present in exports", t => {
 });
 
 test("should load the `all` plugin config in the `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.all;
+  const config = Object.assign({}, configs.all);
   const { plugins } = config;
 
   t.deepEqual(plugins, [
@@ -78,7 +78,7 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
 });
 
 test("should load the `ava` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.ava;
+  const config = Object.assign({}, configs.ava);
   const hasAvaPlugin = config.plugins.indexOf("ava") !== -1;
 
   t.true(hasAvaPlugin, "there is ava plugin");
@@ -102,7 +102,7 @@ test("should load the `ava` plugin config in `eslint` to validate all rule synta
 });
 
 test("should load the `core` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.core;
+  const config = Object.assign({}, configs.core);
   const hasUnicornPlugin = config.plugins.indexOf("unicorn") !== -1;
   const hasImportPlugin = config.plugins.indexOf("import") !== -1;
 
@@ -125,7 +125,7 @@ test("should load the `core` plugin config in `eslint` to validate all rule synt
 });
 
 test("should load the `es5` plugin config in eslint to validate all rule syntax is correct", t => {
-  const config = configs.es5;
+  const config = Object.assign({}, configs.es5);
   const cli = new eslint.CLIEngine({
     baseConfig: config,
     useEslintrc: false
@@ -142,7 +142,7 @@ test("should load the `es5` plugin config in eslint to validate all rule syntax 
 });
 
 test("should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.esnext;
+  const config = Object.assign({}, configs.esnext);
   const hasPromisePlugin = config.plugins.indexOf("promise") !== -1;
 
   t.true(hasPromisePlugin, "there is promise plugin");
@@ -165,7 +165,7 @@ test("should load the `esnext` plugin config in `eslint` to validate all rule sy
 });
 
 test("should load the `lodash` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.lodash;
+  const config = Object.assign({}, configs.lodash);
   const hasLodashPlugin = config.plugins.indexOf("lodash") !== -1;
 
   t.true(hasLodashPlugin, "there is lodash plugin");
@@ -186,7 +186,7 @@ test("should load the `lodash` plugin config in `eslint` to validate all rule sy
 });
 
 test("should load the `node` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.node;
+  const config = Object.assign({}, configs.node);
   const hasNodePlugin = config.plugins.indexOf("node") !== -1;
 
   t.true(hasNodePlugin, "there is node plugin");
@@ -204,7 +204,7 @@ test("should load the `node` plugin config in `eslint` to validate all rule synt
 });
 
 test("should load the `react` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.react;
+  const config = Object.assign({}, configs.react);
   const hasReactPlugin = config.plugins.indexOf("react") !== -1;
   const hasjsxA11yPlugin = config.plugins.indexOf("jsx-a11y") !== -1;
 
@@ -245,7 +245,7 @@ export default Clock;
 });
 
 test("should load the `html` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.html;
+  const config = Object.assign({}, configs.html);
   const hasHTMLPlugin = config.plugins.indexOf("html") !== -1;
 
   config.rules = {
@@ -303,7 +303,7 @@ test("should load the `html` plugin config in `eslint` to validate all rule synt
 });
 
 test("should load the `jest` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.jest;
+  const config = Object.assign({}, configs.jest);
   const hasJestPlugin = config.plugins.indexOf("jest") !== -1;
 
   t.true(hasJestPlugin, "there is jest plugin");
@@ -324,7 +324,7 @@ test("should load the `jest` plugin config in `eslint` to validate all rule synt
 });
 
 test("should load the `markdown` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = configs.markdown;
+  const config = Object.assign({}, configs.markdown);
   const hasMarkdownPlugin = config.plugins.indexOf("markdown") !== -1;
 
   config.rules = {
@@ -364,7 +364,9 @@ alert("test");
 
 test("integration tests for `esnext`", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: configs.esnext,
+    baseConfig: Object.assign({}, configs.esnext, {
+      rules: { "max-classes-per-file": "off" }
+    }),
     useEslintrc: false
   });
 
@@ -379,7 +381,7 @@ test("integration tests for `esnext`", t => {
 
 test("integration tests for `react`", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: configs.react
+    baseConfig: Object.assign({}, configs.react)
   });
 
   const report = cli.executeOnFiles([

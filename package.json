@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "73.0.0",
+  "version": "74.0.0",
   "description": "itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -120,6 +120,7 @@
           "sourceType": "module"
         },
         "rules": {
+          "max-classes-per-file": "off",
           "node/no-unsupported-features/es-builtins": "off",
           "node/no-unsupported-features/es-syntax": "off",
           "node/no-unsupported-features/node-builtins": "off"
