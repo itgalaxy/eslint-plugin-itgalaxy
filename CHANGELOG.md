@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 75.0.0 - 2018-08-04
+
+- Added: `expect-expect` rule.
+- Changed: `prefer-expect-assertions` rule disabled.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.20.2`.
+
 ## 74.0.0 - 2018-08-04
 
 - Added: `no-async-promise-executor` rule.

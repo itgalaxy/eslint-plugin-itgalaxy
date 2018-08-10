@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "74.0.0",
-  "description": "itgalaxy org's ESLint rules and configs.",
+  "version": "75.0.0",
+  "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
     "eslintconfig",
@@ -35,7 +35,7 @@
     "eslint-plugin-ava": "^5.0.0",
     "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-jest": "^21.20.2",
     "eslint-plugin-jsx-a11y": "^6.1.0",
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-markdown": "^1.0.0-beta.8",
@@ -61,7 +61,7 @@
     "eslint-plugin-ava": "^5.0.0",
     "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-jest": "^21.20.2",
     "eslint-plugin-jsx-a11y": "^6.1.0",
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-markdown": "^1.0.0-beta.8",
