@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "76.0.0",
+  "version": "77.0.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -30,7 +30,7 @@
     "babel-register": "^6.9.0",
     "eslint": "^5.0.0",
     "eslint-ava-rule-tester": "^2.0.0",
-    "eslint-config-prettier": "^2.2.0",
+    "eslint-config-prettier": "^3.0.1",
     "eslint-find-rules": "^3.3.1",
     "eslint-plugin-ava": "^5.0.0",
     "eslint-plugin-html": "^4.0.5",
@@ -40,7 +40,7 @@
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-markdown": "^1.0.0-beta.8",
     "eslint-plugin-node": "^7.0.0",
-    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-unicorn": "^5.0.0",
     "husky": "^0.14.1",
@@ -66,7 +66,7 @@
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-markdown": "^1.0.0-beta.8",
     "eslint-plugin-node": "^7.0.0",
-    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-unicorn": "^5.0.0",
     "prettier": "^1.5.2"

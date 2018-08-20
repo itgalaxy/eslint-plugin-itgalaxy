@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 77.0.0 - 2018-08-20
+
+- Chore: minimum require `eslint-plugin-promise` version is now `^4.0.0`.
+
 ## 76.0.0 - 2018-08-04
 
 - Changed: `jest/no-test-return-statement` rule disabled.
