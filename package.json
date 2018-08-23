@@ -42,7 +42,7 @@
     "eslint-plugin-node": "^7.0.0",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-unicorn": "^5.0.0",
+    "eslint-plugin-unicorn": "^6.0.0",
     "husky": "^0.14.1",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.1",
