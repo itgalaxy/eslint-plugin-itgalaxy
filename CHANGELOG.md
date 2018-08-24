@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 78.0.0 - 2018-08-24
+
+- Added: `unicorn/prefer-exponentiation-operator` rule.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^6.0.0`.
+
 ## 77.0.0 - 2018-08-20
 
 - Chore: minimum require `eslint-plugin-promise` version is now `^4.0.0`.

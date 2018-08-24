@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "77.0.0",
+  "version": "78.0.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -42,7 +42,7 @@
     "eslint-plugin-node": "^7.0.0",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-unicorn": "^5.0.0",
+    "eslint-plugin-unicorn": "^6.0.0",
     "husky": "^0.14.1",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.1",
@@ -68,8 +68,7 @@
     "eslint-plugin-node": "^7.0.0",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-unicorn": "^5.0.0",
-    "prettier": "^1.5.2"
+    "eslint-plugin-unicorn": "^6.0.0"
   },
   "scripts": {
     "precommit": "lint-staged",
