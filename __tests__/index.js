@@ -56,7 +56,6 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
     "unicorn",
     "html",
     "jest",
-    "lodash",
     "markdown",
     "node",
     "react"

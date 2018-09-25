@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 80.0.0 - 2018-09-25
+
+- Chore: minimum require `eslint-plugin-lodash` version is now `^3.1.0`.
+- Changed: use `recommended` rules for `lodash` preset, but disable all preference over native rules.
+- Changed: use `999.999.999` version of `react` by default to avoid warning.
+
 ## 79.0.0 - 2018-08-29
 
 - Chore: minimum require `babel-eslint` version is now `^9.0.0`.
