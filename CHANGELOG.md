@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 81.0.0 - 2018-09-26
+
+- Chore: minimum require `babel-eslint` version is now `^10.0.0`.
+
 ## 80.0.0 - 2018-09-25
 
 - Chore: minimum require `eslint-plugin-lodash` version is now `^3.1.0`.
