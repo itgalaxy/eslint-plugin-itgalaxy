@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 82.0.0 - 2018-10-01
+
+- Added: `jest/require-tothrow-message` rule.
+- Added: `jest/no-alias-methods` rule.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.24.0`.
+
 ## 81.0.0 - 2018-09-26
 
 - Chore: minimum require `babel-eslint` version is now `^10.0.0`.
