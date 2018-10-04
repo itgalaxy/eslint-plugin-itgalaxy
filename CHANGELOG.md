@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 83.0.0 - 2018-10-04
+
+- Added: [confusing-browser-globals](https://github.com/facebook/create-react-app/tree/master/packages/confusing-browser-globals) to `no-restricted-globals` rule.
+
 ## 82.0.0 - 2018-10-01
 
 - Added: `jest/require-tothrow-message` rule.
