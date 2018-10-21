@@ -54,7 +54,7 @@
     "prop-types": "^15.5.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "remark-cli": "^5.0.0",
+    "remark-cli": "^6.0.0",
     "remark-preset-lint-itgalaxy": "^13.0.0"
   },
   "peerDependencies": {
