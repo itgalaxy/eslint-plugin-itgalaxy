@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 84.0.0 - 2018-10-22
+
+- Added: `jest/prefer-to-contain` rule.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.25.1`.
+
 ## 83.0.0 - 2018-10-04
 
 - Added: [confusing-browser-globals](https://github.com/facebook/create-react-app/tree/master/packages/confusing-browser-globals) to `no-restricted-globals` rule.
