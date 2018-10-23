@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 85.0.0 - 2018-10-23
+
+- Added: `jest/no-test-callback` rule.
+- Chore: minimum require `eslint-plugin-jest` version is now `^21.26.0`.
+
 ## 84.0.0 - 2018-10-22
 
 - Added: `jest/prefer-to-contain` rule.
