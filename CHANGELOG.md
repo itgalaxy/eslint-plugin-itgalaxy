@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 86.0.0 - 2018-10-29
+
+- Chore: minimum require `eslint-plugin-markdown` version is now `^1.0.0-rc.0`.
+- Chore: minimum require `eslint-plugin-node` version is now `^8.0.0`.
+
 ## 85.0.0 - 2018-10-23
 
 - Added: `jest/no-test-callback` rule.
