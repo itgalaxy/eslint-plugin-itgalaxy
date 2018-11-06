@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 87.0.0 - 2018-11-06
+
+- Added: `jest/prefer-spy-on` rule.
+- Changed: disable `require-unicode-regexp` rule.
+- Chore: minimum require `eslint-plugin-markdown` version is now `^1.0.0-rc.1`.
+
 ## 86.0.0 - 2018-10-29
 
 - Chore: minimum require `eslint-plugin-markdown` version is now `^1.0.0-rc.0`.

@@ -18,9 +18,12 @@ cache:
 matrix:
   fast_finish: true
   include:
-    - node_js: '10'
+    - node_js: '11'
       script: npm run $JOB_PART
       env: JOB_PART=pretest
+    - node_js: '11'
+      script: npm run $JOB_PART
+      env: JOB_PART=test-only
     - node_js: '10'
       script: npm run $JOB_PART
       env: JOB_PART=test-only
