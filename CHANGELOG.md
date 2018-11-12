@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 88.0.0 - 2018-11-12
+
+- Chore: minimum require `eslint-plugin-html` version is now `^5.0.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.0.0`.
+
 ## 87.0.0 - 2018-11-06
 
 - Added: `jest/prefer-spy-on` rule.

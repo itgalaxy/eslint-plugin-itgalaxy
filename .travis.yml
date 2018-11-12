@@ -18,24 +18,24 @@ cache:
 matrix:
   fast_finish: true
   include:
-    - node_js: '11'
+    - node_js: "11"
       script: npm run $JOB_PART
       env: JOB_PART=pretest
-    - node_js: '11'
+    - node_js: "11"
       script: npm run $JOB_PART
       env: JOB_PART=test-only
-    - node_js: '10'
+    - node_js: "10"
       script: npm run $JOB_PART
       env: JOB_PART=test-only
-    - node_js: '8'
+    - node_js: "8"
       script: npm run $JOB_PART
       env: JOB_PART=test-only
-    - node_js: '6'
+    - node_js: "6"
       script: npm run $JOB_PART
       env: JOB_PART=test-only
 
 before_install:
-  - 'if [[ `npm -v` != 6* ]]; then npm i -g npm@latest; fi'
+  - "if [[ `npm -v` != 6* ]]; then npm i -g npm@latest; fi"
   - nvm --version
   - node --version
   - npm --version
