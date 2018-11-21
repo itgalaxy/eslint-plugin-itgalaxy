@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 89.0.0 - 2018-11-21
+
+- Chore: minimum require `eslint-plugin-lodash` version is now `^4.0.0`.
+
 ## 88.0.0 - 2018-11-12
 
 - Chore: minimum require `eslint-plugin-html` version is now `^5.0.0`.
