@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 90.0.0 - 2018-12-06
+
+- Added: `react/no-unescaped-entities` rule.
+- Added: `ava/prefer-async-await` rule.
+- Added: `jest/no-truthy-falsy` rule.
+- Changed: disable `jest/no-test-callback` rule (some test better testing with `callback`).
+- Changed: disable all rules in markdown config (use `overrides`, see `README`).
+- Changed: disable `html/report-bad-indent` (`prettier` supports `html`).
+- Changed: disable `unicorn/no-fn-reference-in-iterator` rule.
+- Chore: minimum require `eslint-plugin-lodash` version is now `^5.0.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.1.2`.
+- Fixed: use `babel-parser` for `es5` preset.
+
 ## 89.0.0 - 2018-11-21
 
 - Chore: minimum require `eslint-plugin-lodash` version is now `^4.0.0`.

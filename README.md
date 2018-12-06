@@ -23,18 +23,26 @@ Next, install `eslint-plugin-itgalaxy`:
 $ npm install eslint-plugin-itgalaxy --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must
-also install `eslint-plugin-itgalaxy` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-itgalaxy` globally.
+
+**Note:** Some presets require additional dependencies (plugins).
+Example `markdown` require `eslint-plugin-markdown` plugin.
+
+So you need run:
+
+```shell
+$ npm install eslint-plugin-markdown --save-dev
+```
+
+By default all additional plugins listed in `peerDependencies` (this allows you to track non-compatibility with old versions), just ignore warnings if you don't need a plugin.
 
 ## Usage
 
-Itgalaxy’s ESLint configs come bundled in this package. In order to use them,
-you simply extend the relevant configuration in your project’s `.eslintrc`.
+Itgalaxy’s ESLint configs come bundled in this package. In order to use them, you simply extend the relevant configuration in your project’s `.eslintrc`.
 
-**Configurations do not contain stylistic rules. We use
-[prettier](https://github.com/prettier/prettier) for this purpose.**
-Better use `prettier` directly (using `npm` command), because it is allow to
-format `css`, `scss`, `markdown`, `json` and etc.
+**Configurations do not contain stylistic rules**, we use [prettier](https://github.com/prettier/prettier) for this purpose.
+
+Better use `prettier` directly (using `npm` command), because it is allow to format `css`, `scss`, `markdown`, `json` and etc.
 
 For example, the following will extend the ESNext (ES2015 and later) config:
 
@@ -76,6 +84,8 @@ following configuration file:
 }
 ```
 
+Notice: presets **"plugin:itgalaxy/esnext"** or **"plugin:itgalaxy/es5"** always should be **first**.
+
 ## Provided configurations
 
 This plugin provides the following core configurations:
@@ -86,12 +96,38 @@ This plugin provides the following core configurations:
 
 - [es5](lib/config/es5.js): Use this for legacy projects.
 
-- [esnext](lib/config/esnext.js): Use this for anything written with ES2015+
-  features.
+- [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
 
 - [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files (don't forget add `.html` to `--ext` CLI argument).
 
 - [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
+
+Use this configuration:
+
+```js
+module.exports = {
+  overrides: [
+    {
+      files: ["**/*.md"],
+      parserOptions: {
+        ecmaFeatures: {
+          impliedStrict: true
+        }
+      },
+      rules: {
+        strict: "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "no-process-env": "off",
+        "no-process-exit": "off",
+        "no-console": "off",
+        "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off"
+      }
+    }
+  ]
+};
+```
 
 - [node](lib/config/node.js): Use this for nodejs projects.
 
