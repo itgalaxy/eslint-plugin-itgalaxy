@@ -78,6 +78,7 @@ following configuration file:
 {
   "extends": [
     "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/react",
     "plugin:itgalaxy/lodash",
     "plugin:itgalaxy/mocha"
   ]
@@ -90,15 +91,29 @@ Notice: presets **"plugin:itgalaxy/esnext"** or **"plugin:itgalaxy/es5"** always
 
 This plugin provides the following core configurations:
 
-- [all](lib/config/all.js): Use only for internal testing.
-
-- [core](lib/config/core.js): Don't use. It is for internal purposes.
-
 - [es5](lib/config/es5.js): Use this for legacy projects.
+
+```json
+{
+  "extends": ["plugin:itgalaxy/es5"]
+}
+```
 
 - [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
 
+```json
+{
+  "extends": ["plugin:itgalaxy/esnext"]
+}
+```
+
 - [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files (don't forget add `.html` to `--ext` CLI argument).
+
+```json
+{
+  "extends": ["plugin:itgalaxy/esnext", "plugin:itgalaxy/html"]
+}
+```
 
 - [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
 
@@ -106,6 +121,7 @@ Use this configuration:
 
 ```js
 module.exports = {
+  extends: ["plugin:itgalaxy/esnext"],
   overrides: [
     {
       files: ["**/*.md"],
@@ -131,10 +147,29 @@ module.exports = {
 
 - [node](lib/config/node.js): Use this for nodejs projects.
 
+Example:
+
+```json
+{
+  "extends": ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"]
+}
+```
+
 - [react](lib/config/react.js): Use this for React projects.
 
-This plugin also provides the following tool-specific configurations, which can
-be used on top of the core configurations:
+Example:
+
+```json
+{
+  "extends": ["plugin:itgalaxy/esnext", "plugin:itgalaxy/react"]
+}
+```
+
+- [all](lib/config/all.js): Don't use. It is for internal purposes (testings and tools).
+
+- [core](lib/config/core.js): Don't use. It is for internal purposes (testings and tools).
+
+This plugin also provides the following tool-specific configurations, which can be used on top of the core configurations:
 
 - [AVA](lib/config/ava.js): Use this for projects that use the
   [AVA](https://github.com/sindresorhus/ava).

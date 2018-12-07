@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 91.0.0 - 2018-12-07
+
+- Changed: `react` present doesn't extend `esnext` preset.
+
 ## 90.0.0 - 2018-12-06
 
 - Added: `react/no-unescaped-entities` rule.
