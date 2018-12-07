@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 92.0.1 - 2018-12-07
+
+- Fixed: `no-process-exit` should disable, but `recommended` preset of `eslint-plugin-node` enable rule.
+
 ## 92.0.0 - 2018-12-07
 
 - Added: `import/order` rule.
