@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "91.0.0",
+  "version": "91.1.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -103,6 +103,16 @@
       "./lib/config/markdown.js"
     ],
     "overrides": [
+      {
+        "files": [
+          "lib/config/**/*.{js,mjs,jsx}"
+        ],
+        "rules": {
+          "quotes": "off",
+          "sort-keys": "off",
+          "quote-props": ["error", "always"]
+        }
+      },
       {
         "files": [
           "**/__tests__/**/*.{js,mjs,jsx}"

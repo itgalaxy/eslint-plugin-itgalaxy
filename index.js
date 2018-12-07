@@ -11,6 +11,7 @@ const lodash = require("./lib/config/lodash");
 const markdown = require("./lib/config/markdown");
 const node = require("./lib/config/node");
 const react = require("./lib/config/react");
+const utils = require("./lib/utils");
 
 const configs = {
   all,
@@ -28,5 +29,5 @@ const configs = {
 
 module.exports = {
   configs,
-  rules: {}
+  utils
 };
