@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 94.0.0 - 2018-12-11
+
+- Changed: move `unicorn` rules into `esnext` preset.
+- Changed: remove `sourceType` from `react` preset.
+- Changed: remove `es6` from `jest` preset.
+- Changed: remove `es6` from `ava` preset.
+- Changed: remove `es6` from `html` preset.
+- Fixed: add `jest/globals` to `jest` preset.
+- Removed: `globals` from `react` preset.
+- Removed: `es5` preset (use `babel` to transpile code in `es5`/`es3` and etc).
+- Removed: `core` preset.
+
 ## 93.0.0 - 2018-12-11
 
 - Added: `react/forbid-foreign-prop-types` rule.

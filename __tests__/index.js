@@ -101,51 +101,15 @@ test("should load the `ava` plugin config in `eslint` to validate all rule synta
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `core` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.core);
+test("should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct", t => {
+  const config = Object.assign({}, configs.esnext);
   const hasUnicornPlugin = config.plugins.indexOf("unicorn") !== -1;
+  const hasPromisePlugin = config.plugins.indexOf("promise") !== -1;
   const hasImportPlugin = config.plugins.indexOf("import") !== -1;
 
   t.true(hasUnicornPlugin, "there is unicorn plugin");
-  t.true(hasImportPlugin, "there is import plugin");
-
-  const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
-  });
-
-  const report = cli.executeOnText(
-    '(function() {\n    "use strict";\n\n    (123).toString();\n})();\n',
-    "test.js"
-  );
-
-  t.is(report.results.length, 1, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
-});
-
-test("should load the `es5` plugin config in eslint to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.es5);
-  const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
-  });
-
-  const report = cli.executeOnText(
-    '(function() {\n    "use strict";\n\n    (123).toString();\n})();\n',
-    "test.js"
-  );
-
-  t.is(report.results.length, 1, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
-});
-
-test("should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.esnext);
-  const hasPromisePlugin = config.plugins.indexOf("promise") !== -1;
-
   t.true(hasPromisePlugin, "there is promise plugin");
+  t.true(hasImportPlugin, "there is import plugin");
 
   config.extends = [];
 
@@ -155,7 +119,7 @@ test("should load the `esnext` plugin config in `eslint` to validate all rule sy
   });
 
   const report = cli.executeOnText(
-    "let foo = 0;\n\n    foo += 1;\n",
+    "/* global func */\nlet foo = 0;\n\n    foo += 1;\n\nfunc(foo);",
     "test.js"
   );
 
@@ -220,7 +184,7 @@ test("should load the `react` plugin config in `eslint` to validate all rule syn
 
   const report = cli.executeOnText(
     `
-import React from "react";
+const React = require("react");
 
 class Clock extends React.Component {
   render() {
@@ -233,7 +197,7 @@ class Clock extends React.Component {
   }
 }
 
-export default Clock;
+module.exports = Clock;
 
   `,
     "test.jsx"

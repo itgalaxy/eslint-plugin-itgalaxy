@@ -57,15 +57,7 @@ React-specific rules to those in the ESNext config):
 
 ```json
 {
-  "extends": "plugin:itgalaxy/react"
-}
-```
-
-If working on an ES5 project, extend the ES5 version of the configuration:
-
-```json
-{
-  "extends": "plugin:itgalaxy/es5"
+  "extends": ["plugin:itgalaxy/esnext", "plugin:itgalaxy/react"]
 }
 ```
 
@@ -80,24 +72,16 @@ following configuration file:
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/react",
     "plugin:itgalaxy/lodash",
-    "plugin:itgalaxy/mocha"
+    "plugin:itgalaxy/jest"
   ]
 }
 ```
 
-Notice: presets **"plugin:itgalaxy/esnext"** or **"plugin:itgalaxy/es5"** always should be **first**.
+Notice: presets **"plugin:itgalaxy/esnext"** should be **first**.
 
 ## Provided configurations
 
 This plugin provides the following core configurations:
-
-- [es5](lib/config/es5.js): Use this for legacy projects.
-
-```json
-{
-  "extends": ["plugin:itgalaxy/es5"]
-}
-```
 
 - [esnext](lib/config/esnext.js): Use this for anything written with ES2015+ features.
 
@@ -145,7 +129,7 @@ module.exports = {
 };
 ```
 
-- [node](lib/config/node.js): Use this for nodejs projects.
+- [node](lib/config/node.js): Use this for `nodejs` projects.
 
 Example:
 
@@ -155,7 +139,7 @@ Example:
 }
 ```
 
-- [react](lib/config/react.js): Use this for React projects.
+- [react](lib/config/react.js): Use this for `React` projects.
 
 Example:
 
@@ -166,8 +150,6 @@ Example:
 ```
 
 - [all](lib/config/all.js): Don't use. It is for internal purposes (testings and tools).
-
-- [core](lib/config/core.js): Don't use. It is for internal purposes (testings and tools).
 
 This plugin also provides the following tool-specific configurations, which can be used on top of the core configurations:
 
