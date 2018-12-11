@@ -1,28 +1,22 @@
-import "./app.scss";
-import Profile from "./Profile";
 import React from "react";
 import ReactDOM from "react-dom";
 import SearchProfile from "./SearchProfile";
+import Profile from "./Profile";
+import "./app.scss";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      avatar: "",
-      followers: "",
-      following: "",
-      homeUrl: "",
-      location: "",
-      name: "",
-      notFound: "",
-      repos: "",
       username: "hesmaili"
     };
   }
 
   componentDidMount() {
-    SearchProfile.fetchProfile(this.state.username);
+    const { username } = this.state;
+
+    SearchProfile.fetchProfile(username);
   }
 
   render() {

@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "92.0.1",
+  "version": "93.0.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -72,8 +72,8 @@
   },
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "check-rules": "eslint-find-rules --unused lib/config/all.js",
-    "lint:eslint-config-prettier-check": "eslint --print-config ./print-config/index.js | eslint-config-prettier-check",
+    "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
+    "lint:eslint-config-prettier-check": "eslint --print-config './__tests__/all-rules/index.jsx' | eslint-config-prettier-check",
     "lint:prettier": "prettier --list-different '{lib,__tests__}/**/*.{js,mjs,jsx,md,yml,yaml}' '*.{js,mjs,jsx,md,yml,yaml}'",
     "lint:js": "eslint . --cache --report-unused-disable-directives --ignore-pattern '**/fixtures/**/*' --ignore-path .gitignore --ext 'js,.mjs,.jsx,.md'",
     "lint:md": "remark . -i .gitignore -f -q",
@@ -109,7 +109,6 @@
         ],
         "rules": {
           "quotes": "off",
-          "sort-keys": "off",
           "quote-props": ["error", "always"]
         }
       },

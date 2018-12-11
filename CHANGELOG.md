@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 93.0.0 - 2018-12-11
+
+- Added: `react/forbid-foreign-prop-types` rule.
+- Added: `react/no-unused-state` rule.
+- Added: `react/destructuring-assignment` rule.
+- Added: `lodash/collection-ordering` rule.
+- Added: `mjs` extesion for `import/extensions` rules.
+- Changed: `checkContextTypes` and `checkChildContextTypes` for `react/forbid-prop-types` rule.
+- Changed: use `React` pragma.
+- Changed: add `ignoreCase` to `react/jsx-no-duplicate-props` rule.
+- Changed: disable `react/sort-prop-types` rule.
+- Changed: disable `react/jsx-handler-names` rule.
+- Changed: better order for `react/sort-comp` rule.
+- Changed: disable `react/jsx-sort-props` rule.
+- Changed: disable `react/jsx-sort-default-props` rule.
+- Changed: disable `sort-keys` rule.
+
 ## 92.0.1 - 2018-12-07
 
 - Fixed: `no-process-exit` should disable, but `recommended` preset of `eslint-plugin-node` enable rule.

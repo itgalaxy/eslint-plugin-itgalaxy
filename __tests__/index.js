@@ -381,7 +381,7 @@ test("integration tests for `esnext`", t => {
 
 test("integration tests for `react`", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.react)
+    baseConfig: Object.assign({}, configs.esnext, configs.react)
   });
 
   const report = cli.executeOnFiles([
