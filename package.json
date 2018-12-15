@@ -26,7 +26,7 @@
     "confusing-browser-globals": "^1.0.3"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "babel-eslint": "^10.0.0",
     "eslint": "^5.0.0",
     "eslint-ava-rule-tester": "^3.0.0",
