@@ -28,12 +28,8 @@ test("should all configs are present in exports", t => {
   const configDir = path.resolve(__dirname, "../lib/config");
   let files = [];
 
-  try {
-    // eslint-disable-next-line no-sync
-    files = fs.readdirSync(configDir);
-  } catch (error) {
-    throw error;
-  }
+  // eslint-disable-next-line no-sync
+  files = fs.readdirSync(configDir);
 
   const actual = files
     .filter(resource => resource !== ".eslintrc.js" && resource !== "rules")

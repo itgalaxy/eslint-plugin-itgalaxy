@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 95.0.0 - 2018-12-24
+
+- Added: `no-useless-catch` rule.
+- Chore: minimum require `eslint` version is now `^5.11.0`.
+
 ## 94.0.0 - 2018-12-11
 
 - Changed: move `unicorn` rules into `esnext` preset.
