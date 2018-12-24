@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "94.0.0",
+  "version": "95.0.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -26,9 +26,9 @@
     "confusing-browser-globals": "^1.0.3"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "babel-eslint": "^10.0.0",
-    "eslint": "^5.0.0",
+    "eslint": "^5.11.0",
     "eslint-ava-rule-tester": "^3.0.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-find-rules": "^3.3.1",
@@ -57,7 +57,7 @@
   },
   "peerDependencies": {
     "babel-eslint": "^10.0.0",
-    "eslint": "^5.0.0",
+    "eslint": "^5.11.0",
     "eslint-plugin-ava": "^5.0.0",
     "eslint-plugin-html": "^5.0.0",
     "eslint-plugin-import": "^2.13.0",
@@ -109,7 +109,10 @@
         ],
         "rules": {
           "quotes": "off",
-          "quote-props": ["error", "always"]
+          "quote-props": [
+            "error",
+            "always"
+          ]
         }
       },
       {
