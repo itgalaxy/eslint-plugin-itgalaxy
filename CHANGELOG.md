@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 96.0.0 - 2019-01-04
+
+- Added: `react/jsx-fragments` rule.
+- Changed: settings for `react` version is now `detect`.
+- Chore: minimum require `eslint-plugin-markdown` version is now `^1.0.0`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.12.0`.
+
 ## 95.0.0 - 2018-12-24
 
 - Added: `no-useless-catch` rule.
