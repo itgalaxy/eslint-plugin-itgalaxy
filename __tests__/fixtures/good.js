@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import { CLIEngine, linter } from "eslint";
 import remarkConfig from "remark-preset-lint-itgalaxy";
 
@@ -384,6 +385,8 @@ async function fetchJson(url) {
 
     return JSON.parse(text);
   } catch (error) {
+    multiply(2, 1, 2, 3);
+
     throw error;
   }
 }
@@ -596,11 +599,56 @@ Promise.all([Promise.resolve("a"), "b", Promise.resolve("c")])
     throw error;
   });
 
+class Base {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHello() {
+    return `Hello ${this.name}!`;
+  }
+
+  sayGoodbye() {
+    return `Goodbye ${this.name}!`;
+  }
+
+  static logNbSides() {
+    return "I have 4 sides";
+  }
+
+  debug1() {
+    console.log(this.name);
+  }
+}
+
+class MyClass extends Base {
+  constructor(name, catName) {
+    super(name);
+
+    this.catName = catName;
+  }
+
+  getCatName() {
+    return `Cat name is ${this.catName}`;
+  }
+
+  debug2() {
+    super.method1();
+
+    console.log(this.catName);
+  }
+
+  static logDescription() {
+    return `${super.logNbSides()} which are all equal`;
+  }
+}
+
 export default linter;
 export { foo, handler };
 export {
   age as ageExport,
   arrayVariable as arrayVariableExport,
   fooAsync,
-  fooFuncExtra
+  fooFuncExtra,
+  MyClass
 };

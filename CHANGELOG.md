@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 97.0.0 - 2019-01-14
+
+- Added: `unicorn/no-console-spaces` rule.
+- Added: `unicorn/prefer-node-append` rule.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^7.0.0`.
+- Removed: `react/no-did-mount-set-state` rule.
+- Removed: `unicorn/no-unsafe-regex` rule (due it is very unstable and annoying).
+
 ## 96.0.0 - 2019-01-04
 
 - Added: `react/jsx-fragments` rule.
