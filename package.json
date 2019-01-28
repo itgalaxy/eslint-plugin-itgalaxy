@@ -56,7 +56,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remark-cli": "^6.0.0",
-    "remark-preset-lint-itgalaxy": "^13.0.0"
+    "remark-preset-lint-itgalaxy": "^14.0.0"
   },
   "peerDependencies": {
     "babel-eslint": "^10.0.0",
