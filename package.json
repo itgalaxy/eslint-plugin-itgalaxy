@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "98.0.0",
+  "version": "99.0.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -35,7 +35,7 @@
     "eslint-ava-rule-tester": "^3.0.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-find-rules": "^3.3.1",
-    "eslint-plugin-ava": "^5.0.0",
+    "eslint-plugin-ava": "^6.0.0",
     "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.2.2",
@@ -61,7 +61,7 @@
   "peerDependencies": {
     "babel-eslint": "^10.0.0",
     "eslint": "^5.13.0",
-    "eslint-plugin-ava": "^5.0.0",
+    "eslint-plugin-ava": "^6.0.0",
     "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.2.2",

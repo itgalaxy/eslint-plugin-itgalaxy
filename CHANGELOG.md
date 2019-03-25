@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 99.0.0 - 2019-03-25
+
+- Added: `jest/no-empty-title` rule.
+- Chore: minimum require `eslint-plugin-ava` version is now `^6.0.0`.
+- Changed: disable `react/self-closing-comp` (in favor prettier).
+- Changed: disable `linebreak-style` (in favor prettier).
+
 ## 98.0.0 - 2019-02-01
 
 - Added: `jest/prefer-todo` rule.
