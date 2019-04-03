@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 100.0.0 - 2019-04-03
+
+- Added: `unicorn/prefer-query-selector` rule.
+- Added: `unicorn/prefer-node-remove` rule.
+- Added: `unicorn/prefer-text-content` rule.
+- Added: `unicorn/no-for-loop` rule.
+- Added: `unicorn/no-zero-fractions` rule.
+- Added: `unicorn/prefer-includes` rule.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^8.0.1`.
+
 ## 99.0.0 - 2019-03-25
 
 - Added: `jest/no-empty-title` rule.

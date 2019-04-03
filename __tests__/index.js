@@ -75,7 +75,7 @@ test("should load the `all` plugin config in the `eslint` to validate all rule s
 
 test("should load the `ava` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.ava);
-  const hasAvaPlugin = config.plugins.indexOf("ava") !== -1;
+  const hasAvaPlugin = config.plugins.includes("ava");
 
   t.true(hasAvaPlugin, "there is ava plugin");
 
@@ -99,9 +99,9 @@ test("should load the `ava` plugin config in `eslint` to validate all rule synta
 
 test("should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.esnext);
-  const hasUnicornPlugin = config.plugins.indexOf("unicorn") !== -1;
-  const hasPromisePlugin = config.plugins.indexOf("promise") !== -1;
-  const hasImportPlugin = config.plugins.indexOf("import") !== -1;
+  const hasUnicornPlugin = config.plugins.includes("unicorn");
+  const hasPromisePlugin = config.plugins.includes("promise");
+  const hasImportPlugin = config.plugins.includes("import");
 
   t.true(hasUnicornPlugin, "there is unicorn plugin");
   t.true(hasPromisePlugin, "there is promise plugin");
@@ -126,7 +126,7 @@ test("should load the `esnext` plugin config in `eslint` to validate all rule sy
 
 test("should load the `lodash` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.lodash);
-  const hasLodashPlugin = config.plugins.indexOf("lodash") !== -1;
+  const hasLodashPlugin = config.plugins.includes("lodash");
 
   t.true(hasLodashPlugin, "there is lodash plugin");
 
@@ -147,7 +147,7 @@ test("should load the `lodash` plugin config in `eslint` to validate all rule sy
 
 test("should load the `node` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.node);
-  const hasNodePlugin = config.plugins.indexOf("node") !== -1;
+  const hasNodePlugin = config.plugins.includes("node");
 
   t.true(hasNodePlugin, "there is node plugin");
 
@@ -165,8 +165,8 @@ test("should load the `node` plugin config in `eslint` to validate all rule synt
 
 test("should load the `react` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.react);
-  const hasReactPlugin = config.plugins.indexOf("react") !== -1;
-  const hasjsxA11yPlugin = config.plugins.indexOf("jsx-a11y") !== -1;
+  const hasReactPlugin = config.plugins.includes("react");
+  const hasjsxA11yPlugin = config.plugins.includes("jsx-a11y");
 
   t.true(hasReactPlugin, "there is react plugin");
   t.true(hasjsxA11yPlugin, "there is jsx-a11y plugin");
@@ -206,7 +206,7 @@ module.exports = Clock;
 
 test("should load the `html` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.html);
-  const hasHTMLPlugin = config.plugins.indexOf("html") !== -1;
+  const hasHTMLPlugin = config.plugins.includes("html");
 
   config.rules = {
     "no-alert": "error"
@@ -264,7 +264,7 @@ test("should load the `html` plugin config in `eslint` to validate all rule synt
 
 test("should load the `jest` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.jest);
-  const hasJestPlugin = config.plugins.indexOf("jest") !== -1;
+  const hasJestPlugin = config.plugins.includes("jest");
 
   t.true(hasJestPlugin, "there is jest plugin");
 
@@ -285,7 +285,7 @@ test("should load the `jest` plugin config in `eslint` to validate all rule synt
 
 test("should load the `markdown` plugin config in `eslint` to validate all rule syntax is correct", t => {
   const config = Object.assign({}, configs.markdown);
-  const hasMarkdownPlugin = config.plugins.indexOf("markdown") !== -1;
+  const hasMarkdownPlugin = config.plugins.includes("markdown");
 
   config.rules = {
     "no-alert": "error"
