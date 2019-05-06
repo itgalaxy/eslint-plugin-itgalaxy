@@ -6,7 +6,7 @@ git:
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
+    - next
 
 language: node_js
 
@@ -18,24 +18,28 @@ cache:
 matrix:
   fast_finish: true
   include:
-    - node_js: "11"
+    - node_js: "12"
       script: npm run $JOB_PART
       env: JOB_PART=pretest
-    - node_js: "11"
+    - node_js: "12"
       script: npm run $JOB_PART
-      env: JOB_PART=test-only
+      env: JOB_PART=test:only
     - node_js: "10"
       script: npm run $JOB_PART
-      env: JOB_PART=test-only
+      env: JOB_PART=test:only
     - node_js: "8"
       script: npm run $JOB_PART
-      env: JOB_PART=test-only
-    - node_js: "6"
-      script: npm run $JOB_PART
-      env: JOB_PART=test-only
+      env: JOB_PART=test:only
 
 before_install:
-  - "if [[ `npm -v` != 6* ]]; then npm i -g npm@latest; fi"
-  - nvm --version
+  - npm install -g npm@latest
+
+install:
+  - npm ci
+
+before_script:
   - node --version
   - npm --version
+
+script:
+  - npm run $JOB_PART

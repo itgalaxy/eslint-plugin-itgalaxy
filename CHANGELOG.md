@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 101.0.0 - 2019-05-06
+
+- Added: `jest/no-mocks-import` rule.
+- Changed: disable `react/prefer-es6-class` rule.
+- Changed: minimum required `nodejs` version is `8.9.0`.
+- Chore: minimum require `eslint-plugin-import` version is now `^2.17.2`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.5.1`.
+- Chore: minimum require `eslint-plugin-node` version is now `^9.0.1`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.13.0`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^8.0.2`.
+
 ## 100.0.0 - 2019-04-03
 
 - Added: `unicorn/prefer-query-selector` rule.

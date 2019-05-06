@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-itgalaxy",
-  "version": "100.0.0",
+  "version": "101.0.0",
   "description": "Itgalaxy org's ESLint rules and configs.",
   "keywords": [
     "eslint",
@@ -23,58 +23,57 @@
   "bugs": "https://github.com/itgalaxy/eslint-plugin-itgalaxy/issues",
   "main": "index.js",
   "engines": {
-    "node": ">= 6.9.0"
+    "node": ">= 8.9.0"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.3"
+    "confusing-browser-globals": "^1.0.7"
   },
   "devDependencies": {
     "ava": "^1.0.1",
     "babel-eslint": "^10.0.0",
     "eslint": "^5.13.0",
     "eslint-ava-rule-tester": "^3.0.0",
-    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-find-rules": "^3.3.1",
     "eslint-plugin-ava": "^6.0.0",
     "eslint-plugin-html": "^5.0.3",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jest": "^22.2.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-lodash": "^5.1.0",
     "eslint-plugin-markdown": "^1.0.0",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-react": "^7.12.0",
-    "eslint-plugin-unicorn": "^8.0.1",
-    "husky": "^1.0.0",
-    "lint-staged": "^8.0.4",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-unicorn": "^8.0.2",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
     "npm-run-all": "^4.0.1",
-    "npmpub": "^4.0.1",
-    "nyc": "^13.0.1",
-    "prettier": "^1.5.2",
+    "nyc": "^14.1.0",
+    "prettier": "^1.17.0",
     "prop-types": "^15.5.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remark-cli": "^6.0.0",
-    "remark-preset-lint-itgalaxy": "^14.0.0"
+    "remark-preset-lint-itgalaxy": "^14.0.0",
+    "standard-version": "^6.0.1"
   },
   "peerDependencies": {
     "babel-eslint": "^10.0.0",
     "eslint": "^5.13.0",
     "eslint-plugin-ava": "^6.0.0",
     "eslint-plugin-html": "^5.0.3",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jest": "^22.2.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-jsx-a11y": "^6.2.0",
     "eslint-plugin-lodash": "^5.1.0",
     "eslint-plugin-markdown": "^1.0.0",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-react": "^7.12.0",
-    "eslint-plugin-unicorn": "^8.0.1"
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-unicorn": "^8.0.2"
   },
   "scripts": {
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
     "lint:eslint-config-prettier-check": "eslint --print-config './__tests__/all-rules/index.jsx' | eslint-config-prettier-check | true",
     "lint:prettier": "prettier --list-different '{lib,__tests__}/**/*.{js,mjs,jsx,md,yml,yaml}' '*.{js,mjs,jsx,md,yml,yaml}'",
@@ -85,9 +84,10 @@
     "fix:js": "npm run lint:js -- --fix",
     "fix": "npm-run-all -l prettify -p 'fix:**'",
     "pretest": "npm run lint",
-    "test": "npm run test-only",
-    "test-only": "nyc ava --verbose '**/__tests__/**/*.js'",
-    "release": "npmpub"
+    "test:only": "ava --verbose '**/__tests__/**/*.js'",
+    "test:coverage": "nyc ava --verbose '**/__tests__/**/*.js'",
+    "test": "npm run test:coverage",
+    "release": "standard-version"
   },
   "ava": {
     "concurrency": 5
