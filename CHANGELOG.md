@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 102.0.0 - 2019-06-03
+
+- Added: `unicorn/prefer-event-key` rule.
+- Added: `unicorn/prefer-flat-map` rule.
+- Chore: minimum require `eslint-plugin-ava` version is now `^7.0.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.6.4`.
+- Chore: minimum require `eslint-plugin-node` version is now `^9.1.0`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^9.0.0`.
+
 ## 101.0.0 - 2019-05-06
 
 - Added: `jest/no-mocks-import` rule.

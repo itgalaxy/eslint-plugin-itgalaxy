@@ -324,7 +324,11 @@ alert("test");
 
 test("integration tests for `esnext`", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext),
+    baseConfig: Object.assign({}, configs.esnext, {
+      rules: {
+        "max-classes-per-file": "off"
+      }
+    }),
     useEslintrc: false
   });
 

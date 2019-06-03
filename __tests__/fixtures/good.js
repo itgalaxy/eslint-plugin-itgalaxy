@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import { CLIEngine, linter } from "eslint";
 import remarkConfig from "remark-preset-lint-itgalaxy";
 
@@ -517,10 +516,10 @@ function handleHands() {
   const handsValues = [];
   let lastIndex = 0;
 
-  for (let first = 0; first < hands.length; first++) {
-    for (let j = 0; j < hands[first].length; j++) {
-      for (let k = 0; k < hands[first][j].length; k++) {
-        handsValues.push(hands[first][j][k]);
+  for (const element of hands) {
+    for (const subElement of element) {
+      for (const subSubElement of subElement) {
+        handsValues.push(subSubElement);
       }
     }
   }
