@@ -5,7 +5,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## 103.0.0 - 2019-06-28
+## UNRELEASED
+
+- Changed: added `md` extension to `react/jsx-filename-extension` rule.
+
+## 103.0.0 - 2019-07-01
 
 - Chore: minimum require `eslint` version is now `^6.0.1`.
 - Chore: minimum require `eslint-plugin-ava` version is now `^7.1.0`.

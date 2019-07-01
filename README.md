@@ -41,7 +41,7 @@ Itgalaxy’s ESLint configs come bundled in this package. In order to use them, 
 
 **Configurations do not contain stylistic rules**, we use [prettier](https://github.com/prettier/prettier) for this purpose.
 
-Better use `prettier` directly (using `npm` command), because it is allow to format `css`, `scss`, `markdown`, `json` and etc.
+Better use `prettier` directly (using `npm`/`yarn` command), because it is allow to format `css`, `scss`, `markdown`, `json` and etc.
 
 For example, the following will extend the ESNext (ES2015 and later) config:
 
@@ -92,11 +92,25 @@ This plugin provides the following core configurations:
 
 - [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files (don't forget add `.html` to `--ext` CLI argument).
 
-```json
-{
-  "extends": ["plugin:itgalaxy/esnext", "plugin:itgalaxy/html"]
-}
+Use this configuration:
+
+```js
+module.exports = {
+  extends: ["plugin:itgalaxy/esnext"],
+  overrides: [
+    {
+      extends: [
+        // Uncomment next line if examples can be for node
+        // "plugin:itgalaxy/node",
+        "plugin:itgalaxy/html"
+      ],
+      files: ["**/*.html"]
+    }
+  ]
+};
 ```
+
+Don't forget to add `--ext ".js,.html` for CLI usage.
 
 - [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
 
@@ -107,8 +121,15 @@ module.exports = {
   extends: ["plugin:itgalaxy/esnext"],
   overrides: [
     {
+      extends: [
+        // Uncomment next line if examples can be for node
+        // "plugin:itgalaxy/node",
+        "plugin:itgalaxy/markdown"
+      ],
       files: ["**/*.md"],
       parserOptions: {
+        // Uncomment the next line if you want use `import/export` in documentation
+        // sourceType: "module",
         ecmaFeatures: {
           impliedStrict: true
         }
@@ -121,12 +142,16 @@ module.exports = {
         "no-process-exit": "off",
         "no-console": "off",
         "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off"
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off",
+        "node/no-unsupported-features/es-syntax": "off"
       }
     }
   ]
 };
 ```
+
+Don't forget to add `--ext ".js,.md` for CLI usage.
 
 - [node](lib/config/node.js): Use this for `nodejs` projects.
 
@@ -161,14 +186,250 @@ This plugin also provides the following tool-specific configurations, which can 
 - [Jest](lib/config/jest.js): Use this for projects that use the
   [Jest](https://github.com/facebook/jest).
 
-## Creating New Rules
+## Examples
 
-The easiest way to add new rules is to use the
-[ESLint Yeoman generator](https://www.npmjs.com/package/generator-eslint).
-Running `yo eslint:rule` from the root of this project should add the required
-main file, docs, and test for your new rules. Make sure that these are all
-filled out and consistent with the other rules before merging. All tests can be
-run using `npm test`.
+### Package for Node.js (without babel)
+
+**.eslintrc.js**
+
+```js
+"use strict";
+
+module.exports = {
+  extends: ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"],
+  overrides: [
+    // Tests
+    {
+      extends: ["plugin:itgalaxy/jest"],
+      excludedFiles: ["**/*.md"],
+      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
+      rules: {
+        // Allow to use `console` (example - `mocking`)
+        "no-console": "off"
+      }
+    },
+
+    // Markdown
+    {
+      extends: ["plugin:itgalaxy/markdown"],
+      files: ["**/*.md"],
+      parserOptions: {
+        // Uncomment the next line if you want use `import/export` in documentation
+        // sourceType: "module"
+        ecmaFeatures: {
+          impliedStrict: true
+        }
+      },
+      rules: {
+        strict: "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "no-process-env": "off",
+        "no-process-exit": "off",
+        "no-console": "off",
+        "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off",
+        "node/no-unsupported-features/es-syntax": "off"
+      }
+    }
+  ],
+  root: true
+};
+```
+
+### Package for Node.js (with babel)
+
+**.eslintrc.js**
+
+```js
+"use strict";
+
+module.exports = {
+  extends: ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"],
+  overrides: [
+    // Source
+    {
+      // Exclude nested tests
+      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
+      files: ["src/**/*"],
+      parserOptions: {
+        sourceType: "module"
+      }
+    },
+
+    // Jest
+    {
+      extends: ["plugin:itgalaxy/jest"],
+      excludedFiles: ["**/*.md"],
+      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
+      parserOptions: {
+        sourceType: "module"
+      },
+      rules: {
+        // Allow to use `console` (example - `mocking`)
+        "no-console": "off",
+        // Allow all `es` features in tests, because we use `babel`
+        "node/no-unsupported-features/es-syntax": "off"
+      }
+    },
+
+    // Markdown
+    {
+      extends: ["plugin:itgalaxy/markdown"],
+      files: ["**/*.md"],
+      parserOptions: {
+        sourceType: "module",
+        ecmaFeatures: {
+          impliedStrict: true
+        }
+      },
+      rules: {
+        strict: "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "no-process-env": "off",
+        "no-process-exit": "off",
+        "no-console": "off",
+        "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off",
+        "node/no-unsupported-features/es-syntax": "off"
+      }
+    }
+  ],
+  root: true
+};
+```
+
+### Application (with babel, react and webpack)
+
+```js
+"use strict";
+
+module.exports = {
+  extends: ["plugin:itgalaxy/esnext"],
+  overrides: [
+    // Source
+    {
+      extends: ["plugin:itgalaxy/react"],
+      env: {
+        node: false,
+        browser: true
+        // Do you use `jquery`?
+        // jquery: true
+      },
+      // Exclude nested tests
+      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
+      files: ["src/**/*"],
+      globals: {
+        // If you use `process.env.NODE_ENV` in your source code using webpack
+        process: true
+      },
+      parserOptions: {
+        sourceType: "module"
+      },
+      rules: {
+        // Disable `require()` and `define` in favor `import` on front-end
+        "import/no-amd": "error",
+        "import/no-commonjs": "error",
+        // Avoid using `nodejs` modules on front-end
+        "import/no-nodejs-modules": "error",
+        // No `process.exit()` on front-end
+        "no-process-exit": "error"
+      },
+      settings: {
+        "import/resolver": {
+          webpack: {
+            config: require.resolve("./webpack.config.js")
+          }
+        }
+      }
+    },
+
+    // Configurations and Node.js code
+    {
+      extends: ["plugin:itgalaxy/node"],
+      env: {
+        node: true,
+        browser: false
+      },
+      excludedFiles: [
+        "src/**/*",
+        "**/__tests__/**/*",
+        "**/__mocks__/**/*",
+        "**/*.md"
+      ],
+      // All locations exclude sources and tests
+      files: [".*.*", "**/*"],
+      parserOptions: {
+        sourceType: "script"
+      },
+      rules: {
+        "no-console": "off"
+      }
+    },
+
+    // Jest
+    {
+      extends: [
+        "plugin:itgalaxy/node",
+        "plugin:itgalaxy/react",
+        "plugin:itgalaxy/jest"
+      ],
+      env: {
+        node: true,
+        browser: true
+      },
+      excludedFiles: ["**/*.md"],
+      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
+      parserOptions: {
+        sourceType: "module"
+      },
+      rules: {
+        // Allow to use `console` (for example - `mocking`)
+        "no-console": "off",
+        // Allow all `es` features in tests, because we use `babel`
+        "node/no-unsupported-features/es-syntax": "off"
+      }
+    },
+
+    // Markdown
+    {
+      extends: [
+        // Examples can be for node and for browser
+        "plugin:itgalaxy/node",
+        "plugin:itgalaxy/react",
+        "plugin:itgalaxy/markdown"
+      ],
+      env: {
+        browser: true,
+        node: true
+      },
+      files: ["**/*.md"],
+      parserOptions: {
+        sourceType: "module",
+        ecmaFeatures: {
+          impliedStrict: true
+        }
+      },
+      rules: {
+        strict: "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "no-process-env": "off",
+        "no-process-exit": "off",
+        "no-console": "off",
+        "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off",
+        "node/no-unsupported-features/es-syntax": "off"
+      }
+    }
+  ],
+  root: true
+};
+```
 
 ## [Changelog](CHANGELOG.md)
 
