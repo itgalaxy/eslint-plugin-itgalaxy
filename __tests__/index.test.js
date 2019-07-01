@@ -1,8 +1,8 @@
-import { configs } from "..";
-import eslint from "eslint";
 import fs from "fs";
 import path from "path";
+import eslint from "eslint";
 import test from "ava";
+import { configs } from "..";
 
 function isObject(obj) {
   return typeof obj === "object" && obj !== null;
