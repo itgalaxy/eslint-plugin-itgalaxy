@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 103.0.0 - 2019-06-28
+
+- Chore: minimum require `eslint` version is now `^6.0.1`.
+- Chore: minimum require `eslint-plugin-ava` version is now `^7.1.0`.
+- Chore: minimum require `eslint-plugin-html` version is now `^6.0.0`.
+- Chore: minimum require `eslint-plugin-import` version is now `^2.18.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.7.1`.
+- Chore: minimum require `eslint-plugin-promise` version is now `^4.2.1`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.14.2`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^9.1.1`.
+- Chore: minimum require `eslint-plugin-jsx-a11y` version is now `^6.2.3`.
+- Changed: remove `modifyPresetRules` utils, `eslint@6` supports nested plugin rules override.
+
 ## 102.0.0 - 2019-06-03
 
 - Added: `unicorn/prefer-event-key` rule.
