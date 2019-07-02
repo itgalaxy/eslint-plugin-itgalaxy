@@ -196,6 +196,9 @@ This plugin also provides the following tool-specific configurations, which can 
 "use strict";
 
 module.exports = {
+  parserOptions: {
+    sourceType: "script"
+  },
   extends: ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"],
   overrides: [
     // Tests
