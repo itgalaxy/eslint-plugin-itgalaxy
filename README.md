@@ -249,6 +249,9 @@ module.exports = {
 "use strict";
 
 module.exports = {
+  parserOptions: {
+    sourceType: "script"
+  },
   extends: ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"],
   overrides: [
     // Source
@@ -258,6 +261,10 @@ module.exports = {
       files: ["src/**/*"],
       parserOptions: {
         sourceType: "module"
+      },
+      rules: {
+        // Allow to use ECMAScript modules because we use `babel`
+        "node/no-unsupported-features/es-syntax": "off"
       }
     },
 
@@ -272,7 +279,7 @@ module.exports = {
       rules: {
         // Allow to use `console` (example - `mocking`)
         "no-console": "off",
-        // Allow all `es` features in tests, because we use `babel`
+        // Allow to use ECMAScript modules because we use `babel`
         "node/no-unsupported-features/es-syntax": "off"
       }
     },
