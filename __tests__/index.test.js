@@ -323,12 +323,12 @@ alert("test");
 });
 
 test("integration tests for `esnext`", t => {
+  const config = Object.assign({}, configs.esnext);
+
+  config.rules["max-classes-per-file"] = "off";
+
   const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext, {
-      rules: {
-        "max-classes-per-file": "off"
-      }
-    }),
+    baseConfig: config,
     useEslintrc: false
   });
 
@@ -343,7 +343,8 @@ test("integration tests for `esnext`", t => {
 
 test("integration tests for `react`", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext, configs.react)
+    baseConfig: Object.assign({}, configs.esnext, configs.react),
+    useEslintrc: false
   });
 
   const report = cli.executeOnFiles([
@@ -353,4 +354,44 @@ test("integration tests for `react`", t => {
   t.is(report.results.length, 3, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
+});
+
+test("integration tests for pure node project", t => {
+  const cli = new eslint.CLIEngine({
+    baseConfig: Object.assign({}, configs.node),
+    useEslintrc: false
+  });
+  const config = cli.getConfigForFile("myfile.js");
+
+  t.is(config.parserOptions.sourceType, "script");
+});
+
+test("integration tests for es modules project", t => {
+  const cli = new eslint.CLIEngine({
+    baseConfig: Object.assign({}, configs.esnext),
+    useEslintrc: false
+  });
+  const config = cli.getConfigForFile("myfile.js");
+
+  t.is(config.parserOptions.sourceType, "module");
+});
+
+// Example: a `src` directory doesn't contains es modules
+test("integration tests for node project with latest ES spec", t => {
+  const cli = new eslint.CLIEngine({
+    baseConfig: Object.assign({}, configs.esnext, configs.node)
+  });
+  const config = cli.getConfigForFile("myfile.js");
+
+  t.is(config.parserOptions.sourceType, "script");
+});
+
+// Example: a `src` directory doesn't contains es modules
+test("'sourceType' for es modules project with latest ES spec", t => {
+  const cli = new eslint.CLIEngine({
+    baseConfig: Object.assign({}, configs.esnext, configs.node)
+  });
+  const config = cli.getConfigForFile("myfile.js");
+
+  t.is(config.parserOptions.sourceType, "script");
 });
