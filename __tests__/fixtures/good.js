@@ -642,7 +642,16 @@ class MyClass extends Base {
   }
 }
 
-export default linter;
+let barbazFoo;
+
+const object = { foo: "foo", bar: "bar" };
+
+MyClass.logDescription();
+delete object.foo;
+
+console.log(barbazFoo);
+console.log(linter);
+
 export { foo, handler };
 export {
   age as ageExport,

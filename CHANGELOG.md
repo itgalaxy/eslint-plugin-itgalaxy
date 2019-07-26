@@ -5,9 +5,20 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## UNRELEASED
+## 104.0.0 - 2019-07-26
 
-- Changed: added `md` extension to `react/jsx-filename-extension` rule.
+- Added: `jest/no-try-expect` rule.
+- Added: `jest/no-duplicate-hooks` rule.
+- Added: `jest/no-export` rule.
+- Changed: default `sourceType` is `"script"` for `node` preset.
+- Changed: disable `init-declarations` rule (it is good practice define variable without default value when you need return `undefined`).
+- Chaged: disable `complexity` rule.
+- Chore: minimum require `eslint` version is now `^6.1.0`.
+- Chore: minimum require `eslint-plugin-imp-ort` version is now `^2.18.2`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.13.7`.
+- Chore: minimum require `eslint-plugin-react` version is now `^7.14.3`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^10.0.0`.
+- Feature: added `md` extension to `react/jsx-filename-extension` rule.
 
 ## 103.0.0 - 2019-07-01
 

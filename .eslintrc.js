@@ -1,12 +1,10 @@
 "use strict";
 
 module.exports = {
-  parserOptions: {
-    sourceType: "script"
-  },
+  // Order is main
   extends: ["./lib/config/esnext.js", "./lib/config/node.js"],
   overrides: [
-    // Ava
+    // Tests
     {
       extends: ["./lib/config/ava.js"],
       excludedFiles: ["**/*.md"],
@@ -27,7 +25,8 @@ module.exports = {
       extends: ["./lib/config/markdown.js"],
       files: ["**/*.md"],
       parserOptions: {
-        sourceType: "module",
+        // Uncomment the next line if you want use `import/export` in documentation
+        // sourceType: "module"
         ecmaFeatures: {
           impliedStrict: true
         }

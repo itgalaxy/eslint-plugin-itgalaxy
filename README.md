@@ -92,7 +92,7 @@ This plugin provides the following core configurations:
 
 - [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files (don't forget add `.html` to `--ext` CLI argument).
 
-Use this configuration:
+Example of configuration:
 
 ```js
 module.exports = {
@@ -114,7 +114,7 @@ Don't forget to add `--ext ".js,.html` for CLI usage.
 
 - [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
 
-Use this configuration:
+Example of configuration:
 
 ```js
 module.exports = {
@@ -188,7 +188,7 @@ This plugin also provides the following tool-specific configurations, which can 
 
 ## Examples
 
-### Package for Node.js (without babel)
+### Node.js package without es modules
 
 **.eslintrc.js**
 
@@ -196,9 +196,7 @@ This plugin also provides the following tool-specific configurations, which can 
 "use strict";
 
 module.exports = {
-  parserOptions: {
-    sourceType: "script"
-  },
+  // Order is main
   extends: ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"],
   overrides: [
     // Tests
@@ -241,7 +239,7 @@ module.exports = {
 };
 ```
 
-### Package for Node.js (with babel)
+### Node.js package with es modules
 
 **.eslintrc.js**
 
@@ -249,9 +247,7 @@ module.exports = {
 "use strict";
 
 module.exports = {
-  parserOptions: {
-    sourceType: "script"
-  },
+  // Order is main
   extends: ["plugin:itgalaxy/esnext", "plugin:itgalaxy/node"],
   overrides: [
     // Source
@@ -312,7 +308,7 @@ module.exports = {
 };
 ```
 
-### Application (with babel, react and webpack)
+### Application with es modules and react
 
 ```js
 "use strict";
@@ -372,9 +368,6 @@ module.exports = {
       ],
       // All locations exclude sources and tests
       files: [".*.*", "**/*"],
-      parserOptions: {
-        sourceType: "script"
-      },
       rules: {
         "no-console": "off"
       }
