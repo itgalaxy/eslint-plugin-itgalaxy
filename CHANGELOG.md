@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 105.0.0 - 2019-08-20
+
+- Added: `jest/no-standalone-expect` rule.
+- Added: `ava/hooks-order` rule.
+- Added: `ava/no-inline-assertions` rule.
+- Chore: minimum require `eslint-plugin-ava` version is now `^8.0.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.15.1`.
+- Chore: minimum require `eslint-plugin-lodash` version is now `^6.0.0`.
+- Chore: pin `eslint@6.1.0`.
+
 ## 104.0.0 - 2019-07-26
 
 - Added: `jest/no-try-expect` rule.
