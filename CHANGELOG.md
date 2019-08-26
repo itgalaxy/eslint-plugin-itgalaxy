@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 106.0.0 - 2019-08-26
+
+- Chore: minimum require `eslint` version is now `^6.2.2`.
+- Chore: minimum require `babel-eslint` version is now `^10.0.3`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.15.2`.
+
 ## 105.0.0 - 2019-08-20
 
 - Added: `jest/no-standalone-expect` rule.
