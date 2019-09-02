@@ -31,7 +31,6 @@ class SearchProfile extends React.Component {
 
         return data;
       })
-      // eslint-disable-next-line no-console
       .catch(error => console.log(error.stack || error));
   }
 

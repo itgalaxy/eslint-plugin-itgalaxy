@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 107.0.0 - 2019-09-02
+
+- Added: `reportUnusedDisableDirectives` to `esnext` preset.
+- Added: `jest/require-top-level-describe` rule.
+- Chore: minimum require `eslint` version is now `^6.3.0`.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.16.0`.
+- Chore: minimum require `eslint-plugin-node` version is now `^9.2.0`.
+
 ## 106.0.0 - 2019-08-26
 
 - Chore: minimum require `eslint` version is now `^6.2.2`.

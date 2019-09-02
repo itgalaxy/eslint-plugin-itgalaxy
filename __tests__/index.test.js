@@ -395,3 +395,29 @@ test("'sourceType' for es modules project with latest ES spec", t => {
 
   t.is(config.parserOptions.sourceType, "script");
 });
+
+test("integration tests for unused eslint comments", t => {
+  const cli = new eslint.CLIEngine({
+    baseConfig: Object.assign({}, configs.esnext),
+    useEslintrc: false
+  });
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/unused-eslint-directives.js")
+  ]);
+
+  t.is(report.results.length, 1, "eslint report with one results");
+  t.is(report.errorCount, 0, "eslint report without errors");
+  t.is(report.warningCount, 2, "eslint report with warnings");
+
+  t.true(
+    report.results[0].messages[0].message.includes(
+      "Unused eslint-disable directive"
+    )
+  );
+  t.true(
+    report.results[0].messages[1].message.includes(
+      "Unused eslint-disable directive"
+    )
+  );
+});
