@@ -32,192 +32,390 @@ test("should all configs are present in exports", t => {
   files = fs.readdirSync(configDir);
 
   const actual = files
-    .filter(resource => resource !== ".eslintrc.js" && resource !== "rules")
-    .map(resource => dash2CamelCase(path.basename(resource, ".js")));
+    .filter(
+      resource =>
+        resource !== ".eslintrc.js" &&
+        resource !== "rules" &&
+        resource !== "base.js"
+    )
+    .map(resource => dash2CamelCase(path.basename(resource, ".js")))
+    .sort();
 
-  const excepted = Object.keys(configs);
+  const excepted = Object.keys(configs).sort();
 
   t.deepEqual(actual, excepted, "all configs are present in export");
 });
 
-test("should load the `all` plugin config in the `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.all);
-  const { plugins } = config;
+test("should load the 'script' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/script.js"] },
+    rules: {
+      "no-undef": "error"
+    }
+  });
 
-  t.deepEqual(plugins, [
-    "ava",
-    "import",
-    "jsx-a11y",
-    "promise",
-    "unicorn",
-    "html",
-    "jest",
-    "lodash",
-    "markdown",
-    "node",
-    "react"
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+
+  const scriptReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/script.js")
   ]);
 
-  const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
-  });
+  t.is(scriptReport.results.length, 1);
+  t.is(scriptReport.errorCount, 0);
+  t.is(scriptReport.warningCount, 0);
 
-  const report = cli.executeOnText(
-    "const value = 100;\n\nfunction foo() {\n  return 1;\n}\n\nfoo(value);\n",
-    "test.js"
+  const moduleReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/module.js")
+  ]);
+
+  t.is(moduleReport.results.length, 1);
+  t.is(moduleReport.errorCount, 1);
+  t.is(moduleReport.warningCount, 0);
+
+  t.true(
+    moduleReport.results[0].messages[0].message.includes(
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
+    )
   );
+});
+
+test("should load the 'module' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/module.js"] },
+    rules: {
+      "no-undef": "error"
+    }
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaVersion: 2020,
+    sourceType: "module"
+  });
+
+  const scriptReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/script.js")
+  ]);
+
+  t.is(scriptReport.results.length, 1);
+  t.is(scriptReport.errorCount, 4);
+  t.is(scriptReport.warningCount, 0);
+
+  const moduleReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/module.js")
+  ]);
+
+  t.is(moduleReport.results.length, 1);
+  t.is(moduleReport.errorCount, 0);
+  t.is(moduleReport.warningCount, 0);
+});
+
+test("should load the 'dirty' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/dirty.js"] },
+    rules: {
+      "no-undef": "error"
+    }
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaVersion: 2020,
+    sourceType: "module",
+    ecmaFeatures: { globalReturn: true }
+  });
+
+  const scriptReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/script.js")
+  ]);
+
+  t.is(scriptReport.results.length, 1);
+  t.is(scriptReport.errorCount, 0);
+  t.is(scriptReport.warningCount, 0);
+
+  const moduleReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/module.js")
+  ]);
+
+  t.is(moduleReport.results.length, 1);
+  t.is(moduleReport.errorCount, 0);
+  t.is(moduleReport.warningCount, 0);
+});
+
+test("should load the 'ava' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/module.js", "./lib/config/ava.js"] },
+    rules: {
+      "ava/no-ignored-test-files": "off"
+    }
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaVersion: 2020,
+    sourceType: "module"
+  });
+
+  t.true(configForFile.plugins.includes("ava"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/ava.js")
+  ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `ava` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.ava);
-  const hasAvaPlugin = config.plugins.includes("ava");
-
-  t.true(hasAvaPlugin, "there is ava plugin");
-
+test("should load the 'esnext' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/module.js",
+        "./lib/config/node.js",
+        "./lib/config/browser.js",
+        "./lib/config/esnext.js"
+      ]
+    },
+    rules: {
+      "max-classes-per-file": "off"
+    }
   });
 
-  const report = cli.executeOnText(
-    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n",
-    "test.js"
-  );
+  const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.true(isObject(report), "eslint execute is success");
-  t.true(isObject(report.results), "report is object");
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaVersion: 2020,
+    sourceType: "module"
+  });
+  t.true(configForFile.env.es2020);
+  t.true(configForFile.env.node);
+  t.true(configForFile.env.browser);
+
+  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("import"));
+  t.true(configForFile.plugins.includes("promise"));
+  t.true(configForFile.plugins.includes("unicorn"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/good.js")
+  ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `esnext` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.esnext);
-  const hasUnicornPlugin = config.plugins.includes("unicorn");
-  const hasPromisePlugin = config.plugins.includes("promise");
-  const hasImportPlugin = config.plugins.includes("import");
-
-  t.true(hasUnicornPlugin, "there is unicorn plugin");
-  t.true(hasPromisePlugin, "there is promise plugin");
-  t.true(hasImportPlugin, "there is import plugin");
-
-  config.extends = [];
-
+test("should load the 'lodash' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/module.js", "./lib/config/lodash"] }
   });
 
-  const report = cli.executeOnText(
-    "/* global func */\nlet foo = 0;\n\n    foo += 1;\n\nfunc(foo);",
-    "test.js"
-  );
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaVersion: 2020,
+    sourceType: "module"
+  });
+
+  t.true(configForFile.plugins.includes("lodash"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/lodash.js")
+  ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `lodash` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.lodash);
-  const hasLodashPlugin = config.plugins.includes("lodash");
-
-  t.true(hasLodashPlugin, "there is lodash plugin");
-
+test("should load the 'node' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/script.js",
+        "./lib/config/esnext.js",
+        "./lib/config/node.js"
+      ]
+    },
+    rules: {
+      "no-console": "off"
+    }
   });
 
-  const report = cli.executeOnText(
-    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n",
-    "test.js"
-  );
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+  t.true(configForFile.env.node);
+  t.false(Boolean(configForFile.env.browser));
+
+  t.true(configForFile.plugins.includes("node"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/node.js")
+  ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `node` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.node);
-  const hasNodePlugin = config.plugins.includes("node");
-
-  t.true(hasNodePlugin, "there is node plugin");
-
+test("should load the 'browser' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/script.js",
+        "./lib/config/browser.js",
+        "./lib/config/esnext.js"
+      ]
+    }
   });
 
-  const report = cli.executeOnText("module.export = 1;\n", "test.js");
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+  t.false(Boolean(configForFile.env.node));
+  t.true(configForFile.env.browser);
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/browser.js")
+  ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `react` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.react);
-  const hasReactPlugin = config.plugins.includes("react");
-  const hasjsxA11yPlugin = config.plugins.includes("jsx-a11y");
-
-  t.true(hasReactPlugin, "there is react plugin");
-  t.true(hasjsxA11yPlugin, "there is jsx-a11y plugin");
-
-  config.rules["react/prefer-stateless-function"] = "off";
-
+test("should load 'node' and 'browser' presets", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/script.js",
+        "./lib/config/esnext.js",
+        "./lib/config/node.js",
+        "./lib/config/browser.js"
+      ]
+    },
+    rules: {
+      "no-console": "off",
+      "import/no-nodejs-modules": "off"
+    }
   });
 
-  const report = cli.executeOnText(
-    `
-const React = require("react");
+  const configForFile = cli.getConfigForFile("myfile.js");
 
-class Clock extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>It is react component.</h2>
-      </div>
-    );
-  }
-}
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+  t.true(configForFile.env.node);
+  t.true(configForFile.env.browser);
 
-module.exports = Clock;
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/node.js"),
+    path.resolve(__dirname, "./fixtures/browser.js")
+  ]);
 
-  `,
-    "test.jsx"
-  );
-
-  t.is(report.results.length, 1, "eslint report with one results");
+  t.is(report.results.length, 2, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `html` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.html);
-  const hasHTMLPlugin = config.plugins.includes("html");
-
-  config.rules = {
-    "no-alert": "error"
-  };
-
-  t.true(hasHTMLPlugin, "there is html plugin");
-
+test("should load the 'react' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/module.js",
+        "./lib/config/browser.js",
+        "./lib/config/esnext.js",
+        "./lib/config/react.js"
+      ]
+    },
+    rules: {
+      "no-console": "off",
+      "react/prefer-stateless-function": "off"
+    }
   });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "module"
+  });
+  t.true(configForFile.env.browser);
+  t.true(configForFile.plugins.includes("react"));
+  t.true(configForFile.plugins.includes("jsx-a11y"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/react/**/*.jsx")
+  ]);
+
+  t.is(report.results.length, 3, "eslint report with one results");
+  t.is(report.errorCount, 0, "eslint report without errors");
+  t.is(report.warningCount, 0, "eslint report without warnings");
+});
+
+test("should load the 'html' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/html.js"] },
+    rules: {
+      "no-alert": "error"
+    }
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.true(configForFile.plugins.includes("html"));
 
   const validReport = cli.executeOnText(
     `<!DOCTYPE html>
@@ -262,41 +460,45 @@ test("should load the `html` plugin config in `eslint` to validate all rule synt
   t.is(invalidReport.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `jest` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.jest);
-  const hasJestPlugin = config.plugins.includes("jest");
-
-  t.true(hasJestPlugin, "there is jest plugin");
-
+test("should load the 'jest' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: ["./lib/config/module", "./lib/config/jest"]
+    }
   });
 
-  const report = cli.executeOnText(
-    "(function () {\n    'use strict';\n    var foo = 0;\n\n    foo += 1;\n}());\n",
-    "test.js"
-  );
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.true(configForFile.env["jest/globals"]);
+  t.true(configForFile.plugins.includes("jest"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/jest.js")
+  ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the `markdown` plugin config in `eslint` to validate all rule syntax is correct", t => {
-  const config = Object.assign({}, configs.markdown);
-  const hasMarkdownPlugin = config.plugins.includes("markdown");
-
-  config.rules = {
-    "no-alert": "error"
-  };
-
-  t.true(hasMarkdownPlugin, "there is markdown plugin");
-
+test("should load the 'markdown' preset", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/markdown"] },
+    rules: {
+      "no-alert": "error"
+    }
   });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaFeatures: {
+      impliedStrict: true
+    }
+  });
+  t.true(configForFile.plugins.includes("markdown"));
 
   const validReport = cli.executeOnText(
     `\`\`\`javascript
@@ -312,6 +514,7 @@ var s = "JavaScript syntax highlighting";
   const invalidReport = cli.executeOnText(
     `\`\`\`javascript
 var s = "JavaScript syntax highlighting";
+
 alert("test");
 \`\`\``,
     "invalid.md"
@@ -320,86 +523,187 @@ alert("test");
   t.is(invalidReport.results.length, 1, "eslint report with one results");
   t.is(invalidReport.errorCount, 1, "eslint report without errors");
   t.is(invalidReport.warningCount, 0, "eslint report without warnings");
-});
 
-test("integration tests for `esnext`", t => {
-  const config = Object.assign({}, configs.esnext);
-
-  config.rules["max-classes-per-file"] = "off";
-
-  const cli = new eslint.CLIEngine({
-    baseConfig: config,
-    useEslintrc: false
+  const scriptCli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/script",
+        "./lib/config/node",
+        "./lib/config/markdown"
+      ]
+    }
   });
 
-  const report = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/good.js")
-  ]);
+  const scriptConfigForFile = scriptCli.getConfigForFile("myfile.js");
 
-  t.is(report.results.length, 1, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
-});
+  t.deepEqual(scriptConfigForFile.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true,
+      impliedStrict: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+  t.true(scriptConfigForFile.plugins.includes("markdown"));
 
-test("integration tests for `react`", t => {
-  const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext, configs.react),
-    useEslintrc: false
+  const validScriptReport = scriptCli.executeOnText(
+    `\`\`\`javascript
+const test = require('test');
+
+console.log(test);
+\`\`\``,
+    "valid.md"
+  );
+
+  t.is(validScriptReport.results.length, 1, "eslint report with one results");
+  t.is(validScriptReport.errorCount, 0, "eslint report without errors");
+  t.is(validScriptReport.warningCount, 0, "eslint report without warnings");
+
+  const invalidScriptReport = scriptCli.executeOnText(
+    `\`\`\`javascript
+import test from 'test';
+
+console.log(test);
+\`\`\``,
+    "invalid.md"
+  );
+
+  t.is(invalidScriptReport.results.length, 1, "eslint report with one results");
+  t.is(invalidScriptReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidScriptReport.warningCount, 0, "eslint report without warnings");
+
+  t.true(
+    invalidScriptReport.results[0].messages[0].message.includes(
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
+    )
+  );
+
+  const moduleCli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/module",
+        "./lib/config/node",
+        "./lib/config/markdown"
+      ]
+    },
+    rules: {
+      "no-undef": "error"
+    }
   });
 
-  const report = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/react/**/*.jsx")
-  ]);
+  const moduleConfigForFile = moduleCli.getConfigForFile("myfile.js");
 
-  t.is(report.results.length, 3, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
-});
-
-test("integration tests for pure node project", t => {
-  const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.node),
-    useEslintrc: false
+  t.deepEqual(moduleConfigForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaFeatures: {
+      impliedStrict: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "module"
   });
-  const config = cli.getConfigForFile("myfile.js");
+  t.true(moduleConfigForFile.plugins.includes("markdown"));
 
-  t.is(config.parserOptions.sourceType, "script");
-});
+  const validModuleReport = moduleCli.executeOnText(
+    `\`\`\`javascript
+import test from 'test';
 
-test("integration tests for es modules project", t => {
-  const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext),
-    useEslintrc: false
+console.log(test);
+\`\`\``,
+    "valid.md"
+  );
+
+  t.is(validModuleReport.results.length, 1, "eslint report with one results");
+  t.is(validModuleReport.errorCount, 0, "eslint report without errors");
+  t.is(validModuleReport.warningCount, 0, "eslint report without warnings");
+
+  const invalidModuleReport = moduleCli.executeOnText(
+    `\`\`\`javascript
+const test = require('test');
+
+console.log(test);
+\`\`\``,
+    "invalid.md"
+  );
+
+  t.is(invalidModuleReport.results.length, 1, "eslint report with one results");
+  t.is(invalidModuleReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidModuleReport.warningCount, 0, "eslint report without warnings");
+
+  t.true(invalidModuleReport.results[0].messages[0].ruleId === "no-undef");
+
+  const dirtyCli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/dirty",
+        "./lib/config/node",
+        "./lib/config/markdown"
+      ]
+    },
+    rules: {
+      "no-undef": "error",
+      "no-var": "error"
+    }
   });
-  const config = cli.getConfigForFile("myfile.js");
 
-  t.is(config.parserOptions.sourceType, "module");
-});
+  const dirtyConfigForFile = dirtyCli.getConfigForFile("myfile.js");
 
-// Example: a `src` directory doesn't contains es modules
-test("integration tests for node project with latest ES spec", t => {
-  const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext, configs.node)
+  t.deepEqual(dirtyConfigForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaFeatures: {
+      globalReturn: true,
+      impliedStrict: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "module"
   });
-  const config = cli.getConfigForFile("myfile.js");
+  t.true(dirtyConfigForFile.plugins.includes("markdown"));
 
-  t.is(config.parserOptions.sourceType, "script");
-});
+  const validDirtyReport = dirtyCli.executeOnText(
+    `\`\`\`javascript
+import test from 'test';
 
-// Example: a `src` directory doesn't contains es modules
-test("'sourceType' for es modules project with latest ES spec", t => {
-  const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext, configs.node)
-  });
-  const config = cli.getConfigForFile("myfile.js");
+const otherTest = require('other-test');
 
-  t.is(config.parserOptions.sourceType, "script");
+console.log(test);
+console.log(otherTest);
+\`\`\``,
+    "valid.md"
+  );
+
+  t.is(validDirtyReport.results.length, 1, "eslint report with one results");
+  t.is(validDirtyReport.errorCount, 0, "eslint report without errors");
+  t.is(validDirtyReport.warningCount, 0, "eslint report without warnings");
+
+  const invalidDirtyReport = dirtyCli.executeOnText(
+    `\`\`\`javascript
+import test from 'test';
+
+const otherTest = require('other-test');
+
+console.log(test);
+console.log(otherTest);
+
+var qwerty = 1;
+\`\`\``,
+    "valid.md"
+  );
+
+  t.is(invalidDirtyReport.results.length, 1, "eslint report with one results");
+  t.is(invalidDirtyReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidDirtyReport.warningCount, 0, "eslint report without warnings");
+
+  t.true(invalidDirtyReport.results[0].messages[0].ruleId === "no-var");
 });
 
 test("integration tests for unused eslint comments", t => {
   const cli = new eslint.CLIEngine({
-    baseConfig: Object.assign({}, configs.esnext),
-    useEslintrc: false
+    useEslintrc: false,
+    baseConfig: {
+      extends: ["./lib/config/module.js", "./lib/config/esnext.js"]
+    }
   });
 
   const report = cli.executeOnFiles([
@@ -420,4 +724,57 @@ test("integration tests for unused eslint comments", t => {
       "Unused eslint-disable directive"
     )
   );
+});
+
+test("should load the 'all' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/dirty.js",
+        "./lib/config/node.js",
+        "./lib/config/browser.js",
+        "./lib/config/esnext.js",
+        "./lib/config/html.js",
+        "./lib/config/markdown.js",
+        "./lib/config/react.js",
+        "./lib/config/jest.js",
+        "./lib/config/ava.js",
+        "./lib/config/lodash.js"
+      ]
+    }
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFile.parserOptions, {
+    allowImportExportEverywhere: true,
+    ecmaFeatures: {
+      globalReturn: true,
+      impliedStrict: true,
+      jsx: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "module"
+  });
+  t.true(configForFile.plugins.includes("ava"));
+  t.true(configForFile.plugins.includes("import"));
+  t.true(configForFile.plugins.includes("jsx-a11y"));
+  t.true(configForFile.plugins.includes("promise"));
+  t.true(configForFile.plugins.includes("unicorn"));
+  t.true(configForFile.plugins.includes("html"));
+  t.true(configForFile.plugins.includes("jest"));
+  t.true(configForFile.plugins.includes("lodash"));
+  t.true(configForFile.plugins.includes("markdown"));
+  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("react"));
+
+  const report = cli.executeOnText(
+    "const value = 100;\n\nfunction foo() {\n  return 1;\n}\n\nfoo(value);\n",
+    "test.js"
+  );
+
+  t.is(report.results.length, 1, "eslint report with one results");
+  t.is(report.errorCount, 0, "eslint report without errors");
+  t.is(report.warningCount, 0, "eslint report without warnings");
 });
