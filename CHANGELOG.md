@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 108.0.0 - 2019-09-05
+
+- Added: `node/no-exports-assign` rule.
+- Added: set `parserOptions.ecmaFeatures.globalReturn` to `true` for node preset.
+- Changed: remove `broser` and `node` envs from preset, please use `browser` or `node` preset.
+- Changed: set the `ecmaVersion` option to `2020`.
+- Changed: `markdown` preset uses `impliedStrict: true`.
+- Changed: `strict` rule disabled for `markdown` preset by default.
+- Changed: move `script`/`module`/`dirty` configuration to own presets, please look documentation.
+- Changed: many rules were moved in preset based on env, please look documentation.
+- Chore: minimum require `eslint-plugin-jest` version is now `^22.17.0`.
+- Chore: minimum require `eslint-plugin-node` version is now `^10.0.0`.
+- Fix: globals for `node` preset.
+
 ## 107.0.0 - 2019-09-02
 
 - Added: `reportUnusedDisableDirectives` to `esnext` preset.
