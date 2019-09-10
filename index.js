@@ -1,5 +1,7 @@
 "use strict";
 
+const base = require("./lib/config/base");
+
 const moduleType = require("./lib/config/module");
 const script = require("./lib/config/script");
 const dirty = require("./lib/config/dirty");
@@ -17,6 +19,8 @@ const markdown = require("./lib/config/markdown");
 const react = require("./lib/config/react");
 
 const configs = {
+  base,
+
   module: moduleType,
   script,
   dirty,
@@ -25,6 +29,7 @@ const configs = {
   browser,
 
   esnext,
+
   lodash,
   react,
   html,
