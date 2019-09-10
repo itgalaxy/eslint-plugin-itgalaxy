@@ -32,18 +32,53 @@ test("should all configs are present in exports", t => {
   files = fs.readdirSync(configDir);
 
   const actual = files
-    .filter(
-      resource =>
-        resource !== ".eslintrc.js" &&
-        resource !== "rules" &&
-        resource !== "base.js"
-    )
+    .filter(resource => resource !== ".eslintrc.js" && resource !== "rules")
     .map(resource => dash2CamelCase(path.basename(resource, ".js")))
     .sort();
 
   const excepted = Object.keys(configs).sort();
 
   t.deepEqual(actual, excepted, "all configs are present in export");
+});
+
+test("should load the 'base' preset", t => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/base.js"] },
+    rules: {
+      "no-undef": "error"
+    }
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  // t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+
+  const scriptReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/script.js")
+  ]);
+
+  t.is(scriptReport.results.length, 1);
+  t.is(scriptReport.errorCount, 4);
+  t.is(scriptReport.warningCount, 0);
+
+  const moduleReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/module.js")
+  ]);
+
+  t.is(moduleReport.results.length, 1);
+  t.is(moduleReport.errorCount, 1);
+  t.is(moduleReport.warningCount, 0);
+
+  t.true(
+    moduleReport.results[0].messages[0].message.includes(
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
+    )
+  );
 });
 
 test("should load the 'script' preset", t => {
@@ -65,6 +100,8 @@ test("should load the 'script' preset", t => {
     ecmaVersion: 2020,
     sourceType: "script"
   });
+  t.true(configForFile.plugins.includes("import"));
+  t.true(configForFile.plugins.includes("node"));
 
   const scriptReport = cli.executeOnFiles([
     path.resolve(__dirname, "./fixtures/script.js")
@@ -232,7 +269,10 @@ test("should load the 'esnext' preset", t => {
 test("should load the 'lodash' preset", t => {
   const cli = new eslint.CLIEngine({
     useEslintrc: false,
-    baseConfig: { extends: ["./lib/config/module.js", "./lib/config/lodash"] }
+    baseConfig: { extends: ["./lib/config/module.js", "./lib/config/lodash"] },
+    rules: {
+      "import/no-extraneous-dependencies": "off"
+    }
   });
 
   const configForFile = cli.getConfigForFile("myfile.js");
@@ -532,6 +572,9 @@ alert("test");
         "./lib/config/node",
         "./lib/config/markdown"
       ]
+    },
+    rules: {
+      "import/no-unresolved": "off"
     }
   });
 
@@ -589,6 +632,8 @@ console.log(test);
       ]
     },
     rules: {
+      "import/no-unresolved": "off",
+      "import/no-extraneous-dependencies": "off",
       "no-undef": "error"
     }
   });
@@ -607,7 +652,7 @@ console.log(test);
 
   const validModuleReport = moduleCli.executeOnText(
     `\`\`\`javascript
-import test from 'test';
+import test from 'lodash';
 
 console.log(test);
 \`\`\``,
@@ -644,7 +689,10 @@ console.log(test);
     },
     rules: {
       "no-undef": "error",
-      "no-var": "error"
+      "no-var": "error",
+      "import/no-unresolved": "off",
+      "import/no-extraneous-dependencies": "off",
+      "import/extensions": "off"
     }
   });
 
@@ -663,7 +711,7 @@ console.log(test);
 
   const validDirtyReport = dirtyCli.executeOnText(
     `\`\`\`javascript
-import test from 'test';
+import test from 'lodash';
 
 const otherTest = require('other-test');
 
