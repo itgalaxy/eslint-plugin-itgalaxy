@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 110.0.0 - 2019-09-10
+
+- Changed: disable all `import`/`require` rules in `node` preset. Please use `script`/`module`/`dirty` presets to enable them.
+
 ## 109.0.0 - 2019-09-10
 
 - Added: `base` preset.
