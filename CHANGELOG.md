@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 111.0.0 - 2019-09-16
+
+- Added: `default-param-last` rule.
+- Added: `prefer-regex-literals` rule.
+- Added: `unicorn/prefer-dataset` rule.
+- Added: `unicorn/consistent-function-scoping` rule.
+- Chore: minimum require `eslint` version is now `^6.4.0`.
+- Chore: minimum require `eslint-plugin-unicorn` version is now `^11.0.0`.
+
 ## 110.0.0 - 2019-09-10
 
 - Changed: disable all `import`/`require` rules in `node` preset. Please use `script`/`module`/`dirty` presets to enable them.

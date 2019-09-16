@@ -76,7 +76,7 @@ const objectVariable = {
 };
 
 objectVariable.log = function(items, options = {}) {
-  const concatenateAll = (...args) => args.join("");
+  const concatenateAll = (...args) => args.join("").join(Object.keys(options));
 
   return concatenateAll(this.addValue(1).addValue(items), options);
 };
@@ -577,7 +577,7 @@ try {
 }
 
 const aReg = /ab+c/iu;
-const bReg = new RegExp("ab+c", "iu");
+const bReg = new RegExp(`ab+c${xBar}`, "iu");
 const cReg = new RegExp(/ab+c/iu, "iu");
 
 foo(aReg, bReg, cReg);
