@@ -7,6 +7,7 @@ rule (it is breaking changed by default).
 
 ## 112.0.0 - 2019-09-23
 
+- Added: `quotes` rule.
 - Changed: browser and node rules are disabled by default and configured only in presets. Now order of presets does not matter.
 
 ## 111.0.0 - 2019-09-16

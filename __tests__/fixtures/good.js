@@ -9,7 +9,7 @@ const errorMessage =
   "This is a super long error that was thrown because of Batman. " +
   "When you stop to think about how Batman had anything to do with this, you would get nowhere fast.";
 const quotedFoo = "'this' is \"quoted\"";
-const quotedBar = `'this' is "quoted"`;
+const quotedBar = `'this' is "quoted" ${constVariable}`;
 
 arrayVariable.push(stringVariable);
 
