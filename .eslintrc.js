@@ -20,7 +20,11 @@ module.exports = {
 
     // Markdown
     {
-      extends: ["./lib/config/dirty.js", "./lib/config/markdown.js"],
+      extends: [
+        // Documentation files can contain ES and CommonJS modules
+        "./lib/config/dirty.js",
+        "./lib/config/markdown.js"
+      ],
       files: ["**/*.md"],
       rules: {
         "no-unused-vars": "off",

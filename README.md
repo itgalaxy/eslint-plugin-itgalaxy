@@ -310,13 +310,18 @@ module.exports = {
 
     // Markdown
     {
-      extends: ["plugin:itgalaxy/markdown"],
+      extends: [
+        // Documentation files can contain ES and CommonJS modules
+        "plugin:itgalaxy/dirty",
+        "plugin:itgalaxy/markdown"
+      ],
       files: ["**/*.md"],
       rules: {
         "no-unused-vars": "off",
         "no-console": "off",
         "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off"
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off"
       }
     }
   ],
@@ -333,7 +338,7 @@ module.exports = {
 
 module.exports = {
   extends: [
-    // You can change this on `"plugin:itgalaxy/script" or `"plugin:itgalaxy/script"` if you use `node-babel` or use ECMA modules for config file (like `.eslint.js`/`prettier.config.js`/etc)
+    // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module"` if you use `node-babel` or use ECMA modules for config files (like `.eslint.js`/`prettier.config.js`/etc)
     "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/node"
@@ -360,12 +365,72 @@ module.exports = {
 
     // Markdown
     {
-      extends: ["plugin:itgalaxy/module", "plugin:itgalaxy/markdown"],
+      extends: [
+        // Documentation files can contain ES and CommonJS modules
+        "plugin:itgalaxy/dirty",
+        "plugin:itgalaxy/markdown"
+      ],
       files: ["**/*.md"],
       rules: {
         "no-unused-vars": "off",
         "no-console": "off",
         "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off"
+      }
+    }
+  ],
+  root: true
+};
+```
+
+### ECMA and CommonJS modules in one package
+
+**.eslintrc.js**
+
+```js
+"use strict";
+
+module.exports = {
+  extends: [
+    // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module"` if you use `node-babel` or use ECMA modules for config files (like `.eslint.js`/`prettier.config.js`/etc)
+    "plugin:itgalaxy/script",
+    "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/node"
+  ],
+  overrides: [
+    // Source
+    {
+      extends: ["plugin:itgalaxy/dirty"],
+      // Exclude nested tests
+      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
+      files: ["src/**/*"]
+    },
+
+    // Jest
+    {
+      extends: ["plugin:itgalaxy/dirty", "plugin:itgalaxy/jest"],
+      excludedFiles: ["**/*.md"],
+      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
+      rules: {
+        // Allow to use `console` (example - `mocking`)
+        "no-console": "off"
+      }
+    },
+
+    // Markdown
+    {
+      extends: [
+        // Documentation files can contain ES and CommonJS modules
+        "plugin:itgalaxy/dirty",
+        "plugin:itgalaxy/markdown"
+      ],
+      files: ["**/*.md"],
+      rules: {
+        "no-unused-vars": "off",
+        "no-console": "off",
+        "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off",
         "node/no-unpublished-import": "off"
       }
     }
@@ -452,7 +517,7 @@ module.exports = {
     // Markdown
     {
       extends: [
-        // Documentation can use `import/`require` and `export`/`module.exports`
+        // Documentation files can contain ES and CommonJS modules
         "plugin:itgalaxy/dirty",
         "plugin:itgalaxy/node",
         "plugin:itgalaxy/browser",
@@ -509,12 +574,17 @@ module.exports = {
 
     // Markdown
     {
-      extends: ["plugin:itgalaxy/module", "plugin:itgalaxy/markdown"],
+      extends: [
+        // Documentation files can contain ES and CommonJS modules
+        "plugin:itgalaxy/dirty",
+        "plugin:itgalaxy/markdown"
+      ],
       files: ["**/*.md"],
       rules: {
         "no-unused-vars": "off",
         "no-console": "off",
         "import/no-unresolved": "off",
+        "node/no-unpublished-require": "off",
         "node/no-unpublished-import": "off"
       }
     }
