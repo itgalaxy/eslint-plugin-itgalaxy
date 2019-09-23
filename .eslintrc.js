@@ -21,7 +21,7 @@ module.exports = {
     // Markdown
     {
       extends: [
-        // Documentation files can contain ES and CommonJS modules
+        // Documentation files can contain ECMA and CommonJS modules
         "./lib/config/dirty.js",
         "./lib/config/markdown.js"
       ],
