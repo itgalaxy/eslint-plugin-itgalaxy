@@ -366,7 +366,7 @@ test("should load the 'browser' preset", t => {
 });
 
 test("should load 'node' and 'browser' presets", t => {
-  const cli = new eslint.CLIEngine({
+  const cliNodeAndBrowser = new eslint.CLIEngine({
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -382,26 +382,141 @@ test("should load 'node' and 'browser' presets", t => {
     }
   });
 
-  const configForFile = cli.getConfigForFile("myfile.js");
+  const configForFileNodeAndBrowser = cliNodeAndBrowser.getConfigForFile(
+    "myfile.js"
+  );
 
-  t.deepEqual(configForFile.parserOptions, {
+  t.deepEqual(configForFileNodeAndBrowser.parserOptions, {
     ecmaFeatures: {
       globalReturn: true
     },
     ecmaVersion: 2020,
     sourceType: "script"
   });
-  t.true(configForFile.env.node);
-  t.true(configForFile.env.browser);
+  t.true(configForFileNodeAndBrowser.env.node);
+  t.true(configForFileNodeAndBrowser.env.browser);
 
-  const report = cli.executeOnFiles([
+  // Rules for node and browser should
+  t.true(
+    configForFileNodeAndBrowser.rules["node/no-deprecated-api"][0] === "error"
+  );
+  t.true(
+    configForFileNodeAndBrowser.rules[
+      "unicorn/prefer-add-event-listener"
+    ][0] === "error"
+  );
+
+  const reportNodeAndBrowser = cliNodeAndBrowser.executeOnFiles([
     path.resolve(__dirname, "./fixtures/node.js"),
     path.resolve(__dirname, "./fixtures/browser.js")
   ]);
 
-  t.is(report.results.length, 2, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
+  t.is(
+    reportNodeAndBrowser.results.length,
+    2,
+    "eslint report with one results"
+  );
+  t.is(reportNodeAndBrowser.errorCount, 0, "eslint report without errors");
+  t.is(reportNodeAndBrowser.warningCount, 0, "eslint report without warnings");
+
+  const cliBrowserAndNode = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/script.js",
+        "./lib/config/esnext.js",
+        "./lib/config/browser.js",
+        "./lib/config/node.js"
+      ]
+    },
+    rules: {
+      "no-console": "off",
+      "import/no-nodejs-modules": "off"
+    }
+  });
+
+  const configForFileBrowserAndNode = cliBrowserAndNode.getConfigForFile(
+    "myfile.js"
+  );
+
+  t.deepEqual(configForFileBrowserAndNode.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+  t.true(configForFileBrowserAndNode.env.node);
+  t.true(configForFileBrowserAndNode.env.browser);
+
+  // Rules for node and browser should
+  t.true(
+    configForFileBrowserAndNode.rules["node/no-deprecated-api"][0] === "error"
+  );
+  t.true(
+    configForFileBrowserAndNode.rules[
+      "unicorn/prefer-add-event-listener"
+    ][0] === "error"
+  );
+
+  const reportBrowserAndNode = cliBrowserAndNode.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/node.js"),
+    path.resolve(__dirname, "./fixtures/browser.js")
+  ]);
+
+  t.is(
+    reportBrowserAndNode.results.length,
+    2,
+    "eslint report with one results"
+  );
+  t.is(reportBrowserAndNode.errorCount, 0, "eslint report without errors");
+  t.is(reportBrowserAndNode.warningCount, 0, "eslint report without warnings");
+
+  const cliESNextLast = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: [
+        "./lib/config/script.js",
+        "./lib/config/browser.js",
+        "./lib/config/node.js",
+        "./lib/config/esnext.js"
+      ]
+    },
+    rules: {
+      "no-console": "off",
+      "import/no-nodejs-modules": "off"
+    }
+  });
+
+  const configForFileESNextLast = cliESNextLast.getConfigForFile("myfile.js");
+
+  t.deepEqual(configForFileESNextLast.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true
+    },
+    ecmaVersion: 2020,
+    sourceType: "script"
+  });
+  t.true(configForFileESNextLast.env.node);
+  t.true(configForFileESNextLast.env.browser);
+
+  // Rules for node and browser should
+  t.true(
+    configForFileESNextLast.rules["node/no-deprecated-api"][0] === "error"
+  );
+  t.true(
+    configForFileESNextLast.rules["unicorn/prefer-add-event-listener"][0] ===
+      "error"
+  );
+
+  const reportESNextLast = cliESNextLast.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/node.js"),
+    path.resolve(__dirname, "./fixtures/browser.js")
+  ]);
+
+  t.is(reportESNextLast.results.length, 2, "eslint report with one results");
+  t.is(reportESNextLast.errorCount, 0, "eslint report without errors");
+  t.is(reportESNextLast.warningCount, 0, "eslint report without warnings");
 });
 
 test("should load the 'react' preset", t => {

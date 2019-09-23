@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 112.0.0 - 2019-09-23
+
+- Changed: browser and node rules are disabled by default and configured only in presets. Now order of presets does not matter.
+
 ## 111.0.0 - 2019-09-16
 
 - Added: `default-param-last` rule.
