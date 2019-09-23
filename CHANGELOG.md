@@ -9,6 +9,7 @@ rule (it is breaking changed by default).
 
 - Added: `quotes` rule.
 - Changed: browser and node rules are disabled by default and configured only in presets. Now order of presets does not matter.
+- Changed: `unicorn/import-index` was disabled in favor `import/no-useless-path-segments` rule.
 
 ## 111.0.0 - 2019-09-16
 
