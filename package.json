@@ -75,8 +75,8 @@
   "scripts": {
     "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
     "lint:eslint-config-prettier-check": "eslint --print-config \"./__tests__/all-rules/index.jsx\" | eslint-config-prettier-check | true",
-    "lint:prettier": "prettier --list-different \"{lib,__tests__}/**/*.{js,mjs,jsx,md,yml,yaml}\" \"*.{js,mjs,jsx,md,yml,yaml}\"",
-    "lint:js": "eslint . --cache --ignore-pattern \"**/fixtures/**/*\" --ignore-path .gitignore --ext \"js,.mjs,.jsx,.md\"",
+    "lint:prettier": "prettier --list-different \"{lib,__tests__}/**/*.{js,cjs,mjs,jsx,md,yml,yaml}\" \"*.{js,cjs,mjs,jsx,md,yml,yaml}\"",
+    "lint:js": "eslint . --cache --ignore-pattern \"**/fixtures/**/*\" --ignore-path .gitignore --ext \"js,.cjs,.mjs,.jsx,.md\"",
     "lint:md": "remark . -i .gitignore -f -q",
     "lint": "npm-run-all -l -p \"lint:**\"",
     "prettier": "npm run lint:prettier -- --write",
