@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 113.0.0 - 2019-09-23
+
+- Added: `unicorn/filename-case` rule.
+- Added: `unicorn/prefer-string-slice` rule.
+- Changed: minimum require `eslint-plugin-ava` version is now `9.0.0`
+- Changed: minimum require `eslint-plugin-unicorn` version is now `12.0.1`
+
 ## 112.0.0 - 2019-09-23
 
 - Added: `quotes` rule.
