@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 114.0.0 - 2019-10-28
+
+- Added: `no-commented-out-tests` rule.
+- Added: `jest/valid-title` rule.
+- Added: `react/jsx-no-useless-fragment` rule.
+- Changed: minimum require `eslint` version is now `6.6.0`
+- Changed: minimum require `eslint-plugin-jest` version is now `23.0.1`
+- Changed: minimum require `eslint-plugin-markdown` version is now `1.0.1`
+- Changed: minimum require `eslint-plugin-react` version is now `7.16.0`
+- Changed: minimum require `eslint-plugin-unicorn` version is now `12.1.0`
+
 ## 113.0.0 - 2019-09-23
 
 - Added: `unicorn/filename-case` rule.

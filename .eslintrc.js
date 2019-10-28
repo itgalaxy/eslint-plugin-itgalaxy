@@ -9,6 +9,17 @@ module.exports = {
   overrides: [
     // Tests
     {
+      extends: ["./lib/config/dirty.js", "./lib/config/jest.js"],
+      excludedFiles: ["**/*.md"],
+      files: ["**/__jest__/**/*", "**/__mocks__/**/*"],
+      rules: {
+        // Allow to use `console` (example - `mocking`)
+        "no-console": "off"
+      }
+    },
+
+    // Tests
+    {
       extends: ["./lib/config/dirty.js", "./lib/config/ava.js"],
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
@@ -31,7 +42,8 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        "unicorn/filename-case": "off"
       }
     }
   ],
