@@ -42,8 +42,7 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
-        "unicorn/filename-case": "off"
+        "node/no-unpublished-import": "off"
       }
     }
   ],
