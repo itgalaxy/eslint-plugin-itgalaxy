@@ -1,4 +1,4 @@
-import sum from "./sum";
+import sum from "./sum.mjs";
 
 describe("sum", () => {
   it("adds 1 + 2 to equal 3", () => {

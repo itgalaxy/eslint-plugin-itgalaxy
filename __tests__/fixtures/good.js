@@ -656,6 +656,28 @@ delete object.foo;
 console.log(barbazFoo);
 console.log(linter);
 
+const GetSet = {
+  get name() {
+    return this.val;
+  },
+  set name(newValue) {
+    this.val = newValue;
+  }
+};
+
+const Bar = class {
+  static get name() {
+    return this.val;
+  }
+
+  static set name(newValue) {
+    this.val = newValue;
+  }
+};
+
+console.log(GetSet.name());
+console.log(new Bar().name());
+
 export { foo, handler };
 export {
   age as ageExport,

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import SearchProfile from "./SearchProfile";
-import Profile from "./Profile";
+import SearchProfile from "./SearchProfile.jsx";
+import Profile from "./Profile.jsx";
 import "./app.scss";
 
 class App extends React.Component {

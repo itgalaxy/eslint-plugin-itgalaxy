@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 116.0.0 - 2019-11.25
+
+- Added: `grouped-accessor-pairs` rule.
+- Added: `no-constructor-return` rule.
+- Added: `prefer-exponentiation-operator` rule instead `unicorn/prefer-exponentiation-operator` rule.
+- Added: `no-dupe-else-if` rule.
+- Changed: require extensions in `import/extensions` rule for `plugin:itgalaxy/dirty` and `plugin:itgalaxy/dirty` presets.
+- Changed: enable `import/no-useless-path-segments` rule on for `plugin:itgalaxy/script` preset.
+- Changed: minimum require `eslint` version is now `6.7.1`.
+
 ## 115.0.0 - 2019-11-15
 
 - Changed: `unicorn/filename-case` rule now ignore wide used/special files like `README.md`, `LICENSE.md`, `ISSUE_TEMPLATE.md` and etc.

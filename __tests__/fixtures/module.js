@@ -1,4 +1,4 @@
-import subModule from "./sub-module";
+import subModule from "./sub-module.mjs";
 
 function outputSomething(line) {
   return line;

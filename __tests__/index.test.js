@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import eslint from "eslint";
 import test from "ava";
-import { configs } from "..";
+import { configs } from "../index.js";
 
 function isObject(obj) {
   return typeof obj === "object" && obj !== null;
@@ -217,7 +217,7 @@ test("should load the 'ava' preset", t => {
   t.true(configForFile.plugins.includes("ava"));
 
   const report = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/ava.js")
+    path.resolve(__dirname, "./fixtures/ava.mjs")
   ]);
 
   t.is(report.results.length, 1, "eslint report with one results");
