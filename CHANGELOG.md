@@ -5,7 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## 116.0.0 - 2019-11.25
+## 117.0.0 - 2019-12-03
+
+- Added: `unicorn/prefer-trim-start-end` rule.
+- Added: `unicorn/prefer-negative-index` rule.
+- Changed: minimum required `eslint` version is now `6.7.2`.
+- Changed: minimum required `eslint-plugin-jest` version is now `23.1.1`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.17.0`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `14.0.1`.
+
+## 116.0.0 - 2019-11-25
 
 - Added: `grouped-accessor-pairs` rule.
 - Added: `no-constructor-return` rule.
