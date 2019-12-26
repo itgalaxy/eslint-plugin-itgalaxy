@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 118.0.0 - 2019-12-03
+
+- Added: the `unicorn/prefer-modern-dom-apis` rule.
+- Changed: add the `considerQueryString` option to the `import/no-duplicates` rule.
+- Changed: minimum required `eslint` version is now `6.8.0`.
+- Changed: minimum required `eslint-plugin-import` version is now `2.19.1`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `15.0.1`.
+
 ## 117.0.0 - 2019-12-03
 
 - Added: `unicorn/prefer-trim-start-end` rule.
