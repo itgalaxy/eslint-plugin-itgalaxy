@@ -231,7 +231,6 @@ test("should load the 'esnext' preset", t => {
     baseConfig: {
       extends: [
         "./lib/config/module.js",
-        "./lib/config/node.js",
         "./lib/config/browser.js",
         "./lib/config/esnext.js"
       ]
@@ -249,10 +248,8 @@ test("should load the 'esnext' preset", t => {
     sourceType: "module"
   });
   t.true(configForFile.env.es2020);
-  t.true(configForFile.env.node);
   t.true(configForFile.env.browser);
 
-  t.true(configForFile.plugins.includes("node"));
   t.true(configForFile.plugins.includes("import"));
   t.true(configForFile.plugins.includes("promise"));
   t.true(configForFile.plugins.includes("unicorn"));
@@ -749,6 +746,7 @@ console.log(test);
     rules: {
       "import/no-unresolved": "off",
       "import/no-extraneous-dependencies": "off",
+      "node/no-unsupported-features/es-syntax": "off",
       "no-undef": "error"
     }
   });
@@ -807,7 +805,8 @@ console.log(test);
       "no-var": "error",
       "import/no-unresolved": "off",
       "import/no-extraneous-dependencies": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "node/no-unsupported-features/es-syntax": "off"
     }
   });
 

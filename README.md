@@ -283,7 +283,7 @@ module.exports = {
 
 ## Examples
 
-### CommonJS modules package
+### CommonJS package for Node.js
 
 **.eslintrc.js**
 
@@ -311,7 +311,7 @@ module.exports = {
     // Markdown
     {
       extends: [
-        // Documentation files can contain ECMA and CommonJS modules
+        // Documentation files can contain ES module syntax and CommonJS module syntax
         "plugin:itgalaxy/dirty",
         "plugin:itgalaxy/markdown"
       ],
@@ -321,7 +321,12 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        // Documentation files can contain ES module syntax and CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
       }
     }
   ],
@@ -329,7 +334,7 @@ module.exports = {
 };
 ```
 
-### ECMA modules package
+### ECMA package for Node.js
 
 **.eslintrc.js**
 
@@ -349,7 +354,15 @@ module.exports = {
       extends: ["plugin:itgalaxy/module"],
       // Exclude nested tests
       excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"]
+      files: ["src/**/*"],
+      rules: {
+        // Allow to use ES module syntax
+        // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
+      }
     },
 
     // Jest
@@ -358,6 +371,12 @@ module.exports = {
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
       rules: {
+        // Test can be written with using ES module syntax or CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ],
+
         // Allow to use `console` (example - `mocking`)
         "no-console": "off"
       }
@@ -376,7 +395,12 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        // Documentation files can contain ES module syntax and CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
       }
     }
   ],
@@ -384,7 +408,7 @@ module.exports = {
 };
 ```
 
-### ECMA and CommonJS modules in one package
+### ECMA and CommonJS in one package for Node.js
 
 **.eslintrc.js**
 
@@ -404,7 +428,15 @@ module.exports = {
       extends: ["plugin:itgalaxy/dirty"],
       // Exclude nested tests
       excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"]
+      files: ["src/**/*"],
+      rules: {
+        // Allow to use ES module syntax
+        // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
+      }
     },
 
     // Jest
@@ -413,6 +445,12 @@ module.exports = {
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
       rules: {
+        // Test can be written with using ES module syntax or CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ],
+
         // Allow to use `console` (example - `mocking`)
         "no-console": "off"
       }
@@ -431,7 +469,12 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        // Documentation files can contain ES module syntax and CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
       }
     }
   ],
@@ -448,10 +491,9 @@ module.exports = {
 
 module.exports = {
   extends: [
-    // You can change this on `"plugin:itgalaxy/script" or `"plugin:itgalaxy/script"` if you use `node-babel` or use ECMA modules for config file (like `.eslint.js`/`prettier.config.js`/etc)
+    // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module" if you use `node-babel` or use ECMA modules for config file (like `.eslint.js`/`prettier.config.js`/etc)
     "plugin:itgalaxy/script",
-    "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node"
+    "plugin:itgalaxy/esnext"
   ],
   overrides: [
     // Source
@@ -464,10 +506,20 @@ module.exports = {
 
     // Jest
     {
-      extends: ["plugin:itgalaxy/module", "plugin:itgalaxy/jest"],
+      extends: [
+        "plugin:itgalaxy/module",
+        "plugin:itgalaxy/node",
+        "plugin:itgalaxy/jest"
+      ],
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
       rules: {
+        // Test can be written with using ES module syntax or CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ],
+
         // Allow to use `console` (example - `mocking`)
         "no-console": "off"
       }
@@ -486,7 +538,12 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        // Documentation files can contain ES module syntax and CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
       }
     }
   ],
@@ -564,6 +621,15 @@ module.exports = {
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
       rules: {
+        // Test can be written with using ES module syntax or CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ],
+
+        // Allow to use Node.js modules
+        "import/no-nodejs-modules": "off",
+
         // Allow to use `console` (for example - `mocking`)
         "no-console": "off"
       }
@@ -585,7 +651,12 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        // Test can be written with using ES module syntax or CommonJS module syntax
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
       }
     }
   ],

@@ -13,6 +13,11 @@ module.exports = {
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
       rules: {
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ],
+
         // Allow to use `console` (example - `mocking`)
         "no-console": "off"
       }
@@ -31,7 +36,11 @@ module.exports = {
         "no-console": "off",
         "import/no-unresolved": "off",
         "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off"
+        "node/no-unpublished-import": "off",
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] }
+        ]
       }
     }
   ],

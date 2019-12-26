@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 119.0.0 -2019-12-26
+
+- Changed: move the `node/no-exports-assign` rule from other presets to the `node` preset.
+- Changed: move the `node/exports-style` rule from other presets to the `node` preset.
+- Changed: move the `node/no-unpublished-require` rule from other presets to the `node` preset.
+- Changed: move the `node/no-unpublished-import` rule from other presets to the `node` preset.
+- Changed: move the `node/no-unsupported-features/es-syntax` rule from other presets to the `node` preset.
+
 ## 118.0.0 - 2019-12-03
 
 - Added: the `unicorn/prefer-modern-dom-apis` rule.
