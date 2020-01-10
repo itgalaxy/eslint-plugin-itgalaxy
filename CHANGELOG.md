@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## 119.0.0 -2019-12-26
+## 120.0.0 - 2020-01-10
+
+- Added: the `unicode-bom` rule.
+- Changed: minimum required `eslint-plugin-jest` version is now `23.4.0`.
+- Changed: minimum required `eslint-plugin-node` version is now `11.0.0`.
+
+## 119.0.0 - 2019-12-26
 
 - Changed: move the `node/no-exports-assign` rule from other presets to the `node` preset.
 - Changed: move the `node/exports-style` rule from other presets to the `node` preset.
