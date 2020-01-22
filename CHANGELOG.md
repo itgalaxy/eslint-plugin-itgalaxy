@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 121.0.0 - 2020-01-20
+
+- Added: `react/jsx-no-script-url` rule.
+- Added: `react/no-adjacent-inline-elements` rule.
+- Changed: minimum required `eslint-plugin-ava` version is now `10.0.0`.
+- Changed: minimum required `eslint-plugin-import` version is now `2.20.0`.
+- Changed: minimum required `eslint-plugin-jest` version is now `23.6.0`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.18.0`.
+
 ## 120.0.0 - 2020-01-10
 
 - Added: the `unicode-bom` rule.
