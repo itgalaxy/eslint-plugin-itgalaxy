@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 122.0.0 - 2020-02-04
+
+- Added: `unicorn/prefer-replace-all` rule.
+- Changed: minimum required `eslint-plugin-ava` version is now `10.0.1`.
+- Changed: minimum required `eslint-plugin-import` version is now `2.20.1`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.18.3`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `16.0.0`.
+
 ## 121.0.0 - 2020-01-20
 
 - Added: `react/jsx-no-script-url` rule.
