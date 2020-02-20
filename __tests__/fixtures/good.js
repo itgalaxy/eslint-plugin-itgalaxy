@@ -678,11 +678,31 @@ const Bar = class {
 console.log(GetSet.name());
 console.log(new Bar().name());
 
+function callbackInPromise(arg, callback) {
+  return new Promise((resolve, reject) => {
+    if (arg === 1) {
+      return reject(new Error("invalid"));
+    }
+
+    return resolve(arg);
+  }).then(() => callback());
+}
+
+function promiseInCallback(error, data) {
+  if (error) {
+    return Promise.reject(error);
+  }
+
+  return Promise.resolve(data).then(() => `${data}string`);
+}
+
 export { foo, handler };
 export {
   age as ageExport,
   arrayVariable as arrayVariableExport,
   fooAsync,
   fooFuncExtra,
-  MyClass
+  MyClass,
+  callbackInPromise,
+  promiseInCallback
 };
