@@ -4,7 +4,7 @@ module.exports = {
   extends: [
     "./lib/config/script.js",
     "./lib/config/esnext.js",
-    "./lib/config/node.js"
+    "./lib/config/node.js",
   ],
   overrides: [
     // Tests
@@ -15,12 +15,12 @@ module.exports = {
       rules: {
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
+          { ignores: ["modules", "dynamicImport"] },
         ],
 
         // Allow to use `console` (example - `mocking`)
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Markdown
@@ -28,7 +28,7 @@ module.exports = {
       extends: [
         // Documentation files can contain ECMA and CommonJS modules
         "./lib/config/dirty.js",
-        "./lib/config/markdown.js"
+        "./lib/config/markdown.js",
       ],
       files: ["**/*.md"],
       rules: {
@@ -39,10 +39,10 @@ module.exports = {
         "node/no-unpublished-import": "off",
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
-    }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
   ],
-  root: true
+  root: true,
 };

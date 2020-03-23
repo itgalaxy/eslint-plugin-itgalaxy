@@ -50,8 +50,8 @@ module.exports = {
   extends: [
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node"
-  ]
+    "plugin:itgalaxy/node",
+  ],
 };
 ```
 
@@ -64,8 +64,8 @@ module.exports = {
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/browser",
-    "plugin:itgalaxy/react"
-  ]
+    "plugin:itgalaxy/react",
+  ],
 };
 ```
 
@@ -134,8 +134,8 @@ module.exports = {
   extends: [
     // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
     "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext"
-  ]
+    "plugin:itgalaxy/esnext",
+  ],
 };
 ```
 
@@ -151,8 +151,8 @@ module.exports = {
     // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
     "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node"
-  ]
+    "plugin:itgalaxy/node",
+  ],
 };
 ```
 
@@ -168,8 +168,8 @@ module.exports = {
     // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/browser"
-  ]
+    "plugin:itgalaxy/browser",
+  ],
 };
 ```
 
@@ -184,8 +184,8 @@ module.exports = {
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/browser",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/react"
-  ]
+    "plugin:itgalaxy/react",
+  ],
 };
 ```
 
@@ -201,8 +201,8 @@ module.exports = {
     // You can use "plugin:itgalaxy/node"
     "plugin:itgalaxy/browser",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/html"
-  ]
+    "plugin:itgalaxy/html",
+  ],
 };
 ```
 
@@ -220,8 +220,8 @@ module.exports = {
     "plugin:itgalaxy/esnext",
     // You can use "plugin:itgalaxy/node" or use them both
     "plugin:itgalaxy/browser",
-    "plugin:itgalaxy/markdown"
-  ]
+    "plugin:itgalaxy/markdown",
+  ],
 };
 ```
 
@@ -243,8 +243,8 @@ module.exports = {
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/browser",
     "plugin:itgalaxy/node",
-    "plugin:itgalaxy/ava"
-  ]
+    "plugin:itgalaxy/ava",
+  ],
 };
 ```
 
@@ -260,8 +260,8 @@ module.exports = {
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/browser",
     "plugin:itgalaxy/node",
-    "plugin:itgalaxy/jest"
-  ]
+    "plugin:itgalaxy/jest",
+  ],
 };
 ```
 
@@ -276,8 +276,8 @@ module.exports = {
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/node",
-    "plugin:itgalaxy/lodash"
-  ]
+    "plugin:itgalaxy/lodash",
+  ],
 };
 ```
 
@@ -294,7 +294,7 @@ module.exports = {
   extends: [
     "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node"
+    "plugin:itgalaxy/node",
   ],
   overrides: [
     // Tests
@@ -304,8 +304,8 @@ module.exports = {
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
       rules: {
         // Allow to use `console` (example - `mocking`)
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Markdown
@@ -313,7 +313,7 @@ module.exports = {
       extends: [
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown"
+        "plugin:itgalaxy/markdown",
       ],
       files: ["**/*.md"],
       rules: {
@@ -325,12 +325,12 @@ module.exports = {
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
-    }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
   ],
-  root: true
+  root: true,
 };
 ```
 
@@ -346,7 +346,7 @@ module.exports = {
     // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module"` if you use `node-babel` or use ECMA modules for config files (like `.eslint.js`/`prettier.config.js`/etc)
     "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node"
+    "plugin:itgalaxy/node",
   ],
   overrides: [
     // Source
@@ -360,9 +360,9 @@ module.exports = {
         // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
     },
 
     // Jest
@@ -374,12 +374,12 @@ module.exports = {
         // Test can be written with using ES module syntax or CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
+          { ignores: ["modules", "dynamicImport"] },
         ],
 
         // Allow to use `console` (example - `mocking`)
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Markdown
@@ -387,7 +387,7 @@ module.exports = {
       extends: [
         // Documentation files can contain ECMA and CommonJS modules
         "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown"
+        "plugin:itgalaxy/markdown",
       ],
       files: ["**/*.md"],
       rules: {
@@ -399,12 +399,12 @@ module.exports = {
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
-    }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
   ],
-  root: true
+  root: true,
 };
 ```
 
@@ -420,7 +420,7 @@ module.exports = {
     // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module"` if you use `node-babel` or use ECMA modules for config files (like `.eslint.js`/`prettier.config.js`/etc)
     "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node"
+    "plugin:itgalaxy/node",
   ],
   overrides: [
     // Source
@@ -434,9 +434,9 @@ module.exports = {
         // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
     },
 
     // Jest
@@ -448,12 +448,12 @@ module.exports = {
         // Test can be written with using ES module syntax or CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
+          { ignores: ["modules", "dynamicImport"] },
         ],
 
         // Allow to use `console` (example - `mocking`)
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Markdown
@@ -461,7 +461,7 @@ module.exports = {
       extends: [
         // Documentation files can contain ECMA and CommonJS modules
         "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown"
+        "plugin:itgalaxy/markdown",
       ],
       files: ["**/*.md"],
       rules: {
@@ -473,12 +473,12 @@ module.exports = {
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
-    }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
   ],
-  root: true
+  root: true,
 };
 ```
 
@@ -493,7 +493,7 @@ module.exports = {
   extends: [
     // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module" if you use `node-babel` or use ECMA modules for config file (like `.eslint.js`/`prettier.config.js`/etc)
     "plugin:itgalaxy/script",
-    "plugin:itgalaxy/esnext"
+    "plugin:itgalaxy/esnext",
   ],
   overrides: [
     // Source
@@ -501,7 +501,7 @@ module.exports = {
       extends: ["plugin:itgalaxy/module", "plugin:itgalaxy/browser"],
       // Exclude nested tests
       excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"]
+      files: ["src/**/*"],
     },
 
     // Jest
@@ -509,7 +509,7 @@ module.exports = {
       extends: [
         "plugin:itgalaxy/module",
         "plugin:itgalaxy/node",
-        "plugin:itgalaxy/jest"
+        "plugin:itgalaxy/jest",
       ],
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
@@ -517,12 +517,12 @@ module.exports = {
         // Test can be written with using ES module syntax or CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
+          { ignores: ["modules", "dynamicImport"] },
         ],
 
         // Allow to use `console` (example - `mocking`)
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Markdown
@@ -530,7 +530,7 @@ module.exports = {
       extends: [
         // Documentation files can contain ECMA and CommonJS modules
         "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown"
+        "plugin:itgalaxy/markdown",
       ],
       files: ["**/*.md"],
       rules: {
@@ -542,12 +542,12 @@ module.exports = {
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
-    }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
   ],
-  root: true
+  root: true,
 };
 ```
 
@@ -565,7 +565,7 @@ module.exports = {
         // Allow to use `import` and `require`
         "plugin:itgalaxy/dirty",
         "plugin:itgalaxy/browser",
-        "plugin:itgalaxy/react"
+        "plugin:itgalaxy/react",
       ],
       env: {
         // Do you use `jquery`?
@@ -576,21 +576,21 @@ module.exports = {
       files: ["src/**/*"],
       globals: {
         // If you use `process.env.NODE_ENV` in your source code using webpack
-        process: true
+        process: true,
       },
       rules: {
         // Disable `require()` in favor `import` on front-end
         "import/no-commonjs": "error",
         // No `process.exit()` on front-end
-        "no-process-exit": "error"
+        "no-process-exit": "error",
       },
       settings: {
         "import/resolver": {
           webpack: {
-            config: require.resolve("./webpack.config.js")
-          }
-        }
-      }
+            config: require.resolve("./webpack.config.js"),
+          },
+        },
+      },
     },
 
     // Configurations and Node.js code
@@ -600,13 +600,13 @@ module.exports = {
         "src/**/*",
         "**/__tests__/**/*",
         "**/__mocks__/**/*",
-        "**/*.md"
+        "**/*.md",
       ],
       // All locations exclude sources and tests
       files: [".*.*", "**/*"],
       rules: {
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Jest
@@ -616,7 +616,7 @@ module.exports = {
         "plugin:itgalaxy/node",
         "plugin:itgalaxy/browser",
         "plugin:itgalaxy/react",
-        "plugin:itgalaxy/jest"
+        "plugin:itgalaxy/jest",
       ],
       excludedFiles: ["**/*.md"],
       files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
@@ -624,15 +624,15 @@ module.exports = {
         // Test can be written with using ES module syntax or CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
+          { ignores: ["modules", "dynamicImport"] },
         ],
 
         // Allow to use Node.js modules
         "import/no-nodejs-modules": "off",
 
         // Allow to use `console` (for example - `mocking`)
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
 
     // Markdown
@@ -643,7 +643,7 @@ module.exports = {
         "plugin:itgalaxy/node",
         "plugin:itgalaxy/browser",
         "plugin:itgalaxy/react",
-        "plugin:itgalaxy/markdown"
+        "plugin:itgalaxy/markdown",
       ],
       files: ["**/*.md"],
       rules: {
@@ -655,12 +655,12 @@ module.exports = {
         // Test can be written with using ES module syntax or CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
-          { ignores: ["modules", "dynamicImport"] }
-        ]
-      }
-    }
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
   ],
-  root: true
+  root: true,
 };
 ```
 

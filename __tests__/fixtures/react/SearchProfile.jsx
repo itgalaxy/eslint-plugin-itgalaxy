@@ -15,8 +15,8 @@ class SearchProfile extends React.Component {
     const url = `${API}/${username}`;
 
     fetch(url)
-      .then(res => res.json())
-      .then(response => {
+      .then((res) => res.json())
+      .then((response) => {
         data = {
           avatar: response.avatar_url,
           followers: response.followers,
@@ -26,12 +26,12 @@ class SearchProfile extends React.Component {
           name: response.name,
           notFound: response.message,
           repos: response.public_repos,
-          username: response.login
+          username: response.login,
         };
 
         return data;
       })
-      .catch(error => console.log(error.stack || error));
+      .catch((error) => console.log(error.stack || error));
   }
 
   handleForm(event) {
@@ -61,7 +61,7 @@ class SearchProfile extends React.Component {
 }
 
 SearchProfile.propTypes = {
-  data: PropTypes.string.isRequired
+  data: PropTypes.string.isRequired,
 };
 
 export default SearchProfile;

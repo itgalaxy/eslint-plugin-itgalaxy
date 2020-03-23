@@ -85,7 +85,7 @@ class Profile extends React.PureComponent {
 }
 
 Profile.propTypes = {
-  data: PropTypes.string.isRequired
+  data: PropTypes.string.isRequired,
 };
 
 export default Profile;

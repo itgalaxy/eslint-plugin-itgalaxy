@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class Greeting extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    count: PropTypes.string.isRequired
+    count: PropTypes.string.isRequired,
   };
 
   constructor(props) {

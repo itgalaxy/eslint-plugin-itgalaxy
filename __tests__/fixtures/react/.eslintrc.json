@@ -2,9 +2,6 @@
   "env": {
     "browser": true
   },
-  "extends": [
-    "../../../lib/config/esnext.js",
-    "../../../lib/config/react.js"
-  ],
+  "extends": ["../../../lib/config/esnext.js", "../../../lib/config/react.js"],
   "root": true
 }

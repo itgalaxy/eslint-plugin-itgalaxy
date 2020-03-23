@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 124.0.0 - 2020-03-23
+
+- Changed: minimum required `eslint-plugin-jest` version is now `23.8.2`.
+- Changed: minimum required `eslint-plugin-markdown` version is now `1.0.2`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.19.0`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `17.2.0`.
+
 ## 123.0.0 - 2020-02-20
 
 - Changed: the `unicorn/prefer-replace-all` rule is disabled (due Node.js is unsupported that)

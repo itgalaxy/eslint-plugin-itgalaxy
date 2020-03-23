@@ -16,7 +16,7 @@ arrayVariable.push(stringVariable);
 const console = {
   log(message) {
     return message;
-  }
+  },
 };
 
 function getKey(prefix = "", key = null) {
@@ -69,13 +69,13 @@ const objectVariable = {
     this.value = value;
   },
 
-  value: 1
+  value: 1,
 
   // Need path in eslint, see https://github.com/eslint/eslint/issues/6196
   // defer: deferFn((config) => (config.exist ? 'exist' : 'non exist'))
 };
 
-objectVariable.log = function(items, options = {}) {
+objectVariable.log = function (items, options = {}) {
   const concatenateAll = (...args) => args.join("").join(Object.keys(options));
 
   return concatenateAll(this.addValue(1).addValue(items), options);
@@ -98,7 +98,7 @@ const obj = {
     return `d ${super.toString()}`;
   },
   // Computed (dynamic) property names
-  [`prop_${(() => 42)()}`]: 42
+  [`prop_${(() => 42)()}`]: 42,
 };
 
 console.log(obj);
@@ -215,7 +215,7 @@ fooFunc(() => {
   itemsCopy.push("random string");
 }, 1000);
 
-[1, 2, 3].map(value => {
+[1, 2, 3].map((value) => {
   const result = value + 1;
 
   return value * result;
@@ -226,7 +226,7 @@ const flat = {};
 [
   [0, 1],
   [2, 3],
-  [4, 5]
+  [4, 5],
 ].reduce((memo, item, index) => {
   const flatten = memo.concat(item);
 
@@ -235,7 +235,7 @@ const flat = {};
   return flatten;
 });
 
-itemsCopy.filter(msg => {
+itemsCopy.filter((msg) => {
   const { subject, author } = msg;
 
   if (subject === "Mockingbird") {
@@ -259,7 +259,7 @@ function processInput(input = [0, 0, 0, 0]) {
     bottom,
     left,
     right,
-    top
+    top,
   };
 }
 
@@ -273,11 +273,11 @@ function getFullNameWithDash({ firstName, lastName }) {
 
 const username = getFullName({
   firstName: "foo",
-  lastName: "bar"
+  lastName: "bar",
 });
 const usernameWithDash = getFullNameWithDash({
   firstName: "foo",
-  lastName: "bar"
+  lastName: "bar",
 });
 const [left, right, top, bottom] = arrayVariable;
 
@@ -288,7 +288,7 @@ if (booleanVariable) {
   throw new Error(`${errorMessage}: ${quotedFoo} - ${quotedBar}`);
 }
 
-(function() {
+(function () {
   objectVariable.log("Welcome to the Internet. Please follow me.");
 })();
 
@@ -304,23 +304,23 @@ if (booleanVariable) {
 
 [1, 2, 3].map((number, index) => ({
   index: number,
-  number: index
+  number: index,
 }));
 
 [1, 2, 3].map(
-  number =>
+  (number) =>
     `As time went by, the string containing the ${number} became much ` +
     "longer. So we needed to break it over multiple lines."
 );
 
-const itemHeightFoo = item => {
+const itemHeightFoo = (item) => {
   const smallSize = 100;
   const largeSize = 200;
 
   return item.height > 256 ? smallSize : largeSize;
 };
 
-const itemHeightBar = item => {
+const itemHeightBar = (item) => {
   const { height, largeSize, smallSize } = item;
 
   return height > 256 ? largeSize : smallSize;
@@ -342,16 +342,16 @@ const hasAge = Boolean(age);
 
 if (hasAge) {
   const anotherValue = {
-    foo: 1
+    foo: 1,
   };
   const realValue = render({
-    age
+    age,
   }).valueLongLognLongLongValue.valueLongLognLongLongValue
     .valueLongLognLongLongValue.valueLongLognLongLongValue;
 
   render({
     anotherValue,
-    realValue
+    realValue,
   });
 }
 
@@ -361,14 +361,14 @@ try {
   render();
 } catch (error) {
   render({
-    error
+    error,
   });
 }
 
 handler();
 
 function multiply(multiplier, ...theArgs) {
-  return theArgs.map(element => multiplier * element);
+  return theArgs.map((element) => multiplier * element);
 }
 
 multiply(2, 1, 2, 3);
@@ -378,7 +378,7 @@ const numbers = [0, 1, 2];
 multiply(1, ...numbers);
 
 function fetch() {
-  return new Promise(resolve => resolve("Some value"));
+  return new Promise((resolve) => resolve("Some value"));
 }
 
 async function fetchJson(url) {
@@ -455,7 +455,7 @@ function FooNewTarget() {
 console.log(new FooNewTarget());
 
 function doSomething() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let result = 0;
 
     result = result * 2 + 10;
@@ -467,7 +467,7 @@ function doSomething() {
 async function fooAsync() {
   const result = await doSomething();
 
-  Object.keys(result).forEach(item => {
+  Object.keys(result).forEach((item) => {
     item.sum += 1;
   });
 
@@ -534,7 +534,7 @@ function handleHands() {
 
   return {
     handsValues,
-    lastIndex
+    lastIndex,
   };
 }
 
@@ -587,18 +587,18 @@ const cReg = new RegExp(/ab+c/iu, "iu");
 foo(aReg, bReg, cReg);
 
 Promise.all([Promise.resolve("a"), "b", Promise.resolve("c")])
-  .then(res => {
+  .then((res) => {
     if (res[0] === 1) {
       throw new Error("test");
     }
 
     return 1;
   })
-  .catch(error => {
+  .catch((error) => {
     throw error;
   })
   .then(() => Promise.race([Promise.resolve("c")]))
-  .catch(error => {
+  .catch((error) => {
     throw error;
   });
 
@@ -662,7 +662,7 @@ const GetSet = {
   },
   set name(newValue) {
     this.val = newValue;
-  }
+  },
 };
 
 const Bar = class {
@@ -704,5 +704,5 @@ export {
   fooFuncExtra,
   MyClass,
   callbackInPromise,
-  promiseInCallback
+  promiseInCallback,
 };

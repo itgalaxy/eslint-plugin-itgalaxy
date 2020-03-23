@@ -37,7 +37,7 @@ const configs = {
   ava,
   jest,
 
-  all
+  all,
 };
 
 module.exports = { configs };
