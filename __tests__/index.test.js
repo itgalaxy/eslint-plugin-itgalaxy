@@ -3,6 +3,7 @@ import path from "path";
 import eslint from "eslint";
 import test from "ava";
 import { configs } from "../index.js";
+import { devDependencies, peerDependencies } from "../package.json";
 
 function isObject(obj) {
   return typeof obj === "object" && obj !== null;
@@ -939,4 +940,12 @@ test("should load the 'all' preset", (t) => {
   t.is(report.results.length, 1, "eslint report with one results");
   t.is(report.errorCount, 0, "eslint report without errors");
   t.is(report.warningCount, 0, "eslint report without warnings");
+});
+
+test("peerDependencies should be equal devDependencies", (t) => {
+  for (const key in peerDependencies) {
+    if ({}.hasOwnProperty.call(peerDependencies, key)) {
+      t.true(peerDependencies[key] === devDependencies[key]);
+    }
+  }
 });
