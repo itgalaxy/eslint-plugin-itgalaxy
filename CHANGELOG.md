@@ -7,7 +7,7 @@ rule (it is breaking changed by default).
 
 ## 125.0.1 - 2020-04-01
 
-- Fixed: version in `package.json`.
+- Fixed: peerDependencies version in `package.json`.
 
 ## 125.0.0 - 2020-04-01
 
