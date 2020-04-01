@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 125.0.0 - 2020-04-01
+
+- Added: `node/no-restricted-import` rule.
+- Added: `unicorn/prefer-set-has` rule.
+- Added: `unicorn/prefer-number-properties` rule.
+- Changed: `callback-return` was disabled in favor `node/callback-return` rule.
+- Changed: `global-require` was disabled in favor `node/global-require` rule.
+- Changed: `handle-callback-err` was disabled in favor `node/handle-callback-err` rule.
+- Changed: `no-mixed-requires` was disabled in favor `node/no-mixed-requires` rule.
+- Changed: `no-new-require` was disabled in favor `node/no-new-require` rule.
+- Changed: `no-path-concat` was disabled in favor `node/no-path-concat` rule.
+- Changed: `no-process-env` was disabled in favor `node/no-process-env` rule.
+- Changed: `no-process-exit` was disabled in favor `node/no-process-exit` rule.
+- Changed: `no-restricted-modules` was disabled in favor `node/no-restricted-require` rule.
+- Changed: minimum required `eslint-plugin-node` version is now `11.1.0`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `18.0.1`.
+- Changed: minimum required `lint-staged` version is now `10.1.1`.
+- Changed: minimum required `remark-cli` version is now `8.0.0`.
+
 ## 124.0.0 - 2020-03-23
 
 - Changed: minimum required `eslint-plugin-jest` version is now `23.8.2`.

@@ -28,7 +28,7 @@ test("should all configs are present in exports", (t) => {
   const configDir = path.resolve(__dirname, "../lib/config");
   let files = [];
 
-  // eslint-disable-next-line no-sync
+  // eslint-disable-next-line node/no-sync
   files = fs.readdirSync(configDir);
 
   const actual = files

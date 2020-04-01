@@ -111,7 +111,7 @@ Example of configuration:
 import eslint from "eslint";
 
 function loadConfig(configName) {
-  // eslint-disable-next-line global-require, import/no-dynamic-require
+  // eslint-disable-next-line node/global-require, import/no-dynamic-require
   return require(`my-${configName}`);
 }
 
