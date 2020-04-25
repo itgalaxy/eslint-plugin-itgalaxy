@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 126.0.0 - 2020-04-25
+
+- Changed: minimum required `eslint-plugin-html` version is now `6.0.2`.
+- Changed: minimum required `eslint-plugin-lodash` version is now `7.1.0`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `19.0.0`.
+
 ## 125.0.1 - 2020-04-01
 
 - Fixed: peerDependencies version in `package.json`.
