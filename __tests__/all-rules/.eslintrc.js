@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-nodejs-modules
 const path = require("path");
 
 module.exports = {

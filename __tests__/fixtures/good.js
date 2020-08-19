@@ -378,7 +378,9 @@ const numbers = [0, 1, 2];
 multiply(1, ...numbers);
 
 function fetch() {
-  return new Promise((resolve) => resolve("Some value"));
+  return new Promise((resolve) => {
+    resolve("Some value");
+  });
 }
 
 async function fetchJson(url) {
@@ -460,7 +462,7 @@ function doSomething() {
 
     result = result * 2 + 10;
 
-    return resolve(result);
+    resolve(result);
   });
 }
 
@@ -572,10 +574,10 @@ handleHands(xBar, fooA, fooB, fooC, fooD);
 
 try {
   test = foo();
-} catch (ignoreError) {
+} catch {
   try {
     test = foo(1);
-  } catch (ignoreOtherError) {
+  } catch {
     throw new Error("test");
   }
 }
@@ -681,10 +683,12 @@ console.log(new Bar().name());
 function callbackInPromise(arg, callback) {
   return new Promise((resolve, reject) => {
     if (arg === 1) {
-      return reject(new Error("invalid"));
+      reject(new Error("invalid"));
+
+      return;
     }
 
-    return resolve(arg);
+    resolve(arg);
   }).then(() => callback());
 }
 
@@ -695,6 +699,21 @@ function promiseInCallback(error, data) {
 
   return Promise.resolve(data).then(() => `${data}string`);
 }
+
+let myLet = 10;
+const myConst = 12;
+
+myLet += 2;
+
+console.log(myLet, myConst);
+
+let myLet1 = 10;
+
+const myConst1 = 12;
+
+myLet1 += 2;
+
+console.log(myLet1, myConst1);
 
 export { foo, handler };
 export {
