@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 127.0.0 - 2020-08-19
+
+- Added: `no-loss-of-precision` rule.
+- Added: `default-case-last` rule.
+- Added: `no-promise-executor-return` rule.
+- Added: `no-unreachable-loop` rule.
+- Added: `use-t-throws-async-well` rule.
+- Added: `no-useless-backreference` rule.
+- Added: `unicorn/prefer-array-find` rule.
+- Added: `unicorn/prefer-optional-catch-binding` rule.
+- Added: `jest/no-interpolation-in-snapshots` rule.
+- Added: `jest/no-deprecated-functions` rule.
+- Added: `jest/no-conditional-expect` rule.
+- Added: `jsx-a11y/autocomplete-valid` rule.
+- Changed: `prefer-promise-reject-errors` rule allow empty `Promise.reject()`;
+- Changed: `id-length` rule allow to use `a` and `b` identifiers (useful for comparison).
+- Changed: `no-labels` allows to use `labels` in loops.
+- Changed: minimum required `eslint` version is now `7.7.0`.
+- Changed: minimum required `eslint-plugin-ava` version is now `11.0.0`.
+- Changed: minimum required `eslint-plugin-html` version is now `6.0.3`.
+- Changed: minimum required `eslint-plugin-import` version is now `2.22.3`.
+- Changed: minimum required `eslint-plugin-jest` version is now `23.20.0`.
+- Changed: minimum required `eslint-plugin-jsx-a11y` version is now `6.1.3`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.20.6`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `21.0.0`.
+
 ## 126.0.0 - 2020-04-25
 
 - Changed: minimum required `eslint-plugin-html` version is now `6.0.2`.

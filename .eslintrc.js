@@ -7,6 +7,22 @@ module.exports = {
     "./lib/config/node.js",
   ],
   overrides: [
+    // Source
+    {
+      extends: ["./lib/config/dirty.js"],
+      // Exclude nested tests
+      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
+      files: ["src/**/*"],
+      rules: {
+        // Allow to use ES module syntax
+        // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
+        "node/no-unsupported-features/es-syntax": [
+          "error",
+          { ignores: ["modules", "dynamicImport"] },
+        ],
+      },
+    },
+
     // Tests
     {
       extends: ["./lib/config/dirty.js", "./lib/config/ava.js"],
