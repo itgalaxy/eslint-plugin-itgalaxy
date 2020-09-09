@@ -715,6 +715,30 @@ myLet1 += 2;
 
 console.log(myLet1, myConst1);
 
+const myNumberObjects = [
+  { name: "foo", number: 1 },
+  { name: "bar", number: 2 },
+  { name: "foo", number: 3 },
+];
+
+for (const myNumberObject of myNumberObjects) {
+  let { name, number } = myNumberObject;
+
+  if (name === "bar" && number === 2) {
+    name = "foo";
+  }
+}
+
+let timer;
+
+function initialize() {
+  if (foo()) {
+    clearInterval(timer);
+  }
+}
+
+timer = setInterval(initialize, 100);
+
 export { foo, handler };
 export {
   age as ageExport,

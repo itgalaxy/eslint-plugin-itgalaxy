@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 128.0.0 - 2020-09-09
+
+- Added: `jest/no-done-callback` rule (instead `no-test-callback` rule).
+- Changed: relax `prefer-const` rule for `destructuring` and `ignoreReadBeforeAssign`
+- Changed: minimum required `eslint` version is now `7.8.1`.
+- Changed: minimum required `eslint-plugin-html` version is now `6.1.0`.
+- Changed: minimum required `eslint-plugin-jest` version is now `24.0.0`.
+
 ## 127.0.0 - 2020-08-19
 
 - Added: `no-loss-of-precision` rule.
