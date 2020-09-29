@@ -1,14 +1,22 @@
-import fs from "fs";
-import path from "path";
-import eslint from "eslint";
+import * as fs from "fs";
+import * as path from "path";
+import * as eslint from "eslint";
 import test from "ava";
 import { configs } from "../index.js";
 import { devDependencies, peerDependencies } from "../package.json";
 
+/**
+ * @param {any} obj Maybe object
+ * @returns {boolean} Is object?
+ */
 function isObject(obj) {
   return typeof obj === "object" && obj !== null;
 }
 
+/**
+ * @param {string} input Any input
+ * @returns {string} String transformed from dash to camel case
+ */
 function dash2CamelCase(input) {
   return input.replace(/-([a-z])/gu, (found) => found[1].toUpperCase());
 }
@@ -27,6 +35,7 @@ test("should the `eslint` and the `eslint` CLI present", (t) => {
 
 test("should all configs are present in exports", (t) => {
   const configDir = path.resolve(__dirname, "../lib/config");
+  /** @type {string[]} */
   let files = [];
 
   // eslint-disable-next-line node/no-sync
@@ -635,6 +644,27 @@ test("should load the 'jest' preset", (t) => {
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
+test("should load the 'jsdoc-typescript' preset", (t) => {
+  const cli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: ["./lib/config/jsdoc-typescript", "./lib/config/module"],
+    },
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.true(configForFile.plugins.includes("jsdoc"));
+
+  const report = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/jsdoc-typescript.js"),
+  ]);
+
+  t.is(report.results.length, 1, "eslint report with one results");
+  t.is(report.errorCount, 0, "eslint report without errors");
+  t.is(report.warningCount, 0, "eslint report without warnings");
+});
+
 test("should load the 'markdown' preset", (t) => {
   const cli = new eslint.CLIEngine({
     useEslintrc: false,
@@ -894,6 +924,7 @@ test("should load the 'all' preset", (t) => {
     useEslintrc: false,
     baseConfig: {
       extends: [
+        "./lib/config/jsdoc-typescript.js",
         "./lib/config/dirty.js",
         "./lib/config/node.js",
         "./lib/config/browser.js",
@@ -920,6 +951,7 @@ test("should load the 'all' preset", (t) => {
     ecmaVersion: 2021,
     sourceType: "module",
   });
+  t.true(configForFile.plugins.includes("jsdoc"));
   t.true(configForFile.plugins.includes("ava"));
   t.true(configForFile.plugins.includes("import"));
   t.true(configForFile.plugins.includes("jsx-a11y"));
@@ -933,7 +965,16 @@ test("should load the 'all' preset", (t) => {
   t.true(configForFile.plugins.includes("react"));
 
   const report = cli.executeOnText(
-    "const value = 100;\n\nfunction foo() {\n  return 1;\n}\n\nfoo(value);\n",
+    `const value = 100;
+
+/**
+ * @returns {number} Number
+ */
+function foo() {
+  return 1;
+}
+
+foo(value);`,
     "test.js"
   );
 
@@ -945,7 +986,7 @@ test("should load the 'all' preset", (t) => {
 test("peerDependencies should be equal devDependencies", (t) => {
   for (const key in peerDependencies) {
     if ({}.hasOwnProperty.call(peerDependencies, key)) {
-      t.true(peerDependencies[key] === devDependencies[key]);
+      t.true(peerDependencies[key] === devDependencies[key], key);
     }
   }
 });
