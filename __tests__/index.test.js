@@ -55,7 +55,7 @@ test("should load the 'base' preset", (t) => {
 
   // t.is(configForFile.parser, require.resolve("babel-eslint"));
   t.deepEqual(configForFile.parserOptions, {
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
 
@@ -98,7 +98,7 @@ test("should load the 'script' preset", (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.true(configForFile.plugins.includes("import"));
@@ -141,7 +141,7 @@ test("should load the 'module' preset", (t) => {
   t.is(configForFile.parser, require.resolve("babel-eslint"));
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
 
@@ -176,7 +176,7 @@ test("should load the 'dirty' preset", (t) => {
   t.is(configForFile.parser, require.resolve("babel-eslint"));
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
     ecmaFeatures: { globalReturn: true },
   });
@@ -211,7 +211,7 @@ test("should load the 'ava' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
 
@@ -245,7 +245,7 @@ test("should load the 'esnext' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
   t.true(configForFile.env.es2020);
@@ -277,7 +277,7 @@ test("should load the 'lodash' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
 
@@ -313,7 +313,7 @@ test("should load the 'node' preset", (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.true(configForFile.env.node);
@@ -348,7 +348,7 @@ test("should load the 'browser' preset", (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.false(Boolean(configForFile.env.node));
@@ -388,7 +388,7 @@ test("should load 'node' and 'browser' presets", (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.true(configForFileNodeAndBrowser.env.node);
@@ -441,7 +441,7 @@ test("should load 'node' and 'browser' presets", (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.true(configForFileBrowserAndNode.env.node);
@@ -492,7 +492,7 @@ test("should load 'node' and 'browser' presets", (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.true(configForFileESNextLast.env.node);
@@ -541,7 +541,7 @@ test("should load the 'react' preset", (t) => {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
   t.true(configForFile.env.browser);
@@ -698,7 +698,7 @@ alert("test");
       globalReturn: true,
       impliedStrict: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "script",
   });
   t.true(scriptConfigForFile.plugins.includes("markdown"));
@@ -759,7 +759,7 @@ console.log(test);
     ecmaFeatures: {
       impliedStrict: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
   t.true(moduleConfigForFile.plugins.includes("markdown"));
@@ -819,7 +819,7 @@ console.log(test);
       globalReturn: true,
       impliedStrict: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
   t.true(dirtyConfigForFile.plugins.includes("markdown"));
@@ -917,7 +917,7 @@ test("should load the 'all' preset", (t) => {
       impliedStrict: true,
       jsx: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: "module",
   });
   t.true(configForFile.plugins.includes("ava"));
