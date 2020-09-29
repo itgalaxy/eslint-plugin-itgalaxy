@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 129.0.0 - 2020-09-29
+
+- Added: `jsdoc-typescript` preset.
+- Update `ecmaVersion` to `2021`
+- Changed: disabled `class-methods-use-this` rule.
+- Changed: minimum required `eslint` version is now `7.10.0`.
+- Changed: minimum required `eslint-plugin-import` version is now `2.22.1`.
+- Changed: minimum required `eslint-plugin-jest` version is now `24.0.0`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.21.2`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `22.0.0`.
+
 ## 128.0.0 - 2020-09-09
 
 - Added: `jest/no-done-callback` rule (instead `no-test-callback` rule).

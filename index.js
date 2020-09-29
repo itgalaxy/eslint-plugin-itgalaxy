@@ -18,6 +18,8 @@ const lodash = require("./lib/config/lodash");
 const markdown = require("./lib/config/markdown");
 const react = require("./lib/config/react");
 
+const jsdocTypescript = require("./lib/config/jsdoc-typescript");
+
 const configs = {
   base,
 
@@ -36,6 +38,8 @@ const configs = {
   markdown,
   ava,
   jest,
+
+  jsdocTypescript,
 
   all,
 };

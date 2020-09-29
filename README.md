@@ -110,6 +110,10 @@ Example of configuration:
 ```js
 import eslint from "eslint";
 
+/**
+ * @param {string} configName Config name
+ * @returns {object} Config
+ */
 function loadConfig(configName) {
   // eslint-disable-next-line node/global-require, import/no-dynamic-require
   return require(`my-${configName}`);
@@ -231,8 +235,7 @@ Don't forget to add `--ext ".js,.md` for CLI usage.
 
 This plugin also provides the following tool-specific configurations, which can be used on top of the core configurations:
 
-- [AVA](lib/config/ava.js): Use this for projects that use the
-  [AVA](https://github.com/sindresorhus/ava).
+- [AVA](lib/config/ava.js): Use this for projects that use the [AVA](https://github.com/sindresorhus/ava).
 
 Example of configuration:
 
@@ -248,8 +251,7 @@ module.exports = {
 };
 ```
 
-- [Jest](lib/config/jest.js): Use this for projects that use the
-  [Jest](https://github.com/facebook/jest).
+- [Jest](lib/config/jest.js): Use this for projects that use the [Jest](https://github.com/facebook/jest).
 
 Example of configuration:
 
@@ -265,8 +267,7 @@ module.exports = {
 };
 ```
 
-- [lodash](lib/config/lodash.js): Use this for projects that use
-  [lodash](https://lodash.com).
+- [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
 
 Example of configuration:
 
@@ -277,6 +278,21 @@ module.exports = {
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/node",
     "plugin:itgalaxy/lodash",
+  ],
+};
+```
+
+- [jsdoc-typescript](lib/config/jsdoc-typescript.js): Use this for projects that use JSDoc [typescript](https://www.typescriptlang.org).
+
+Example of configuration:
+
+```js
+module.exports = {
+  extends: [
+    "plugin:itgalaxy/jsdoc-typescript",
+    "plugin:itgalaxy/module",
+    "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/node",
   ],
 };
 ```
