@@ -267,21 +267,6 @@ module.exports = {
 };
 ```
 
-- [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
-
-Example of configuration:
-
-```js
-module.exports = {
-  extends: [
-    "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node",
-    "plugin:itgalaxy/lodash",
-  ],
-};
-```
-
 - [jsdoc-typescript](lib/config/jsdoc-typescript.js): Use this for projects that use JSDoc [typescript](https://www.typescriptlang.org).
 
 Example of configuration:
@@ -333,11 +318,6 @@ module.exports = {
       ],
       files: ["**/*.md"],
       rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
@@ -407,11 +387,6 @@ module.exports = {
       ],
       files: ["**/*.md"],
       rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
@@ -481,11 +456,6 @@ module.exports = {
       ],
       files: ["**/*.md"],
       rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
@@ -550,11 +520,6 @@ module.exports = {
       ],
       files: ["**/*.md"],
       rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
         // Documentation files can contain ES module syntax and CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",
@@ -645,9 +610,6 @@ module.exports = {
 
         // Allow to use Node.js modules
         "import/no-nodejs-modules": "off",
-
-        // Allow to use `console` (for example - `mocking`)
-        "no-console": "off",
       },
     },
 
@@ -663,11 +625,6 @@ module.exports = {
       ],
       files: ["**/*.md"],
       rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
         // Test can be written with using ES module syntax or CommonJS module syntax
         "node/no-unsupported-features/es-syntax": [
           "error",

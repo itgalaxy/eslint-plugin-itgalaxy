@@ -14,7 +14,6 @@ const ava = require("./lib/config/ava");
 const esnext = require("./lib/config/esnext");
 const html = require("./lib/config/html");
 const jest = require("./lib/config/jest");
-const lodash = require("./lib/config/lodash");
 const markdown = require("./lib/config/markdown");
 const react = require("./lib/config/react");
 
@@ -32,7 +31,6 @@ const configs = {
 
   esnext,
 
-  lodash,
   react,
   html,
   markdown,

@@ -9,3 +9,5 @@ outputSomething(__filename);
 outputSomething(__dirname);
 
 module.exports = outputSomething;
+
+return "test";

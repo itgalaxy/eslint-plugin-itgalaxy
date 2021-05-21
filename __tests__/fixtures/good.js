@@ -228,7 +228,7 @@ const flat = {};
   [2, 3],
   [4, 5],
 ].reduce((memo, item, index) => {
-  const flatten = memo.concat(item);
+  const flatten = [...memo, ...item];
 
   flat[index] = flatten;
 
