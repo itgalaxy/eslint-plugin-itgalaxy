@@ -62,9 +62,10 @@ test("should load the 'base' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  // t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
 
@@ -102,12 +103,13 @@ test("should load the 'script' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFile.plugins.includes("import"));
@@ -147,10 +149,19 @@ test("should load the 'module' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
+    ecmaFeatures: {
+      globalReturn: false,
+    },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
 
@@ -169,6 +180,24 @@ test("should load the 'module' preset", (t) => {
   t.is(moduleReport.results.length, 1);
   t.is(moduleReport.errorCount, 0);
   t.is(moduleReport.warningCount, 0);
+
+  const wrongModuleCli = new eslint.CLIEngine({
+    useEslintrc: false,
+    baseConfig: {
+      extends: ["./lib/config/module.js", "./lib/config/esnext.js"],
+    },
+    rules: {
+      "no-undef": "error",
+    },
+  });
+
+  const wrongModuleReport = wrongModuleCli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/wrong-module.js"),
+  ]);
+
+  t.is(wrongModuleReport.results.length, 1);
+  t.is(wrongModuleReport.errorCount, 1);
+  t.is(wrongModuleReport.warningCount, 0);
 });
 
 test("should load the 'dirty' preset", (t) => {
@@ -182,12 +211,13 @@ test("should load the 'dirty' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
-    sourceType: "module",
     ecmaFeatures: { globalReturn: true },
+    ecmaVersion: 2021,
+    requireConfigFile: false,
+    sourceType: "module",
   });
 
   const scriptReport = cli.executeOnFiles([
@@ -220,7 +250,16 @@ test("should load the 'ava' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
     ecmaVersion: 2021,
+    ecmaFeatures: {
+      globalReturn: false,
+    },
+    requireConfigFile: false,
     sourceType: "module",
   });
 
@@ -254,7 +293,16 @@ test("should load the 'esnext' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
+    ecmaFeatures: {
+      globalReturn: false,
+    },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(configForFile.env.es2020);
@@ -295,6 +343,7 @@ test("should load the 'node' preset", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFile.env.node);
@@ -330,6 +379,7 @@ test("should load the 'browser' preset", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.false(Boolean(configForFile.env.node));
@@ -369,6 +419,7 @@ test("should load 'node' and 'browser' presets", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFileNodeAndBrowser.env.node);
@@ -422,6 +473,7 @@ test("should load 'node' and 'browser' presets", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFileBrowserAndNode.env.node);
@@ -473,6 +525,7 @@ test("should load 'node' and 'browser' presets", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFileESNextLast.env.node);
@@ -518,10 +571,18 @@ test("should load the 'react' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+        plugins: ["jsx"],
+      },
+    },
     ecmaFeatures: {
+      globalReturn: false,
       jsx: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(configForFile.env.browser);
@@ -693,6 +754,7 @@ alert("test");
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(scriptConfigForFile.plugins.includes("markdown"));
@@ -750,7 +812,16 @@ console.log(test);
 
   t.deepEqual(moduleConfigForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
+    ecmaFeatures: {
+      globalReturn: false,
+    },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(moduleConfigForFile.plugins.includes("markdown"));
@@ -810,6 +881,7 @@ console.log(test);
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(dirtyConfigForFile.plugins.includes("markdown"));
@@ -902,11 +974,17 @@ test("should load the 'all' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        plugins: ["jsx"],
+      },
+    },
     ecmaFeatures: {
       globalReturn: true,
       jsx: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(configForFile.plugins.includes("jsdoc"));
