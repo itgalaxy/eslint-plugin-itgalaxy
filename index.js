@@ -1,45 +1,47 @@
 "use strict";
 
-const base = require("./lib/config/base");
+const allConfig = require("./lib/config/all");
 
-const moduleType = require("./lib/config/module");
-const script = require("./lib/config/script");
-const dirty = require("./lib/config/dirty");
+const moduleConfig = require("./lib/config/module");
+const scriptConfig = require("./lib/config/script");
+const dirtyConfig = require("./lib/config/dirty");
 
-const node = require("./lib/config/node");
-const browser = require("./lib/config/browser");
+const nodeConfig = require("./lib/config/node");
+const browserConfig = require("./lib/config/browser");
 
-const all = require("./lib/config/all");
-const ava = require("./lib/config/ava");
-const esnext = require("./lib/config/esnext");
-const html = require("./lib/config/html");
-const jest = require("./lib/config/jest");
-const markdown = require("./lib/config/markdown");
-const react = require("./lib/config/react");
+const esnextConfig = require("./lib/config/esnext");
 
 const jsdocTypescript = require("./lib/config/jsdoc-typescript");
 
+const jestConfig = require("./lib/config/jest");
+const avaConfig = require("./lib/config/ava");
+
+const reactConfig = require("./lib/config/react");
+
+const htmlConfig = require("./lib/config/html");
+const markdownConfig = require("./lib/config/markdown");
+
 const configs = {
-  base,
+  all: allConfig,
 
-  module: moduleType,
-  script,
-  dirty,
+  module: moduleConfig,
+  script: scriptConfig,
+  dirty: dirtyConfig,
 
-  node,
-  browser,
+  node: nodeConfig,
+  browser: browserConfig,
 
-  esnext,
-
-  react,
-  html,
-  markdown,
-  ava,
-  jest,
+  esnext: esnextConfig,
 
   jsdocTypescript,
 
-  all,
+  jest: jestConfig,
+  ava: avaConfig,
+
+  react: reactConfig,
+
+  html: htmlConfig,
+  markdown: markdownConfig,
 };
 
 module.exports = { configs };
