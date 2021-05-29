@@ -13,7 +13,11 @@ module.exports = {
     // Tests
     {
       extends: ["./lib/config/dirty.js"],
-      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
+      files: [
+        "**/{tests,test,__tests__}/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)",
+        "**/test-*.[jt]s?(x)",
+      ],
     },
   ],
   root: true,
