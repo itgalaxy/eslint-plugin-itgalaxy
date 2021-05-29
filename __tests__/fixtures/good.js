@@ -506,12 +506,12 @@ let i = 0;
 let value = 10;
 
 while (n < 3) {
-  n++;
+  n += 1;
   value += n;
 }
 
 while (i < 10) {
-  i++;
+  i += 1;
   value += i;
 }
 
