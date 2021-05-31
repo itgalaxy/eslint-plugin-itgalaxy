@@ -25,6 +25,7 @@ $ npm install eslint-plugin-itgalaxy --save-dev
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-itgalaxy` globally.
 
 **Note:** Some presets require additional dependencies (plugins).
+
 Example `markdown` require `eslint-plugin-markdown` plugin.
 
 So you need run:
@@ -43,27 +44,26 @@ Itgalaxy’s ESLint configs come bundled in this package. In order to use them, 
 
 Better use `prettier` directly (using `npm`/`yarn` command), because it is allow to format `css`, `scss`, `markdown`, `json` and etc.
 
-For example, the following will extend the ESNext (ES2015 and later) config:
+For example, the following will extend the ESNext (ES2020 and later) config:
 
 ```js
 module.exports = {
   extends: [
     "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/node",
+    "plugin:itgalaxy/esnext",
   ],
 };
 ```
 
-If using React, extend the `React` version of the configuration (which adds some
-React-specific rules to those in the ESNext config):
+React:
 
 ```js
 module.exports = {
   extends: [
     "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/browser",
+    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/react",
   ],
 };
@@ -103,9 +103,12 @@ Example of configuration:
 }
 ```
 
-Why? Very often you are faced with writing or having code using ECMAScript and CommonJS modules, you should use this preset in this case.
+Why? Very often you are faced with writing or having code using ECMAScript and CommonJS modules, for example [`babel`](https://github.com/babel/babel) allows you to do it, you should use this preset in this case.
+But it is not recommended. Prefer to use `plugin:itgalaxy/module`.
 
-Example of configuration:
+> More information about [`dirty` (`unambiguous`)](https://babeljs.io/docs/en/options#sourcetype).
+
+Example of `dirty` (`unambiguous`) code:
 
 ```js
 import eslint from "eslint";
@@ -115,7 +118,7 @@ import eslint from "eslint";
  * @returns {object} Config
  */
 function loadConfig(configName) {
-  // eslint-disable-next-line node/global-require, import/no-dynamic-require
+  // eslint-disable-next-line import/no-dynamic-require
   return require(`my-${configName}`);
 }
 
@@ -124,23 +127,6 @@ console.log(__filename);
 console.log(import.meta.url);
 
 loadConfig("example");
-```
-
-- [esnext](lib/config/esnext.js): use this for anything written with ES2015+ features.
-
-Contains most of the rules for linting code.
-**Does not contain environments for CommonJS and ECMA modules and rules for `require`/`import`/`export`/etc.**
-
-Example of configuration:
-
-```js
-module.exports = {
-  extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
-  ],
-};
 ```
 
 - [node](lib/config/node.js): use this for `Node.js` projects.
@@ -153,7 +139,7 @@ Example of configuration:
 module.exports = {
   extends: [
     // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/script",
+    "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/node",
   ],
@@ -177,7 +163,25 @@ module.exports = {
 };
 ```
 
-- [react](lib/config/react.js): Use this for `React` projects.
+- [esnext](lib/config/esnext.js): use this for anything written with ES2015+ features.
+
+Contains most of the rules for linting code.
+
+**Does not contain rules for CommonJS and ECMA modules syntax, rules for `require`/`import`/`module.export`/`exports`/etc and environments (i.e. `browser`/`node`/etc).**
+
+Example of configuration:
+
+```js
+module.exports = {
+  extends: [
+    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
+    "plugin:itgalaxy/module",
+    "plugin:itgalaxy/esnext",
+  ],
+};
+```
+
+- [react](lib/config/react.js): Use this for `react` projects.
 
 Example of configuration:
 
@@ -193,7 +197,7 @@ module.exports = {
 };
 ```
 
-- [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files (don't forget add `.html` to `--ext` CLI argument).
+- [html](lib/config/html.js): Allow linting `JavaScript` in `HTML` (and `HTML` based) files.
 
 Example of configuration:
 
@@ -202,7 +206,6 @@ module.exports = {
   extends: [
     // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
     "plugin:itgalaxy/module",
-    // You can use "plugin:itgalaxy/node"
     "plugin:itgalaxy/browser",
     "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/html",
@@ -210,9 +213,10 @@ module.exports = {
 };
 ```
 
-Don't forget to add `--ext ".js,.html` for CLI usage.
+- [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files.
 
-- [markdown](lib/config/markdown.js): Allow linting `JavaScript` in `markdown` files (don't forget add `.md` to `--ext` CLI argument).
+By default allows you to use `import` and `require` in documentation.
+Also, all rules are related to `no-unresolved`/`no-unused`/`unpublished` are disabled by default and you can use `console.log(something)`.
 
 Example of configuration:
 
@@ -220,20 +224,14 @@ Example of configuration:
 module.exports = {
   extends: [
     // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/dirty",
-    "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/module",
     // You can use "plugin:itgalaxy/node" or use them both
     "plugin:itgalaxy/browser",
+    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/markdown",
   ],
 };
 ```
-
-Don't forget to add `--ext ".js,.md` for CLI usage.
-
-- [all](lib/config/all.js): Don't use. It is for internal purposes (testings and tools).
-
-This plugin also provides the following tool-specific configurations, which can be used on top of the core configurations:
 
 - [AVA](lib/config/ava.js): Use this for projects that use the [AVA](https://github.com/sindresorhus/ava).
 
@@ -243,9 +241,9 @@ Example of configuration:
 module.exports = {
   extends: [
     "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/node" or use them both
     "plugin:itgalaxy/browser",
-    "plugin:itgalaxy/node",
+    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/ava",
   ],
 };
@@ -253,31 +251,18 @@ module.exports = {
 
 - [Jest](lib/config/jest.js): Use this for projects that use the [Jest](https://github.com/facebook/jest).
 
+Please read this [`ecmascript-modules`](https://jestjs.io/ru/docs/ecmascript-modules) for using jest with ECMA modules.
+
 Example of configuration:
 
 ```js
 module.exports = {
   extends: [
     "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/node" or use them both
     "plugin:itgalaxy/browser",
-    "plugin:itgalaxy/node",
-    "plugin:itgalaxy/jest",
-  ],
-};
-```
-
-- [lodash](lib/config/lodash.js): Use this for projects that use [lodash](https://lodash.com).
-
-Example of configuration:
-
-```js
-module.exports = {
-  extends: [
-    "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node",
-    "plugin:itgalaxy/lodash",
+    "plugin:itgalaxy/jest",
   ],
 };
 ```
@@ -289,17 +274,17 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    "plugin:itgalaxy/jsdoc-typescript",
     "plugin:itgalaxy/module",
-    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/node",
+    "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/jsdoc-typescript",
   ],
 };
 ```
 
 ## Examples
 
-### CommonJS package for Node.js
+### CommonJS
 
 **.eslintrc.js**
 
@@ -309,259 +294,36 @@ module.exports = {
 module.exports = {
   extends: [
     "plugin:itgalaxy/script",
-    "plugin:itgalaxy/esnext",
+    // Use "plugin:itgalaxy/browser" if you write code for browser or use them both if you write for both environments
     "plugin:itgalaxy/node",
-  ],
-  overrides: [
-    // Tests
-    {
-      extends: ["plugin:itgalaxy/jest"],
-      excludedFiles: ["**/*.md"],
-      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
-      rules: {
-        // Allow to use `console` (example - `mocking`)
-        "no-console": "off",
-      },
-    },
-
-    // Markdown
-    {
-      extends: [
-        // Documentation files can contain ES module syntax and CommonJS module syntax
-        "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown",
-      ],
-      files: ["**/*.md"],
-      rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
-        // Documentation files can contain ES module syntax and CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-      },
-    },
+    "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/jest",
+    // Lint documentation
+    "plugin:itgalaxy/markdown",
+    // Uncomment to use jsdoc typescript
+    // "plugin:itgalaxy/jsdoc-typescript",
   ],
   root: true,
 };
 ```
 
-### ECMA package for Node.js
+### ECMA modules
 
 **.eslintrc.js**
 
 ```js
-"use strict";
-
-module.exports = {
+export default {
   extends: [
-    // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module"` if you use `node-babel` or use ECMA modules for config files (like `.eslint.js`/`prettier.config.js`/etc)
-    "plugin:itgalaxy/script",
-    "plugin:itgalaxy/esnext",
+    // You can change this on "plugin:itgalaxy/dirty" if you use `node-babel` and have mixed code with `import` and `require`
+    "plugin:itgalaxy/module",
+    // Use "plugin:itgalaxy/browser" if you write code for browser or use them both if you write for both environments
     "plugin:itgalaxy/node",
-  ],
-  overrides: [
-    // Source
-    {
-      extends: ["plugin:itgalaxy/module"],
-      // Exclude nested tests
-      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"],
-      rules: {
-        // Allow to use ES module syntax
-        // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-      },
-    },
-
-    // Jest
-    {
-      extends: ["plugin:itgalaxy/module", "plugin:itgalaxy/jest"],
-      excludedFiles: ["**/*.md"],
-      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
-      rules: {
-        // Test can be written with using ES module syntax or CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-
-        // Allow to use `console` (example - `mocking`)
-        "no-console": "off",
-      },
-    },
-
-    // Markdown
-    {
-      extends: [
-        // Documentation files can contain ECMA and CommonJS modules
-        "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown",
-      ],
-      files: ["**/*.md"],
-      rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
-        // Documentation files can contain ES module syntax and CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-      },
-    },
-  ],
-  root: true,
-};
-```
-
-### ECMA and CommonJS in one package for Node.js
-
-**.eslintrc.js**
-
-```js
-"use strict";
-
-module.exports = {
-  extends: [
-    // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module"` if you use `node-babel` or use ECMA modules for config files (like `.eslint.js`/`prettier.config.js`/etc)
-    "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/node",
-  ],
-  overrides: [
-    // Source
-    {
-      extends: ["plugin:itgalaxy/dirty"],
-      // Exclude nested tests
-      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"],
-      rules: {
-        // Allow to use ES module syntax
-        // You should use babel if your node version is not supported ES syntax module, dynamic loading ES modules or other features
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-      },
-    },
-
-    // Jest
-    {
-      extends: ["plugin:itgalaxy/dirty", "plugin:itgalaxy/jest"],
-      excludedFiles: ["**/*.md"],
-      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
-      rules: {
-        // Test can be written with using ES module syntax or CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-
-        // Allow to use `console` (example - `mocking`)
-        "no-console": "off",
-      },
-    },
-
-    // Markdown
-    {
-      extends: [
-        // Documentation files can contain ECMA and CommonJS modules
-        "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown",
-      ],
-      files: ["**/*.md"],
-      rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
-        // Documentation files can contain ES module syntax and CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-      },
-    },
-  ],
-  root: true,
-};
-```
-
-### Browser package with ECMA modules
-
-**.eslintrc.js**
-
-```js
-"use strict";
-
-module.exports = {
-  extends: [
-    // You can change this on `"plugin:itgalaxy/dirty" or `"plugin:itgalaxy/module" if you use `node-babel` or use ECMA modules for config file (like `.eslint.js`/`prettier.config.js`/etc)
-    "plugin:itgalaxy/script",
-    "plugin:itgalaxy/esnext",
-  ],
-  overrides: [
-    // Source
-    {
-      extends: ["plugin:itgalaxy/module", "plugin:itgalaxy/browser"],
-      // Exclude nested tests
-      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"],
-    },
-
-    // Jest
-    {
-      extends: [
-        "plugin:itgalaxy/module",
-        "plugin:itgalaxy/node",
-        "plugin:itgalaxy/jest",
-      ],
-      excludedFiles: ["**/*.md"],
-      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
-      rules: {
-        // Test can be written with using ES module syntax or CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-
-        // Allow to use `console` (example - `mocking`)
-        "no-console": "off",
-      },
-    },
-
-    // Markdown
-    {
-      extends: [
-        // Documentation files can contain ECMA and CommonJS modules
-        "plugin:itgalaxy/dirty",
-        "plugin:itgalaxy/markdown",
-      ],
-      files: ["**/*.md"],
-      rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
-        // Documentation files can contain ES module syntax and CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-      },
-    },
+    "plugin:itgalaxy/jest",
+    // Lint documentation
+    "plugin:itgalaxy/markdown",
+    // Uncomment to use jsdoc typescript
+    // "plugin:itgalaxy/jsdoc-typescript",
   ],
   root: true,
 };
@@ -573,13 +335,23 @@ module.exports = {
 "use strict";
 
 module.exports = {
-  extends: ["plugin:itgalaxy/esnext"],
+  // You can use "plugin:itgalaxy/module" and remove "plugin:itgalaxy/module", "plugin:itgalaxy/dirty" and "plugin:itgalaxy/script"
+  // if you use ECMA modules everywhere (preferable)
+  // Configuration files and scripts
+  extends: [
+    "plugin:itgalaxy/script",
+    "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/ava",
+    // Lint documentation
+    "plugin:itgalaxy/markdown",
+    // Uncomment to use jsdoc typescript
+    // "plugin:itgalaxy/jsdoc-typescript",
+  ],
   overrides: [
-    // Source
+    // Source code of application
     {
       extends: [
-        // Allow to use `import` and `require`
-        "plugin:itgalaxy/dirty",
+        "plugin:itgalaxy/module",
         "plugin:itgalaxy/browser",
         "plugin:itgalaxy/react",
       ],
@@ -587,92 +359,24 @@ module.exports = {
         // Do you use `jquery`?
         // jquery: true
       },
-      // Exclude nested tests
-      excludedFiles: ["**/__tests__/**/*", "**/__mocks__/**/*", "**/*.md"],
-      files: ["src/**/*"],
-      globals: {
-        // If you use `process.env.NODE_ENV` in your source code using webpack
-        process: true,
-      },
-      rules: {
-        // Disable `require()` in favor `import` on front-end
-        "import/no-commonjs": "error",
-        // No `process.exit()` on front-end
-        "no-process-exit": "error",
-      },
-      settings: {
-        "import/resolver": {
-          webpack: {
-            config: require.resolve("./webpack.config.js"),
-          },
-        },
-      },
+      files: ["src/**/*.[jt]s?(x)"],
     },
-
-    // Configurations and Node.js code
+    // Tests and documentation
     {
-      extends: ["plugin:itgalaxy/script", "plugin:itgalaxy/node"],
-      excludedFiles: [
-        "src/**/*",
-        "**/__tests__/**/*",
-        "**/__mocks__/**/*",
-        "**/*.md",
+      files: [
+        "**/{tests,test,__tests__}/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)",
+        "**/test-*.[jt]s?(x)",
+        "**/*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown,ron}/**",
       ],
-      // All locations exclude sources and tests
-      files: [".*.*", "**/*"],
-      rules: {
-        "no-console": "off",
-      },
-    },
-
-    // Jest
-    {
       extends: [
-        "plugin:itgalaxy/module",
-        "plugin:itgalaxy/node",
-        "plugin:itgalaxy/browser",
-        "plugin:itgalaxy/react",
-        "plugin:itgalaxy/jest",
-      ],
-      excludedFiles: ["**/*.md"],
-      files: ["**/__tests__/**/*", "**/__mocks__/**/*"],
-      rules: {
-        // Test can be written with using ES module syntax or CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
-
-        // Allow to use Node.js modules
-        "import/no-nodejs-modules": "off",
-
-        // Allow to use `console` (for example - `mocking`)
-        "no-console": "off",
-      },
-    },
-
-    // Markdown
-    {
-      extends: [
-        // Documentation files can contain ECMA and CommonJS modules
         "plugin:itgalaxy/dirty",
         "plugin:itgalaxy/node",
         "plugin:itgalaxy/browser",
         "plugin:itgalaxy/react",
-        "plugin:itgalaxy/markdown",
       ],
-      files: ["**/*.md"],
       rules: {
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "import/no-unresolved": "off",
-        "node/no-unpublished-require": "off",
-        "node/no-unpublished-import": "off",
-        // Test can be written with using ES module syntax or CommonJS module syntax
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { ignores: ["modules", "dynamicImport"] },
-        ],
+        "import/no-nodejs-modules": "off",
       },
     },
   ],

@@ -39,7 +39,7 @@ test("should all configs are present in exports", (t) => {
   let files = [];
 
   // eslint-disable-next-line node/no-sync
-  files = fs.readdirSync(configDir);
+  files = fs.readdirSync(configDir).filter((item) => item !== "shared");
 
   const actual = files
     .filter((resource) => resource !== ".eslintrc.js" && resource !== "rules")
@@ -51,48 +51,9 @@ test("should all configs are present in exports", (t) => {
   t.deepEqual(actual, excepted, "all configs are present in export");
 });
 
-test("should load the 'base' preset", (t) => {
-  const cli = new eslint.CLIEngine({
-    useEslintrc: false,
-    baseConfig: { extends: ["./lib/config/base.js"] },
-    rules: {
-      "no-undef": "error",
-    },
-  });
-
-  const configForFile = cli.getConfigForFile("myfile.js");
-
-  // t.is(configForFile.parser, require.resolve("babel-eslint"));
-  t.deepEqual(configForFile.parserOptions, {
-    ecmaVersion: 2021,
-    sourceType: "script",
-  });
-
-  const scriptReport = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/script.js"),
-  ]);
-
-  t.is(scriptReport.results.length, 1);
-  t.is(scriptReport.errorCount, 4);
-  t.is(scriptReport.warningCount, 0);
-
-  const moduleReport = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/module.js"),
-  ]);
-
-  t.is(moduleReport.results.length, 1);
-  t.is(moduleReport.errorCount, 1);
-  t.is(moduleReport.warningCount, 0);
-
-  t.true(
-    moduleReport.results[0].messages[0].message.includes(
-      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
-    )
-  );
-});
-
 test("should load the 'script' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: { extends: ["./lib/config/script.js"] },
     rules: {
@@ -102,12 +63,12 @@ test("should load the 'script' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFile.plugins.includes("import"));
@@ -138,6 +99,7 @@ test("should load the 'script' preset", (t) => {
 
 test("should load the 'module' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: { extends: ["./lib/config/module.js"] },
     rules: {
@@ -147,10 +109,18 @@ test("should load the 'module' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
+    ecmaFeatures: {
+      globalReturn: false,
+    },
+    requireConfigFile: false,
     sourceType: "module",
   });
 
@@ -159,7 +129,7 @@ test("should load the 'module' preset", (t) => {
   ]);
 
   t.is(scriptReport.results.length, 1);
-  t.is(scriptReport.errorCount, 4);
+  t.is(scriptReport.errorCount, 5);
   t.is(scriptReport.warningCount, 0);
 
   const moduleReport = cli.executeOnFiles([
@@ -169,10 +139,30 @@ test("should load the 'module' preset", (t) => {
   t.is(moduleReport.results.length, 1);
   t.is(moduleReport.errorCount, 0);
   t.is(moduleReport.warningCount, 0);
+
+  const wrongModuleCli = new eslint.CLIEngine({
+    ignore: false,
+    useEslintrc: false,
+    baseConfig: {
+      extends: ["./lib/config/module.js", "./lib/config/esnext.js"],
+    },
+    rules: {
+      "no-undef": "error",
+    },
+  });
+
+  const wrongModuleReport = wrongModuleCli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/wrong-module.js"),
+  ]);
+
+  t.is(wrongModuleReport.results.length, 1);
+  t.is(wrongModuleReport.errorCount, 1);
+  t.is(wrongModuleReport.warningCount, 0);
 });
 
 test("should load the 'dirty' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: { extends: ["./lib/config/dirty.js"] },
     rules: {
@@ -182,12 +172,12 @@ test("should load the 'dirty' preset", (t) => {
 
   const configForFile = cli.getConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("babel-eslint"));
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
-    sourceType: "module",
     ecmaFeatures: { globalReturn: true },
+    requireConfigFile: false,
+    sourceType: "module",
   });
 
   const scriptReport = cli.executeOnFiles([
@@ -209,6 +199,7 @@ test("should load the 'dirty' preset", (t) => {
 
 test("should load the 'ava' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: { extends: ["./lib/config/module.js", "./lib/config/ava.js"] },
     rules: {
@@ -216,11 +207,19 @@ test("should load the 'ava' preset", (t) => {
     },
   });
 
-  const configForFile = cli.getConfigForFile("myfile.js");
+  const configForFile = cli.getConfigForFile("tests/myfile.test.js");
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
+    ecmaFeatures: {
+      globalReturn: false,
+    },
+    requireConfigFile: false,
     sourceType: "module",
   });
 
@@ -237,6 +236,7 @@ test("should load the 'ava' preset", (t) => {
 
 test("should load the 'esnext' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -254,7 +254,16 @@ test("should load the 'esnext' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+      },
+    },
+    ecmaFeatures: {
+      globalReturn: false,
+    },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(configForFile.env.es2020);
@@ -273,36 +282,9 @@ test("should load the 'esnext' preset", (t) => {
   t.is(report.warningCount, 0, "eslint report without warnings");
 });
 
-test("should load the 'lodash' preset", (t) => {
-  const cli = new eslint.CLIEngine({
-    useEslintrc: false,
-    baseConfig: { extends: ["./lib/config/module.js", "./lib/config/lodash"] },
-    rules: {
-      "import/no-extraneous-dependencies": "off",
-    },
-  });
-
-  const configForFile = cli.getConfigForFile("myfile.js");
-
-  t.deepEqual(configForFile.parserOptions, {
-    allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
-    sourceType: "module",
-  });
-
-  t.true(configForFile.plugins.includes("lodash"));
-
-  const report = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/lodash.js"),
-  ]);
-
-  t.is(report.results.length, 1, "eslint report with one results");
-  t.is(report.errorCount, 0, "eslint report without errors");
-  t.is(report.warningCount, 0, "eslint report without warnings");
-});
-
 test("should load the 'node' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -323,6 +305,7 @@ test("should load the 'node' preset", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFile.env.node);
@@ -341,6 +324,7 @@ test("should load the 'node' preset", (t) => {
 
 test("should load the 'browser' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -358,6 +342,7 @@ test("should load the 'browser' preset", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.false(Boolean(configForFile.env.node));
@@ -374,6 +359,7 @@ test("should load the 'browser' preset", (t) => {
 
 test("should load 'node' and 'browser' presets", (t) => {
   const cliNodeAndBrowser = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -389,15 +375,15 @@ test("should load 'node' and 'browser' presets", (t) => {
     },
   });
 
-  const configForFileNodeAndBrowser = cliNodeAndBrowser.getConfigForFile(
-    "myfile.js"
-  );
+  const configForFileNodeAndBrowser =
+    cliNodeAndBrowser.getConfigForFile("myfile.js");
 
   t.deepEqual(configForFileNodeAndBrowser.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFileNodeAndBrowser.env.node);
@@ -423,10 +409,12 @@ test("should load 'node' and 'browser' presets", (t) => {
     2,
     "eslint report with one results"
   );
+
   t.is(reportNodeAndBrowser.errorCount, 0, "eslint report without errors");
   t.is(reportNodeAndBrowser.warningCount, 0, "eslint report without warnings");
 
   const cliBrowserAndNode = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -442,15 +430,15 @@ test("should load 'node' and 'browser' presets", (t) => {
     },
   });
 
-  const configForFileBrowserAndNode = cliBrowserAndNode.getConfigForFile(
-    "myfile.js"
-  );
+  const configForFileBrowserAndNode =
+    cliBrowserAndNode.getConfigForFile("myfile.js");
 
   t.deepEqual(configForFileBrowserAndNode.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFileBrowserAndNode.env.node);
@@ -480,6 +468,7 @@ test("should load 'node' and 'browser' presets", (t) => {
   t.is(reportBrowserAndNode.warningCount, 0, "eslint report without warnings");
 
   const cliESNextLast = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -502,6 +491,7 @@ test("should load 'node' and 'browser' presets", (t) => {
       globalReturn: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "script",
   });
   t.true(configForFileESNextLast.env.node);
@@ -528,6 +518,7 @@ test("should load 'node' and 'browser' presets", (t) => {
 
 test("should load the 'react' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -547,10 +538,18 @@ test("should load the 'react' preset", (t) => {
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        allowReturnOutsideFunction: false,
+        plugins: ["jsx"],
+      },
+    },
     ecmaFeatures: {
+      globalReturn: false,
       jsx: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(configForFile.env.browser);
@@ -568,6 +567,7 @@ test("should load the 'react' preset", (t) => {
 
 test("should load the 'html' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: { extends: ["./lib/config/html.js"] },
     rules: {
@@ -575,7 +575,7 @@ test("should load the 'html' preset", (t) => {
     },
   });
 
-  const configForFile = cli.getConfigForFile("myfile.js");
+  const configForFile = cli.getConfigForFile("index.html");
 
   t.true(configForFile.plugins.includes("html"));
 
@@ -624,15 +624,15 @@ test("should load the 'html' preset", (t) => {
 
 test("should load the 'jest' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: ["./lib/config/module", "./lib/config/jest"],
     },
   });
 
-  const configForFile = cli.getConfigForFile("myfile.js");
+  const configForFile = cli.getConfigForFile("tests/myfile.test.js");
 
-  t.true(configForFile.env["jest/globals"]);
   t.true(configForFile.plugins.includes("jest"));
 
   const report = cli.executeOnFiles([
@@ -646,6 +646,7 @@ test("should load the 'jest' preset", (t) => {
 
 test("should load the 'jsdoc-typescript' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: ["./lib/config/jsdoc-typescript", "./lib/config/module"],
@@ -667,24 +668,20 @@ test("should load the 'jsdoc-typescript' preset", (t) => {
 
 test("should load the 'markdown' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
-    baseConfig: { extends: ["./lib/config/markdown"] },
+    baseConfig: { extends: ["./lib/config/script", "./lib/config/markdown"] },
     rules: {
       "no-alert": "error",
     },
   });
 
-  const configForFile = cli.getConfigForFile("myfile.js");
+  const configForFile = cli.getConfigForFile("README.md/0.js");
 
-  t.deepEqual(configForFile.parserOptions, {
-    ecmaFeatures: {
-      impliedStrict: true,
-    },
-  });
   t.true(configForFile.plugins.includes("markdown"));
 
   const validReport = cli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 var s = "JavaScript syntax highlighting";
 \`\`\``,
     "valid.md"
@@ -695,7 +692,7 @@ var s = "JavaScript syntax highlighting";
   t.is(validReport.warningCount, 0, "eslint report without warnings");
 
   const invalidReport = cli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 var s = "JavaScript syntax highlighting";
 
 alert("test");
@@ -708,6 +705,7 @@ alert("test");
   t.is(invalidReport.warningCount, 0, "eslint report without warnings");
 
   const scriptCli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -721,20 +719,18 @@ alert("test");
     },
   });
 
-  const scriptConfigForFile = scriptCli.getConfigForFile("myfile.js");
+  const scriptConfigForFile = scriptCli.getConfigForFile("README.md/0.js");
 
   t.deepEqual(scriptConfigForFile.parserOptions, {
-    ecmaFeatures: {
-      globalReturn: true,
-      impliedStrict: true,
-    },
-    ecmaVersion: 2021,
-    sourceType: "script",
+    requireConfigFile: false,
+    sourceType: "module",
+    allowImportExportEverywhere: true,
+    ecmaFeatures: { globalReturn: true, impliedStrict: true },
   });
   t.true(scriptConfigForFile.plugins.includes("markdown"));
 
   const validScriptReport = scriptCli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 const test = require('test');
 
 console.log(test);
@@ -747,7 +743,7 @@ console.log(test);
   t.is(validScriptReport.warningCount, 0, "eslint report without warnings");
 
   const invalidScriptReport = scriptCli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 import test from 'test';
 
 console.log(test);
@@ -756,16 +752,11 @@ console.log(test);
   );
 
   t.is(invalidScriptReport.results.length, 1, "eslint report with one results");
-  t.is(invalidScriptReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidScriptReport.errorCount, 0, "eslint report without errors");
   t.is(invalidScriptReport.warningCount, 0, "eslint report without warnings");
 
-  t.true(
-    invalidScriptReport.results[0].messages[0].message.includes(
-      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
-    )
-  );
-
   const moduleCli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -782,20 +773,19 @@ console.log(test);
     },
   });
 
-  const moduleConfigForFile = moduleCli.getConfigForFile("myfile.js");
+  const moduleConfigForFile = moduleCli.getConfigForFile("README.md/0.js");
 
   t.deepEqual(moduleConfigForFile.parserOptions, {
-    allowImportExportEverywhere: true,
-    ecmaFeatures: {
-      impliedStrict: true,
-    },
-    ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
+    allowImportExportEverywhere: true,
+    ecmaFeatures: { globalReturn: true, impliedStrict: true },
+    babelOptions: { parserOpts: { allowReturnOutsideFunction: false } },
   });
   t.true(moduleConfigForFile.plugins.includes("markdown"));
 
   const validModuleReport = moduleCli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 import test from 'lodash';
 
 console.log(test);
@@ -808,7 +798,7 @@ console.log(test);
   t.is(validModuleReport.warningCount, 0, "eslint report without warnings");
 
   const invalidModuleReport = moduleCli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 const test = require('test');
 
 console.log(test);
@@ -817,12 +807,11 @@ console.log(test);
   );
 
   t.is(invalidModuleReport.results.length, 1, "eslint report with one results");
-  t.is(invalidModuleReport.errorCount, 1, "eslint report without errors");
+  t.is(invalidModuleReport.errorCount, 0, "eslint report without errors");
   t.is(invalidModuleReport.warningCount, 0, "eslint report without warnings");
 
-  t.true(invalidModuleReport.results[0].messages[0].ruleId === "no-undef");
-
   const dirtyCli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -841,21 +830,18 @@ console.log(test);
     },
   });
 
-  const dirtyConfigForFile = dirtyCli.getConfigForFile("myfile.js");
+  const dirtyConfigForFile = dirtyCli.getConfigForFile("README.md/0.js");
 
   t.deepEqual(dirtyConfigForFile.parserOptions, {
-    allowImportExportEverywhere: true,
-    ecmaFeatures: {
-      globalReturn: true,
-      impliedStrict: true,
-    },
-    ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
+    allowImportExportEverywhere: true,
+    ecmaFeatures: { globalReturn: true, impliedStrict: true },
   });
   t.true(dirtyConfigForFile.plugins.includes("markdown"));
 
   const validDirtyReport = dirtyCli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 import test from 'lodash';
 
 const otherTest = require('other-test');
@@ -871,7 +857,7 @@ console.log(otherTest);
   t.is(validDirtyReport.warningCount, 0, "eslint report without warnings");
 
   const invalidDirtyReport = dirtyCli.executeOnText(
-    `\`\`\`javascript
+    `\`\`\`js
 import test from 'test';
 
 const otherTest = require('other-test');
@@ -893,6 +879,7 @@ var qwerty = 1;
 
 test("integration tests for unused eslint comments", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: ["./lib/config/module.js", "./lib/config/esnext.js"],
@@ -921,6 +908,7 @@ test("integration tests for unused eslint comments", (t) => {
 
 test("should load the 'all' preset", (t) => {
   const cli = new eslint.CLIEngine({
+    ignore: false,
     useEslintrc: false,
     baseConfig: {
       extends: [
@@ -934,21 +922,25 @@ test("should load the 'all' preset", (t) => {
         "./lib/config/react.js",
         "./lib/config/jest.js",
         "./lib/config/ava.js",
-        "./lib/config/lodash.js",
       ],
     },
   });
 
-  const configForFile = cli.getConfigForFile("myfile.js");
+  const configForFile = cli.getConfigForFile("tests/myfile.test.js");
 
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
+    babelOptions: {
+      parserOpts: {
+        plugins: ["jsx"],
+      },
+    },
     ecmaFeatures: {
       globalReturn: true,
-      impliedStrict: true,
       jsx: true,
     },
     ecmaVersion: 2021,
+    requireConfigFile: false,
     sourceType: "module",
   });
   t.true(configForFile.plugins.includes("jsdoc"));
@@ -957,10 +949,7 @@ test("should load the 'all' preset", (t) => {
   t.true(configForFile.plugins.includes("jsx-a11y"));
   t.true(configForFile.plugins.includes("promise"));
   t.true(configForFile.plugins.includes("unicorn"));
-  t.true(configForFile.plugins.includes("html"));
   t.true(configForFile.plugins.includes("jest"));
-  t.true(configForFile.plugins.includes("lodash"));
-  t.true(configForFile.plugins.includes("markdown"));
   t.true(configForFile.plugins.includes("node"));
   t.true(configForFile.plugins.includes("react"));
 
@@ -986,7 +975,7 @@ foo(value);`,
 test("peerDependencies should be equal devDependencies", (t) => {
   for (const key in peerDependencies) {
     if ({}.hasOwnProperty.call(peerDependencies, key)) {
-      t.true(peerDependencies[key] === devDependencies[key], key);
+      t.true(peerDependencies[key] === devDependencies[key], `${key}`);
     }
   }
 });

@@ -228,7 +228,7 @@ const flat = {};
   [2, 3],
   [4, 5],
 ].reduce((memo, item, index) => {
-  const flatten = memo.concat(item);
+  const flatten = [...memo, ...item];
 
   flat[index] = flatten;
 
@@ -506,12 +506,12 @@ let i = 0;
 let value = 10;
 
 while (n < 3) {
-  n++;
+  n += 1;
   value += n;
 }
 
 while (i < 10) {
-  i++;
+  i += 1;
   value += i;
 }
 
@@ -544,7 +544,6 @@ handleHands();
 
 for (i = 0; i < 10; i++) {
   if (i < 5) {
-    // eslint-disable-next-line no-continue
     continue;
   }
 
