@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 131.0.0 - 2021-05-31
+
+- Changed: disable `import/no-extraneous-dependencies` and `no-undef` rules for markdown files
+
 ## 130.0.0 - 2021-05-20
 
 - Changed: update deps and rules
