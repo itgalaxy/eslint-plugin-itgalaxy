@@ -7,12 +7,7 @@ rule (it is breaking changed by default).
 
 ## 130.0.0 - 2021-05-20
 
-- Removed: `lodash` config and `eslint-plugin-lodash` plugin
-- Changed: minimum required `eslint-plugin-promise` version is now `5.1.0`.
-- Changed: minimum required `eslint-plugin-markdown` version is now `2.1.0`.
-- Changed: minimum required `eslint-plugin-ava` version is now `12.0.0`.
-- Changed: minimum required `eslint-plugin-unicorn` version is now `32.0.1`.
-- Changed: disable `*-unused-*` rules for `plugin:itgalaxy/markdown`
+- Changed: update deps and rules
 
 ## 129.0.0 - 2020-09-29
 
