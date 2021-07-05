@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 132.0.0 - 2021-07-05
+
+- Added: `unicorn/require-number-to-fixed-digits-argument` rule.
+- Added: `unicorn/require-array-join-separator` rule
+- Added: `unicorn/prefer-prototype-methods` rule
+- Added: `unicorn/require-post-message-target-origin` rule
+- Changed: minimum required `eslint` version is `^7.30.0`
+- Changed: minimum required `eslint-plugin-jsdoc` version is `^35.4.1`
+- Changed: minimum required `eslint-plugin-unicorn` version is `^34.0.1`
+
 ## 131.0.0 - 2021-05-31
 
 - Changed: disable `import/no-extraneous-dependencies` and `no-undef` rules for markdown files
