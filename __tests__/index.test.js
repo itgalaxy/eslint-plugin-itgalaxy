@@ -974,7 +974,7 @@ foo(value);`,
 
 test("peerDependencies should be equal devDependencies", (t) => {
   for (const key in peerDependencies) {
-    if ({}.hasOwnProperty.call(peerDependencies, key)) {
+    if (Object.prototype.hasOwnProperty.call(peerDependencies, key)) {
       t.true(peerDependencies[key] === devDependencies[key], `${key}`);
     }
   }
