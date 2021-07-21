@@ -1,13 +1,10 @@
 "use strict";
 
 module.exports = {
-  "*.{js,cjs,mjs,jsx,ts,tsx}": [
-    "prettier --list-different",
-    "eslint --report-unused-disable-directives",
-  ],
+  "*.{js,cjs,mjs,jsx,ts,tsx}": ["eslint", "prettier --write"],
   "*.{md,markdown,mdown,mkdn,mkd,mdwn,mkdown,ron}": [
-    "prettier --list-different",
     "remark -f -q",
+    "prettier --write",
   ],
-  "*.{yml,yaml}": ["prettier --list-different"],
+  "*.{yml,yaml}": ["prettier --write"],
 };

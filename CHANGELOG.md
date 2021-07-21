@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 133.0.0 -2021-07-21
+
+- Changed: disable `consistent-return` rule.
+- Changed: minimum required `eslint` version is `^7.31.0`
+- Changed: minimum required `eslint-plugin-jest` version is `^24.3.7`
+
 ## 132.0.0 - 2021-07-05
 
 - Added: `unicorn/require-number-to-fixed-digits-argument` rule.
