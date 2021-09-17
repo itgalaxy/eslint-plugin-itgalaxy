@@ -7,7 +7,9 @@ rule (it is breaking changed by default).
 
 ## 134.0.0 - 2021-09-17
 
-- Changed: minimum required `eslint` version is `^7.32.0`
+- Added: `commonjs` preset (before it was the `script` preset).
+- Changed: `script` preset is now just `script`.
+- Changed: minimum required `eslint` version is `^7.32.0`.
 - Changed: minimum required `eslint-plugin-import` version is now `2.24.2`.
 - Changed: minimum required `eslint-plugin-markdown` version is now `2.2.1`.
 - Changed: minimum required `eslint-plugin-jest` version is now `24.4.2`.

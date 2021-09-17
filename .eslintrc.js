@@ -2,7 +2,7 @@
 
 module.exports = {
   extends: [
-    "./lib/config/script.js",
+    "./lib/config/commonjs.js",
     "./lib/config/node.js",
     "./lib/config/esnext.js",
     "./lib/config/jsdoc-typescript.js",
