@@ -71,8 +71,6 @@ test("should load the 'script' preset", (t) => {
     requireConfigFile: false,
     sourceType: "script",
   });
-  t.true(configForFile.plugins.includes("import"));
-  t.true(configForFile.plugins.includes("node"));
 
   const scriptReport = cli.executeOnFiles([
     path.resolve(__dirname, "./fixtures/script.js"),
@@ -81,6 +79,60 @@ test("should load the 'script' preset", (t) => {
   t.is(scriptReport.results.length, 1);
   t.is(scriptReport.errorCount, 0);
   t.is(scriptReport.warningCount, 0);
+
+  const commonjsReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/commonjs.js"),
+  ]);
+
+  t.is(commonjsReport.results.length, 1);
+  t.is(commonjsReport.errorCount, 4);
+  t.is(commonjsReport.warningCount, 0);
+
+  const moduleReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/module.js"),
+  ]);
+
+  t.is(moduleReport.results.length, 1);
+  t.is(moduleReport.errorCount, 1);
+  t.is(moduleReport.warningCount, 0);
+
+  t.true(
+    moduleReport.results[0].messages[0].message.includes(
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
+    )
+  );
+});
+
+test("should load the 'commonjs' preset", (t) => {
+  const cli = new eslint.CLIEngine({
+    ignore: false,
+    useEslintrc: false,
+    baseConfig: { extends: ["./lib/config/commonjs.js"] },
+    rules: {
+      "no-undef": "error",
+    },
+  });
+
+  const configForFile = cli.getConfigForFile("myfile.js");
+
+  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.deepEqual(configForFile.parserOptions, {
+    ecmaFeatures: {
+      globalReturn: true,
+    },
+    requireConfigFile: false,
+    sourceType: "script",
+  });
+  t.true(configForFile.plugins.includes("import"));
+  t.true(configForFile.plugins.includes("node"));
+
+  const commonjsReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/commonjs.js"),
+  ]);
+
+  t.is(commonjsReport.results.length, 1);
+  t.is(commonjsReport.errorCount, 0);
+  t.is(commonjsReport.warningCount, 0);
 
   const moduleReport = cli.executeOnFiles([
     path.resolve(__dirname, "./fixtures/module.js"),
@@ -124,13 +176,13 @@ test("should load the 'module' preset", (t) => {
     sourceType: "module",
   });
 
-  const scriptReport = cli.executeOnFiles([
-    path.resolve(__dirname, "./fixtures/script.js"),
+  const commonjsReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/commonjs.js"),
   ]);
 
-  t.is(scriptReport.results.length, 1);
-  t.is(scriptReport.errorCount, 5);
-  t.is(scriptReport.warningCount, 0);
+  t.is(commonjsReport.results.length, 1);
+  t.is(commonjsReport.errorCount, 5);
+  t.is(commonjsReport.warningCount, 0);
 
   const moduleReport = cli.executeOnFiles([
     path.resolve(__dirname, "./fixtures/module.js"),
@@ -188,6 +240,14 @@ test("should load the 'dirty' preset", (t) => {
   t.is(scriptReport.errorCount, 0);
   t.is(scriptReport.warningCount, 0);
 
+  const commonjsReport = cli.executeOnFiles([
+    path.resolve(__dirname, "./fixtures/commonjs.js"),
+  ]);
+
+  t.is(commonjsReport.results.length, 1);
+  t.is(commonjsReport.errorCount, 0);
+  t.is(commonjsReport.warningCount, 0);
+
   const moduleReport = cli.executeOnFiles([
     path.resolve(__dirname, "./fixtures/module.js"),
   ]);
@@ -240,9 +300,9 @@ test("should load the 'esnext' preset", (t) => {
     useEslintrc: false,
     baseConfig: {
       extends: [
+        "./lib/config/esnext.js",
         "./lib/config/module.js",
         "./lib/config/browser.js",
-        "./lib/config/esnext.js",
       ],
     },
     rules: {
@@ -288,8 +348,8 @@ test("should load the 'node' preset", (t) => {
     useEslintrc: false,
     baseConfig: {
       extends: [
-        "./lib/config/script.js",
         "./lib/config/esnext.js",
+        "./lib/config/commonjs.js",
         "./lib/config/node.js",
       ],
     },
@@ -363,8 +423,8 @@ test("should load 'node' and 'browser' presets", (t) => {
     useEslintrc: false,
     baseConfig: {
       extends: [
-        "./lib/config/script.js",
         "./lib/config/esnext.js",
+        "./lib/config/commonjs.js",
         "./lib/config/node.js",
         "./lib/config/browser.js",
       ],
@@ -418,8 +478,8 @@ test("should load 'node' and 'browser' presets", (t) => {
     useEslintrc: false,
     baseConfig: {
       extends: [
-        "./lib/config/script.js",
         "./lib/config/esnext.js",
+        "./lib/config/commonjs.js",
         "./lib/config/browser.js",
         "./lib/config/node.js",
       ],
@@ -472,10 +532,10 @@ test("should load 'node' and 'browser' presets", (t) => {
     useEslintrc: false,
     baseConfig: {
       extends: [
-        "./lib/config/script.js",
+        "./lib/config/esnext.js",
+        "./lib/config/commonjs.js",
         "./lib/config/browser.js",
         "./lib/config/node.js",
-        "./lib/config/esnext.js",
       ],
     },
     rules: {
