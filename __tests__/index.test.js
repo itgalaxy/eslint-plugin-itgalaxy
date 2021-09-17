@@ -549,6 +549,7 @@ test("should load the 'react' preset", (t) => {
       jsx: true,
     },
     ecmaVersion: 2021,
+    jsxPragma: null,
     requireConfigFile: false,
     sourceType: "module",
   });
@@ -940,6 +941,7 @@ test("should load the 'all' preset", (t) => {
       jsx: true,
     },
     ecmaVersion: 2021,
+    jsxPragma: null,
     requireConfigFile: false,
     sourceType: "module",
   });

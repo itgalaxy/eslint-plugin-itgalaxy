@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## 133.0.0 -2021-07-21
+## 134.0.0 - 2021-09-17
+
+- Changed: minimum required `eslint` version is `^7.32.0`
+- Changed: minimum required `eslint-plugin-import` version is now `2.24.2`.
+- Changed: minimum required `eslint-plugin-markdown` version is now `2.2.1`.
+- Changed: minimum required `eslint-plugin-jest` version is now `24.4.2`.
+- Changed: minimum required `eslint-plugin-jsdoc` version is now `36.1.0`.
+- Changed: minimum required `eslint-plugin-react` version is now `7.25.0`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `^36.0.0`.
+
+## 133.0.0 - 2021-07-21
 
 - Changed: disable `consistent-return` rule.
 - Changed: minimum required `eslint` version is `^7.31.0`
