@@ -73,7 +73,17 @@ module.exports = {
 
 This plugin provides the following core configurations:
 
-- [script](lib/config/script.js): preset for [CommonJS modules](https://nodejs.org/docs/latest/api/modules.html) (`require`/`module.exports`/etc).
+- [script](lib/config/script.js): preset for environment without `require`/`import` (old browsers or custom env).
+
+Example of configuration:
+
+```json
+{
+  "extends": ["plugin:itgalaxy/script"]
+}
+```
+
+- [commonjs](lib/config/commonjs.js): preset for [CommonJS modules](https://nodejs.org/docs/latest/api/modules.html) (`require`/`module.exports`/etc).
 
 Example of configuration:
 
@@ -129,7 +139,7 @@ console.log(import.meta.url);
 loadConfig("example");
 ```
 
-- [node](lib/config/node.js): use this for `Node.js` projects.
+- [node](lib/config/node.js): use this for `Node.js` projects (preset contains only environments rules, i.e. no rules for `require`/`import`, see above presets).
 
 Preset contains environment and rules for `Node.js` code.
 
@@ -138,9 +148,9 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty"
+    "plugin:itgalaxy/module",
     "plugin:itgalaxy/node",
   ],
 };
@@ -155,9 +165,9 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/script" for old browsers or custom enviroment, "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
+    "plugin:itgalaxy/module",
     "plugin:itgalaxy/browser",
   ],
 };
@@ -174,9 +184,9 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/module",
     "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/script" for old browsers or custom enviroment, "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
+    "plugin:itgalaxy/module",
   ],
 };
 ```
@@ -188,10 +198,10 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
+    "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/browser",
-    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/react",
   ],
 };
@@ -204,10 +214,10 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
+    "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/browser",
-    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/html",
   ],
 };
@@ -223,11 +233,10 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    // You can use "plugin:itgalaxy/script" or "plugin:itgalaxy/dirty"
-    "plugin:itgalaxy/module",
-    // You can use "plugin:itgalaxy/node" or use them both
-    "plugin:itgalaxy/browser",
     "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
+    "plugin:itgalaxy/module",
+    "plugin:itgalaxy/browser",
     "plugin:itgalaxy/markdown",
   ],
 };
@@ -240,10 +249,10 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    "plugin:itgalaxy/module",
-    // You can use "plugin:itgalaxy/node" or use them both
-    "plugin:itgalaxy/browser",
     "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
+    "plugin:itgalaxy/module",
+    "plugin:itgalaxy/browser",
     "plugin:itgalaxy/ava",
   ],
 };
@@ -258,10 +267,10 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
-    "plugin:itgalaxy/module",
-    // You can use "plugin:itgalaxy/node" or use them both
-    "plugin:itgalaxy/browser",
     "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
+    "plugin:itgalaxy/module",
+    "plugin:itgalaxy/browser",
     "plugin:itgalaxy/jest",
   ],
 };
@@ -274,9 +283,10 @@ Example of configuration:
 ```js
 module.exports = {
   extends: [
+    "plugin:itgalaxy/esnext",
+    // You can use "plugin:itgalaxy/commonjs" or "plugin:itgalaxy/dirty" (useful for bundlers)
     "plugin:itgalaxy/module",
     "plugin:itgalaxy/node",
-    "plugin:itgalaxy/esnext",
     "plugin:itgalaxy/jsdoc-typescript",
   ],
 };
@@ -293,10 +303,10 @@ module.exports = {
 
 module.exports = {
   extends: [
-    "plugin:itgalaxy/script",
-    // Use "plugin:itgalaxy/browser" if you write code for browser or use them both if you write for both environments
-    "plugin:itgalaxy/node",
     "plugin:itgalaxy/esnext",
+    "plugin:itgalaxy/commonjs",
+    // Use "plugin:itgalaxy/browser" if you write code for browser or use them both if you write for both environments (you need bundler)
+    "plugin:itgalaxy/node",
     "plugin:itgalaxy/jest",
     // Lint documentation
     "plugin:itgalaxy/markdown",
@@ -314,11 +324,11 @@ module.exports = {
 ```js
 export default {
   extends: [
-    // You can change this on "plugin:itgalaxy/dirty" if you use `node-babel` and have mixed code with `import` and `require`
-    "plugin:itgalaxy/module",
-    // Use "plugin:itgalaxy/browser" if you write code for browser or use them both if you write for both environments
-    "plugin:itgalaxy/node",
     "plugin:itgalaxy/esnext",
+    // You can change this on "plugin:itgalaxy/dirty" if you use `node-babel`, bundler and have mixed code with `import` and `require`
+    "plugin:itgalaxy/module",
+    // Use "plugin:itgalaxy/browser" if you write code for browser or use them both if you write for both environments (you need bundler)
+    "plugin:itgalaxy/node",
     "plugin:itgalaxy/jest",
     // Lint documentation
     "plugin:itgalaxy/markdown",
@@ -339,9 +349,9 @@ module.exports = {
   // if you use ECMA modules everywhere (preferable)
   // Configuration files and scripts
   extends: [
-    "plugin:itgalaxy/script",
     "plugin:itgalaxy/esnext",
-    "plugin:itgalaxy/ava",
+    "plugin:itgalaxy/commonjs",
+    "plugin:itgalaxy/jest",
     // Lint documentation
     "plugin:itgalaxy/markdown",
     // Uncomment to use jsdoc typescript
@@ -350,6 +360,7 @@ module.exports = {
   overrides: [
     // Source code of application
     {
+      files: ["src/**/*.[jt]s?(x)"],
       extends: [
         "plugin:itgalaxy/module",
         "plugin:itgalaxy/browser",
@@ -359,7 +370,6 @@ module.exports = {
         // Do you use `jquery`?
         // jquery: true
       },
-      files: ["src/**/*.[jt]s?(x)"],
     },
     // Tests and documentation
     {
@@ -375,9 +385,6 @@ module.exports = {
         "plugin:itgalaxy/browser",
         "plugin:itgalaxy/react",
       ],
-      rules: {
-        "import/no-nodejs-modules": "off",
-      },
     },
   ],
   root: true,

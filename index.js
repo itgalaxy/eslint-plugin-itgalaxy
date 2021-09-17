@@ -2,8 +2,9 @@
 
 const allConfig = require("./lib/config/all");
 
-const moduleConfig = require("./lib/config/module");
 const scriptConfig = require("./lib/config/script");
+const moduleConfig = require("./lib/config/module");
+const commonjsConfig = require("./lib/config/commonjs");
 const dirtyConfig = require("./lib/config/dirty");
 
 const nodeConfig = require("./lib/config/node");
@@ -24,8 +25,9 @@ const markdownConfig = require("./lib/config/markdown");
 const configs = {
   all: allConfig,
 
-  module: moduleConfig,
   script: scriptConfig,
+  module: moduleConfig,
+  commonjs: commonjsConfig,
   dirty: dirtyConfig,
 
   node: nodeConfig,
