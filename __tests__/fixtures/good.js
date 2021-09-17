@@ -31,7 +31,7 @@ function getKey(prefix = "", key = null) {
       : 1;
   }
 
-  return `${prefix}_${key}_value_${realKey}_${new Date(...[2016, 10, 10])}`;
+  return `${prefix}_${key}_value_${realKey}_${new Date(2016, 10, 10)}`;
 }
 
 /*
