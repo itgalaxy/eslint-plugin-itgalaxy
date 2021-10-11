@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 135.0.0 - 2021-10-11
+
+- Changed: update minimum required deps.
+
 ## 134.0.0 - 2021-09-17
 
 - Added: `commonjs` preset (before it was the `script` preset).

@@ -985,6 +985,9 @@ test("should load the 'all' preset", (t) => {
         "./lib/config/ava.js",
       ],
     },
+    rules: {
+      "jest/require-hook": "off",
+    },
   });
 
   const configForFile = cli.getConfigForFile("tests/myfile.test.js");
