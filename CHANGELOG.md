@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## unreleased
+## 136.0.0 - 2021-11-26
 
 - Minimum supported `eslint` version is `8.3.0`.
 - Update plugins to supports `eslint` v8.
