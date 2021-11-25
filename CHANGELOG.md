@@ -7,8 +7,8 @@ rule (it is breaking changed by default).
 
 ## unreleased
 
-- Minimum supported `eslint-plugin-jsdoc` version is `37.0.3`
-- Minimum supported `eslint-plugin-jsx-a11y` version is `6.5.1`
+- Minimum supported `eslint` version is `8.3.0`.
+- Update plugins to supports `eslint` v8.
 
 ## 135.0.0 - 2021-10-11
 

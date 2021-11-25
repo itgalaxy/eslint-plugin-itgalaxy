@@ -338,7 +338,7 @@ test("should load the 'esnext' preset", async (t) => {
     ecmaFeatures: {
       globalReturn: false,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     requireConfigFile: false,
     sourceType: "module",
   });
@@ -382,7 +382,7 @@ test("should load the 'node' preset", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -419,7 +419,7 @@ test("should load the 'browser' preset", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -462,7 +462,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -519,7 +519,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -576,7 +576,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -636,7 +636,7 @@ test("should load the 'react' preset", async (t) => {
       globalReturn: false,
       jsx: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     jsxPragma: null,
     requireConfigFile: false,
     sourceType: "module",
@@ -1077,7 +1077,7 @@ test("should load the 'all' preset", async (t) => {
       globalReturn: true,
       jsx: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     jsxPragma: null,
     requireConfigFile: false,
     sourceType: "module",
