@@ -338,7 +338,7 @@ test("should load the 'esnext' preset", async (t) => {
     ecmaFeatures: {
       globalReturn: false,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     requireConfigFile: false,
     sourceType: "module",
   });
@@ -346,7 +346,6 @@ test("should load the 'esnext' preset", async (t) => {
   t.true(configForFile.env.browser);
 
   t.true(configForFile.plugins.includes("import"));
-  t.true(configForFile.plugins.includes("promise"));
   t.true(configForFile.plugins.includes("unicorn"));
 
   const report = await cli.lintFiles([
@@ -382,7 +381,7 @@ test("should load the 'node' preset", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -419,7 +418,7 @@ test("should load the 'browser' preset", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -462,7 +461,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -519,7 +518,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -576,7 +575,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
     ecmaFeatures: {
       globalReturn: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     requireConfigFile: false,
     sourceType: "script",
   });
@@ -636,7 +635,7 @@ test("should load the 'react' preset", async (t) => {
       globalReturn: false,
       jsx: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     jsxPragma: null,
     requireConfigFile: false,
     sourceType: "module",
@@ -1077,7 +1076,7 @@ test("should load the 'all' preset", async (t) => {
       globalReturn: true,
       jsx: true,
     },
-    ecmaVersion: "latest",
+    ecmaVersion: 2022,
     jsxPragma: null,
     requireConfigFile: false,
     sourceType: "module",
@@ -1086,7 +1085,6 @@ test("should load the 'all' preset", async (t) => {
   t.true(configForFile.plugins.includes("ava"));
   t.true(configForFile.plugins.includes("import"));
   t.true(configForFile.plugins.includes("jsx-a11y"));
-  t.true(configForFile.plugins.includes("promise"));
   t.true(configForFile.plugins.includes("unicorn"));
   t.true(configForFile.plugins.includes("jest"));
   t.true(configForFile.plugins.includes("node"));
