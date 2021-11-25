@@ -5,10 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
-## unreleased
+## 136.0.0 - 2021-11-26
 
-- Minimum supported `eslint-plugin-jsdoc` version is `37.0.3`
-- Minimum supported `eslint-plugin-jsx-a11y` version is `6.5.1`
+- Minimum supported `eslint` version is `8.3.0`.
+- Update plugins to supports `eslint` v8.
 
 ## 135.0.0 - 2021-10-11
 
