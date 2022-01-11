@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org). Except add new
 rule (it is breaking changed by default).
 
+## 137.0.0 - 2022-01-11
+
+- Minimum supported `eslint` version is `8.6.0`.
+- Changed: minimum required `eslint-plugin-unicorn` version is now `^40.0.0`.
+- Added: `unicorn/no-thenable` rule.
+- Added: `unicorn/relative-url-style` rule.
+- Added: `unicorn/no-useless-promise-resolve-reject` rule.
+
 ## 136.0.0 - 2021-11-26
 
 - Minimum supported `eslint` version is `8.3.0`.
