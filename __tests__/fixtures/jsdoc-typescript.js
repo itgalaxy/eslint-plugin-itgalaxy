@@ -64,11 +64,11 @@ const var9 = { a: "str", b: 1 };
 /**
  * A map-like object that maps arbitrary `string` properties to `number`s.
  *
- * @type {Object.<string, number>}
+ * @type {Object<string, number>}
  */
 const stringToNumber = { test: 123 };
 
-/** @type {Object.<number, object>} */
+/** @type {Object<number, object>} */
 const arrayLike = [];
 
 arrayLike[1] = { foo: "bar" };
