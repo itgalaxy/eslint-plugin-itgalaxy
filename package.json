@@ -76,7 +76,7 @@
     "eslint-plugin-unicorn": "^44.0.2"
   },
   "scripts": {
-    "security": "npm audit",
+    "security": "npm audit --omit=dev",
     "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
     "lint:eslint-config-prettier-check": "eslint-config-prettier index.js | true",
     "lint:prettier": "prettier . --list-different --ignore-path .gitignore",
