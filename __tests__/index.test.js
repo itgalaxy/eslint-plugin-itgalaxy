@@ -665,11 +665,11 @@ test("should load the 'html' preset", async (t) => {
     },
   });
 
-  const configForFile = await await cli.calculateConfigForFile("index.html");
+  const configForFile = await cli.calculateConfigForFile("index.html");
 
   t.true(configForFile.plugins.includes("html"));
 
-  const validReport = await await cli.lintText(
+  const validReport = await cli.lintText(
     `<!DOCTYPE html>
 <html>
  <head>
@@ -692,7 +692,7 @@ test("should load the 'html' preset", async (t) => {
   t.is(validReport[0].errorCount, 0, "eslint report without errors");
   t.is(validReport[0].warningCount, 0, "eslint report without warnings");
 
-  const invalidReport = await await cli.lintText(
+  const invalidReport = await cli.lintText(
     `<!DOCTYPE html>
 <html>
  <head>

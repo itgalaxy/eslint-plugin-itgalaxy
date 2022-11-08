@@ -469,9 +469,9 @@ function doSomething() {
 async function fooAsync() {
   const result = await doSomething();
 
-  Object.keys(result).forEach((item) => {
-    item.sum += 1;
-  });
+  for (const item of Object.keys(result)) {
+    trailingCommasInFUnctionSyntax(item, item);
+  }
 
   return result;
 }
