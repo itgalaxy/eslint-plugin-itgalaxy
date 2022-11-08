@@ -1,9 +1,16 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-This project adheres to [Semantic Versioning](http://semver.org). Except add new
-rule (it is breaking changed by default).
+## [138.0.0](https://github.com/itgalaxy/eslint-plugin-itgalaxy/compare/v137.0.0...v138.0.0) (2022-11-08)
+
+### ⚠ BREAKING CHANGES
+
+- update rules and deps (#138)
+
+### Features
+
+- update rules and deps ([#138](https://github.com/itgalaxy/eslint-plugin-itgalaxy/issues/138)) ([eb68e52](https://github.com/itgalaxy/eslint-plugin-itgalaxy/commit/eb68e52edd065c89cba71928a5e3b39087ee52a3))
 
 ## 137.0.0 - 2022-01-11
 
