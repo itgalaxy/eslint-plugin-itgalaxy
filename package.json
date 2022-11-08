@@ -34,7 +34,7 @@
     "@ava/babel": "^2.0.0",
     "@types/confusing-browser-globals": "^1.0.0",
     "@types/eslint": "^8.2.0",
-    "ava": "^3.15.0",
+    "ava": "^5.0.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-find-rules": "^4.0.0",
