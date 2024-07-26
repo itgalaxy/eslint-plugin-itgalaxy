@@ -29,7 +29,7 @@ test("should the `eslint` and the `eslint` CLI present", (t) => {
   t.true(isObject(eslint), "the `eslint` is present");
   t.true(
     typeof eslint.ESLint === "function",
-    "the `eslint` cli engine is present"
+    "the `eslint` cli engine is present",
   );
 });
 
@@ -100,8 +100,8 @@ test("should load the 'script' preset", async (t) => {
 
   t.true(
     moduleReport[0].messages[0].message.includes(
-      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
-    )
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'",
+    ),
   );
 });
 
@@ -148,8 +148,8 @@ test("should load the 'commonjs' preset", async (t) => {
 
   t.true(
     moduleReport[0].messages[0].message.includes(
-      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
-    )
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'",
+    ),
   );
 });
 
@@ -280,7 +280,7 @@ test("should load the 'ava' preset", async (t) => {
   });
 
   const configForFile = await cli.calculateConfigForFile(
-    "tests/myfile.test.js"
+    "tests/myfile.test.js",
   );
 
   t.deepEqual(configForFile.parserOptions, {
@@ -470,12 +470,12 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileNodeAndBrowser.rules["node/no-deprecated-api"][0] === "error"
+    configForFileNodeAndBrowser.rules["node/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileNodeAndBrowser.rules[
       "unicorn/prefer-add-event-listener"
-    ][0] === "error"
+    ][0] === "error",
   );
 
   const reportNodeAndBrowser = await cliNodeAndBrowser.lintFiles([
@@ -489,7 +489,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
   t.is(
     reportNodeAndBrowser[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const cliBrowserAndNode = new eslint.ESLint({
@@ -527,12 +527,12 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileBrowserAndNode.rules["node/no-deprecated-api"][0] === "error"
+    configForFileBrowserAndNode.rules["node/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileBrowserAndNode.rules[
       "unicorn/prefer-add-event-listener"
-    ][0] === "error"
+    ][0] === "error",
   );
 
   const reportBrowserAndNode = await cliBrowserAndNode.lintFiles([
@@ -545,7 +545,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
   t.is(
     reportBrowserAndNode[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const cliESNextLast = new eslint.ESLint({
@@ -567,9 +567,8 @@ test("should load 'node' and 'browser' presets", async (t) => {
     },
   });
 
-  const configForFileESNextLast = await cliESNextLast.calculateConfigForFile(
-    "myfile.js"
-  );
+  const configForFileESNextLast =
+    await cliESNextLast.calculateConfigForFile("myfile.js");
 
   t.deepEqual(configForFileESNextLast.parserOptions, {
     ecmaFeatures: {
@@ -584,11 +583,11 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileESNextLast.rules["node/no-deprecated-api"][0] === "error"
+    configForFileESNextLast.rules["node/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileESNextLast.rules["unicorn/prefer-add-event-listener"][0] ===
-      "error"
+      "error",
   );
 
   const reportESNextLast = await cliESNextLast.lintFiles([
@@ -685,7 +684,7 @@ test("should load the 'html' preset", async (t) => {
 </html>`,
     {
       filePath: "index.html",
-    }
+    },
   );
 
   t.is(validReport.length, 1, "eslint report with one results");
@@ -708,7 +707,7 @@ test("should load the 'html' preset", async (t) => {
 </html>`,
     {
       filePath: "index.html",
-    }
+    },
   );
 
   t.is(invalidReport.length, 1, "eslint report with one results");
@@ -726,7 +725,7 @@ test("should load the 'jest' preset", async (t) => {
   });
 
   const configForFile = await cli.calculateConfigForFile(
-    "tests/myfile.test.js"
+    "tests/myfile.test.js",
   );
 
   t.true(configForFile.plugins.includes("jest"));
@@ -784,7 +783,7 @@ var s = "JavaScript syntax highlighting";
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validReport.length, 1, "eslint report with one results");
@@ -799,7 +798,7 @@ alert("test");
 \`\`\``,
     {
       filePath: "invalid.md",
-    }
+    },
   );
 
   t.is(invalidReport.length, 1, "eslint report with one results");
@@ -823,9 +822,8 @@ alert("test");
     },
   });
 
-  const scriptConfigForFile = await scriptCli.calculateConfigForFile(
-    "README.md/0.js"
-  );
+  const scriptConfigForFile =
+    await scriptCli.calculateConfigForFile("README.md/0.js");
 
   t.deepEqual(scriptConfigForFile.parserOptions, {
     requireConfigFile: false,
@@ -843,7 +841,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validScriptReport.length, 1, "eslint report with one results");
@@ -858,7 +856,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "invalid.md",
-    }
+    },
   );
 
   t.is(invalidScriptReport.length, 1, "eslint report with one results");
@@ -866,7 +864,7 @@ console.log(test);
   t.is(
     invalidScriptReport[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const moduleCli = new eslint.ESLint({
@@ -889,9 +887,8 @@ console.log(test);
     },
   });
 
-  const moduleConfigForFile = await moduleCli.calculateConfigForFile(
-    "README.md/0.js"
-  );
+  const moduleConfigForFile =
+    await moduleCli.calculateConfigForFile("README.md/0.js");
 
   t.deepEqual(moduleConfigForFile.parserOptions, {
     requireConfigFile: false,
@@ -910,7 +907,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validModuleReport.length, 1, "eslint report with one results");
@@ -925,7 +922,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "invalid.md",
-    }
+    },
   );
 
   t.is(invalidModuleReport.length, 1, "eslint report with one results");
@@ -933,7 +930,7 @@ console.log(test);
   t.is(
     invalidModuleReport[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const dirtyCli = new eslint.ESLint({
@@ -958,9 +955,8 @@ console.log(test);
     },
   });
 
-  const dirtyConfigForFile = await dirtyCli.calculateConfigForFile(
-    "README.md/0.js"
-  );
+  const dirtyConfigForFile =
+    await dirtyCli.calculateConfigForFile("README.md/0.js");
 
   t.deepEqual(dirtyConfigForFile.parserOptions, {
     requireConfigFile: false,
@@ -981,7 +977,7 @@ console.log(otherTest);
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validDirtyReport.length, 1, "eslint report with one results");
@@ -1001,7 +997,7 @@ var qwerty = 1;
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(invalidDirtyReport.length, 1, "eslint report with one results");
@@ -1029,10 +1025,10 @@ test("integration tests for unused eslint comments", async (t) => {
   t.is(report[0].warningCount, 2, "eslint report with warnings");
 
   t.true(
-    report[0].messages[0].message.includes("Unused eslint-disable directive")
+    report[0].messages[0].message.includes("Unused eslint-disable directive"),
   );
   t.true(
-    report[0].messages[1].message.includes("Unused eslint-disable directive")
+    report[0].messages[1].message.includes("Unused eslint-disable directive"),
   );
 });
 
@@ -1062,7 +1058,7 @@ test("should load the 'all' preset", async (t) => {
   });
 
   const configForFile = await cli.calculateConfigForFile(
-    "tests/myfile.test.js"
+    "tests/myfile.test.js",
   );
 
   t.deepEqual(configForFile.parserOptions, {
@@ -1103,7 +1099,7 @@ function foo() {
 foo(value);`,
     {
       filePath: "test.js",
-    }
+    },
   );
 
   t.is(report.length, 1, "eslint report with one results");

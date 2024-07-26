@@ -25,7 +25,7 @@ function getKey(prefix = "", key = null) {
   if (!realKey) {
     realKey = Object.prototype.hasOwnProperty.call(
       { key: "key", value: "value" },
-      "key"
+      "key",
     )
       ? "very very very very very very very very very long key"
       : 1;
@@ -310,7 +310,7 @@ if (booleanVariable) {
 [1, 2, 3].map(
   (number) =>
     `As time went by, the string containing the ${number} became much ` +
-    "longer. So we needed to break it over multiple lines."
+    "longer. So we needed to break it over multiple lines.",
 );
 
 const itemHeightFoo = (item) => {
