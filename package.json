@@ -36,7 +36,7 @@
     "@types/eslint": "^8.2.0",
     "ava": "^3.15.0",
     "eslint": "^8.6.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-find-rules": "^4.0.0",
     "eslint-plugin-ava": "^13.0.0",
     "eslint-plugin-html": "^7.1.0",
@@ -78,7 +78,7 @@
   "scripts": {
     "security": "npm audit --omit=dev",
     "lint:check-rules": "eslint-find-rules --unused lib/config/all.js",
-    "lint:eslint-config-prettier-check": "eslint-config-prettier index.js | true",
+    "lint:eslint-config-prettier-check": "eslint-config-prettier index.js",
     "lint:prettier": "prettier . --list-different --ignore-path .gitignore",
     "lint:js": "eslint . --cache --ignore-path .gitignore",
     "lint:md": "remark . -f -q --ignore-path .gitignore",
