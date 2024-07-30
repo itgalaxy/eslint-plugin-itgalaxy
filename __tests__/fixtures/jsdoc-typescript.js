@@ -1,6 +1,5 @@
 /**
  * Description
- *
  * @param {number} a Number
  * @param {number} b Number
  * @returns {number} Sum of numbers
@@ -63,12 +62,11 @@ const var9 = { a: "str", b: 1 };
 
 /**
  * A map-like object that maps arbitrary `string` properties to `number`s.
- *
- * @type {Object<string, number>}
+ * @type {{[key: string]: number}}
  */
 const stringToNumber = { test: 123 };
 
-/** @type {Object<number, object>} */
+/** @type {{[key: number]: object}} */
 const arrayLike = [];
 
 arrayLike[1] = { foo: "bar" };
@@ -109,7 +107,7 @@ const JSDocState = {
  * @param {string} p1 A string param.
  * @param {string} [p2] p2 An optional param (Closure syntax)
  * @param {string} [p3] Another optional param (JSDoc syntax).
- * @param {string} [p4="test"] An optional param with a default value
+ * @param {string} [p4] An optional param with a default value
  * @returns {string} This is the result
  */
 function stringsStringStrings(p1, p2, p3, p4 = "test") {
