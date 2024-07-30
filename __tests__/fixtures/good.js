@@ -72,7 +72,7 @@ const objectVariable = {
   // defer: deferFn((config) => (config.exist ? 'exist' : 'non exist'))
 };
 
-objectVariable.log = function (items, options = {}) {
+objectVariable.log = function log(items, options = {}) {
   const concatenateAll = (...args) => args.join("").join(Object.keys(options));
 
   return concatenateAll(this.addValue(1).addValue(items), options);
