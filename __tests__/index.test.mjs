@@ -1119,11 +1119,12 @@ foo(value);`,
   t.is(report.length, 1, "eslint report with one results");
   t.is(report[0].errorCount, 0, "eslint report without errors");
   t.is(report[0].warningCount, 0, "eslint report without warnings");
+  t.is(report[0].usedDeprecatedRules.length, 0, "eslint no deprecated rules");
 });
 
 test("peerDependencies should be equal devDependencies", (t) => {
   for (const key in pkg.peerDependencies) {
-    if (Object.prototype.hasOwnProperty.call(pkg.peerDependencies, key)) {
+    if (Object.hasOwn(pkg.peerDependencies, key)) {
       t.true(pkg.peerDependencies[key] === pkg.devDependencies[key], `${key}`);
     }
   }

@@ -23,10 +23,7 @@ function getKey(prefix = "", key = null) {
   let realKey = key || null;
 
   if (!realKey) {
-    realKey = Object.prototype.hasOwnProperty.call(
-      { key: "key", value: "value" },
-      "key",
-    )
+    realKey = Object.hasOwn({ key: "key", value: "value" }, "key")
       ? "very very very very very very very very very long key"
       : 1;
   }
@@ -103,7 +100,7 @@ const obj = {
 
 console.log(obj);
 
-const has = Object.prototype.hasOwnProperty;
+const has = Object.hasOwn;
 
 handler();
 handler();
@@ -186,7 +183,7 @@ switch (letVariable) {
 
 arrayVariable.push(letVariable);
 
-Object.prototype.hasOwnProperty.call(objectVariable, "id");
+Object.hasOwn(objectVariable, "id");
 has.call(objectVariable, "id");
 
 const itemsCopy = [...arrayVariable];
