@@ -598,7 +598,7 @@ Promise.all([Promise.resolve("a"), "b", Promise.resolve("c")])
   .catch((error) => {
     throw error;
   })
-  .then(() => Promise.race([Promise.resolve("c")]))
+  .then(() => Promise.race([Promise.resolve("c"), Promise.resolve("d")]))
   .catch((error) => {
     throw error;
   });
