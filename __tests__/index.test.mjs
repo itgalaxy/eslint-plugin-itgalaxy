@@ -1,9 +1,15 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import * as eslint from "eslint";
+// eslint-disable-next-line import/no-unresolved
 import test from "ava";
 import { configs } from "../index.js";
-import { devDependencies, peerDependencies } from "../package.json";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pkg = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf-8"),
+);
 
 /**
  * @param {any} obj Maybe object
@@ -38,7 +44,6 @@ test("should all configs are present in exports", (t) => {
   /** @type {string[]} */
   let files = [];
 
-  // eslint-disable-next-line node/no-sync
   files = fs.readdirSync(configDir).filter((item) => item !== "shared");
 
   const actual = files
@@ -65,7 +70,10 @@ test("should load the 'script' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(
+    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    true,
+  );
   t.deepEqual(configForFile.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
@@ -119,7 +127,10 @@ test("should load the 'commonjs' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(
+    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    true,
+  );
   t.deepEqual(configForFile.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
@@ -167,7 +178,10 @@ test("should load the 'module' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(
+    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    true,
+  );
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
     babelOptions: {
@@ -234,7 +248,10 @@ test("should load the 'dirty' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(
+    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    true,
+  );
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
     ecmaFeatures: { globalReturn: true },
@@ -1108,9 +1125,9 @@ foo(value);`,
 });
 
 test("peerDependencies should be equal devDependencies", (t) => {
-  for (const key in peerDependencies) {
-    if (Object.prototype.hasOwnProperty.call(peerDependencies, key)) {
-      t.true(peerDependencies[key] === devDependencies[key], `${key}`);
+  for (const key in pkg.peerDependencies) {
+    if (Object.prototype.hasOwnProperty.call(pkg.peerDependencies, key)) {
+      t.true(pkg.peerDependencies[key] === pkg.devDependencies[key], `${key}`);
     }
   }
 });
