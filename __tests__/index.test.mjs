@@ -139,7 +139,7 @@ test("should load the 'commonjs' preset", async (t) => {
     sourceType: "script",
   });
   t.true(configForFile.plugins.includes("import"));
-  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("n"));
 
   const commonjsReport = await cli.lintFiles([
     path.resolve(__dirname, "./fixtures/commonjs.js"),
@@ -405,7 +405,7 @@ test("should load the 'node' preset", async (t) => {
   t.true(configForFile.env.node);
   t.false(Boolean(configForFile.env.browser));
 
-  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("n"));
 
   const report = await cli.lintFiles([
     path.resolve(__dirname, "./fixtures/node.js"),
@@ -487,7 +487,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileNodeAndBrowser.rules["node/no-deprecated-api"][0] === "error",
+    configForFileNodeAndBrowser.rules["n/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileNodeAndBrowser.rules[
@@ -501,7 +501,6 @@ test("should load 'node' and 'browser' presets", async (t) => {
   ]);
 
   t.is(reportNodeAndBrowser.length, 2, "eslint report with one results");
-
   t.is(reportNodeAndBrowser[0].errorCount, 0, "eslint report without errors");
   t.is(
     reportNodeAndBrowser[0].warningCount,
@@ -544,7 +543,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileBrowserAndNode.rules["node/no-deprecated-api"][0] === "error",
+    configForFileBrowserAndNode.rules["n/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileBrowserAndNode.rules[
@@ -599,9 +598,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
   t.true(configForFileESNextLast.env.browser);
 
   // Rules for node and browser should
-  t.true(
-    configForFileESNextLast.rules["node/no-deprecated-api"][0] === "error",
-  );
+  t.true(configForFileESNextLast.rules["n/no-deprecated-api"][0] === "error");
   t.true(
     configForFileESNextLast.rules["unicorn/prefer-add-event-listener"][0] ===
       "error",
@@ -898,7 +895,7 @@ console.log(test);
       rules: {
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",
-        "node/no-unsupported-features/es-syntax": "off",
+        "n/no-unsupported-features/es-syntax": "off",
         "no-undef": "error",
       },
     },
@@ -967,7 +964,7 @@ console.log(test);
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",
         "import/extensions": "off",
-        "node/no-unsupported-features/es-syntax": "off",
+        "n/no-unsupported-features/es-syntax": "off",
       },
     },
   });
@@ -1100,7 +1097,7 @@ test("should load the 'all' preset", async (t) => {
   t.true(configForFile.plugins.includes("jsx-a11y"));
   t.true(configForFile.plugins.includes("unicorn"));
   t.true(configForFile.plugins.includes("jest"));
-  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("n"));
   t.true(configForFile.plugins.includes("react"));
 
   const report = await cli.lintText(
