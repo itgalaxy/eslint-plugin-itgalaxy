@@ -128,7 +128,6 @@ import eslint from "eslint";
  * @returns {object} Config
  */
 function loadConfig(configName) {
-  // eslint-disable-next-line import/no-dynamic-require
   return require(`my-${configName}`);
 }
 
