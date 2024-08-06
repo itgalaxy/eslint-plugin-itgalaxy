@@ -356,9 +356,9 @@ handler();
 
 try {
   render();
-} catch (error) {
+} catch (err) {
   render({
-    error,
+    err,
   });
 }
 
@@ -386,10 +386,10 @@ async function fetchJson(url) {
     const text = await request.text();
 
     return JSON.parse(text);
-  } catch (error) {
+  } catch (err) {
     multiply(2, 1, 2, 3);
 
-    throw error;
+    throw err;
   }
 }
 
@@ -592,12 +592,12 @@ Promise.all([Promise.resolve("a"), "b", Promise.resolve("c")])
 
     return 1;
   })
-  .catch((error) => {
-    throw error;
+  .catch((err) => {
+    throw err;
   })
   .then(() => Promise.race([Promise.resolve("c"), Promise.resolve("d")]))
-  .catch((error) => {
-    throw error;
+  .catch((err) => {
+    throw err;
   });
 
 class Base {

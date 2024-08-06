@@ -325,7 +325,7 @@ test("should load the 'ava' preset", async (t) => {
   t.is(report[0].warningCount, 0, "eslint report without warnings");
 });
 
-test.only("should load the 'esnext' preset", async (t) => {
+test("should load the 'esnext' preset", async (t) => {
   const cli = new eslint.ESLint({
     ignore: false,
     useEslintrc: false,
