@@ -1,9 +1,15 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import * as eslint from "eslint";
+// eslint-disable-next-line import/no-unresolved
 import test from "ava";
 import { configs } from "../index.js";
-import { devDependencies, peerDependencies } from "../package.json";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pkg = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf-8"),
+);
 
 /**
  * @param {any} obj Maybe object
@@ -29,7 +35,7 @@ test("should the `eslint` and the `eslint` CLI present", (t) => {
   t.true(isObject(eslint), "the `eslint` is present");
   t.true(
     typeof eslint.ESLint === "function",
-    "the `eslint` cli engine is present"
+    "the `eslint` cli engine is present",
   );
 });
 
@@ -38,7 +44,6 @@ test("should all configs are present in exports", (t) => {
   /** @type {string[]} */
   let files = [];
 
-  // eslint-disable-next-line node/no-sync
   files = fs.readdirSync(configDir).filter((item) => item !== "shared");
 
   const actual = files
@@ -65,7 +70,7 @@ test("should load the 'script' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(/@babel[/\\]eslint-parse/.test(configForFile.parser), true);
   t.deepEqual(configForFile.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
@@ -100,8 +105,8 @@ test("should load the 'script' preset", async (t) => {
 
   t.true(
     moduleReport[0].messages[0].message.includes(
-      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
-    )
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'",
+    ),
   );
 });
 
@@ -119,7 +124,7 @@ test("should load the 'commonjs' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(/@babel[/\\]eslint-parse/.test(configForFile.parser), true);
   t.deepEqual(configForFile.parserOptions, {
     ecmaFeatures: {
       globalReturn: true,
@@ -128,7 +133,7 @@ test("should load the 'commonjs' preset", async (t) => {
     sourceType: "script",
   });
   t.true(configForFile.plugins.includes("import"));
-  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("n"));
 
   const commonjsReport = await cli.lintFiles([
     path.resolve(__dirname, "./fixtures/commonjs.js"),
@@ -148,8 +153,8 @@ test("should load the 'commonjs' preset", async (t) => {
 
   t.true(
     moduleReport[0].messages[0].message.includes(
-      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'"
-    )
+      "Parsing error: 'import' and 'export' may appear only with 'sourceType: \"module\"'",
+    ),
   );
 });
 
@@ -167,7 +172,7 @@ test("should load the 'module' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(/@babel[/\\]eslint-parse/.test(configForFile.parser), true);
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
     babelOptions: {
@@ -234,7 +239,7 @@ test("should load the 'dirty' preset", async (t) => {
 
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
-  t.is(configForFile.parser, require.resolve("@babel/eslint-parser"));
+  t.is(/@babel[/\\]eslint-parse/.test(configForFile.parser), true);
   t.deepEqual(configForFile.parserOptions, {
     allowImportExportEverywhere: true,
     ecmaFeatures: { globalReturn: true },
@@ -280,7 +285,7 @@ test("should load the 'ava' preset", async (t) => {
   });
 
   const configForFile = await cli.calculateConfigForFile(
-    "tests/myfile.test.js"
+    "tests/myfile.test.js",
   );
 
   t.deepEqual(configForFile.parserOptions, {
@@ -388,7 +393,7 @@ test("should load the 'node' preset", async (t) => {
   t.true(configForFile.env.node);
   t.false(Boolean(configForFile.env.browser));
 
-  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("n"));
 
   const report = await cli.lintFiles([
     path.resolve(__dirname, "./fixtures/node.js"),
@@ -470,12 +475,12 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileNodeAndBrowser.rules["node/no-deprecated-api"][0] === "error"
+    configForFileNodeAndBrowser.rules["n/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileNodeAndBrowser.rules[
       "unicorn/prefer-add-event-listener"
-    ][0] === "error"
+    ][0] === "error",
   );
 
   const reportNodeAndBrowser = await cliNodeAndBrowser.lintFiles([
@@ -484,12 +489,11 @@ test("should load 'node' and 'browser' presets", async (t) => {
   ]);
 
   t.is(reportNodeAndBrowser.length, 2, "eslint report with one results");
-
   t.is(reportNodeAndBrowser[0].errorCount, 0, "eslint report without errors");
   t.is(
     reportNodeAndBrowser[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const cliBrowserAndNode = new eslint.ESLint({
@@ -527,12 +531,12 @@ test("should load 'node' and 'browser' presets", async (t) => {
 
   // Rules for node and browser should
   t.true(
-    configForFileBrowserAndNode.rules["node/no-deprecated-api"][0] === "error"
+    configForFileBrowserAndNode.rules["n/no-deprecated-api"][0] === "error",
   );
   t.true(
     configForFileBrowserAndNode.rules[
       "unicorn/prefer-add-event-listener"
-    ][0] === "error"
+    ][0] === "error",
   );
 
   const reportBrowserAndNode = await cliBrowserAndNode.lintFiles([
@@ -545,7 +549,7 @@ test("should load 'node' and 'browser' presets", async (t) => {
   t.is(
     reportBrowserAndNode[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const cliESNextLast = new eslint.ESLint({
@@ -567,9 +571,8 @@ test("should load 'node' and 'browser' presets", async (t) => {
     },
   });
 
-  const configForFileESNextLast = await cliESNextLast.calculateConfigForFile(
-    "myfile.js"
-  );
+  const configForFileESNextLast =
+    await cliESNextLast.calculateConfigForFile("myfile.js");
 
   t.deepEqual(configForFileESNextLast.parserOptions, {
     ecmaFeatures: {
@@ -583,12 +586,10 @@ test("should load 'node' and 'browser' presets", async (t) => {
   t.true(configForFileESNextLast.env.browser);
 
   // Rules for node and browser should
-  t.true(
-    configForFileESNextLast.rules["node/no-deprecated-api"][0] === "error"
-  );
+  t.true(configForFileESNextLast.rules["n/no-deprecated-api"][0] === "error");
   t.true(
     configForFileESNextLast.rules["unicorn/prefer-add-event-listener"][0] ===
-      "error"
+      "error",
   );
 
   const reportESNextLast = await cliESNextLast.lintFiles([
@@ -685,7 +686,7 @@ test("should load the 'html' preset", async (t) => {
 </html>`,
     {
       filePath: "index.html",
-    }
+    },
   );
 
   t.is(validReport.length, 1, "eslint report with one results");
@@ -708,7 +709,7 @@ test("should load the 'html' preset", async (t) => {
 </html>`,
     {
       filePath: "index.html",
-    }
+    },
   );
 
   t.is(invalidReport.length, 1, "eslint report with one results");
@@ -726,7 +727,7 @@ test("should load the 'jest' preset", async (t) => {
   });
 
   const configForFile = await cli.calculateConfigForFile(
-    "tests/myfile.test.js"
+    "tests/myfile.test.js",
   );
 
   t.true(configForFile.plugins.includes("jest"));
@@ -784,7 +785,7 @@ var s = "JavaScript syntax highlighting";
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validReport.length, 1, "eslint report with one results");
@@ -799,7 +800,7 @@ alert("test");
 \`\`\``,
     {
       filePath: "invalid.md",
-    }
+    },
   );
 
   t.is(invalidReport.length, 1, "eslint report with one results");
@@ -823,9 +824,8 @@ alert("test");
     },
   });
 
-  const scriptConfigForFile = await scriptCli.calculateConfigForFile(
-    "README.md/0.js"
-  );
+  const scriptConfigForFile =
+    await scriptCli.calculateConfigForFile("README.md/0.js");
 
   t.deepEqual(scriptConfigForFile.parserOptions, {
     requireConfigFile: false,
@@ -843,7 +843,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validScriptReport.length, 1, "eslint report with one results");
@@ -858,7 +858,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "invalid.md",
-    }
+    },
   );
 
   t.is(invalidScriptReport.length, 1, "eslint report with one results");
@@ -866,7 +866,7 @@ console.log(test);
   t.is(
     invalidScriptReport[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const moduleCli = new eslint.ESLint({
@@ -883,15 +883,14 @@ console.log(test);
       rules: {
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",
-        "node/no-unsupported-features/es-syntax": "off",
+        "n/no-unsupported-features/es-syntax": "off",
         "no-undef": "error",
       },
     },
   });
 
-  const moduleConfigForFile = await moduleCli.calculateConfigForFile(
-    "README.md/0.js"
-  );
+  const moduleConfigForFile =
+    await moduleCli.calculateConfigForFile("README.md/0.js");
 
   t.deepEqual(moduleConfigForFile.parserOptions, {
     requireConfigFile: false,
@@ -910,7 +909,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validModuleReport.length, 1, "eslint report with one results");
@@ -925,7 +924,7 @@ console.log(test);
 \`\`\``,
     {
       filePath: "invalid.md",
-    }
+    },
   );
 
   t.is(invalidModuleReport.length, 1, "eslint report with one results");
@@ -933,7 +932,7 @@ console.log(test);
   t.is(
     invalidModuleReport[0].warningCount,
     0,
-    "eslint report without warnings"
+    "eslint report without warnings",
   );
 
   const dirtyCli = new eslint.ESLint({
@@ -953,14 +952,13 @@ console.log(test);
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",
         "import/extensions": "off",
-        "node/no-unsupported-features/es-syntax": "off",
+        "n/no-unsupported-features/es-syntax": "off",
       },
     },
   });
 
-  const dirtyConfigForFile = await dirtyCli.calculateConfigForFile(
-    "README.md/0.js"
-  );
+  const dirtyConfigForFile =
+    await dirtyCli.calculateConfigForFile("README.md/0.js");
 
   t.deepEqual(dirtyConfigForFile.parserOptions, {
     requireConfigFile: false,
@@ -981,7 +979,7 @@ console.log(otherTest);
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(validDirtyReport.length, 1, "eslint report with one results");
@@ -1001,7 +999,7 @@ var qwerty = 1;
 \`\`\``,
     {
       filePath: "valid.md",
-    }
+    },
   );
 
   t.is(invalidDirtyReport.length, 1, "eslint report with one results");
@@ -1029,10 +1027,10 @@ test("integration tests for unused eslint comments", async (t) => {
   t.is(report[0].warningCount, 2, "eslint report with warnings");
 
   t.true(
-    report[0].messages[0].message.includes("Unused eslint-disable directive")
+    report[0].messages[0].message.includes("Unused eslint-disable directive"),
   );
   t.true(
-    report[0].messages[1].message.includes("Unused eslint-disable directive")
+    report[0].messages[1].message.includes("Unused eslint-disable directive"),
   );
 });
 
@@ -1062,7 +1060,7 @@ test("should load the 'all' preset", async (t) => {
   });
 
   const configForFile = await cli.calculateConfigForFile(
-    "tests/myfile.test.js"
+    "tests/myfile.test.js",
   );
 
   t.deepEqual(configForFile.parserOptions, {
@@ -1087,7 +1085,7 @@ test("should load the 'all' preset", async (t) => {
   t.true(configForFile.plugins.includes("jsx-a11y"));
   t.true(configForFile.plugins.includes("unicorn"));
   t.true(configForFile.plugins.includes("jest"));
-  t.true(configForFile.plugins.includes("node"));
+  t.true(configForFile.plugins.includes("n"));
   t.true(configForFile.plugins.includes("react"));
 
   const report = await cli.lintText(
@@ -1103,18 +1101,19 @@ function foo() {
 foo(value);`,
     {
       filePath: "test.js",
-    }
+    },
   );
 
   t.is(report.length, 1, "eslint report with one results");
   t.is(report[0].errorCount, 0, "eslint report without errors");
   t.is(report[0].warningCount, 0, "eslint report without warnings");
+  t.is(report[0].usedDeprecatedRules.length, 0, "eslint no deprecated rules");
 });
 
 test("peerDependencies should be equal devDependencies", (t) => {
-  for (const key in peerDependencies) {
-    if (Object.prototype.hasOwnProperty.call(peerDependencies, key)) {
-      t.true(peerDependencies[key] === devDependencies[key], `${key}`);
+  for (const key in pkg.peerDependencies) {
+    if (Object.hasOwn(pkg.peerDependencies, key)) {
+      t.true(pkg.peerDependencies[key] === pkg.devDependencies[key], `${key}`);
     }
   }
 });

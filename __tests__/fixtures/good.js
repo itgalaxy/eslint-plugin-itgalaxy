@@ -23,10 +23,7 @@ function getKey(prefix = "", key = null) {
   let realKey = key || null;
 
   if (!realKey) {
-    realKey = Object.prototype.hasOwnProperty.call(
-      { key: "key", value: "value" },
-      "key"
-    )
+    realKey = Object.hasOwn({ key: "key", value: "value" }, "key")
       ? "very very very very very very very very very long key"
       : 1;
   }
@@ -75,7 +72,7 @@ const objectVariable = {
   // defer: deferFn((config) => (config.exist ? 'exist' : 'non exist'))
 };
 
-objectVariable.log = function (items, options = {}) {
+objectVariable.log = function log(items, options = {}) {
   const concatenateAll = (...args) => args.join("").join(Object.keys(options));
 
   return concatenateAll(this.addValue(1).addValue(items), options);
@@ -103,7 +100,7 @@ const obj = {
 
 console.log(obj);
 
-const has = Object.prototype.hasOwnProperty;
+const has = Object.hasOwn;
 
 handler();
 handler();
@@ -186,7 +183,7 @@ switch (letVariable) {
 
 arrayVariable.push(letVariable);
 
-Object.prototype.hasOwnProperty.call(objectVariable, "id");
+Object.hasOwn(objectVariable, "id");
 has.call(objectVariable, "id");
 
 const itemsCopy = [...arrayVariable];
@@ -310,7 +307,7 @@ if (booleanVariable) {
 [1, 2, 3].map(
   (number) =>
     `As time went by, the string containing the ${number} became much ` +
-    "longer. So we needed to break it over multiple lines."
+    "longer. So we needed to break it over multiple lines.",
 );
 
 const itemHeightFoo = (item) => {
@@ -359,9 +356,9 @@ handler();
 
 try {
   render();
-} catch (error) {
+} catch (err) {
   render({
-    error,
+    err,
   });
 }
 
@@ -389,10 +386,10 @@ async function fetchJson(url) {
     const text = await request.text();
 
     return JSON.parse(text);
-  } catch (error) {
+  } catch (err) {
     multiply(2, 1, 2, 3);
 
-    throw error;
+    throw err;
   }
 }
 
@@ -595,12 +592,12 @@ Promise.all([Promise.resolve("a"), "b", Promise.resolve("c")])
 
     return 1;
   })
-  .catch((error) => {
-    throw error;
+  .catch((err) => {
+    throw err;
   })
-  .then(() => Promise.race([Promise.resolve("c")]))
-  .catch((error) => {
-    throw error;
+  .then(() => Promise.race([Promise.resolve("c"), Promise.resolve("d")]))
+  .catch((err) => {
+    throw err;
   });
 
 class Base {

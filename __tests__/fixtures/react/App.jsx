@@ -1,10 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot, Component } from "react-dom/client";
 import SearchProfile from "./SearchProfile.jsx";
 import Profile from "./Profile.jsx";
 import "./app.scss";
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -43,4 +42,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.body);
+const container = document.querySelector("#app");
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+
+root.render(<App />);
