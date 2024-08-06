@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [139.0.0](https://github.com/itgalaxy/eslint-plugin-itgalaxy/compare/v138.0.0...v139.0.0) (2024-08-06)
+
+### ⚠ BREAKING CHANGES
+
+- update configuration
+
 ## [138.0.0](https://github.com/itgalaxy/eslint-plugin-itgalaxy/compare/v137.0.0...v138.0.0) (2022-11-08)
 
 ### ⚠ BREAKING CHANGES
