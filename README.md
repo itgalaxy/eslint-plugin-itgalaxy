@@ -2,9 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-itgalaxy.svg)](https://www.npmjs.org/package/eslint-plugin-itgalaxy)
 [![Build Status](https://github.com/itgalaxy/eslint-plugin-itgalaxy/workflows/CI/badge.svg)](https://github.com/itgalaxy/eslint-plugin-itgalaxy/actions)
-[![dependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy)
-[![devDependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/dev-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy?type=dev)
-[![peerDependencies Status](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy/peer-status.svg)](https://david-dm.org/itgalaxy/eslint-plugin-itgalaxy?type=peer)
 
 Itgalaxy’s ESLint rules and configs.
 
