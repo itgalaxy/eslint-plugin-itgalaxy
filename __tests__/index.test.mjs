@@ -71,7 +71,9 @@ test("should load the 'script' preset", async (t) => {
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
   t.is(
-    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    configForFile.parser.includes(
+      path.resolve(__dirname, "../node_modules/@babel/eslint-parser"),
+    ),
     true,
   );
   t.deepEqual(configForFile.parserOptions, {
@@ -128,7 +130,9 @@ test("should load the 'commonjs' preset", async (t) => {
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
   t.is(
-    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    configForFile.parser.includes(
+      path.resolve(__dirname, "../node_modules/@babel/eslint-parser"),
+    ),
     true,
   );
   t.deepEqual(configForFile.parserOptions, {
@@ -179,7 +183,9 @@ test("should load the 'module' preset", async (t) => {
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
   t.is(
-    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    configForFile.parser.includes(
+      path.resolve(__dirname, "../node_modules/@babel/eslint-parser"),
+    ),
     true,
   );
   t.deepEqual(configForFile.parserOptions, {
@@ -249,7 +255,9 @@ test("should load the 'dirty' preset", async (t) => {
   const configForFile = await cli.calculateConfigForFile("myfile.js");
 
   t.is(
-    configForFile.parser.includes("node_modules/@babel/eslint-parser"),
+    configForFile.parser.includes(
+      path.resolve(__dirname, "../node_modules/@babel/eslint-parser"),
+    ),
     true,
   );
   t.deepEqual(configForFile.parserOptions, {
